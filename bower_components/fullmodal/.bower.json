@@ -1,0 +1,15 @@
+{
+  "name": "fullmodal",
+  "homepage": "https://github.com/biosonic/FullModal",
+  "version": "0.9.0",
+  "_release": "0.9.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.0",
+    "commit": "a62e5b7f9bc9cb302069865e7425093c6e9f3519"
+  },
+  "_source": "git://github.com/biosonic/FullModal.git",
+  "_target": "~0.9.0",
+  "_originalSource": "fullmodal",
+  "_direct": true
+}

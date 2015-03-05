@@ -1,0 +1,195 @@
+$black-semi: #2b2b2b !default;
+$white: white !default;
+
+$paragraph: white !default;
+$gray-ultralight: white !default;
+$gray-extremelight: white !default;
+
+$gold-dark: #423f32 !default;
+$gold: #9e914c !default;
+$accent-color: $gold !default;
+$gold-dark: #423f32 !default;
+
+$font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
+
+.w__poll {
+  width:100%;
+  float:right;
+  .w__poll {
+    width:100%;
+    float:right;
+    background-color: $black-semi;
+    img {
+      width: 100%;
+    }
+  }
+  background-color: $black-semi;
+  img {
+    width: 100%;
+  }
+  margin-bottom: 20px;
+  h2.w__poll--block-title {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+    text-align: center;
+    position: relative;
+    margin: 1rem 0 2rem;
+    color: $white;
+    font-weight: bold;
+    &:after {
+      border-bottom: 3px solid #9e914c;
+      bottom: -12px;
+      content: "";
+      left: 50%;
+      margin-left: -34px;
+      position: absolute;
+      text-align: center;
+      width: 65px;
+    }
+  }
+  h3.w__poll--question {
+    color: $white;
+    font-size: 1.2rem;
+    line-height: 1.8rem;  
+    text-align: center;
+    margin: rem-calc(22) 5% 1rem;    
+  }
+
+
+
+  .w-poll__button {
+    clear:both;
+    text-align:center;
+    width:100%;
+  }
+  .w-poll__img img {
+    width:100%;
+    height: auto;
+  }
+  // FORM
+  .w__poll--form {
+    position: relative;
+    border-top:solid 1px $gold-dark;
+    .w__poll--radios label {
+      display: block;
+      position: relative;
+      text-align: right;
+      vertical-align: middle;
+      line-height: 3rem;
+      font-size: 1rem;
+      padding: 0 5%;
+      span {
+        color: $white;
+        position: relative;
+        bottom: -4px;
+        right: 2px;
+      }
+      &:last-child {
+        border-bottom: solid 1px $gold-dark;
+        padding-bottom: rem-calc(24);
+      }  
+    }
+    .w__poll--btn-s {
+      margin:30px auto 13px;
+      text-align: center;
+      display: block;
+      background-color:$gold;
+      padding:0 70px;
+      line-height: rem-calc(45);
+      color: $white;
+      border:none;
+      font-size: rem-calc(18);
+      font-weight: bold;
+      font-family: $font-family-kufi;
+    }
+    .form-err {
+      width: 100%;
+      text-align: center;
+      color: red;
+      position: absolute;
+    }
+  }
+
+  // STATISCTICSS
+  .w-poll__statistics {
+    font-size: rem-calc(16);
+    padding-top:20px;
+    padding-left: 10px;
+    padding-right:20px;
+    border-top: 1px solid $gold-dark;
+    transition: opacity .3s;
+    -webkit-transition: opacity .3s;
+    opacity: 0;
+    .poll-row {
+      height: rem-calc(48);
+      line-height: 26px;
+      padding: 0 5% 18px;
+      .bar-label {
+        line-height: 30px;
+        text-align: right;
+        span {
+          display: inline-block;
+          &.pctg {
+            float: left;
+            color: $accent-color;
+            font-size: 1.1rem;
+          }
+          &.text {
+            color: $paragraph;
+          }
+        }
+      }
+      .bar-wrap {
+        outline: 0px solid $gray-ultralight;
+        background-color: $gold-dark;
+        .bar {
+          height:rem-calc(3);
+          background-color:$accent-color;
+          padding:0px 0;
+          transition: width 1s;
+          -webkit-transition: width 1s;
+        }
+      }
+      .count {
+        text-align: left;
+        color: $paragraph;
+        line-height: 28px;
+        font-size: 14px;
+      }
+    }
+
+    &:not(.animation-trigger) .bar {
+      width: 0!important;
+    }
+    &.animation-trigger {
+      opacity: 1;
+    }
+  }
+
+  .w-poll__footer {
+    text-align: center;
+    line-height: rem-calc(45);
+    padding: rem-calc(36) 0 rem-calc(13);
+    span, a {
+      padding:4px 0;
+      border-bottom: 1px solid $gold;
+      line-height: 1.2em;
+      vertical-align: middle;
+      display: inline-block;
+      white-space: nowrap;
+      color: $gold;
+    }
+  }
+}
+
+
+//set media
+.desktop .w__poll {
+  padding: 0 2%;
+}
+
+.mobile {
+  .w__poll {
+    margin-bottom: 37px;
+  }
+}

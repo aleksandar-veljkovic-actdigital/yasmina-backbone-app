@@ -1,0 +1,69 @@
+/* iCheck plugin Minimal skin, black
+----------------------------------- */
+/* line 4, ../sass/icheck.scss */
+.icheckbox_minimal,
+.iradio_minimal {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 33px;
+  height: 30px;
+  /*background: url(minimal.png) no-repeat;*/
+  background: url(poll-ico-check.png) no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 18, ../sass/icheck.scss */
+.icheckbox_minimal {
+  background-position: 0 0;
+}
+
+/* line 21, ../sass/icheck.scss */
+.icheckbox_minimal.hover {
+  background-position: -20px 0;
+}
+
+/* line 24, ../sass/icheck.scss */
+.icheckbox_minimal.checked {
+  background-position: -40px 0;
+}
+
+/* line 27, ../sass/icheck.scss */
+.icheckbox_minimal.disabled {
+  background-position: -60px 0;
+  cursor: default;
+}
+
+/* line 31, ../sass/icheck.scss */
+.icheckbox_minimal.checked.disabled {
+  background-position: -80px 0;
+}
+
+/* line 35, ../sass/icheck.scss */
+.iradio_minimal {
+  background-position: 0 0;
+}
+
+/* line 38, ../sass/icheck.scss */
+.iradio_minimal.hover {
+  background-position: 0 0;
+}
+
+/* line 41, ../sass/icheck.scss */
+.iradio_minimal.checked {
+  background-position: -29px 0;
+}
+
+/* line 44, ../sass/icheck.scss */
+.iradio_minimal.disabled {
+  background-position: -160px 0;
+  cursor: default;
+}
+
+/* line 48, ../sass/icheck.scss */
+.iradio_minimal.checked.disabled {
+  background-position: -180px 0;
+}
