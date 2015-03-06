@@ -40,6 +40,5 @@
   },
   "_source": "git://github.com/Caligatio/jsSHA.git",
   "_target": "~1.5.0",
-  "_originalSource": "jsSHA",
-  "_direct": true
+  "_originalSource": "jsSHA"
 }

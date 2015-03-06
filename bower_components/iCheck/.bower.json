@@ -47,6 +47,5 @@
   },
   "_source": "git://github.com/fronteed/iCheck.git",
   "_target": "~1.0.2",
-  "_originalSource": "iCheck",
-  "_direct": true
+  "_originalSource": "iCheck"
 }
