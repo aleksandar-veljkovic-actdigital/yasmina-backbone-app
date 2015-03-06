@@ -18,7 +18,7 @@ text!templates/media-gallery-item.html.tpl
 owl.js
 owlRtl.js
 fullScreen.js
-misc/gallery-caption.js
+caption.js
 sharrre.js
 views/media-gallery.js
 router.js
