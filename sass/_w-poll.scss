@@ -10,24 +10,21 @@ $gold: #9e914c !default;
 $accent-color: $gold !default;
 $gold-dark: #423f32 !default;
 
+$fafa: #fafafa !default;
+
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 
 .w__poll {
   width:100%;
   float:right;
-  .w__poll {
-    width:100%;
-    float:right;
-    background-color: $black-semi;
-    img {
-      width: 100%;
-    }
-  }
   background-color: $black-semi;
+  margin-bottom: 20px;
   img {
     width: 100%;
   }
-  margin-bottom: 20px;
+  img {
+    width: 100%;
+  }
   h2.w__poll--block-title {
     font-size: 1.2rem;
     line-height: 1.9rem;
@@ -54,9 +51,6 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
     text-align: center;
     margin: rem-calc(22) 5% 1rem;    
   }
-
-
-
   .w-poll__button {
     clear:both;
     text-align:center;
@@ -109,7 +103,6 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
       position: absolute;
     }
   }
-
   // STATISCTICSS
   .w-poll__statistics {
     font-size: rem-calc(16);
@@ -157,7 +150,6 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
         font-size: 14px;
       }
     }
-
     &:not(.animation-trigger) .bar {
       width: 0!important;
     }
@@ -165,7 +157,6 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
       opacity: 1;
     }
   }
-
   .w-poll__footer {
     text-align: center;
     line-height: rem-calc(45);
@@ -183,9 +174,46 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 }
 
 
+div .w__poll--right {
+  background-color: $fafa;
+  padding: 5%;
+  h2.w__poll--block-title {
+    display:none;
+  }
+  h3.w__poll--question {
+    color: black;
+  }
+  .w-poll__statistics {
+    border-top: solid 1px transparent;
+    .poll-row .bar-wrap {
+      background-color: rgba($gold, 0.3);
+    }
+  }
+  .w__poll--form {
+    border-top: solid 1px transparent;
+    .w__poll--radios label {
+      &:last-child {
+        border-bottom: solid 1px transparent;
+      }
+      span {
+        color: black;
+      }
+    }
+    .w__poll--btn-s {
+      margin: 0;
+    }
+  }
+  .w-poll__footer {
+    visibility: hidden;
+    height: 50px;
+  }
+
+}
+
+
 //set media
 .desktop .w__poll {
-  padding: 0 2%;
+  padding: 5%;
 }
 
 .mobile {

@@ -469,28 +469,22 @@
   }
 }
 
-/* line 15, ../sass/_w-poll.scss */
+/* line 17, ../sass/_w-poll.scss */
 .w__poll {
   width: 100%;
   float: right;
   background-color: #2b2b2b;
   margin-bottom: 20px;
 }
-/* line 18, ../sass/_w-poll.scss */
-.w__poll .w__poll {
-  width: 100%;
-  float: right;
-  background-color: #2b2b2b;
-}
 /* line 22, ../sass/_w-poll.scss */
-.w__poll .w__poll img {
-  width: 100%;
-}
-/* line 27, ../sass/_w-poll.scss */
 .w__poll img {
   width: 100%;
 }
-/* line 31, ../sass/_w-poll.scss */
+/* line 25, ../sass/_w-poll.scss */
+.w__poll img {
+  width: 100%;
+}
+/* line 28, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title {
   font-size: 1.2rem;
   line-height: 1.9rem;
@@ -500,7 +494,7 @@
   color: white;
   font-weight: bold;
 }
-/* line 39, ../sass/_w-poll.scss */
+/* line 36, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title:after {
   border-bottom: 3px solid #9e914c;
   bottom: -12px;
@@ -511,7 +505,7 @@
   text-align: center;
   width: 65px;
 }
-/* line 50, ../sass/_w-poll.scss */
+/* line 47, ../sass/_w-poll.scss */
 .w__poll h3.w__poll--question {
   color: white;
   font-size: 1.2rem;
@@ -519,23 +513,23 @@
   text-align: center;
   margin: 1.375em 5% 1rem;
 }
-/* line 60, ../sass/_w-poll.scss */
+/* line 54, ../sass/_w-poll.scss */
 .w__poll .w-poll__button {
   clear: both;
   text-align: center;
   width: 100%;
 }
-/* line 65, ../sass/_w-poll.scss */
+/* line 59, ../sass/_w-poll.scss */
 .w__poll .w-poll__img img {
   width: 100%;
   height: auto;
 }
-/* line 70, ../sass/_w-poll.scss */
+/* line 64, ../sass/_w-poll.scss */
 .w__poll .w__poll--form {
   position: relative;
   border-top: solid 1px #423f32;
 }
-/* line 73, ../sass/_w-poll.scss */
+/* line 67, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label {
   display: block;
   position: relative;
@@ -545,19 +539,19 @@
   font-size: 1rem;
   padding: 0 5%;
 }
-/* line 81, ../sass/_w-poll.scss */
+/* line 75, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label span {
   color: white;
   position: relative;
   bottom: -4px;
   right: 2px;
 }
-/* line 87, ../sass/_w-poll.scss */
+/* line 81, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label:last-child {
   border-bottom: solid 1px #423f32;
   padding-bottom: 1.5em;
 }
-/* line 92, ../sass/_w-poll.scss */
+/* line 86, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--btn-s {
   margin: 30px auto 13px;
   text-align: center;
@@ -571,14 +565,14 @@
   font-weight: bold;
   font-family: "Noto Kufi Arabic", serif, "Noto Serif", serif;
 }
-/* line 105, ../sass/_w-poll.scss */
+/* line 99, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .form-err {
   width: 100%;
   text-align: center;
   color: red;
   position: absolute;
 }
-/* line 114, ../sass/_w-poll.scss */
+/* line 107, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics {
   font-size: 1em;
   padding-top: 20px;
@@ -589,37 +583,37 @@
   -webkit-transition: opacity .3s;
   opacity: 0;
 }
-/* line 123, ../sass/_w-poll.scss */
+/* line 116, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row {
   height: 3em;
   line-height: 26px;
   padding: 0 5% 18px;
 }
-/* line 127, ../sass/_w-poll.scss */
+/* line 120, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label {
   line-height: 30px;
   text-align: right;
 }
-/* line 130, ../sass/_w-poll.scss */
+/* line 123, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label span {
   display: inline-block;
 }
-/* line 132, ../sass/_w-poll.scss */
+/* line 125, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label span.pctg {
   float: left;
   color: #9e914c;
   font-size: 1.1rem;
 }
-/* line 137, ../sass/_w-poll.scss */
+/* line 130, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label span.text {
   color: white;
 }
-/* line 142, ../sass/_w-poll.scss */
+/* line 135, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap {
   outline: 0px solid white;
   background-color: #423f32;
 }
-/* line 145, ../sass/_w-poll.scss */
+/* line 138, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap .bar {
   height: 0.1875em;
   background-color: #9e914c;
@@ -627,28 +621,28 @@
   transition: width 1s;
   -webkit-transition: width 1s;
 }
-/* line 153, ../sass/_w-poll.scss */
+/* line 146, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .count {
   text-align: left;
   color: white;
   line-height: 28px;
   font-size: 14px;
 }
-/* line 161, ../sass/_w-poll.scss */
+/* line 153, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics:not(.animation-trigger) .bar {
   width: 0 !important;
 }
-/* line 164, ../sass/_w-poll.scss */
+/* line 156, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics.animation-trigger {
   opacity: 1;
 }
-/* line 169, ../sass/_w-poll.scss */
+/* line 160, ../sass/_w-poll.scss */
 .w__poll .w-poll__footer {
   text-align: center;
   line-height: 2.8125em;
   padding: 2.25em 0 0.8125em;
 }
-/* line 173, ../sass/_w-poll.scss */
+/* line 164, ../sass/_w-poll.scss */
 .w__poll .w-poll__footer span, .w__poll .w-poll__footer a {
   padding: 4px 0;
   border-bottom: 1px solid #9e914c;
@@ -659,12 +653,55 @@
   color: #9e914c;
 }
 
-/* line 187, ../sass/_w-poll.scss */
-.desktop .w__poll {
-  padding: 0 2%;
+/* line 177, ../sass/_w-poll.scss */
+div .w__poll--right {
+  background-color: #fafafa;
+  padding: 5%;
+}
+/* line 180, ../sass/_w-poll.scss */
+div .w__poll--right h2.w__poll--block-title {
+  display: none;
+}
+/* line 183, ../sass/_w-poll.scss */
+div .w__poll--right h3.w__poll--question {
+  color: black;
+}
+/* line 186, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics {
+  border-top: solid 1px transparent;
+}
+/* line 188, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics .poll-row .bar-wrap {
+  background-color: rgba(158, 145, 76, 0.3);
+}
+/* line 192, ../sass/_w-poll.scss */
+div .w__poll--right .w__poll--form {
+  border-top: solid 1px transparent;
+}
+/* line 195, ../sass/_w-poll.scss */
+div .w__poll--right .w__poll--form .w__poll--radios label:last-child {
+  border-bottom: solid 1px transparent;
+}
+/* line 198, ../sass/_w-poll.scss */
+div .w__poll--right .w__poll--form .w__poll--radios label span {
+  color: black;
+}
+/* line 202, ../sass/_w-poll.scss */
+div .w__poll--right .w__poll--form .w__poll--btn-s {
+  margin: 0;
+}
+/* line 206, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__footer {
+  visibility: hidden;
+  height: 50px;
 }
 
-/* line 192, ../sass/_w-poll.scss */
+/* line 215, ../sass/_w-poll.scss */
+.desktop .w__poll {
+  padding: 5%;
+}
+
+/* line 220, ../sass/_w-poll.scss */
 .mobile .w__poll {
   margin-bottom: 37px;
 }
@@ -756,7 +793,12 @@
   width: auto;
 }
 
-/* line 46, ../sass/_backbone-app.scss */
+/* line 44, ../sass/_backbone-app.scss */
+.article-gallery > .mg-item {
+  margin: 0;
+}
+
+/* line 49, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item,
 .article-gallery > .mg-item > h3,
 .article-gallery > .mg-item > div {
@@ -767,7 +809,7 @@
   position: absolute;
 }
 
-/* line 54, ../sass/_backbone-app.scss */
+/* line 57, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item:first-child,
 .article-gallery > .mg-item:first-child > img {
   opacity: 1;
@@ -777,19 +819,19 @@
   position: relative;
 }
 
-/* line 65, ../sass/_backbone-app.scss */
+/* line 68, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap {
   color: white;
   width: 100%;
 }
-/* line 69, ../sass/_backbone-app.scss */
+/* line 72, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen {
   width: 1140px;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
 }
-/* line 76, ../sass/_backbone-app.scss */
+/* line 79, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-close {
   display: inline-block;
   position: absolute;
@@ -799,16 +841,16 @@
   background-position: center center;
   background-image: url("../img/media-gallery-close-ico.png");
 }
-/* line 84, ../sass/_backbone-app.scss */
+/* line 87, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-close:hover {
   outline: 1px solid gray;
 }
-/* line 89, ../sass/_backbone-app.scss */
+/* line 92, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share {
   position: relative;
   overflow: hidden;
 }
-/* line 92, ../sass/_backbone-app.scss */
+/* line 95, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn {
   position: relative;
   overflow: hidden;
@@ -818,7 +860,7 @@
   box-sizing: border-box;
   text-align: center;
 }
-/* line 100, ../sass/_backbone-app.scss */
+/* line 103, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box {
   box-sizing: border-box;
   display: inline-block;
@@ -827,7 +869,7 @@
   color: white;
   font-weight: 600;
 }
-/* line 107, ../sass/_backbone-app.scss */
+/* line 110, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box .count {
   font-size: .9rem;
   line-height: 2.2rem;
@@ -840,7 +882,7 @@
   border-right: 1px solid white;
   overflow: hidden;
 }
-/* line 119, ../sass/_backbone-app.scss */
+/* line 122, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box .share {
   font-size: .9rem;
   text-align: right;
@@ -852,49 +894,49 @@
   display: inline-block;
   overflow: hidden;
 }
-/* line 129, ../sass/_backbone-app.scss */
+/* line 132, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box .share img {
   vertical-align: middle;
   width: 25px;
 }
-/* line 136, ../sass/_backbone-app.scss */
+/* line 139, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #facebook_share .box {
   background-color: #44589c;
 }
-/* line 138, ../sass/_backbone-app.scss */
+/* line 141, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #facebook_share .box img {
   position: relative;
   bottom: .1rem;
 }
-/* line 143, ../sass/_backbone-app.scss */
+/* line 146, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #twitter_share .box {
   background-color: #3eaaf1;
 }
-/* line 145, ../sass/_backbone-app.scss */
+/* line 148, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #twitter_share .box img {
   position: relative;
   bottom: .1rem;
 }
-/* line 150, ../sass/_backbone-app.scss */
+/* line 153, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #gplus_share .box {
   background-color: #d75037;
 }
-/* line 152, ../sass/_backbone-app.scss */
+/* line 155, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #gplus_share .box img {
   position: relative;
   bottom: .2rem;
   right: .1rem;
 }
-/* line 161, ../sass/_backbone-app.scss */
+/* line 164, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-titles {
   height: 5rem;
 }
-/* line 163, ../sass/_backbone-app.scss */
+/* line 166, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-titles .num {
   font-size: .875rem;
   line-height: 1.5rem;
 }
-/* line 167, ../sass/_backbone-app.scss */
+/* line 170, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-titles h3 {
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -903,41 +945,41 @@
   position: relative;
   overflow: hidden;
 }
-/* line 178, ../sass/_backbone-app.scss */
+/* line 181, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-captions {
   height: 7rem;
   overflow: hidden;
   position: relative;
 }
-/* line 182, ../sass/_backbone-app.scss */
+/* line 185, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-captions p {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-/* line 189, ../sass/_backbone-app.scss */
+/* line 192, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main {
   vertical-align: top;
 }
-/* line 191, ../sass/_backbone-app.scss */
+/* line 194, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w {
   text-align: center;
 }
-/* line 192, ../sass/_backbone-app.scss */
+/* line 195, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w > * {
   vertical-align: middle;
 }
-/* line 196, ../sass/_backbone-app.scss */
+/* line 199, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-item img {
   max-width: 100%;
 }
-/* line 200, ../sass/_backbone-app.scss */
+/* line 203, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons {
   width: 100%;
   left: 0;
   position: absolute;
   bottom: 50%;
 }
-/* line 206, ../sass/_backbone-app.scss */
+/* line 209, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev,
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   color: auto;
@@ -952,7 +994,7 @@
   filter: Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 222, ../sass/_backbone-app.scss */
+/* line 225, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev, #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   box-sizing: border-box;
   position: absolute;
@@ -963,33 +1005,33 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 232, ../sass/_backbone-app.scss */
+/* line 235, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons > div:hover {
   outline: 1px solid gray;
 }
-/* line 235, ../sass/_backbone-app.scss */
+/* line 238, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev {
   left: 0;
   background-image: url("../img/media-gallery-left.png");
 }
-/* line 239, ../sass/_backbone-app.scss */
+/* line 242, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   right: 0;
   background-image: url("../img/media-gallery-right.png");
 }
-/* line 254, ../sass/_backbone-app.scss */
+/* line 257, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-header {
   position: relative;
   height: 180px;
   text-align: center;
 }
-/* line 259, ../sass/_backbone-app.scss */
+/* line 262, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-main {
   display: inline-block !important;
   width: 48%;
   margin-right: 2%;
 }
-/* line 264, ../sass/_backbone-app.scss */
+/* line 267, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-asside {
   position: relative;
   display: inline-block;
@@ -997,60 +1039,60 @@
   margin: 0 7% 0 2%;
   vertical-align: top;
 }
-/* line 270, ../sass/_backbone-app.scss */
+/* line 273, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-asside > * {
   vertical-align: middle;
   box-sizing: border-box;
 }
-/* line 275, ../sass/_backbone-app.scss */
+/* line 278, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-close {
   left: 2px;
   bottom: 0px;
 }
-/* line 279, ../sass/_backbone-app.scss */
+/* line 282, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-banner-a {
   display: inline-block;
   width: 728px;
   height: 90px;
   margin-top: 45px;
 }
-/* line 285, ../sass/_backbone-app.scss */
+/* line 288, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-banner-b {
   text-align: left;
   margin-left: 8%;
 }
-/* line 291, ../sass/_backbone-app.scss */
+/* line 294, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile {
   box-sizing: border-box;
   padding: 0 4%;
 }
-/* line 294, ../sass/_backbone-app.scss */
+/* line 297, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
   position: relative;
   height: 100px;
   text-align: center;
 }
-/* line 299, ../sass/_backbone-app.scss */
+/* line 302, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-titles-w {
   margin-bottom: .75rem;
   position: relative;
 }
-/* line 303, ../sass/_backbone-app.scss */
+/* line 306, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
   text-align: center;
 }
-/* line 305, ../sass/_backbone-app.scss */
+/* line 308, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header .mg-banner-a-mob {
   margin-top: 18px;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 311, ../sass/_backbone-app.scss */
+/* line 314, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-close {
   left: -10px;
   top: -10px;
 }
-/* line 320, ../sass/_backbone-app.scss */
+/* line 323, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .clearfix {
   *zoom: 1;
 }

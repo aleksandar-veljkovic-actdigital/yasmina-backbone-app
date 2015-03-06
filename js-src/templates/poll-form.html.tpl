@@ -1,4 +1,4 @@
-<div class="w__poll">
+<div class="w__poll--inner">
   <h2 class="w__poll--block-title"><%= data.name %></h2>
   <!--img src="public/assets/images/erase-poll.jpg" alt="title"-->
   <img src="<%= img %>" alt="title">

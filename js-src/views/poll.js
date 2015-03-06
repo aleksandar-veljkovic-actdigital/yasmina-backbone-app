@@ -15,32 +15,19 @@ define([
         modelSubmit
         )
 {
-
-
   var PollView = Backbone.View.extend({
     // variables
     templateForm: _.template(templateForm),
     templateSubmit: _.template(templateSubmit),
     pollId: false,
     $elem: $(),
-    goToUrl: "/إستطلاعات-الرأي/all-polls",
+    goToUrl: false,
     modelForm: false,
     modelSubmit: false,
-    appThumborConfig: $.extend(
-            true,
-            window.appThumborConfig,
-            {
-              thumbor: {
-                hasResize: true,
-                hasTrim: false,
-                isSmart: true,
-                resizeWidth: '350',
-                resizeHeight: '210'
-              }
-            }
-    ),
+    appThumborConfig: false,
     // init
     initialize: function(attributes) {
+      this.appThumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor:{hasResize: true, hasTrim: false, isSmart: true}}, {thumbor: attributes.thumbor});
       this.pollId = attributes.pollId;
       this.$elem = attributes.$elem;
       if (this.$elem.data('go-to-url')) {

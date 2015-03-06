@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html class="no-js desktop" lang="ar"  dir="rtl">
+<html class="no-js" lang="ar"  dir="rtl">
 
   <head>
     <meta charset="utf-8" />
@@ -19,6 +19,12 @@
     <script src="local/two-devices.js"></script>
     <script src="http://ox-d.clickmena.com/w/1.0/jstag"></script>
     <script src="local/openx.js"></script>
+
+    <style>
+
+
+
+    </style>
   </head>
 
   <body>
@@ -63,6 +69,7 @@
       <h1>Yasmina Backbone App</h1>
       <div class="w__desk--right">
         <!-- GALLERY -->
+        <h2>Gallery</h2>
         <section class="article-gallery">      
           <figure class="mg-item">
             <h3>إذ جهة خلاف الثالث1، الأرضية, أم أواخر</h3>
@@ -86,23 +93,27 @@
           </figure>
           <a href="#_" class="bb-start mg-start"><img src="img/icon-zoom.jpg" alt="title" /></a>
         </section>
+        <!-- POLL -->
+        <h2>Poll - All</h2>
+        <div class="w__poll w__poll--right margin-bottom" data-poll-id="741369"></div>
+        <div class="w__poll w__poll--right margin-bottom" data-poll-id="741369"></div>
       </div>
       <div class="w__desk--left">
         <!-- POLL -->
-        <div class="w__poll harmony-poll harmony-poll" data-poll-id="741369" ></div>
+        <h2>Poll - Asside</h2>
+        <div class="w__poll w__poll--left" data-poll-id="741369" ></div>
       </div>
-
-
     </div>
+
 
     <script>
       window.backboneApp = {set: {}};
       window.backboneApp.set.sharrrePhpProxyh = 'bower_components/sharrre/sharrre.php';
       window.backboneApp.set.baseUrl = "/";
     </script>
-    
-    <!--<script data-main="js-src/main" src="bower_components/requirejs/require.js"></script> <!-- for development/debuging -->
-    <script data-main="js-build/main" src="bower_components/requirejs/require.js"></script>  <!-- for production -->
+
+    <script data-main="js-src/main" src="bower_components/requirejs/require.js"></script> <!-- for development/debuging -->
+    <!--<script data-main="js-build/main" src="bower_components/requirejs/require.js"></script>  <!-- for production -->
 
   </body>
 

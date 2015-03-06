@@ -18,11 +18,34 @@ define([
        * Wiews without link
        */
       backboneApp.poll = {};
-      $('.harmony-poll').each(function(i, o) {
+      $('.w__poll--left').each(function(i, o) {
         require(['views/poll'], function(poll) {
           var pollId = $(o).data('poll-id');
-          backboneApp.poll[pollId] = {};
-          backboneApp.poll[pollId].view = new poll({pollId: pollId, $elem: $(o)});
+          var poll = new poll({
+            pollId: pollId,
+            $elem: $(o),
+            thumbor: {
+              resizeWidth: '350',
+              resizeHeight: '210'
+            }
+          });
+          backboneApp.poll["asside-" + i] = {};
+          backboneApp.poll["asside-" + i].view = poll;
+        });
+      });
+      $('.w__poll--right').each(function(i, o) {
+        require(['views/poll'], function(poll) {
+          var pollId = $(o).data('poll-id');
+          var poll = new poll({
+            pollId: pollId,
+            $elem: $(o),
+            thumbor: {
+              resizeWidth: '468',
+              resizeHeight: '340'
+            }
+          });
+          backboneApp.poll["all-" + i] = {};
+          backboneApp.poll["all-" + i].view = poll;
         });
       });
     },

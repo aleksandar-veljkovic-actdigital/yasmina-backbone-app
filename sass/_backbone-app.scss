@@ -41,6 +41,9 @@ $rem-base: 16 !default;
 .article-gallery .mg-start img {
   width: auto;
 }
+.article-gallery > .mg-item{
+  margin: 0;
+}
 .article-gallery > .mg-item,
 .article-gallery > .mg-item > h3,
 .article-gallery > .mg-item > div {
