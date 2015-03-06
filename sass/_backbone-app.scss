@@ -23,7 +23,6 @@ $rem-base: 16 !default;
 }
 
 
-@import "compass/utilities/general/clearfix";
 @import "owl.carousel";
 @import "owl.transitions";
 @import "w-poll";
@@ -321,6 +320,5 @@ $rem-base: 16 !default;
 
 
   .clearfix {
-    @include pie-clearfix();
   }
 }

@@ -776,29 +776,29 @@ div .w__poll--right .w-poll__footer {
   background-position: -180px 0;
 }
 
-/* line 33, ../sass/_backbone-app.scss */
+/* line 32, ../sass/_backbone-app.scss */
 .article-gallery {
   position: relative;
 }
 
-/* line 36, ../sass/_backbone-app.scss */
+/* line 35, ../sass/_backbone-app.scss */
 .article-gallery .mg-start {
   position: absolute;
   bottom: 0;
   right: 0;
 }
 
-/* line 41, ../sass/_backbone-app.scss */
+/* line 40, ../sass/_backbone-app.scss */
 .article-gallery .mg-start img {
   width: auto;
 }
 
-/* line 44, ../sass/_backbone-app.scss */
+/* line 43, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item {
   margin: 0;
 }
 
-/* line 49, ../sass/_backbone-app.scss */
+/* line 48, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item,
 .article-gallery > .mg-item > h3,
 .article-gallery > .mg-item > div {
@@ -809,7 +809,7 @@ div .w__poll--right .w-poll__footer {
   position: absolute;
 }
 
-/* line 57, ../sass/_backbone-app.scss */
+/* line 56, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item:first-child,
 .article-gallery > .mg-item:first-child > img {
   opacity: 1;
@@ -819,19 +819,19 @@ div .w__poll--right .w-poll__footer {
   position: relative;
 }
 
-/* line 68, ../sass/_backbone-app.scss */
+/* line 67, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap {
   color: white;
   width: 100%;
 }
-/* line 72, ../sass/_backbone-app.scss */
+/* line 71, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen {
   width: 1140px;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
 }
-/* line 79, ../sass/_backbone-app.scss */
+/* line 78, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-close {
   display: inline-block;
   position: absolute;
@@ -841,16 +841,16 @@ div .w__poll--right .w-poll__footer {
   background-position: center center;
   background-image: url("../img/media-gallery-close-ico.png");
 }
-/* line 87, ../sass/_backbone-app.scss */
+/* line 86, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-close:hover {
   outline: 1px solid gray;
 }
-/* line 92, ../sass/_backbone-app.scss */
+/* line 91, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share {
   position: relative;
   overflow: hidden;
 }
-/* line 95, ../sass/_backbone-app.scss */
+/* line 94, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn {
   position: relative;
   overflow: hidden;
@@ -860,7 +860,7 @@ div .w__poll--right .w-poll__footer {
   box-sizing: border-box;
   text-align: center;
 }
-/* line 103, ../sass/_backbone-app.scss */
+/* line 102, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box {
   box-sizing: border-box;
   display: inline-block;
@@ -869,7 +869,7 @@ div .w__poll--right .w-poll__footer {
   color: white;
   font-weight: 600;
 }
-/* line 110, ../sass/_backbone-app.scss */
+/* line 109, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box .count {
   font-size: .9rem;
   line-height: 2.2rem;
@@ -882,7 +882,7 @@ div .w__poll--right .w-poll__footer {
   border-right: 1px solid white;
   overflow: hidden;
 }
-/* line 122, ../sass/_backbone-app.scss */
+/* line 121, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box .share {
   font-size: .9rem;
   text-align: right;
@@ -894,49 +894,49 @@ div .w__poll--right .w-poll__footer {
   display: inline-block;
   overflow: hidden;
 }
-/* line 132, ../sass/_backbone-app.scss */
+/* line 131, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share .share_btn .box .share img {
   vertical-align: middle;
   width: 25px;
 }
-/* line 139, ../sass/_backbone-app.scss */
+/* line 138, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #facebook_share .box {
   background-color: #44589c;
 }
-/* line 141, ../sass/_backbone-app.scss */
+/* line 140, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #facebook_share .box img {
   position: relative;
   bottom: .1rem;
 }
-/* line 146, ../sass/_backbone-app.scss */
+/* line 145, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #twitter_share .box {
   background-color: #3eaaf1;
 }
-/* line 148, ../sass/_backbone-app.scss */
+/* line 147, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #twitter_share .box img {
   position: relative;
   bottom: .1rem;
 }
-/* line 153, ../sass/_backbone-app.scss */
+/* line 152, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #gplus_share .box {
   background-color: #d75037;
 }
-/* line 155, ../sass/_backbone-app.scss */
+/* line 154, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-share #gplus_share .box img {
   position: relative;
   bottom: .2rem;
   right: .1rem;
 }
-/* line 164, ../sass/_backbone-app.scss */
+/* line 163, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-titles {
   height: 5rem;
 }
-/* line 166, ../sass/_backbone-app.scss */
+/* line 165, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-titles .num {
   font-size: .875rem;
   line-height: 1.5rem;
 }
-/* line 170, ../sass/_backbone-app.scss */
+/* line 169, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-titles h3 {
   font-size: 1.125rem;
   line-height: 1.5rem;
@@ -945,41 +945,41 @@ div .w__poll--right .w-poll__footer {
   position: relative;
   overflow: hidden;
 }
-/* line 181, ../sass/_backbone-app.scss */
+/* line 180, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-captions {
   height: 7rem;
   overflow: hidden;
   position: relative;
 }
-/* line 185, ../sass/_backbone-app.scss */
+/* line 184, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-captions p {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-/* line 192, ../sass/_backbone-app.scss */
+/* line 191, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main {
   vertical-align: top;
 }
-/* line 194, ../sass/_backbone-app.scss */
+/* line 193, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w {
   text-align: center;
 }
-/* line 195, ../sass/_backbone-app.scss */
+/* line 194, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w > * {
   vertical-align: middle;
 }
-/* line 199, ../sass/_backbone-app.scss */
+/* line 198, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-item img {
   max-width: 100%;
 }
-/* line 203, ../sass/_backbone-app.scss */
+/* line 202, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons {
   width: 100%;
   left: 0;
   position: absolute;
   bottom: 50%;
 }
-/* line 209, ../sass/_backbone-app.scss */
+/* line 208, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev,
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   color: auto;
@@ -994,7 +994,7 @@ div .w__poll--right .w-poll__footer {
   filter: Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 225, ../sass/_backbone-app.scss */
+/* line 224, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev, #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   box-sizing: border-box;
   position: absolute;
@@ -1005,33 +1005,33 @@ div .w__poll--right .w-poll__footer {
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 235, ../sass/_backbone-app.scss */
+/* line 234, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons > div:hover {
   outline: 1px solid gray;
 }
-/* line 238, ../sass/_backbone-app.scss */
+/* line 237, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev {
   left: 0;
   background-image: url("../img/media-gallery-left.png");
 }
-/* line 242, ../sass/_backbone-app.scss */
+/* line 241, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   right: 0;
   background-image: url("../img/media-gallery-right.png");
 }
-/* line 257, ../sass/_backbone-app.scss */
+/* line 256, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-header {
   position: relative;
   height: 180px;
   text-align: center;
 }
-/* line 262, ../sass/_backbone-app.scss */
+/* line 261, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-main {
   display: inline-block !important;
   width: 48%;
   margin-right: 2%;
 }
-/* line 267, ../sass/_backbone-app.scss */
+/* line 266, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-asside {
   position: relative;
   display: inline-block;
@@ -1039,66 +1039,56 @@ div .w__poll--right .w-poll__footer {
   margin: 0 7% 0 2%;
   vertical-align: top;
 }
-/* line 273, ../sass/_backbone-app.scss */
+/* line 272, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-asside > * {
   vertical-align: middle;
   box-sizing: border-box;
 }
-/* line 278, ../sass/_backbone-app.scss */
+/* line 277, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-close {
   left: 2px;
   bottom: 0px;
 }
-/* line 282, ../sass/_backbone-app.scss */
+/* line 281, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-banner-a {
   display: inline-block;
   width: 728px;
   height: 90px;
   margin-top: 45px;
 }
-/* line 288, ../sass/_backbone-app.scss */
+/* line 287, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-banner-b {
   text-align: left;
   margin-left: 8%;
 }
-/* line 294, ../sass/_backbone-app.scss */
+/* line 293, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile {
   box-sizing: border-box;
   padding: 0 4%;
 }
-/* line 297, ../sass/_backbone-app.scss */
+/* line 296, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
   position: relative;
   height: 100px;
   text-align: center;
 }
-/* line 302, ../sass/_backbone-app.scss */
+/* line 301, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-titles-w {
   margin-bottom: .75rem;
   position: relative;
 }
-/* line 306, ../sass/_backbone-app.scss */
+/* line 305, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
   text-align: center;
 }
-/* line 308, ../sass/_backbone-app.scss */
+/* line 307, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header .mg-banner-a-mob {
   margin-top: 18px;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 314, ../sass/_backbone-app.scss */
+/* line 313, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-close {
   left: -10px;
   top: -10px;
-}
-/* line 323, ../sass/_backbone-app.scss */
-#dwf-fullscreen-wrap .clearfix {
-  *zoom: 1;
-}
-/* line 38, ../../../../../var/lib/gems/1.9.1/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#dwf-fullscreen-wrap .clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
 }
