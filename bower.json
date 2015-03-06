@@ -33,6 +33,7 @@
     "fullmodal": "~0.9.0",
     "owlcarouselrtl": "~0.9.0",
     "jsSHA": "~1.5.0",
-    "iCheck": "~1.0.2"
+    "iCheck": "~1.0.2",
+    "gallery-captions": "*"
   }
 }
