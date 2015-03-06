@@ -23,6 +23,8 @@
     "tests"
   ],
   "dependencies": {
+  },
+  "devDependencies": {
     "backbone": "~1.1.2",
     "underscore": "~1.7.0",
     "requirejs-text": "~2.0.12",
@@ -34,6 +36,6 @@
     "owlcarouselrtl": "~0.9.0",
     "jsSHA": "~1.5.0",
     "iCheck": "~1.0.2",
-    "gallery-captions": "*"
+    "gallery-captions": "*"    
   }
 }
