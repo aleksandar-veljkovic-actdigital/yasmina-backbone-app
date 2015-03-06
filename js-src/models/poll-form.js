@@ -4,7 +4,10 @@ define([], function() {
   var jsonpModel = Backbone.Model.extend({
     pollId: false,
     appApiUrl: window.appApiUrl,
-    appApiKey: window.appApiKey,    
+    appApiKey: window.appApiKey,
+    defaults: {
+      img: "//:0"
+    },
     initialize: function(attributes, options){
       this.url = this.appApiUrl + "polls.js/" + attributes.pollId + "?expand=true&subelements=all&api_key=" + this.appApiKey;
     },    
