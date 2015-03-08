@@ -58,24 +58,14 @@ module.exports = function (grunt) {
         files: ['sass/*.scss'],
         tasks: ['compass']
       },
-      rjs: {
+      requirejs: {
         files: ['js-src/*', 'js-src/*/*'],
         tasks: ['requirejs:static', 'requirejs:yasmina']
       },
-    }
-  
+    }  
   });
-
-
-
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('static', ['watch:css, watch:rjs:static']);
-  grunt.registerTask('yasmina', ['watch:css, watch:rjs:yasmina']);
-
-
-
-
 };
