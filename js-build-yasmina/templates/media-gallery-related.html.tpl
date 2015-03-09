@@ -1,6 +1,6 @@
 <div class="mg-related"><!--
-  <% _.forEach(articles, function (a) { %>
-    --><div class="mg-related-item">
+  <% _.forEach(articles, function (a, i) { %>
+    --><div class="mg-related-item mg-related-item-<%=i%>">
           <div class="mg-related-img">
             <img  src="<%=a.img%>" alt="" />
           </div>

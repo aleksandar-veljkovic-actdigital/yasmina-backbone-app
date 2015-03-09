@@ -4,7 +4,7 @@
     <%= data.name %>
   </h2>
 
-  <img src="<%= img %>" alt="title">
+  <img src="<%= img %>" alt="">
   
   <h3 class="w__poll--question">
     <%= data.teaser %>
