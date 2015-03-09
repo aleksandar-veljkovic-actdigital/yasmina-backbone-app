@@ -15,6 +15,7 @@ text!templates/media-gallery-social-share.html.tpl
 text!templates/media-gallery-layout.html.tpl
 text!templates/media-gallery-layout-mob.html.tpl
 text!templates/media-gallery-item.html.tpl
+text!templates/media-gallery-related.html.tpl
 owl.js
 owlRtl.js
 fullScreen.js

@@ -9,6 +9,7 @@ define([
   'text!templates/media-gallery-layout.html.tpl',
   'text!templates/media-gallery-layout-mob.html.tpl',
   'text!templates/media-gallery-item.html.tpl',
+  'text!templates/media-gallery-related.html.tpl',
   //
   'jquery',
   'owl',
@@ -22,7 +23,8 @@ define([
         templateSocial,
         templateLayout,
         templateLayoutMob,
-        templateItem
+        templateItem,
+        templateRelated
         ) {
 
 
@@ -56,20 +58,39 @@ define([
       this.currentItem = attributes.currentItem || 1;
       this.id = attributes.id;
     },
+    parseRelated: function(){
+      var _this = this;
+      if ($('.mg-related .mg-related-item', _this.$elem).length > 0) {
+        var relateds = [];
+        $('.mg-related .mg-related-item', _this.$elem).each(function(i, o) {
+          var data = {
+            title: $("h3", o).text(),
+            img: $(".mg-related-img", o).attr('src'),
+            caption: $(".mg-related-capt", o).text()
+          };
+          relateds.push(data);
+        });
+        _this.collection.add(new Backbone.Model({
+          title: "Related Articles",
+          caption: "",
+          type: "related",
+          articles: relateds
+        }));
+      }      
+    },
     parse: function() {
       var _this = this;
       // GET FROM DOM
       $('.mg-item', _this.$elem).each(function(i, o) {
         var data = {
+          type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
           caption: $(".mg-capt", o).text()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
       });
-      dbg('media gallery collection collected:');
-      dbg(_this.collection);
-
+      this.parseRelated(); 
       this.bindObjects();
     },
     parseMob: function() {
@@ -77,6 +98,7 @@ define([
       // GET FROM DOM
       $('.mg-item', _this.$elem).each(function(i, o) {
         var data = {
+          type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
           caption: $(".mg-capt", o).text()
@@ -93,15 +115,14 @@ define([
           _this.collection.add(advModel);
         }
       });
-      dbg('media gallery collection collected:');
-      dbg(_this.collection);
+      this.parseRelated();
       this.bindObjects();
     },
     bindObjects: function() {
       var itemTpl = _.template(templateItem);
       var itemsRdr = "";
       var socialTpl = _.template(templateSocial);
-      var socialRdr = "";
+      var relatedTpl = _.template(templateRelated);
       var captRdr = "";
       var clength = this.collection.length;
       var titlRdr = "";
@@ -112,7 +133,12 @@ define([
           itemsRdr += "<div class='advert-wrap'><div class='advert'>&nbsp;</div></div>";
           return true;
         }
-        itemsRdr += itemTpl(item.attributes);
+        if (item.get('type') === 'item') {
+          itemsRdr += itemTpl(item.attributes);
+        }
+        if (item.get('type') === 'related') {
+          itemsRdr += relatedTpl(item.attributes);
+        }        
       });
       // social
       this.$social = $(socialTpl());
