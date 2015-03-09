@@ -17,7 +17,7 @@ define([
     window.backboneApp.set.device = 'desktop';
   }
   window.backboneApp.set.sharrrePhpProxyh = window.backboneApp.set.sharrrePhpProxyh || 'public/js/sharrre.php';
-  window.backboneApp.set.baseUrl = window.backboneApp.set.baseUrl || "/0static/yasmina-scales/public/js/backbone/";
+  window.backboneApp.set.imgBaseUrl = window.backboneApp.set.imgBaseUrl || "/0static/yasmina-scales/public/js/backbone/";
   window.backboneApp.set.gallery = {};
   window.backboneApp.set.gallery.adMobileInsertOnCount = window.backboneApp.set.gallery.adMobileInsertOnCount || 2;
   window.backboneApp.set.gallery.adMobileActionCount = window.backboneApp.set.gallery.adMobileActionCount || 3;

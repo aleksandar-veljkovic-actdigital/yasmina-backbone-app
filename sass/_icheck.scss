@@ -1,4 +1,4 @@
-$imageBaseUrl: "../img/" !default;
+$backboneImgBaseUrl: "../img/" !default;
 
 /* iCheck plugin Minimal skin, black
 ----------------------------------- */
@@ -12,7 +12,7 @@ $imageBaseUrl: "../img/" !default;
     width: 33px;
     height: 30px;
     /*background: url(minimal.png) no-repeat;*/
-    background: url($imageBaseUrl + 'poll-ico-check.png') no-repeat;
+    background: url($backboneImgBaseUrl + 'poll-ico-check.png') no-repeat;
     border: none;
     cursor: pointer;
 }

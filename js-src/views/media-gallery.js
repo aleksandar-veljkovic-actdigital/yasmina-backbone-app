@@ -29,7 +29,7 @@ define([
 
   var gPlusSharePhp = backboneApp.set.sharrrePhpProxyh;
   var MediaGallryView = Backbone.View.extend({
-    baseUrl: backboneApp.set.baseUrl,
+    imgBaseUrl: backboneApp.set.imgBaseUrl,
     $fullScreen: $(),
     $layout: $(),
     $slider: $(),
@@ -196,12 +196,12 @@ define([
     sharrre: function($target) {
       var url = window.location.href;
       url = url.replace(/[^\/]*$/, '1'); // always to point first image in gallery
-      var baseUrl = this.baseUrl;
+      var imgBaseUrl = this.imgBaseUrl;
       $('#facebook_share', $target).sharrre({
         share: {
           facebook: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + baseUrl + 'img/fbico.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'fbico.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         click: function(api, options) {
@@ -213,7 +213,7 @@ define([
         share: {
           twitter: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + baseUrl + 'img/twitt.png" alt="" />غرّدي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'twitt.png" alt="" />غرّدي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         click: function(api, options) {
@@ -225,7 +225,7 @@ define([
         share: {
           googlePlus: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + baseUrl + 'img/gplus.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'gplus.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         urlCurl: gPlusSharePhp,

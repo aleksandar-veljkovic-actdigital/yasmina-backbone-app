@@ -1,10 +1,27 @@
 "use strict";
 
+window.backboneApp = {set:{}};
+window.backboneApp.set.imgBaseUrl = "/assets/images/";
+window.backboneApp.set.sharrrePhpProxyh = "/js/sharrre.php";
+
 (function() {
 
+  // Alredy Included scripts
   define("jquery", [], function() {
     return jQuery;
   });
+  define("owl", [], function() {
+    return jQuery.fn.owlCarousel;
+  });  
+  define("owlRtl", [], function() {
+    return jQuery.fn.owlCarouselRtl;
+  }); 
+  define("icheck", [], function() {
+    return jQuery.fn.iCheck;
+  }); 
+  define("sharrre", [], function() {
+    return jQuery.fn.sharrre;
+  });  
 
   require.config({
     //urlArgs: "bust=" + (new Date()).getTime(),
@@ -14,10 +31,10 @@
       text: '../bower_components/requirejs-text/text',
       fullScreen: '../bower_components/fullmodal/full-modal',
       caption: '../bower_components/gallery-captions/gallery-caption',
-      sharrre: '../bower_components/sharrre/jquery.sharrre',
-      icheck: '../bower_components/iCheck/icheck',
-      owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
-      owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
+      //sharrre: '../bower_components/sharrre/jquery.sharrre',
+      //icheck: '../bower_components/iCheck/icheck',
+      //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
+      //owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
     }
   });
 

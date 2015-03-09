@@ -1,4 +1,4 @@
-$imageBaseUrl: "../img/" !default;
+$backboneImgBaseUrl: "../img/" !default;
 
 
 $rem-base: 16 !default;
@@ -82,7 +82,7 @@ $rem-base: 16 !default;
       height: 50px;
       background-repeat: no-repeat;
       background-position: center center;
-      background-image: url($imageBaseUrl + 'media-gallery-close-ico.png');
+      background-image: url($backboneImgBaseUrl + 'media-gallery-close-ico.png');
       &:hover {
         outline: 1px solid gray;
       }  
@@ -236,11 +236,11 @@ $rem-base: 16 !default;
             }
             .owl-prev{
               left: 0;
-              background-image: url($imageBaseUrl + 'media-gallery-left.png');
+              background-image: url($backboneImgBaseUrl + 'media-gallery-left.png');
             }
             .owl-next{
               right: 0; 
-              background-image: url($imageBaseUrl + 'media-gallery-right.png');
+              background-image: url($backboneImgBaseUrl + 'media-gallery-right.png');
             }
           }
         }

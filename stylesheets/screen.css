@@ -51,7 +51,7 @@
   float: left;
 }
 
-/* line 44, ../sass/_owl.carousel.scss */
+/* line 45, ../sass/_owl.carousel.scss */
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div {
   cursor: pointer;
@@ -64,7 +64,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* mouse grab icon */
@@ -74,7 +74,7 @@
 }
 
 /* fix */
-/* line 63, ../sass/_owl.carousel.scss */
+/* line 64, ../sass/_owl.carousel.scss */
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
   -webkit-backface-visibility: hidden;
@@ -164,221 +164,311 @@
 /* Keyframes */
 /*empty*/
 @-webkit-keyframes empty {
+  /* line 64, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
+
 @-moz-keyframes empty {
+  /* line 67, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
+
 @keyframes empty {
+  /* line 70, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes fadeIn {
+  /* line 73, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
+
+  /* line 74, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
+
 @-moz-keyframes fadeIn {
+  /* line 77, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
+
+  /* line 78, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
+
 @keyframes fadeIn {
+  /* line 81, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
+
+  /* line 82, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
+
 @-webkit-keyframes fadeOut {
+  /* line 85, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
+
+  /* line 86, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
+
 @-moz-keyframes fadeOut {
+  /* line 89, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
+
+  /* line 90, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
+
 @keyframes fadeOut {
+  /* line 93, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
+
+  /* line 94, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
+
 @-webkit-keyframes backSlideOut {
+  /* line 97, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     -webkit-transform: translateZ(-500px);
   }
+
+  /* line 98, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(-200%);
   }
+
+  /* line 99, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(-200%);
   }
 }
+
 @-moz-keyframes backSlideOut {
+  /* line 102, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     -moz-transform: translateZ(-500px);
   }
+
+  /* line 103, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(-200%);
   }
+
+  /* line 104, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(-200%);
   }
 }
+
 @keyframes backSlideOut {
+  /* line 107, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     transform: translateZ(-500px);
   }
+
+  /* line 108, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     transform: translateZ(-500px) translateX(-200%);
   }
+
+  /* line 109, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     transform: translateZ(-500px) translateX(-200%);
   }
 }
+
 @-webkit-keyframes backSlideIn {
+  /* line 112, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(200%);
   }
+
+  /* line 113, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -webkit-transform: translateZ(-500px);
   }
+
+  /* line 114, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     -webkit-transform: translateZ(0) translateX(0);
   }
 }
+
 @-moz-keyframes backSlideIn {
+  /* line 117, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(200%);
   }
+
+  /* line 118, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -moz-transform: translateZ(-500px);
   }
+
+  /* line 119, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     -moz-transform: translateZ(0) translateX(0);
   }
 }
+
 @keyframes backSlideIn {
+  /* line 122, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     transform: translateZ(-500px) translateX(200%);
   }
+
+  /* line 123, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     transform: translateZ(-500px);
   }
+
+  /* line 124, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     transform: translateZ(0) translateX(0);
   }
 }
+
 @-webkit-keyframes scaleToFade {
+  /* line 127, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.8);
   }
 }
+
 @-moz-keyframes scaleToFade {
+  /* line 130, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -moz-transform: scale(0.8);
   }
 }
+
 @keyframes scaleToFade {
+  /* line 133, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     transform: scale(0.8);
   }
 }
+
 @-webkit-keyframes goDown {
+  /* line 136, ../sass/_owl.transitions.scss */
   from {
     -webkit-transform: translateY(-100%);
   }
 }
+
 @-moz-keyframes goDown {
+  /* line 139, ../sass/_owl.transitions.scss */
   from {
     -moz-transform: translateY(-100%);
   }
 }
+
 @keyframes goDown {
+  /* line 142, ../sass/_owl.transitions.scss */
   from {
     transform: translateY(-100%);
   }
 }
+
 @-webkit-keyframes scaleUpFrom {
+  /* line 146, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     -webkit-transform: scale(1.5);
   }
 }
+
 @-moz-keyframes scaleUpFrom {
+  /* line 149, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     -moz-transform: scale(1.5);
   }
 }
+
 @keyframes scaleUpFrom {
+  /* line 152, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     transform: scale(1.5);
   }
 }
+
 @-webkit-keyframes scaleUpTo {
+  /* line 156, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(1.5);
   }
 }
+
 @-moz-keyframes scaleUpTo {
+  /* line 159, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -moz-transform: scale(1.5);
   }
 }
+
 @keyframes scaleUpTo {
+  /* line 162, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     transform: scale(1.5);
   }
 }
+
 /* line 17, ../sass/_w-poll.scss */
 .w__poll {
   width: 100%;
@@ -618,7 +708,7 @@ div .w__poll--right .w-poll__footer {
 
 /* iCheck plugin Minimal skin, black
 ----------------------------------- */
-/* line 5, ../sass/_icheck.scss */
+/* line 6, ../sass/_icheck.scss */
 .icheckbox_minimal,
 .iradio_minimal {
   display: inline-block;
@@ -708,7 +798,7 @@ div .w__poll--right .w-poll__footer {
   margin: 0;
 }
 
-/* line 46, ../sass/_backbone-app.scss */
+/* line 48, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item,
 .article-gallery > .mg-item > h3,
 .article-gallery > .mg-item > div {
@@ -719,7 +809,7 @@ div .w__poll--right .w-poll__footer {
   position: absolute;
 }
 
-/* line 55, ../sass/_backbone-app.scss */
+/* line 56, ../sass/_backbone-app.scss */
 .article-gallery > .mg-item:first-child,
 .article-gallery > .mg-item:first-child > img {
   opacity: 1;
@@ -889,7 +979,7 @@ div .w__poll--right .w-poll__footer {
   position: absolute;
   bottom: 50%;
 }
-/* line 207, ../sass/_backbone-app.scss */
+/* line 208, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev,
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   color: auto;
@@ -904,7 +994,7 @@ div .w__poll--right .w-poll__footer {
   filter: Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 223, ../sass/_backbone-app.scss */
+/* line 224, ../sass/_backbone-app.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev, #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   box-sizing: border-box;
   position: absolute;
