@@ -323,6 +323,19 @@
       top: -10px;
     }
 
+    .mg-related {
+      .mg-related-item { 
+        display: none;
+      }
+      .mg-related-item-1,
+      .mg-related-item-2,
+      .mg-related-item-3,
+      .mg-related-item-4 { 
+        display: inline-block;
+      }
+
+    }
+
 
   }  
 

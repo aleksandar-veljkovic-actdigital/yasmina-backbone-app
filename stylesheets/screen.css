@@ -1121,3 +1121,14 @@ div .w__poll--right .w-poll__footer {
   left: -10px;
   top: -10px;
 }
+/* line 327, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item {
+  display: none;
+}
+/* line 333, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-1,
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-2,
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-3,
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-4 {
+  display: inline-block;
+}
