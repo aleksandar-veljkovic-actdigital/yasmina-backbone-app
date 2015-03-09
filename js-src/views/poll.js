@@ -97,7 +97,11 @@ define([
       $(this.modelForm.attributes.elements).each(function(i, questionElement) {
         if (questionElement.type === "poll_answer") {
           questionElement.answerCount = statisticElementsIdKey[questionElement.id];
-          questionElement.procents = Math.ceil((questionElement.answerCount / answerSumm) * 100);
+          if(questionElement.answerCount){
+            questionElement.procents = Math.ceil((questionElement.answerCount / answerSumm) * 100);
+          } else {
+            questionElement.procents = 0;
+          }          
         }
       });
       this.$elem.html(this.templateSubmit(this.modelForm.attributes));
