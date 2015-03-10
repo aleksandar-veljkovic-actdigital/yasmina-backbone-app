@@ -25,8 +25,8 @@ define([
             pollId: pollId,
             $elem: $(o),
             thumbor: {
-              resizeWidth: '350',
-              resizeHeight: '210'
+              resizeWidth: '342',
+              resizeHeight: '230'
             }
           });
           backboneApp.poll["asside-" + i] = {};

@@ -27,7 +27,7 @@ define([
     appThumborConfig: false,
     // init
     initialize: function(attributes) {
-      this.appThumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor:{hasResize: true, hasTrim: false, isSmart: true}}, {thumbor: attributes.thumbor});
+      this.appThumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {hasResize: true, hasTrim: false, isSmart: true}}, {thumbor: attributes.thumbor});
       this.pollId = attributes.pollId;
       this.$elem = attributes.$elem;
       if (this.$elem.data('go-to-url')) {
@@ -65,7 +65,7 @@ define([
       });
       this.$elem.find("input[type='submit']").click(function(e) {
         e.preventDefault();
-        var answerId = $(this).parent('form').find("input:radio:checked").attr('value');
+        var answerId = $(this).closest('form').find("input:radio:checked").attr('value');
         if (answerId) {
           _this.pollSubmit(answerId);
         } else {
@@ -83,6 +83,13 @@ define([
       this.modelSubmit.save({}, {
         success: function() {
           _this.pollSubmitRender();
+        },
+        error: function() {
+          _this.modelSubmit.fetch2({
+            success: function() {
+              _this.pollSubmitRender();
+            }
+          });
         }
       });
     },
@@ -97,11 +104,11 @@ define([
       $(this.modelForm.attributes.elements).each(function(i, questionElement) {
         if (questionElement.type === "poll_answer") {
           questionElement.answerCount = statisticElementsIdKey[questionElement.id];
-          if(questionElement.answerCount){
+          if (questionElement.answerCount) {
             questionElement.procents = Math.ceil((questionElement.answerCount / answerSumm) * 100);
           } else {
             questionElement.procents = 0;
-          }          
+          }
         }
       });
       this.$elem.html(this.templateSubmit(this.modelForm.attributes));

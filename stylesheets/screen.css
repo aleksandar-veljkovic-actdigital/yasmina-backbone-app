@@ -476,15 +476,11 @@
   background-color: #2b2b2b;
   margin-bottom: 20px;
 }
-/* line 23, ../sass/_w-poll.scss */
+/* line 24, ../sass/_w-poll.scss */
 .w__poll img {
   width: 100%;
 }
-/* line 26, ../sass/_w-poll.scss */
-.w__poll img {
-  width: 100%;
-}
-/* line 29, ../sass/_w-poll.scss */
+/* line 27, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title {
   font-size: 1.2rem;
   line-height: 1.9rem;
@@ -494,7 +490,7 @@
   color: white;
   font-weight: bold;
 }
-/* line 37, ../sass/_w-poll.scss */
+/* line 35, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title:after {
   border-bottom: 3px solid #9e914c;
   bottom: -12px;
@@ -505,7 +501,7 @@
   text-align: center;
   width: 65px;
 }
-/* line 48, ../sass/_w-poll.scss */
+/* line 46, ../sass/_w-poll.scss */
 .w__poll h3.w__poll--question {
   color: white;
   font-size: 1.2rem;
@@ -513,57 +509,26 @@
   text-align: center;
   margin: 1.375em 5% 1rem;
 }
-/* line 55, ../sass/_w-poll.scss */
-.w__poll .w-poll__button {
-  clear: both;
-  text-align: center;
-  width: 100%;
+/* line 53, ../sass/_w-poll.scss */
+.w__poll a.w-poll__link-all {
+  line-height: 2.8125em;
+  display: inline-block;
 }
-/* line 60, ../sass/_w-poll.scss */
-.w__poll .w-poll__img img {
-  width: 100%;
-  height: auto;
-}
-/* line 65, ../sass/_w-poll.scss */
-.w__poll .w__poll--form {
-  position: relative;
-  border-top: solid 1px #423f32;
-}
-/* line 68, ../sass/_w-poll.scss */
-.w__poll .w__poll--form .w__poll--radios label {
-  display: block;
-  position: relative;
-  text-align: right;
-  vertical-align: middle;
-  font-size: 1rem;
-  padding: 0 5%;
-  line-height: 3rem;
-}
-/* line 76, ../sass/_w-poll.scss */
-.w__poll .w__poll--form .w__poll--radios label .iradio_minimal {
-  position: absolute;
-  top: 0.7rem;
-}
-/* line 80, ../sass/_w-poll.scss */
-.w__poll .w__poll--form .w__poll--radios label span {
+/* line 56, ../sass/_w-poll.scss */
+.w__poll a.w-poll__link-all span {
   line-height: 1.2rem;
-  font-size: 1rem;
-  margin-right: 38px;
+  padding: 4px 0;
+  border-bottom: 1px solid #9e914c;
   vertical-align: middle;
   display: inline-block;
-  color: white;
-  position: relative;
+  white-space: nowrap;
+  color: #9e914c;
 }
-/* line 89, ../sass/_w-poll.scss */
-.w__poll .w__poll--form .w__poll--radios label:last-child {
-  border-bottom: solid 1px #423f32;
-  padding-bottom: 1.5em;
-}
-/* line 94, ../sass/_w-poll.scss */
-.w__poll .w__poll--form .w__poll--btn-s {
-  margin: 30px auto 13px;
+/* line 66, ../sass/_w-poll.scss */
+.w__poll .w__poll--btn-s {
+  margin: 0 auto;
   text-align: center;
-  display: block;
+  display: inline-block;
   background-color: #9e914c;
   padding: 0 70px;
   line-height: 2.8125em;
@@ -573,55 +538,98 @@
   font-weight: bold;
   font-family: "Noto Kufi Arabic", serif, "Noto Serif", serif;
 }
-/* line 107, ../sass/_w-poll.scss */
+/* line 80, ../sass/_w-poll.scss */
+.w__poll .w__poll--form {
+  position: relative;
+}
+/* line 82, ../sass/_w-poll.scss */
+.w__poll .w__poll--form .w__poll--radios {
+  border-top: solid 1px #423f32;
+  border-bottom: solid 1px #423f32;
+  padding-bottom: 1rem;
+}
+/* line 86, ../sass/_w-poll.scss */
+.w__poll .w__poll--form .w__poll--radios label {
+  display: block;
+  position: relative;
+  text-align: right;
+  vertical-align: middle;
+  padding: 0 5%;
+  min-height: 3rem;
+}
+/* line 93, ../sass/_w-poll.scss */
+.w__poll .w__poll--form .w__poll--radios label .iradio_minimal {
+  position: absolute;
+  top: 0.7rem;
+}
+/* line 97, ../sass/_w-poll.scss */
+.w__poll .w__poll--form .w__poll--radios label span {
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+  line-height: 1.25rem;
+  font-size: 1.1rem;
+  margin-right: 38px;
+  vertical-align: middle;
+  display: inline-block;
+  color: white;
+  position: relative;
+}
+/* line 110, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .form-err {
   width: 100%;
   text-align: center;
   color: red;
   position: absolute;
 }
-/* line 115, ../sass/_w-poll.scss */
+/* line 118, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics {
-  font-size: 1em;
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 20px;
   border-top: 1px solid #423f32;
+  border-bottom: 1px solid #423f32;
+  padding-bottom: 1rem;
   transition: opacity .3s;
   -webkit-transition: opacity .3s;
   opacity: 0;
 }
-/* line 124, ../sass/_w-poll.scss */
+/* line 125, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row {
-  height: 3em;
-  line-height: 26px;
-  padding: 0 5% 18px;
+  min-height: 3rem;
+  margin: 0 5%;
+  position: relative;
 }
-/* line 128, ../sass/_w-poll.scss */
+/* line 129, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label {
-  line-height: 30px;
+  display: block;
   text-align: right;
+  width: 100%;
 }
-/* line 131, ../sass/_w-poll.scss */
-.w__poll .w-poll__statistics .poll-row .bar-label span {
-  display: inline-block;
-}
-/* line 133, ../sass/_w-poll.scss */
-.w__poll .w-poll__statistics .poll-row .bar-label span.pctg {
-  float: left;
+/* line 134, ../sass/_w-poll.scss */
+.w__poll .w-poll__statistics .poll-row .bar-label .pctg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   color: #9e914c;
   font-size: 1.1rem;
 }
-/* line 138, ../sass/_w-poll.scss */
-.w__poll .w-poll__statistics .poll-row .bar-label span.text {
+/* line 141, ../sass/_w-poll.scss */
+.w__poll .w-poll__statistics .poll-row .bar-label .text {
+  line-height: 1.25rem;
+  font-size: 1.1rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+  display: block;
+  margin-left: 38px;
   color: white;
 }
-/* line 143, ../sass/_w-poll.scss */
+/* line 151, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap {
   outline: 0px solid white;
   background-color: #423f32;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
 }
-/* line 146, ../sass/_w-poll.scss */
+/* line 158, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap .bar {
   height: 0.1875em;
   background-color: #9e914c;
@@ -629,105 +637,108 @@
   transition: width 1s;
   -webkit-transition: width 1s;
 }
-/* line 154, ../sass/_w-poll.scss */
+/* line 166, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .count {
   text-align: left;
   color: white;
   line-height: 28px;
   font-size: 14px;
 }
-/* line 161, ../sass/_w-poll.scss */
+/* line 173, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics:not(.animation-trigger) .bar {
   width: 0 !important;
 }
-/* line 164, ../sass/_w-poll.scss */
+/* line 176, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics.animation-trigger {
   opacity: 1;
 }
-/* line 168, ../sass/_w-poll.scss */
+/* line 181, ../sass/_w-poll.scss */
 .w__poll .w-poll__footer {
-  text-align: center;
-  line-height: 2.8125em;
-  padding: 2.25em 0 0.8125em;
-}
-/* line 172, ../sass/_w-poll.scss */
-.w__poll .w-poll__footer span, .w__poll .w-poll__footer a {
-  padding: 4px 0;
-  border-bottom: 1px solid #9e914c;
-  line-height: 1.2em;
-  vertical-align: middle;
-  display: inline-block;
-  white-space: nowrap;
-  color: #9e914c;
+  height: 6rem;
+  padding: 2rem 0 0;
 }
 
-/* line 185, ../sass/_w-poll.scss */
+/* line 191, ../sass/_w-poll.scss */
+div .w__poll--left h2.w__poll--block-title {
+  margin-top: 0;
+}
+/* line 194, ../sass/_w-poll.scss */
+div .w__poll--left .w-poll__footer {
+  text-align: center;
+}
+
+/* line 201, ../sass/_w-poll.scss */
 div .w__poll--right {
   background-color: #fafafa;
   padding: 5%;
 }
-/* line 188, ../sass/_w-poll.scss */
+/* line 204, ../sass/_w-poll.scss */
 div .w__poll--right h2.w__poll--block-title {
   display: none;
   margin-left: 0;
   margin-right: 0;
 }
-/* line 193, ../sass/_w-poll.scss */
+/* line 209, ../sass/_w-poll.scss */
 div .w__poll--right h3.w__poll--question {
   color: black;
   margin-left: 0;
   margin-right: 0;
+  text-align: right;
 }
-/* line 198, ../sass/_w-poll.scss */
-div .w__poll--right .w-poll__statistics {
+/* line 216, ../sass/_w-poll.scss */
+div .w__poll--right .w__poll--form .w__poll--radios {
   border-top: solid 1px transparent;
+  border-bottom: solid 1px transparent;
+  padding-bottom: 0;
 }
-/* line 200, ../sass/_w-poll.scss */
-div .w__poll--right .w-poll__statistics .poll-row {
-  padding-left: 0;
-  padding-right: 0;
-}
-/* line 203, ../sass/_w-poll.scss */
-div .w__poll--right .w-poll__statistics .poll-row .bar-label .text {
-  color: black;
-}
-/* line 206, ../sass/_w-poll.scss */
-div .w__poll--right .w-poll__statistics .poll-row .bar-wrap {
-  background-color: rgba(158, 145, 76, 0.3);
-}
-/* line 211, ../sass/_w-poll.scss */
-div .w__poll--right .w__poll--form {
-  border-top: solid 1px transparent;
-}
-/* line 214, ../sass/_w-poll.scss */
+/* line 220, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form .w__poll--radios label {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 221, ../sass/_w-poll.scss */
-div .w__poll--right .w__poll--form .w__poll--radios label:last-child {
-  border-bottom: solid 1px transparent;
-}
-/* line 224, ../sass/_w-poll.scss */
+/* line 223, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form .w__poll--radios label span {
   color: black;
 }
-/* line 229, ../sass/_w-poll.scss */
+/* line 228, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form .w__poll--btn-s {
   margin: 0;
 }
-/* line 233, ../sass/_w-poll.scss */
+/* line 232, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics {
+  border-top: solid 1px transparent;
+  border-bottom: solid 1px transparent;
+  padding-bottom: 0;
+}
+/* line 236, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics .poll-row {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 239, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics .poll-row .bar-label .text {
+  color: black;
+}
+/* line 242, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics .poll-row .bar-wrap {
+  background-color: rgba(158, 145, 76, 0.3);
+}
+/* line 248, ../sass/_w-poll.scss */
 div .w__poll--right .w-poll__footer {
-  visibility: hidden;
-  height: 50px;
+  height: 5.15rem;
+  padding: 2rem 0 0;
+}
+/* line 251, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__footer .w-poll__link-all {
+  display: none;
 }
 
-/* line 242, ../sass/_w-poll.scss */
+/* line 258, ../sass/_w-poll.scss */
 .desktop .w__poll {
   padding: 5%;
 }
 
-/* line 247, ../sass/_w-poll.scss */
+/* line 262, ../sass/_w-poll.scss */
 .mobile .w__poll {
   margin-bottom: 37px;
 }

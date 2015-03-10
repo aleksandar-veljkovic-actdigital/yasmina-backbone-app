@@ -14,15 +14,13 @@ $fafa: #fafafa !default;
 
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 
-//  G E N E R I C - A L L   D E V I C E S  ////////////////////////////////////////////////////////////////////////////
+//  G E N E R I C - A L L   D E V I C E S  /////////////////////////////////////
 .w__poll {
   width:100%;
+  //width: 327px;
   float:right;
   background-color: $black-semi;
   margin-bottom: 20px;
-  img {
-    width: 100%;
-  }
   img {
     width: 100%;
   }
@@ -52,57 +50,62 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
     text-align: center;
     margin: rem-calc(22) 5% 1rem;    
   }
-  .w-poll__button {
-    clear:both;
-    text-align:center;
-    width:100%;
-  }
-  .w-poll__img img {
-    width:100%;
-    height: auto;
-  }
-  // FORM
-  .w__poll--form {
-    position: relative;
-    border-top:solid 1px $gold-dark;
-    .w__poll--radios label { 
-      display: block;
-      position: relative;
-      text-align: right;
+  a.w-poll__link-all {
+    line-height: rem-calc(45);
+    display: inline-block;
+    span {
+      line-height: 1.2rem;
+      padding:4px 0;
+      border-bottom: 1px solid $gold;
       vertical-align: middle;
-      font-size: 1rem;
-      padding: 0 5%; 
-      line-height: 3rem;
-      .iradio_minimal {
-        position: absolute; 
-        top: 0.7rem;
-      }
-      span {
-              line-height: 1.2rem;
-      font-size: 1rem;
-        margin-right: 38px;
-        vertical-align: middle;
-        display: inline-block;
-        color: $white;
-        position: relative;
-      }
-      &:last-child {
-        border-bottom: solid 1px $gold-dark;
-        padding-bottom: rem-calc(24);
-      }  
+      display: inline-block;
+      white-space: nowrap;
+      color: $gold;
     }
-    .w__poll--btn-s {
-      margin:30px auto 13px;
-      text-align: center;
-      display: block;
-      background-color:$gold;
-      padding:0 70px;
-      line-height: rem-calc(45);
-      color: $white;
-      border:none;
-      font-size: rem-calc(18);
-      font-weight: bold;
-      font-family: $font-family-kufi;
+  }
+  .w__poll--btn-s {
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    background-color:$gold;
+    padding:0 70px;
+    line-height: rem-calc(45);
+    color: $white;
+    border:none;
+    font-size: rem-calc(18);
+    font-weight: bold;
+    font-family: $font-family-kufi;
+  }
+  // FORM // // // // // // // // // // 
+  .w__poll--form {
+    position: relative;    
+    .w__poll--radios { 
+      border-top:solid 1px $gold-dark;
+      border-bottom: solid 1px $gold-dark;
+      padding-bottom: 1rem;
+      label { 
+        display: block;
+        position: relative;
+        text-align: right;
+        vertical-align: middle;
+        padding: 0 5%; 
+        min-height: 3rem;
+        .iradio_minimal {
+          position: absolute; 
+          top: 0.7rem;
+        }
+        span {
+          padding-top: 1rem;
+          padding-bottom: .5rem;
+          line-height: 1.25rem;
+          font-size: 1.1rem;
+          margin-right: 38px;
+          vertical-align: middle;
+          display: inline-block;
+          color: $white;
+          position: relative;
+        }
+      }
     }
     .form-err {
       width: 100%;
@@ -111,38 +114,47 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
       position: absolute;
     }
   }
-  // STATISCTICSS
+  // STATISCTICS // // // // // // // // 
   .w-poll__statistics {
-    font-size: rem-calc(16);
-    padding-top:20px;
-    padding-left: 10px;
-    padding-right:20px;
     border-top: 1px solid $gold-dark;
+    border-bottom: 1px solid $gold-dark;
+    padding-bottom: 1rem;
     transition: opacity .3s;
     -webkit-transition: opacity .3s;
     opacity: 0;
     .poll-row {
-      height: rem-calc(48);
-      line-height: 26px;
-      padding: 0 5% 18px;
+      min-height: 3rem;
+      margin: 0 5%;
+      position: relative;
       .bar-label {
-        line-height: 30px;
+        display: block;
         text-align: right;
-        span {
-          display: inline-block;
-          &.pctg {
-            float: left;
-            color: $accent-color;
-            font-size: 1.1rem;
-          }
-          &.text {
-            color: $paragraph;
-          }
+        width: 100%;
+
+        .pctg {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          color: $accent-color;
+          font-size: 1.1rem;
+        }
+        .text {
+          line-height: 1.25rem;
+          font-size: 1.1rem;
+          padding-top: 1rem;
+          padding-bottom: .5rem;
+          display: block;
+          margin-left: 38px;
+          color: $paragraph;
         }
       }
       .bar-wrap {
         outline: 0px solid $gray-ultralight;
         background-color: $gold-dark;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: inline-block;
         .bar {
           height:rem-calc(3);
           background-color:$accent-color;
@@ -165,23 +177,27 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
       opacity: 1;
     }
   }
+
   .w-poll__footer {
-    text-align: center;
-    line-height: rem-calc(45);
-    padding: rem-calc(36) 0 rem-calc(13);
-    span, a {
-      padding:4px 0;
-      border-bottom: 1px solid $gold;
-      line-height: 1.2em;
-      vertical-align: middle;
-      display: inline-block;
-      white-space: nowrap;
-      color: $gold;
-    }
-  }
+    height: 6rem;
+    padding: 2rem 0 0;
+  } 
+
+
 }
 
-// A L L   P O L S   -   G E N R T I C  ///////////////////////////////////////////////////////////
+// L E F T   P O L L ///////////////////////////////////////////////////////////
+div .w__poll--left {
+  h2.w__poll--block-title {
+    margin-top: 0;
+  }
+  .w-poll__footer {
+    text-align: center;
+  } 
+}
+
+
+// R I G H T   P O L S /////////////////////////////////////////////////////////
 div .w__poll--right {
   background-color: $fafa;
   padding: 5%;
@@ -194,9 +210,29 @@ div .w__poll--right {
     color: black;
     margin-left: 0;
     margin-right: 0;
+    text-align: right;
+  }
+  .w__poll--form {
+    .w__poll--radios { 
+      border-top: solid 1px transparent;
+      border-bottom: solid 1px transparent;
+      padding-bottom: 0;
+      label {
+        padding-left: 0;
+        padding-right: 0;
+        span {
+          color: black;
+        }
+      }
+    }
+    .w__poll--btn-s {
+      margin: 0;
+    }
   }
   .w-poll__statistics {
     border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+    padding-bottom: 0;
     .poll-row {
       padding-left: 0;
       padding-right: 0;
@@ -208,41 +244,20 @@ div .w__poll--right {
       }
     }
   }
-  .w__poll--form {
-    border-top: solid 1px transparent;
-    .w__poll--radios {      
-      label {
 
-        span {
-
-        }
-        padding-left: 0;
-        padding-right: 0;
-        &:last-child {
-          border-bottom: solid 1px transparent;
-        }
-        span {
-          color: black;
-        }
-      }
-    }
-    .w__poll--btn-s {
-      margin: 0;
-    }
-  }
   .w-poll__footer {
-    visibility: hidden;
-    height: 50px;
+    height: 5.15rem;
+    padding: 2rem 0 0;
+    .w-poll__link-all {
+      display: none;
+    }
   }
-
 }
-
 
 //set media
 .desktop .w__poll {
   padding: 5%;
 }
-
 .mobile {
   .w__poll {
     margin-bottom: 37px;

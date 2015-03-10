@@ -1,8 +1,11 @@
 <div class="w__poll--inner">
-  <h2 class="w__poll--block-title"><%= data.name %></h2>
+  <h2 class="w__poll--block-title">
+    Poll
+  </h2>
   <!--img src="public/assets/images/erase-poll.jpg" alt="title"-->
   <img src="<%= img %>" alt="">
-  <h3 class="w__poll--question"><%= data.teaser %>
+  <h3 class="w__poll--question">
+    <%= data.name %>
   </h3>
   <form class="w__poll--form">
     <div class="w__poll--radios">
@@ -18,6 +21,8 @@
     <% }); %>
     </div>
     <div class="form-err"></div>
-    <input type="submit" value="صوّتي" class="w__poll--btn-s">    
+    <div class="w-poll__footer">
+      <input type="submit" value="صوّتي" class="w__poll--btn-s"> 
+    </div>
   </form>
 </div>

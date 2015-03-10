@@ -1,13 +1,13 @@
 <div class="w__poll--inner">
   
   <h2 class="w__poll--block-title">
-    <%= data.name %>
+    Poll
   </h2>
 
   <img src="<%= img %>" alt="">
   
   <h3 class="w__poll--question">
-    <%= data.teaser %>
+    <%= data.name %>
   </h3>
   
   <div class="w-poll__content w-poll__statistics" style="position:relative;">
@@ -31,10 +31,12 @@
     <% }); %>   
   </div>
   
-  <div class="w-poll__footer">
-   <a href="/%D8%A5%D8%B3%D8%AA%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D8%A3%D9%8A/all-polls">
-   المزيد من إستطلاعات الرأي
-   </a>
+  <div class="w-poll__footer">    
+    <a class="w-poll__link-all" href="/%D8%A5%D8%B3%D8%AA%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D8%A3%D9%8A/all-polls">
+      <span>
+        المزيد من إستطلاعات الرأي
+      </span>
+    </a>    
  </div> 
   
 </div>
