@@ -58,7 +58,7 @@ define([
       this.currentItem = attributes.currentItem || 1;
       this.id = attributes.id;
     },
-    parseRelated: function(){
+    parseRelated: function() {
       var _this = this;
       if ($('.mg-related .mg-related-item', _this.$elem).length > 0) {
         var relateds = [];
@@ -76,7 +76,7 @@ define([
           type: "related",
           articles: relateds
         }));
-      }      
+      }
     },
     parse: function() {
       var _this = this;
@@ -90,7 +90,7 @@ define([
         };
         _this.collection.add(new MediaGalleryItemModel(data));
       });
-      this.parseRelated(); 
+      this.parseRelated();
       this.bindObjects();
     },
     parseMob: function() {
@@ -138,7 +138,7 @@ define([
         }
         if (item.get('type') === 'related') {
           itemsRdr += relatedTpl(item.attributes);
-        }        
+        }
       });
       // social
       this.$social = $(socialTpl());
@@ -337,7 +337,18 @@ define([
       this.owlSliderGoTo = function(num) {
         _this.$slider.data('owlCarousel').goTo(this.itemsAmount - num);
       };
-      dbg('jumping to currentItem from #hash  ' + this.currentItem);
+      // nav position
+      var maxH = 0;
+      console.log(this.$slider.find('.owl-item > .item img'));
+      this.$slider.find('.owl-item > .item img').load(function() {
+        $img = $(this);
+        var h = $img.outerHeight(true);
+        if (h > maxH) {
+          maxH = h;
+        }
+        console.log(h);
+      });
+      //
       if (this.currentItem != this.itemsAmount) {
         this.$slider.data('owlCarousel').jumpTo(this.currentItemRtl() - 1);
       } else {

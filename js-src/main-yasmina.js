@@ -2,7 +2,8 @@
 
 window.backboneApp = {set:{}};
 window.backboneApp.set.imgBaseUrl = "/assets/images/";
-window.backboneApp.set.sharrrePhpProxyh = "/js/sharrre.php";
+window.backboneApp.set.sharrrePhpProxyh = '/gpluscount/' + Base64.encode(window.location.href);
+
 
 (function() {
 
