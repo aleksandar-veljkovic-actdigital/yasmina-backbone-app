@@ -14,6 +14,7 @@ $fafa: #fafafa !default;
 
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 
+//  G E N E R I C - A L L   D E V I C E S  ////////////////////////////////////////////////////////////////////////////
 .w__poll {
   width:100%;
   float:right;
@@ -64,19 +65,26 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
   .w__poll--form {
     position: relative;
     border-top:solid 1px $gold-dark;
-    .w__poll--radios label {
+    .w__poll--radios label { 
       display: block;
       position: relative;
       text-align: right;
       vertical-align: middle;
-      line-height: 3rem;
       font-size: 1rem;
-      padding: 0 5%;
+      padding: 0 5%; 
+      line-height: 3rem;
+      .iradio_minimal {
+        position: absolute; 
+        top: 0.7rem;
+      }
       span {
+              line-height: 1.2rem;
+      font-size: 1rem;
+        margin-right: 38px;
+        vertical-align: middle;
+        display: inline-block;
         color: $white;
         position: relative;
-        bottom: -4px;
-        right: 2px;
       }
       &:last-child {
         border-bottom: solid 1px $gold-dark;
@@ -173,30 +181,49 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
   }
 }
 
-
+// A L L   P O L S   -   G E N R T I C  ///////////////////////////////////////////////////////////
 div .w__poll--right {
   background-color: $fafa;
   padding: 5%;
   h2.w__poll--block-title {
     display:none;
+    margin-left: 0;
+    margin-right: 0;
   }
   h3.w__poll--question {
     color: black;
+    margin-left: 0;
+    margin-right: 0;
   }
   .w-poll__statistics {
     border-top: solid 1px transparent;
-    .poll-row .bar-wrap {
-      background-color: rgba($gold, 0.3);
+    .poll-row {
+      padding-left: 0;
+      padding-right: 0;
+      .bar-label .text {
+        color: black;
+      }
+      .bar-wrap {
+        background-color: rgba($gold, 0.3);
+      }
     }
   }
   .w__poll--form {
     border-top: solid 1px transparent;
-    .w__poll--radios label {
-      &:last-child {
-        border-bottom: solid 1px transparent;
-      }
-      span {
-        color: black;
+    .w__poll--radios {      
+      label {
+
+        span {
+
+        }
+        padding-left: 0;
+        padding-right: 0;
+        &:last-child {
+          border-bottom: solid 1px transparent;
+        }
+        span {
+          color: black;
+        }
       }
     }
     .w__poll--btn-s {

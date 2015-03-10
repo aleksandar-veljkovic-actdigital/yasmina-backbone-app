@@ -51,7 +51,7 @@
   float: left;
 }
 
-/* line 45, ../sass/_owl.carousel.scss */
+/* line 44, ../sass/_owl.carousel.scss */
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div {
   cursor: pointer;
@@ -64,7 +64,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* mouse grab icon */
@@ -74,7 +74,7 @@
 }
 
 /* fix */
-/* line 64, ../sass/_owl.carousel.scss */
+/* line 63, ../sass/_owl.carousel.scss */
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
   -webkit-backface-visibility: hidden;
@@ -164,327 +164,237 @@
 /* Keyframes */
 /*empty*/
 @-webkit-keyframes empty {
-  /* line 64, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
-
 @-moz-keyframes empty {
-  /* line 67, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
-
 @keyframes empty {
-  /* line 70, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeIn {
-  /* line 73, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 74, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
-
 @-moz-keyframes fadeIn {
-  /* line 77, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 78, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
-  /* line 81, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 82, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeOut {
-  /* line 85, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
-
-  /* line 86, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
-
 @-moz-keyframes fadeOut {
-  /* line 89, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
-
-  /* line 90, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
-
 @keyframes fadeOut {
-  /* line 93, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
-
-  /* line 94, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
-
 @-webkit-keyframes backSlideOut {
-  /* line 97, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     -webkit-transform: translateZ(-500px);
   }
-
-  /* line 98, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(-200%);
   }
-
-  /* line 99, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(-200%);
   }
 }
-
 @-moz-keyframes backSlideOut {
-  /* line 102, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     -moz-transform: translateZ(-500px);
   }
-
-  /* line 103, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(-200%);
   }
-
-  /* line 104, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(-200%);
   }
 }
-
 @keyframes backSlideOut {
-  /* line 107, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     transform: translateZ(-500px);
   }
-
-  /* line 108, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     transform: translateZ(-500px) translateX(-200%);
   }
-
-  /* line 109, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     transform: translateZ(-500px) translateX(-200%);
   }
 }
-
 @-webkit-keyframes backSlideIn {
-  /* line 112, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(200%);
   }
-
-  /* line 113, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -webkit-transform: translateZ(-500px);
   }
-
-  /* line 114, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     -webkit-transform: translateZ(0) translateX(0);
   }
 }
-
 @-moz-keyframes backSlideIn {
-  /* line 117, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(200%);
   }
-
-  /* line 118, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -moz-transform: translateZ(-500px);
   }
-
-  /* line 119, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     -moz-transform: translateZ(0) translateX(0);
   }
 }
-
 @keyframes backSlideIn {
-  /* line 122, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     transform: translateZ(-500px) translateX(200%);
   }
-
-  /* line 123, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     transform: translateZ(-500px);
   }
-
-  /* line 124, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     transform: translateZ(0) translateX(0);
   }
 }
-
 @-webkit-keyframes scaleToFade {
-  /* line 127, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.8);
   }
 }
-
 @-moz-keyframes scaleToFade {
-  /* line 130, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -moz-transform: scale(0.8);
   }
 }
-
 @keyframes scaleToFade {
-  /* line 133, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     transform: scale(0.8);
   }
 }
-
 @-webkit-keyframes goDown {
-  /* line 136, ../sass/_owl.transitions.scss */
   from {
     -webkit-transform: translateY(-100%);
   }
 }
-
 @-moz-keyframes goDown {
-  /* line 139, ../sass/_owl.transitions.scss */
   from {
     -moz-transform: translateY(-100%);
   }
 }
-
 @keyframes goDown {
-  /* line 142, ../sass/_owl.transitions.scss */
   from {
     transform: translateY(-100%);
   }
 }
-
 @-webkit-keyframes scaleUpFrom {
-  /* line 146, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     -webkit-transform: scale(1.5);
   }
 }
-
 @-moz-keyframes scaleUpFrom {
-  /* line 149, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     -moz-transform: scale(1.5);
   }
 }
-
 @keyframes scaleUpFrom {
-  /* line 152, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     transform: scale(1.5);
   }
 }
-
 @-webkit-keyframes scaleUpTo {
-  /* line 156, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(1.5);
   }
 }
-
 @-moz-keyframes scaleUpTo {
-  /* line 159, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -moz-transform: scale(1.5);
   }
 }
-
 @keyframes scaleUpTo {
-  /* line 162, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     transform: scale(1.5);
   }
 }
-
-/* line 17, ../sass/_w-poll.scss */
+/* line 18, ../sass/_w-poll.scss */
 .w__poll {
   width: 100%;
   float: right;
   background-color: #2b2b2b;
   margin-bottom: 20px;
 }
-/* line 22, ../sass/_w-poll.scss */
+/* line 23, ../sass/_w-poll.scss */
 .w__poll img {
   width: 100%;
 }
-/* line 25, ../sass/_w-poll.scss */
+/* line 26, ../sass/_w-poll.scss */
 .w__poll img {
   width: 100%;
 }
-/* line 28, ../sass/_w-poll.scss */
+/* line 29, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title {
   font-size: 1.2rem;
   line-height: 1.9rem;
@@ -494,7 +404,7 @@
   color: white;
   font-weight: bold;
 }
-/* line 36, ../sass/_w-poll.scss */
+/* line 37, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title:after {
   border-bottom: 3px solid #9e914c;
   bottom: -12px;
@@ -505,7 +415,7 @@
   text-align: center;
   width: 65px;
 }
-/* line 47, ../sass/_w-poll.scss */
+/* line 48, ../sass/_w-poll.scss */
 .w__poll h3.w__poll--question {
   color: white;
   font-size: 1.2rem;
@@ -513,45 +423,53 @@
   text-align: center;
   margin: 1.375em 5% 1rem;
 }
-/* line 54, ../sass/_w-poll.scss */
+/* line 55, ../sass/_w-poll.scss */
 .w__poll .w-poll__button {
   clear: both;
   text-align: center;
   width: 100%;
 }
-/* line 59, ../sass/_w-poll.scss */
+/* line 60, ../sass/_w-poll.scss */
 .w__poll .w-poll__img img {
   width: 100%;
   height: auto;
 }
-/* line 64, ../sass/_w-poll.scss */
+/* line 65, ../sass/_w-poll.scss */
 .w__poll .w__poll--form {
   position: relative;
   border-top: solid 1px #423f32;
 }
-/* line 67, ../sass/_w-poll.scss */
+/* line 68, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label {
   display: block;
   position: relative;
   text-align: right;
   vertical-align: middle;
-  line-height: 3rem;
   font-size: 1rem;
   padding: 0 5%;
+  line-height: 3rem;
 }
-/* line 75, ../sass/_w-poll.scss */
+/* line 76, ../sass/_w-poll.scss */
+.w__poll .w__poll--form .w__poll--radios label .iradio_minimal {
+  position: absolute;
+  top: 0.7rem;
+}
+/* line 80, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label span {
+  line-height: 1.2rem;
+  font-size: 1rem;
+  margin-right: 38px;
+  vertical-align: middle;
+  display: inline-block;
   color: white;
   position: relative;
-  bottom: -4px;
-  right: 2px;
 }
-/* line 81, ../sass/_w-poll.scss */
+/* line 89, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label:last-child {
   border-bottom: solid 1px #423f32;
   padding-bottom: 1.5em;
 }
-/* line 86, ../sass/_w-poll.scss */
+/* line 94, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--btn-s {
   margin: 30px auto 13px;
   text-align: center;
@@ -565,14 +483,14 @@
   font-weight: bold;
   font-family: "Noto Kufi Arabic", serif, "Noto Serif", serif;
 }
-/* line 99, ../sass/_w-poll.scss */
+/* line 107, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .form-err {
   width: 100%;
   text-align: center;
   color: red;
   position: absolute;
 }
-/* line 107, ../sass/_w-poll.scss */
+/* line 115, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics {
   font-size: 1em;
   padding-top: 20px;
@@ -583,37 +501,37 @@
   -webkit-transition: opacity .3s;
   opacity: 0;
 }
-/* line 116, ../sass/_w-poll.scss */
+/* line 124, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row {
   height: 3em;
   line-height: 26px;
   padding: 0 5% 18px;
 }
-/* line 120, ../sass/_w-poll.scss */
+/* line 128, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label {
   line-height: 30px;
   text-align: right;
 }
-/* line 123, ../sass/_w-poll.scss */
+/* line 131, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label span {
   display: inline-block;
 }
-/* line 125, ../sass/_w-poll.scss */
+/* line 133, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label span.pctg {
   float: left;
   color: #9e914c;
   font-size: 1.1rem;
 }
-/* line 130, ../sass/_w-poll.scss */
+/* line 138, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label span.text {
   color: white;
 }
-/* line 135, ../sass/_w-poll.scss */
+/* line 143, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap {
   outline: 0px solid white;
   background-color: #423f32;
 }
-/* line 138, ../sass/_w-poll.scss */
+/* line 146, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap .bar {
   height: 0.1875em;
   background-color: #9e914c;
@@ -621,28 +539,28 @@
   transition: width 1s;
   -webkit-transition: width 1s;
 }
-/* line 146, ../sass/_w-poll.scss */
+/* line 154, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .count {
   text-align: left;
   color: white;
   line-height: 28px;
   font-size: 14px;
 }
-/* line 153, ../sass/_w-poll.scss */
+/* line 161, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics:not(.animation-trigger) .bar {
   width: 0 !important;
 }
-/* line 156, ../sass/_w-poll.scss */
+/* line 164, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics.animation-trigger {
   opacity: 1;
 }
-/* line 160, ../sass/_w-poll.scss */
+/* line 168, ../sass/_w-poll.scss */
 .w__poll .w-poll__footer {
   text-align: center;
   line-height: 2.8125em;
   padding: 2.25em 0 0.8125em;
 }
-/* line 164, ../sass/_w-poll.scss */
+/* line 172, ../sass/_w-poll.scss */
 .w__poll .w-poll__footer span, .w__poll .w-poll__footer a {
   padding: 4px 0;
   border-bottom: 1px solid #9e914c;
@@ -653,62 +571,80 @@
   color: #9e914c;
 }
 
-/* line 177, ../sass/_w-poll.scss */
+/* line 185, ../sass/_w-poll.scss */
 div .w__poll--right {
   background-color: #fafafa;
   padding: 5%;
 }
-/* line 180, ../sass/_w-poll.scss */
+/* line 188, ../sass/_w-poll.scss */
 div .w__poll--right h2.w__poll--block-title {
   display: none;
+  margin-left: 0;
+  margin-right: 0;
 }
-/* line 183, ../sass/_w-poll.scss */
+/* line 193, ../sass/_w-poll.scss */
 div .w__poll--right h3.w__poll--question {
   color: black;
+  margin-left: 0;
+  margin-right: 0;
 }
-/* line 186, ../sass/_w-poll.scss */
+/* line 198, ../sass/_w-poll.scss */
 div .w__poll--right .w-poll__statistics {
   border-top: solid 1px transparent;
 }
-/* line 188, ../sass/_w-poll.scss */
+/* line 200, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics .poll-row {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 203, ../sass/_w-poll.scss */
+div .w__poll--right .w-poll__statistics .poll-row .bar-label .text {
+  color: black;
+}
+/* line 206, ../sass/_w-poll.scss */
 div .w__poll--right .w-poll__statistics .poll-row .bar-wrap {
   background-color: rgba(158, 145, 76, 0.3);
 }
-/* line 192, ../sass/_w-poll.scss */
+/* line 211, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form {
   border-top: solid 1px transparent;
 }
-/* line 195, ../sass/_w-poll.scss */
+/* line 214, ../sass/_w-poll.scss */
+div .w__poll--right .w__poll--form .w__poll--radios label {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 221, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form .w__poll--radios label:last-child {
   border-bottom: solid 1px transparent;
 }
-/* line 198, ../sass/_w-poll.scss */
+/* line 224, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form .w__poll--radios label span {
   color: black;
 }
-/* line 202, ../sass/_w-poll.scss */
+/* line 229, ../sass/_w-poll.scss */
 div .w__poll--right .w__poll--form .w__poll--btn-s {
   margin: 0;
 }
-/* line 206, ../sass/_w-poll.scss */
+/* line 233, ../sass/_w-poll.scss */
 div .w__poll--right .w-poll__footer {
   visibility: hidden;
   height: 50px;
 }
 
-/* line 215, ../sass/_w-poll.scss */
+/* line 242, ../sass/_w-poll.scss */
 .desktop .w__poll {
   padding: 5%;
 }
 
-/* line 220, ../sass/_w-poll.scss */
+/* line 247, ../sass/_w-poll.scss */
 .mobile .w__poll {
   margin-bottom: 37px;
 }
 
 /* iCheck plugin Minimal skin, black
 ----------------------------------- */
-/* line 6, ../sass/_icheck.scss */
+/* line 5, ../sass/_icheck.scss */
 .icheckbox_minimal,
 .iradio_minimal {
   display: inline-block;
@@ -794,7 +730,7 @@ div .w__poll--right .w-poll__footer {
 .article-gallery > .mg-item {
   margin: 0;
 }
-/* line 18, ../sass/_media-gallery.scss */
+/* line 16, ../sass/_media-gallery.scss */
 .article-gallery > .mg-item, .article-gallery > .mg-item > h3, .article-gallery > .mg-item > div {
   opacity: 0.001;
   width: 1px;
@@ -802,7 +738,7 @@ div .w__poll--right .w-poll__footer {
   z-index: -1;
   position: absolute;
 }
-/* line 26, ../sass/_media-gallery.scss */
+/* line 25, ../sass/_media-gallery.scss */
 .article-gallery > .mg-item:first-child, .article-gallery > .mg-item:first-child > img {
   opacity: 1;
   width: 100%;
@@ -983,7 +919,7 @@ div .w__poll--right .w-poll__footer {
   position: absolute;
   bottom: 50%;
 }
-/* line 189, ../sass/_media-gallery.scss */
+/* line 188, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev,
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   color: auto;
@@ -998,7 +934,7 @@ div .w__poll--right .w-poll__footer {
   filter: Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 205, ../sass/_media-gallery.scss */
+/* line 204, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev, #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   box-sizing: border-box;
   position: absolute;
@@ -1125,7 +1061,7 @@ div .w__poll--right .w-poll__footer {
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item {
   display: none;
 }
-/* line 333, ../sass/_media-gallery.scss */
+/* line 330, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-1,
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-2,
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-related .mg-related-item-3,
