@@ -57,17 +57,13 @@ define([
       }
     },
     mediaGallery: function(id, currentItem) {
-      currentItem = currentItem || 0;
-      dbg('Router: media-gallery/' + id + "/" + currentItem);
+      currentItem = currentItem || 1;
       require(['views/media-gallery'], function(mediaGalleryView) {
-        dbg(backboneApp.mediaGallery);
         if (backboneApp.mediaGallery) {
-          dbg('backboneApp.mediaGallery alredy initialized');
           backboneApp.mediaGallery.afterMoveUnhashedOnce = true;
           backboneApp.mediaGallery.owlSliderGoTo(currentItem);
           return;
         }
-        dbg(backboneApp.mediaGallery);
         var $elem = $('.media-gallery-' + id);
         backboneApp.mediaGallery = new mediaGalleryView({$elem: $elem, currentItem: currentItem, id: id});
         if (backboneApp.set.device === 'desktop') {

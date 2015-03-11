@@ -106,7 +106,6 @@ define([
         _this.collection.add(new MediaGalleryItemModel(data));
         //adv
         if ((i + 1) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0) {
-          dbg("---adv model---");
           var advModel = new MediaGalleryItemModel({
             type: 'adv',
             title: "<small>ADVERTISEMENT</small>",
@@ -198,8 +197,6 @@ define([
       this.remove();
     },
     banner: function() {
-      dbg('banner method, banner vars:');
-      dbg(this.bannerVars);
       oxAsyncGallery.deviceType = backboneApp.set.device;
       var $layout = this.$layout;
       var v = this.bannerVars;
@@ -215,7 +212,6 @@ define([
       }
       v.state++;
       if (t1 || t2) {
-        dbg('banner triggered');
         oxAsyncGallery.asyncAdUnitsRender();
       }
     },
@@ -348,7 +344,6 @@ define([
           protection--;
           if(h>0||protection<0){
             clearTimeout(timeout);            
-            console.log(h);    
             if (h>maxH) {
               maxH = h;
               $('.owl-buttons', _this.$slider).css({
@@ -369,7 +364,6 @@ define([
     onResize: function() {
     },
     afterMove: function() {
-      dbg('afterMove event');
       this.currentItem = this.itemsAmount - this.$slider.data('owlCarousel').currentItem;
       if (!this.afterMoveUnhashedOnce) {
         window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + this.currentItem);
