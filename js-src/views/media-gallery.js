@@ -203,8 +203,8 @@ define([
       oxAsyncGallery.deviceType = backboneApp.set.device;
       var $layout = this.$layout;
       var v = this.bannerVars;
-      var t1 = v.state >= v.trigger;
-      var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0;
+      var t1 = v.state >= v.trigger; // action trigger
+      var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0; // slide in trigger
       if (t1) {
         $('.mg-banner-lb', $layout).html('<div id="ad-gallery-lb" />');
         $('.mg-banner-mpu', $layout).html('<div id="ad-gallery-mpu" />');
@@ -339,14 +339,25 @@ define([
       };
       // nav position
       var maxH = 0;
-      console.log(this.$slider.find('.owl-item > .item img'));
-      this.$slider.find('.owl-item > .item img').load(function() {
-        $img = $(this);
-        var h = $img.outerHeight(true);
-        if (h > maxH) {
-          maxH = h;
-        }
-        console.log(h);
+      var $imgs = this.$slider.find('.owl-item > .item img');
+      $imgs.each(function() {
+        var $img = $(this); 
+        var protection = 20;
+        var timeout = setTimeout(function(){
+          var h = $img.outerHeight(true);
+          protection--;
+          if(h>0||protection<0){
+            clearTimeout(timeout);            
+            console.log(h);    
+            if (h>maxH) {
+              maxH = h;
+              $('.owl-buttons', _this.$slider).css({
+                bottom: 'auto',
+                top: maxH / 2
+              });
+            }
+          }          
+        }, 250);
       });
       //
       if (this.currentItem != this.itemsAmount) {

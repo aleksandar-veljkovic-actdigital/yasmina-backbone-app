@@ -1,7 +1,5 @@
 .article-gallery {
-
   position: relative;
-
   .mg-start {
     position: absolute;
     bottom: 0;
@@ -38,12 +36,7 @@
     position: absolute;
   }
 }
-
-
-
-
 #dwf-fullscreen-wrap {
-
   color: white;
   width: 100%;
   .media-gallery-fullscreen {
@@ -52,7 +45,6 @@
     margin: 0 auto;
     //white-space: nowrap;
     position: relative;
-
     .mg-close {
       display: inline-block;
       position: absolute;
@@ -65,7 +57,6 @@
         outline: 1px solid gray;
       }  
     }
-
     .mg-share {
       position: relative;
       overflow: hidden;
@@ -136,8 +127,6 @@
         }
       }
     } 
-
-
     .mg-titles {
       height: 5rem;
       .num {
@@ -154,7 +143,6 @@
         overflow: hidden;
       }      
     }
-
     .mg-captions {
       height: 7rem;
       overflow: hidden;
@@ -165,7 +153,6 @@
         line-height: 1.5rem;
       }
     }
-
     .mg-main {
       vertical-align: top;
       .mg-slider-w {
@@ -228,7 +215,6 @@
       }
 
     }
-
     .mg-related {
       padding: 1rem 15% 0;
       margin: 0 auto;
@@ -257,9 +243,6 @@
     } 
 
   }
-
-
-
   .media-gallery-fullscreen.desktop {
     .mg-header {
       position: relative;
@@ -297,16 +280,14 @@
       margin-left: 8%;
     }
   }    
-  
-  
   $mg-mob-ident: 2%;  
-
   .media-gallery-fullscreen.mobile {
     box-sizing: border-box;
     padding: 0 0;
     .mg-header {
       text-align: center;
       .mg-banner-a-mob {
+        height: 50px;
         margin-top: 18px;
         display: inline-block;
         vertical-align: middle;
@@ -320,14 +301,11 @@
       text-align: right;
       width: 100%;
     }
-
     .mg-close {
       left: 0;
       top: -10px;
       z-index: 9999;
     }
-    
-    
     .mg-main {
       padding: 0 $mg-mob-ident;
       .mg-related {
@@ -345,13 +323,7 @@
     .mg-asside {
       padding: 0 $mg-mob-ident;
     }
-
-
-
-
   }  
-
-
   .clearfix {
   }
 }
