@@ -2,7 +2,6 @@
 'use strict';
 //(function() {
 
-
 define([
   'models/media-gallery',
   'text!templates/media-gallery-social-share.html.tpl',
@@ -26,9 +25,7 @@ define([
         templateItem,
         templateRelated
         ) {
-
-
-
+  
   var gPlusSharePhp = backboneApp.set.sharrrePhpProxyh;
   var MediaGallryView = Backbone.View.extend({
     imgBaseUrl: backboneApp.set.imgBaseUrl,
@@ -41,14 +38,10 @@ define([
     bannerVars: {},
     currentItem: null,
     id: null,
-    //itemsAmount: null,
     afterMoveUnhashedOnce: false,
     owlSliderGoTo: function(num) {
       // // will be difined after slider init
     },
-    //currentItemRtl: function() { // @toDo move to $.fn.owlCarouselRtl and $.fn.galleryCaptions
-    //  return this.itemsAmount - this.currentItem + 1
-    //},
     initialize: function(attributes) {
       this.bannerVars = {
         state: window.backboneApp.set.gallery.adMobileActionCount,
@@ -67,7 +60,8 @@ define([
           var data = {
             title: $("h3", o).text(),
             img: $(".mg-related-img", o).attr('src'),
-            caption: $(".mg-related-capt", o).text()
+            caption: $(".mg-related-capt", o).text(), 
+            link: $('.mg-related-item').attr('href')
           };
           relateds.push(data);
         });
@@ -198,7 +192,7 @@ define([
       this.remove();
     },
     banner: function() {
-      oxAsyncGallery.deviceType = backboneApp.set.device;
+      //oxAsyncGallery.deviceType = backboneApp.set.device;
       var $layout = this.$layout;
       var v = this.bannerVars;
       var t1 = v.state >= v.trigger; // action trigger
@@ -326,39 +320,38 @@ define([
         startDragging: false,
         afterLazyLoad: false
       });
-
     },
     afterInit: function() {
-      var _this = this;      
-      var owl = this.$slider.data('owlCarousel');      
+      var _this = this;
+      var owl = this.$slider.data('owlCarousel');
       this.owlSliderGoTo = function(num) {
-        owl.goToRtl(num-1);
+        owl.goToRtl(num - 1);
       };
-
-
       // // nav position
       var maxH = 0;
       var $imgs = this.$slider.find('.owl-item > .item img');
       $imgs.each(function() {
-        var $img = $(this); 
+        var $img = $(this);
         var protection = 20;
-        var timeout = setTimeout(function(){
+        var timeout = setTimeout(function() {
           var h = $img.outerHeight(true);
           protection--;
-          if(h>0||protection<0){
-            clearTimeout(timeout);            
-            if (h>maxH) {
+          if (h > 0 || protection < 0) {
+            clearTimeout(timeout);
+            if (h > maxH) {
               maxH = h;
               $('.owl-buttons', _this.$slider).css({
                 bottom: 'auto',
                 top: maxH / 2
               });
             }
-          }          
+          }
         }, 250);
       });
       //
-      if (this.currentItem !== owl.itemsAmount) {
+      console.log(this.currentItem);
+      console.log(owl.itemsAmount);
+      if (this.currentItem != owl.itemsAmount) {
         owl.jumpToRtl(this.currentItem - 1);
       } else {
         this.afterMove();
@@ -373,7 +366,7 @@ define([
       }
       else {
         this.afterMoveUnhashedOnce = false;
-      }      
+      }
       this.$captions.data('galleryCaption').goTo(owl.currentItem);
       this.$titles.data('galleryCaption').goTo(owl.currentItem);
       this.banner();

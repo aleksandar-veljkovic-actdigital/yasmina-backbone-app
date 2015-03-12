@@ -1,32 +1,49 @@
 .article-gallery {
   position: relative;
   .mg-start {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  .mg-start img {
-    width: auto;
-  }
-  & > .mg-item{
-    margin: 0;
-  }
-  & > .mg-item,
-  & > .mg-item > h3,
-  & > .mg-item > div {
-    opacity: 0.001;
-    width: 1px;
-    height: 1px;
-    z-index: -1;
-    position: absolute;
-  }
-  & > .mg-item:first-child,
-    & > .mg-item:first-child > img {
-    opacity: 1;
-    width: 100%;
-    height: auto;
-    z-index: auto;
+    display: block;
     position: relative;
+    & > .mg-item{
+      margin: 0;
+    }
+    & > .mg-item,
+    & > .mg-item > h3,
+    & > .mg-item > div {
+      opacity: 0.001;
+      width: 1px;
+      height: 1px;
+      z-index: -1;
+      position: absolute;
+    }
+    & > .mg-item:first-child,
+      & > .mg-item:first-child > img {
+      opacity: 1;
+      width: 100%;
+      height: auto;
+      z-index: auto;
+      position: relative;
+    }
+    &:hover {
+      .mg-item {
+        img {
+          opacity: 0.8;
+          transition: opacity .8s;
+        }
+      }
+      .mg-zoom-icon {
+        opacity: 0.8;
+        width: 45px;
+        
+      }
+    }
+    .mg-zoom-icon {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 39px;
+      transition: width .4s, opacity .8s;
+    }
   }
   .mg-related-item {
     opacity: 0.001;
