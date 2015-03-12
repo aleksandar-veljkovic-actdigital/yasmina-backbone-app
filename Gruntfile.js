@@ -38,7 +38,7 @@ module.exports = function (grunt) {
           removeCombined: true,
           findNestedDependencies: true,
           //skipDirOptimize: true,
-          //optimize: "none",
+          optimize: "none",
           //optimize: "uglify2",
           modules: [
             {

@@ -41,13 +41,14 @@ define([
     bannerVars: {},
     currentItem: null,
     id: null,
-    itemsAmount: null,
+    //itemsAmount: null,
     afterMoveUnhashedOnce: false,
     owlSliderGoTo: function(num) {
+      // // will be difined after slider init
     },
-    currentItemRtl: function() { // @toDo move to $.fn.owlCarouselRtl and $.fn.galleryCaptions
-      return this.itemsAmount - this.currentItem + 1
-    },
+    //currentItemRtl: function() { // @toDo move to $.fn.owlCarouselRtl and $.fn.galleryCaptions
+    //  return this.itemsAmount - this.currentItem + 1
+    //},
     initialize: function(attributes) {
       this.bannerVars = {
         state: window.backboneApp.set.gallery.adMobileActionCount,
@@ -328,12 +329,14 @@ define([
 
     },
     afterInit: function() {
-      var _this = this;
-      this.itemsAmount = this.$slider.data('owlCarousel').itemsAmount;
+      var _this = this;      
+      var owl = this.$slider.data('owlCarousel');      
       this.owlSliderGoTo = function(num) {
-        _this.$slider.data('owlCarousel').goTo(this.itemsAmount - num);
+        owl.goToRtl(num-1);
       };
-      // nav position
+
+
+      // // nav position
       var maxH = 0;
       var $imgs = this.$slider.find('.owl-item > .item img');
       $imgs.each(function() {
@@ -355,8 +358,8 @@ define([
         }, 250);
       });
       //
-      if (this.currentItem != this.itemsAmount) {
-        this.$slider.data('owlCarousel').jumpTo(this.currentItemRtl() - 1);
+      if (this.currentItem !== owl.itemsAmount) {
+        owl.jumpToRtl(this.currentItem - 1);
       } else {
         this.afterMove();
       }
@@ -364,15 +367,15 @@ define([
     onResize: function() {
     },
     afterMove: function() {
-      this.currentItem = this.itemsAmount - this.$slider.data('owlCarousel').currentItem;
+      var owl = this.$slider.data('owlCarousel');
       if (!this.afterMoveUnhashedOnce) {
-        window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + this.currentItem);
+        window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl);
       }
       else {
         this.afterMoveUnhashedOnce = false;
-      }
-      this.$captions.data('galleryCaption').goTo(this.currentItemRtl() - 1);
-      this.$titles.data('galleryCaption').goTo(this.currentItemRtl() - 1);
+      }      
+      this.$captions.data('galleryCaption').goTo(owl.currentItem);
+      this.$titles.data('galleryCaption').goTo(owl.currentItem);
       this.banner();
     }
   });
