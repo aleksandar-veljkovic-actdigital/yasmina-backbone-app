@@ -192,7 +192,6 @@ define([
       this.remove();
     },
     banner: function() {
-      //oxAsyncGallery.deviceType = backboneApp.set.device;
       var $layout = this.$layout;
       var v = this.bannerVars;
       var t1 = v.state >= v.trigger; // action trigger

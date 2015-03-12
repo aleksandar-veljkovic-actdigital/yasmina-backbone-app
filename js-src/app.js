@@ -10,7 +10,7 @@ define([
   window.backboneApp = window.backboneApp || {};  
   window.backboneApp.set = window.backboneApp.set || {};
   window.backboneApp.set.$mediaGallerySelector = $('.article-gallery');
-  window.backboneApp.set.device = oxAsyncGallery.deviceType;
+  //window.backboneApp.set.device = oxAsyncGallery.deviceType;
   if ($('html').hasClass('ua-type-mobile')) {
     window.backboneApp.set.device = 'mobile';
   }
