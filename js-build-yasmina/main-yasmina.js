@@ -2699,8 +2699,6 @@ define('views/media-gallery',[
         }, 250);
       });
       //
-      console.log(this.currentItem);
-      console.log(owl.itemsAmount);
       if (this.currentItem != owl.itemsAmount) {
         owl.jumpToRtl(this.currentItem - 1);
       } else {
@@ -2839,13 +2837,13 @@ define('app',[
   window.backboneApp = window.backboneApp || {};  
   window.backboneApp.set = window.backboneApp.set || {};
   window.backboneApp.set.$mediaGallerySelector = $('.article-gallery');
-   window.backboneApp.set.device = oxAsyncGallery.deviceType;
-  //if ($('html').hasClass('ua-type-mobile')) {
-  //  window.backboneApp.set.device = 'mobile';
-  //}
-  //else {
-  //  window.backboneApp.set.device = 'desktop';
-  //}
+  window.backboneApp.set.device = oxAsyncGallery.deviceType;
+  if ($('html').hasClass('ua-type-mobile')) {
+    window.backboneApp.set.device = 'mobile';
+  }
+  else {
+    window.backboneApp.set.device = 'desktop';
+  }
   window.backboneApp.set.sharrrePhpProxyh = window.backboneApp.set.sharrrePhpProxyh || 'public/js/sharrre.php';
   window.backboneApp.set.imgBaseUrl = window.backboneApp.set.imgBaseUrl || "/0static/yasmina-scales/public/js/backbone/";
   window.backboneApp.set.gallery = {};
