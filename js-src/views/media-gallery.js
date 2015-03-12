@@ -349,8 +349,6 @@ define([
         }, 250);
       });
       //
-      console.log(this.currentItem);
-      console.log(owl.itemsAmount);
       if (this.currentItem != owl.itemsAmount) {
         owl.jumpToRtl(this.currentItem - 1);
       } else {
