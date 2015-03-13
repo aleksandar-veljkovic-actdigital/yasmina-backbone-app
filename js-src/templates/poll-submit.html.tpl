@@ -1,7 +1,7 @@
 <div class="w__poll--inner">
   
   <h2 class="w__poll--block-title">
-    Poll
+إستطلاع الرأي
   </h2>
 
   <img src="<%= img %>" alt="">

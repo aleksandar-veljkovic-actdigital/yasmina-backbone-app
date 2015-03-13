@@ -60,12 +60,15 @@ module.exports = function (grunt) {
       },
       requirejs: {
         files: ['js-src/*', 'js-src/*/*'],
-        tasks: ['requirejs:static', 'requirejs:yasmina']
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'clean']
       },
-    }  
+    },
+    clean: ["js-build/templates", "js-build-yasmina/templates"]
+
   });
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.registerTask('default', ['compass','requirejs','watch']);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.registerTask('default', ['compass','requirejs', 'clean', 'watch']);
 };
