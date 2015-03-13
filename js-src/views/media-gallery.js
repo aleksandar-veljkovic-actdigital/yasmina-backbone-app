@@ -61,7 +61,7 @@ define([
             title: $("h3", o).text(),
             img: $(".mg-related-img", o).attr('src'),
             caption: $(".mg-related-capt", o).text(), 
-            link: $('.mg-related-item').attr('href')
+            link: $(o).attr('href')
           };
           relateds.push(data);
         });
