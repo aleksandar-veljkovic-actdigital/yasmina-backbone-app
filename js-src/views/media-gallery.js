@@ -81,7 +81,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text()
+          caption: $(".mg-capt", o).text().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
       });
@@ -96,7 +96,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text()
+          caption: $(".mg-capt", o).text().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
         //adv
@@ -139,11 +139,11 @@ define([
       this.sharrre(this.$social);
       // captions
       this.$captions = $("<div class='mg-captions'>" + captRdr + "</div>");
-      this.$captions.galleryCaption();
+      this.$captions.galleryCaption({autoHeight: true});
       this.$captions.data('galleryCaption').goTo(-1);
       // titles
       this.$titles = $("<div class='mg-titles'>" + titlRdr + "</div>");
-      this.$titles.galleryCaption();
+      this.$titles.galleryCaption({autoHeight: true});
       this.$titles.data('galleryCaption').goTo(-1);
       // slider
       this.$slider = $("<div class='mg-slider'>" + itemsRdr + "</div>");
@@ -194,6 +194,7 @@ define([
     banner: function() {
       var $layout = this.$layout;
       var v = this.bannerVars;
+      var owl = this.$slider.data('owlCarousel'); 
       var t1 = v.state >= v.trigger; // action trigger
       var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0; // slide in trigger
       if (t1) {
@@ -202,11 +203,17 @@ define([
         v.state = 0;
       }
       if (t2) {
+        owl.options.autoHeight = false;
+        $('.owl-wrapper-outer', $layout).css('height', "");
+        $('.owl-item .advert-wrap .advert', $layout).html('&nbsp;');
         $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
       }
       v.state++;
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
+      }
+        if (t2) {
+        owl.options.autoHeight = true;
       }
     },
     sharrre: function($target) {
@@ -292,7 +299,7 @@ define([
         lazyFollow: true,
         lazyEffect: "fade",
         //Auto height
-        autoHeight: false,
+        autoHeight: true,
         //JSON 
         jsonPath: false,
         jsonSuccess: false,
@@ -311,7 +318,9 @@ define([
         afterInit: function() {
           _this.afterInit();
         },
-        beforeMove: false,
+        beforeMove: function() {
+          _this.beforeMove();
+        },
         afterMove: function() {
           _this.afterMove();
         },
@@ -331,7 +340,7 @@ define([
       var $imgs = this.$slider.find('.owl-item > .item img');
       $imgs.each(function() {
         var $img = $(this);
-        var protection = 20;
+        var protection = 60;
         var timeout = setTimeout(function() {
           var h = $img.outerHeight(true);
           protection--;
@@ -356,7 +365,10 @@ define([
     },
     onResize: function() {
     },
-    afterMove: function() {
+    beforeMove: function(jen,dva){
+      
+    },
+    afterMove: function() {      
       var owl = this.$slider.data('owlCarousel');
       if (!this.afterMoveUnhashedOnce) {
         window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl);

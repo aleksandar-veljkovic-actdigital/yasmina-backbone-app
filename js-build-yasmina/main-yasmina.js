@@ -2315,9 +2315,15 @@ define("fullScreen", function(){});
 
 ;
 (function($) {
+
   $.fn.galleryCaption = function(set) {
+
     var set = set || {};
     var $this = $(this);
+    var rreturn = {};
+    //set.autoHeight
+
+    // RTL
     if (set.rtl) {
       var itemNo = 0;
       $this.children().each(function(i, o) {
@@ -2328,21 +2334,47 @@ define("fullScreen", function(){});
         $($o.parent()).prepend($o);
       });
     }
+
+
     var $items = $this.children();
-    //$this.css({position: "relative"});
+    $this.css({position: "relative"});
     $items.css({opacity: 0, zIndex: -1, position: "absolute", transition: "opacity .2s"});
-    $this.data('galleryCaption', {
-      goTo: function(itemNo) {
-        if (itemNo === -1 || itemNo === false ) {
-          $items.css({opacity: 0, zIndex: -1}).removeClass("active");
-        } else {
-          var $active = $items.eq(itemNo);
-          $items.css({opacity: 0, zIndex: -1}).removeClass("active");
-          $active.css({opacity: 1, zIndex: 1}).addClass("active");
+
+    if (!set.autoHeight) {
+      var maxH = 0;
+      $items.each(function() {
+        var h = $(this).outerHeight(true);
+        if (h > maxH) {
+          maxH = h;
         }
+      });
+      $this.css({height: maxH});
+    } else {
+      $this.css({
+        transition : 'height .2s'
+      });      
+    }
+
+    rreturn.goTo = function(itemNo) {
+      if (itemNo === -1 || itemNo === false) {
+        $items.css({opacity: 0, zIndex: -1}).removeClass("active");
+      } else {
+        var $active = $items.eq(itemNo);
+        $items.css({opacity: 0, zIndex: -1}).removeClass("active");
+        $active.css({opacity: 1, zIndex: 1}).addClass("active");
       }
-    });
-    $this.data('galleryCaption').goTo(0);
+      if (set.autoHeight && typeof($active)!=='undefined') {
+        var h = $active.outerHeight(true);
+        $this.css('height', h);
+      }
+    };
+
+    $this.data('galleryCaption', {goTo: rreturn.goTo});
+
+
+    rreturn.goTo(0);
+
+    return rreturn;
   };
 
 })(jQuery);
@@ -2431,7 +2463,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text()
+          caption: $(".mg-capt", o).text().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
       });
@@ -2446,7 +2478,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text()
+          caption: $(".mg-capt", o).text().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
         //adv
@@ -2489,11 +2521,11 @@ define('views/media-gallery',[
       this.sharrre(this.$social);
       // captions
       this.$captions = $("<div class='mg-captions'>" + captRdr + "</div>");
-      this.$captions.galleryCaption();
+      this.$captions.galleryCaption({autoHeight: true});
       this.$captions.data('galleryCaption').goTo(-1);
       // titles
       this.$titles = $("<div class='mg-titles'>" + titlRdr + "</div>");
-      this.$titles.galleryCaption();
+      this.$titles.galleryCaption({autoHeight: true});
       this.$titles.data('galleryCaption').goTo(-1);
       // slider
       this.$slider = $("<div class='mg-slider'>" + itemsRdr + "</div>");
@@ -2544,6 +2576,7 @@ define('views/media-gallery',[
     banner: function() {
       var $layout = this.$layout;
       var v = this.bannerVars;
+      var owl = this.$slider.data('owlCarousel'); 
       var t1 = v.state >= v.trigger; // action trigger
       var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0; // slide in trigger
       if (t1) {
@@ -2552,11 +2585,17 @@ define('views/media-gallery',[
         v.state = 0;
       }
       if (t2) {
+        owl.options.autoHeight = false;
+        $('.owl-wrapper-outer', $layout).css('height', "");
+        $('.owl-item .advert-wrap .advert', $layout).html('&nbsp;');
         $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
       }
       v.state++;
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
+      }
+        if (t2) {
+        owl.options.autoHeight = true;
       }
     },
     sharrre: function($target) {
@@ -2642,7 +2681,7 @@ define('views/media-gallery',[
         lazyFollow: true,
         lazyEffect: "fade",
         //Auto height
-        autoHeight: false,
+        autoHeight: true,
         //JSON 
         jsonPath: false,
         jsonSuccess: false,
@@ -2661,7 +2700,9 @@ define('views/media-gallery',[
         afterInit: function() {
           _this.afterInit();
         },
-        beforeMove: false,
+        beforeMove: function() {
+          _this.beforeMove();
+        },
         afterMove: function() {
           _this.afterMove();
         },
@@ -2681,7 +2722,7 @@ define('views/media-gallery',[
       var $imgs = this.$slider.find('.owl-item > .item img');
       $imgs.each(function() {
         var $img = $(this);
-        var protection = 20;
+        var protection = 60;
         var timeout = setTimeout(function() {
           var h = $img.outerHeight(true);
           protection--;
@@ -2706,7 +2747,10 @@ define('views/media-gallery',[
     },
     onResize: function() {
     },
-    afterMove: function() {
+    beforeMove: function(jen,dva){
+      
+    },
+    afterMove: function() {      
       var owl = this.$slider.data('owlCarousel');
       if (!this.afterMoveUnhashedOnce) {
         window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl);
@@ -2846,7 +2890,7 @@ define('app',[
   window.backboneApp.set.sharrrePhpProxyh = window.backboneApp.set.sharrrePhpProxyh || 'public/js/sharrre.php';
   window.backboneApp.set.imgBaseUrl = window.backboneApp.set.imgBaseUrl || "/0static/yasmina-scales/public/js/backbone/";
   window.backboneApp.set.gallery = {};
-  window.backboneApp.set.gallery.adMobileInsertOnCount = window.backboneApp.set.gallery.adMobileInsertOnCount || 2;
+  window.backboneApp.set.gallery.adMobileInsertOnCount = window.backboneApp.set.gallery.adMobileInsertOnCount || 3;
   window.backboneApp.set.gallery.adMobileActionCount = window.backboneApp.set.gallery.adMobileActionCount || 3;
   ///////////////////////////////////////////////////////////////////////////////
 
