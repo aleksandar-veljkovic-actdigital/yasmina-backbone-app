@@ -6,7 +6,6 @@ $font-family-noto: "Noto Serif", serif !default;
 
 .article-gallery {
   position: relative;
-
   .mg-item:hover {
     a {
       text-decoration: none;
@@ -21,9 +20,6 @@ $font-family-noto: "Noto Serif", serif !default;
 
 
   }
-
-
-
   .mg-item,
   .mg-item > a > h3,
   .mg-item > a > div {
@@ -333,7 +329,16 @@ $font-family-noto: "Noto Serif", serif !default;
       .mg-titles {
         height: 0;
         overflow: hidden;
+        .num {
+          font-family: $font-family-noto;
+          font-size: rem-calc(16);
+          color: #fff;
+        }
         h3 {
+          font-family: $font-family-kufi;
+          font-size: rem-calc(18);
+          line-height: rem-calc(26);
+          color: #bebebe;
           margin: .75rem 0 0;
           height: auto;
         }
@@ -342,6 +347,10 @@ $font-family-noto: "Noto Serif", serif !default;
         height: 0;
         overflow: hidden;
         p {
+          font-family: $font-family-naskh;
+          font-size: rem-calc(16);
+          line-height: rem-calc(22);
+          color: #676767;
           margin-top: rem-calc(40);
           margin-bottom: 0;
           &:empty {
