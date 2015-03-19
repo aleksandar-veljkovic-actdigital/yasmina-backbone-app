@@ -6,50 +6,51 @@ $font-family-noto: "Noto Serif", serif !default;
 
 .article-gallery {
   position: relative;
-  .mg-start {
-    display: block;
-    position: relative;
-    & > .mg-item{
-      margin: 0;
-    }
-    & > .mg-item,
-    & > .mg-item > h3,
-    & > .mg-item > div {
-      opacity: 0.001;
-      width: 1px;
-      height: 1px;
-      z-index: -1;
-      position: absolute;
-    }
-    & > .mg-item:first-child,
-      & > .mg-item:first-child > img {
-      opacity: 1;
-      width: 100%;
-      height: auto;
-      z-index: auto;
-      position: relative;
-    }
-    &:hover {
-      .mg-item {
-        img {
-          opacity: 0.8;
-          transition: opacity .8s;
-        }
-      }
-      .mg-zoom-icon {
-        opacity: 0.8;
-        width: 45px;
 
-      }
+  .mg-item:hover {
+    a {
+      text-decoration: none;
+    }
+    img {
+      opacity: 0.8;
     }
     .mg-zoom-icon {
-      display: block;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 39px;
-      transition: width .4s, opacity .8s;
+      //opacity: 0.8;
+      width: 45px;
     }
+
+
+  }
+
+
+
+  .mg-item,
+  .mg-item > a > h3,
+  .mg-item > a > div {
+    margin: 0;
+    opacity: 0.001;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+    position: absolute;
+  }
+  .mg-item img {
+    transition: width .2s, opacity .2s;
+  }
+  .mg-item:first-child {
+    opacity: 1;
+    width: 100%;
+    height: auto;
+    z-index: auto;
+    position: relative;
+  }
+  .mg-zoom-icon {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 39px;
+
   }
   .mg-related-item {
     opacity: 0.001;
@@ -57,6 +58,30 @@ $font-family-noto: "Noto Serif", serif !default;
     height: 1px;
     z-index: -1;
     position: absolute;
+  }
+}
+// Galery On Galery Post
+.article-gallery.showGallery {
+  a:hover {
+    text-decoration: none;
+  }
+  .mg-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: auto;
+    h3 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      z-index: auto;
+      color: #000;
+      text-decoration: none;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 

@@ -5,9 +5,9 @@ define([
 ], function(
         Router
         ) {
-  
+
   ///////////////////////////////////////////////////////////////////////////////
-  window.backboneApp = window.backboneApp || {};  
+  window.backboneApp = window.backboneApp || {};
   window.backboneApp.set = window.backboneApp.set || {};
   window.backboneApp.set.$mediaGallerySelector = $('.article-gallery');
   //window.backboneApp.set.device = oxAsyncGallery.deviceType;
@@ -34,16 +34,46 @@ define([
 
 
   // Media Gallery enumeration
-  window.backboneApp.set.$mediaGallerySelector.each(function(i, o) {
-    var $o = $(o);
-    $o.addClass("media-gallery");
-    $o.addClass("media-gallery-" + i);
-    $o.find('.mg-start').attr('href', "#media-gallery/" + i + "/1");
-  }); 
-  
+  window.backboneApp.set.$mediaGallerySelector.each(function(galleryIndex, gallery) {
+    var $gallery = $(gallery);
+    $gallery.addClass("media-gallery");
+    $gallery.addClass("media-gallery-" + galleryIndex);
+    var itemIndex = 1;
+    /*
+     if (window.backboneApp.set.device === 'mobile') {
+     $gallery.find('.mg-start').each(function(starterIndex, starter) {
+     if ((window.backboneApp.set.device === 'mobile')&&((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)) {          
+     itemIndex++;
+     }
+     $(starter).attr('href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
+     itemIndex++;
+     });
+     } else {
+     */
+    $gallery.find('.mg-start').each(function(starterIndex, starter) {
+      starterIndex = starterIndex + 1;
+
+
+      console.log('--------------------------');
+      console.log('starter:' + starterIndex);
+      console.log('item:' + itemIndex);
+
+      $(starter).attr('href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
+      itemIndex++;
+      if (
+              (window.backboneApp.set.device === 'mobile') &&
+              ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
+              )
+      {
+        itemIndex++;
+      }
+    });
+    //}
+  });
+
   return function() {
     window.backboneApp.router = Router.initialize().router;
-  };  
-  
+  };
+
 });
    
