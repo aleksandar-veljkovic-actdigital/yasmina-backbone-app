@@ -2235,7 +2235,7 @@ define('text!templates/media-gallery-layout-mob.html.tpl',[],function () { retur
 define('text!templates/media-gallery-item.html.tpl',[],function () { return '<div class="item">\n  \n  <img  src="<%=img%>" alt="" />\n  \n</div>';});
 
 
-define('text!templates/media-gallery-related.html.tpl',[],function () { return '<div class="mg-related"><!--\n  <% _.forEach(articles, function (a, i) { %>\n    --><a href="<%=a.link%>" class="mg-related-item mg-related-item-<%=i%>">\n          <div class="mg-related-img">\n            <img  src="<%=a.img%>" alt="" />\n          </div>\n          <p class="mg-related-title">\n            <%= a.title %>\n          </p>\n    </a><!--\n  <% }); %>\n--></div>';});
+define('text!templates/media-gallery-related.html.tpl',[],function () { return '<div class="mg-related">\n  <h3>ألبومات سوف تحبينها</h3><!--\n  <% _.forEach(articles, function (a, i) { %>\n    --><a href="<%=a.link%>" class="mg-related-item mg-related-item-<%=i%>">\n          <div class="mg-related-img">\n            <img  src="<%=a.img%>" alt="" />\n          </div>\n          <p class="mg-related-title">\n            <%= a.title %>\n          </p>\n    </a><!--\n  <% }); %>\n--></div>';});
 
 ;
 
@@ -2448,7 +2448,7 @@ define('views/media-gallery',[
           relateds.push(data);
         });
         _this.collection.add(new Backbone.Model({
-          title: "Related Articles",
+          title: "",
           caption: "",
           type: "related",
           articles: relateds
@@ -2606,7 +2606,7 @@ define('views/media-gallery',[
         share: {
           facebook: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'fbico.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'fbico.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         click: function(api, options) {
@@ -2618,7 +2618,7 @@ define('views/media-gallery',[
         share: {
           twitter: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'twitt.png" alt="" />غرّدي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'twitt.png" alt="" /><span>غرّدي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         click: function(api, options) {
@@ -2630,7 +2630,7 @@ define('views/media-gallery',[
         share: {
           googlePlus: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'gplus.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'gplus.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         urlCurl: gPlusSharePhp,

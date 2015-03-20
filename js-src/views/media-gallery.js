@@ -66,7 +66,7 @@ define([
           relateds.push(data);
         });
         _this.collection.add(new Backbone.Model({
-          title: "Related Articles",
+          title: "",
           caption: "",
           type: "related",
           articles: relateds
@@ -224,7 +224,7 @@ define([
         share: {
           facebook: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'fbico.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'fbico.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         click: function(api, options) {
@@ -236,7 +236,7 @@ define([
         share: {
           twitter: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'twitt.png" alt="" />غرّدي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'twitt.png" alt="" /><span>غرّدي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         click: function(api, options) {
@@ -248,7 +248,7 @@ define([
         share: {
           googlePlus: true
         },
-        template: '<a class="box" href="#"><div class="share"><span><img src="' + imgBaseUrl + 'gplus.png" alt="" />شاركي</span></div><div class="count">{total}</div></a>',
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'gplus.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: false,
         urlCurl: gPlusSharePhp,
