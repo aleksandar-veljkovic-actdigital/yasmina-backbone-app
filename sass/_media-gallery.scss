@@ -14,8 +14,8 @@ $font-family-noto: "Noto Serif", serif !default;
       opacity: 0.8;
     }
     .mg-zoom-icon {
-      //opacity: 0.8;
-      width: 45px;
+      opacity: 1;
+      //width: 45px;
     }
 
 
@@ -286,6 +286,7 @@ $font-family-noto: "Noto Serif", serif !default;
         font-size: 16px;
         padding-top: 24px;
         margin-bottom: 20px;
+        margin-top: 0;
         font-family: $font-family-kufi;
       }      
       .mg-related-item {
@@ -293,6 +294,7 @@ $font-family-noto: "Noto Serif", serif !default;
         width: 50%;
         display: inline-block;
         vertical-align: middle;
+        text-decoration: none;
         img {
           width: 100%;
         }
@@ -306,7 +308,11 @@ $font-family-noto: "Noto Serif", serif !default;
           vertical-align: middle;
           -webkit-box-sizing: content-box;
           -moz-box-sizing: content-box;
-          box-sizing: content-box;         
+          box-sizing: content-box; 
+          transition: color 0.6s;
+        }
+        &:hover .mg-related-title {
+            color: #bebebe!important;
         }
       }
 
