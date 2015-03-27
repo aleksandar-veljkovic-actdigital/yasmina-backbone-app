@@ -6,6 +6,7 @@ $font-family-noto: "Noto Serif", serif !default;
 
 .article-gallery {
   position: relative;
+  // ux
   .mg-item:hover {
     a {
       text-decoration: none;
@@ -17,21 +18,21 @@ $font-family-noto: "Noto Serif", serif !default;
       opacity: 1;
       //width: 45px;
     }
-
-
   }
+  .mg-item img {
+    transition: width .2s, opacity .2s;
+  }
+  // show only first
   .mg-item,
-  .mg-item > a > h3,
-  .mg-item > a > div {
+  .mg-related-item,
+  .mg-capt,
+  h3 {
     margin: 0;
     opacity: 0.001;
     width: 1px;
     height: 1px;
     z-index: -1;
     position: absolute;
-  }
-  .mg-item img {
-    transition: width .2s, opacity .2s;
   }
   .mg-item:first-child {
     opacity: 1;
@@ -40,20 +41,15 @@ $font-family-noto: "Noto Serif", serif !default;
     z-index: auto;
     position: relative;
   }
-  .mg-zoom-icon {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 39px;
-
-  }
-  .mg-related-item {
-    opacity: 0.001;
-    width: 1px;
-    height: 1px;
-    z-index: -1;
-    position: absolute;
+  .mg-zoom-icon-polygon {
+    position: relative;
+    .mg-zoom-icon {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 39px;
+    }
   }
 }
 // Galery On Galery Post
@@ -77,6 +73,29 @@ $font-family-noto: "Noto Serif", serif !default;
       text-decoration: none;
       margin-top: 1rem;
       margin-bottom: 0.5rem;
+      float: right;
+      width: 90%;
+    }
+    .ordNumber {
+      float: right;
+      position: relative;
+      height: 100%;
+      opacity: 1;
+      z-index: auto;
+      color: #000;
+      text-decoration: none;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.17em;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+    .mg-capt {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      z-index: auto;
     }
   }
 }
@@ -312,7 +331,7 @@ $font-family-noto: "Noto Serif", serif !default;
           transition: color 0.6s;
         }
         &:hover .mg-related-title {
-            color: #bebebe!important;
+          color: #bebebe!important;
         }
       }
 
