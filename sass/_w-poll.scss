@@ -21,6 +21,7 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
   float:right;
   background-color: $black-semi;
   margin-bottom: 20px;
+  padding: 5%;
   img {
     width: 100%;
   }
@@ -200,7 +201,6 @@ div .w__poll--left {
 // R I G H T   P O L S /////////////////////////////////////////////////////////
 div .w__poll--right {
   background-color: $fafa;
-  padding: 5%;
   h2.w__poll--block-title {
     display:none;
     margin-left: 0;
@@ -255,9 +255,6 @@ div .w__poll--right {
 }
 
 //set media
-.desktop .w__poll {
-  padding: 5%;
-}
 .mobile {
   .w__poll {
     margin-bottom: 37px;

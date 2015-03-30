@@ -475,12 +475,13 @@
   float: right;
   background-color: #2b2b2b;
   margin-bottom: 20px;
+  padding: 5%;
 }
-/* line 24, ../sass/_w-poll.scss */
+/* line 25, ../sass/_w-poll.scss */
 .w__poll img {
   width: 100%;
 }
-/* line 27, ../sass/_w-poll.scss */
+/* line 28, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title {
   font-size: 1.2rem;
   line-height: 1.9rem;
@@ -490,7 +491,7 @@
   color: white;
   font-weight: bold;
 }
-/* line 35, ../sass/_w-poll.scss */
+/* line 36, ../sass/_w-poll.scss */
 .w__poll h2.w__poll--block-title:after {
   border-bottom: 3px solid #9e914c;
   bottom: -12px;
@@ -501,7 +502,7 @@
   text-align: center;
   width: 65px;
 }
-/* line 46, ../sass/_w-poll.scss */
+/* line 47, ../sass/_w-poll.scss */
 .w__poll h3.w__poll--question {
   color: white;
   font-size: 1.2rem;
@@ -509,12 +510,12 @@
   text-align: center;
   margin: 1.375rem 5% 1rem;
 }
-/* line 53, ../sass/_w-poll.scss */
+/* line 54, ../sass/_w-poll.scss */
 .w__poll a.w-poll__link-all {
   line-height: 2.8125rem;
   display: inline-block;
 }
-/* line 56, ../sass/_w-poll.scss */
+/* line 57, ../sass/_w-poll.scss */
 .w__poll a.w-poll__link-all span {
   line-height: 1.2rem;
   padding: 4px 0;
@@ -524,7 +525,7 @@
   white-space: nowrap;
   color: #9e914c;
 }
-/* line 66, ../sass/_w-poll.scss */
+/* line 67, ../sass/_w-poll.scss */
 .w__poll .w__poll--btn-s {
   margin: 0 auto;
   text-align: center;
@@ -538,17 +539,17 @@
   font-weight: bold;
   font-family: "Noto Kufi Arabic", serif, "Noto Serif", serif;
 }
-/* line 80, ../sass/_w-poll.scss */
+/* line 81, ../sass/_w-poll.scss */
 .w__poll .w__poll--form {
   position: relative;
 }
-/* line 82, ../sass/_w-poll.scss */
+/* line 83, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios {
   border-top: solid 1px #423f32;
   border-bottom: solid 1px #423f32;
   padding-bottom: 1rem;
 }
-/* line 86, ../sass/_w-poll.scss */
+/* line 87, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label {
   display: block;
   position: relative;
@@ -557,12 +558,12 @@
   padding: 0 5%;
   min-height: 3rem;
 }
-/* line 93, ../sass/_w-poll.scss */
+/* line 94, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label .iradio_minimal {
   position: absolute;
   top: 0.7rem;
 }
-/* line 97, ../sass/_w-poll.scss */
+/* line 98, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .w__poll--radios label span {
   padding-top: 1rem;
   padding-bottom: .5rem;
@@ -574,14 +575,14 @@
   color: white;
   position: relative;
 }
-/* line 110, ../sass/_w-poll.scss */
+/* line 111, ../sass/_w-poll.scss */
 .w__poll .w__poll--form .form-err {
   width: 100%;
   text-align: center;
   color: red;
   position: absolute;
 }
-/* line 118, ../sass/_w-poll.scss */
+/* line 119, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics {
   border-top: 1px solid #423f32;
   border-bottom: 1px solid #423f32;
@@ -590,19 +591,19 @@
   -webkit-transition: opacity .3s;
   opacity: 0;
 }
-/* line 125, ../sass/_w-poll.scss */
+/* line 126, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row {
   min-height: 3rem;
   margin: 0 5%;
   position: relative;
 }
-/* line 129, ../sass/_w-poll.scss */
+/* line 130, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label {
   display: block;
   text-align: right;
   width: 100%;
 }
-/* line 134, ../sass/_w-poll.scss */
+/* line 135, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label .pctg {
   position: absolute;
   left: 0;
@@ -610,7 +611,7 @@
   color: #9e914c;
   font-size: 1.1rem;
 }
-/* line 141, ../sass/_w-poll.scss */
+/* line 142, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-label .text {
   line-height: 1.25rem;
   font-size: 1.1rem;
@@ -620,7 +621,7 @@
   margin-left: 38px;
   color: white;
 }
-/* line 151, ../sass/_w-poll.scss */
+/* line 152, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap {
   outline: 0px solid white;
   background-color: #423f32;
@@ -629,7 +630,7 @@
   width: 100%;
   display: inline-block;
 }
-/* line 158, ../sass/_w-poll.scss */
+/* line 159, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .bar-wrap .bar {
   height: 0.1875rem;
   background-color: #9e914c;
@@ -637,40 +638,39 @@
   transition: width 1s;
   -webkit-transition: width 1s;
 }
-/* line 166, ../sass/_w-poll.scss */
+/* line 167, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics .poll-row .count {
   text-align: left;
   color: white;
   line-height: 28px;
   font-size: 14px;
 }
-/* line 173, ../sass/_w-poll.scss */
+/* line 174, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics:not(.animation-trigger) .bar {
   width: 0 !important;
 }
-/* line 176, ../sass/_w-poll.scss */
+/* line 177, ../sass/_w-poll.scss */
 .w__poll .w-poll__statistics.animation-trigger {
   opacity: 1;
 }
-/* line 181, ../sass/_w-poll.scss */
+/* line 182, ../sass/_w-poll.scss */
 .w__poll .w-poll__footer {
   height: 6rem;
   padding: 2rem 0 0;
 }
 
-/* line 191, ../sass/_w-poll.scss */
+/* line 192, ../sass/_w-poll.scss */
 div .w__poll--left h2.w__poll--block-title {
   margin-top: 0;
 }
-/* line 194, ../sass/_w-poll.scss */
+/* line 195, ../sass/_w-poll.scss */
 div .w__poll--left .w-poll__footer {
   text-align: center;
 }
 
-/* line 201, ../sass/_w-poll.scss */
+/* line 202, ../sass/_w-poll.scss */
 div .w__poll--right {
   background-color: #fafafa;
-  padding: 5%;
 }
 /* line 204, ../sass/_w-poll.scss */
 div .w__poll--right h2.w__poll--block-title {
@@ -733,12 +733,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   display: none;
 }
 
-/* line 258, ../sass/_w-poll.scss */
-.desktop .w__poll {
-  padding: 5%;
-}
-
-/* line 262, ../sass/_w-poll.scss */
+/* line 259, ../sass/_w-poll.scss */
 .mobile .w__poll {
   margin-bottom: 37px;
 }
