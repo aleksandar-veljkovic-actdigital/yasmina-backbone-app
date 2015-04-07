@@ -2407,7 +2407,7 @@ define('views/media-gallery',[
         templateItem,
         templateRelated
         ) {
-  
+
   var gPlusSharePhp = backboneApp.set.sharrrePhpProxyh;
   var MediaGallryView = Backbone.View.extend({
     imgBaseUrl: backboneApp.set.imgBaseUrl,
@@ -2442,7 +2442,7 @@ define('views/media-gallery',[
           var data = {
             title: $("h3", o).text(),
             img: $(".mg-related-img", o).attr('src'),
-            caption: $(".mg-related-capt", o).text(), 
+            caption: $(".mg-related-capt", o).text(),
             link: $(o).attr('href')
           };
           relateds.push(data);
@@ -2576,7 +2576,7 @@ define('views/media-gallery',[
     banner: function() {
       var $layout = this.$layout;
       var v = this.bannerVars;
-      var owl = this.$slider.data('owlCarousel'); 
+      var owl = this.$slider.data('owlCarousel');
       var t1 = v.state >= v.trigger; // action trigger
       var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0; // slide in trigger
       if (t1) {
@@ -2594,7 +2594,7 @@ define('views/media-gallery',[
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
       }
-        if (t2) {
+      if (t2) {
         owl.options.autoHeight = true;
       }
     },
@@ -2718,39 +2718,70 @@ define('views/media-gallery',[
         owl.goToRtl(num - 1);
       };
       // // nav position
-      var maxH = 0;
-      var $imgs = this.$slider.find('.owl-item > .item img');
-      $imgs.each(function() {
-        var $img = $(this);
-        var protection = 60;
-        var timeout = setTimeout(function() {
-          var h = $img.outerHeight(true);
-          protection--;
-          if (h > 0 || protection < 0) {
-            clearTimeout(timeout);
-            if (h > maxH) {
-              maxH = h;
-              $('.owl-buttons', _this.$slider).css({
-                bottom: 'auto',
-                top: maxH / 2
-              });
-            }
-          }
-        }, 250);
-      });
+      /*
+       var maxH = 0;
+       var $imgs = this.$slider.find('.owl-item > .item img');
+       $imgs.each(function() {
+       var $img = $(this);
+       var protection = 60;
+       var timeout = setTimeout(function() {
+       var h = $img.outerHeight(true);
+       protection--;
+       if (h > 0 || protection < 0) {
+       clearTimeout(timeout);
+       if (h > maxH) {
+       maxH = h;
+       $('.owl-buttons', _this.$slider).css({
+       bottom: 'auto',
+       top: maxH / 2
+       });
+       }
+       }
+       }, 250);
+       });
+       */
       //
       if (this.currentItem != owl.itemsAmount) {
         owl.jumpToRtl(this.currentItem - 1);
       } else {
         this.afterMove();
       }
+      this.onResizeBinder();
+    },
+    onResizeBinder: function() {
+      var timeout = false;
+      var tthis = this;
+      $(window).resize(function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+          tthis.onResize();
+        }, 100);
+      });
+      tthis.onResize();
     },
     onResize: function() {
-    },
-    beforeMove: function(jen,dva){
+      var owl = this.$slider.data('owlCarousel');
+      var delta = 0;
+      if (this.$layout.hasClass('desktop')) {
+        delta = $('.mg-header', this.$layout).outerHeight() + 20;
+      }
+      else {
+        delta = $('.mg-header', this.$layout).outerHeight() + $('.mg-titles-w', this.$layout).outerHeight() + 20;
+      }
+      var h = $(window).height() - delta;
+
+      $('.owl-item .item', this.$slider).css({'width': "1px", height: "1px"});
+      setTimeout(function() {  // OWL AutoHeight bug fixs
+        $('.owl-item .item', this.$slider).css({'height': h + "px", 'width': ""});
+      }, 0);
       
+
+      $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
     },
-    afterMove: function() {      
+    beforeMove: function(jen, dva) {
+
+    },
+    afterMove: function() {
       var owl = this.$slider.data('owlCarousel');
       if (!this.afterMoveUnhashedOnce) {
         window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl);

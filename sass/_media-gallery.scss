@@ -243,11 +243,20 @@ $font-family-noto: "Noto Serif", serif !default;
         text-align:center;
         .owl-item {
           overflow: hidden;
-          img {
+          position: relative;
+          .item img {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             max-width: 100%;
+            max-height: 100%;
+            padding: 0 3px;
           }
         }
         .owl-controls{
+          margin: 0;
           .owl-buttons {
             width: 100%;
             left: 0;
@@ -268,6 +277,7 @@ $font-family-noto: "Noto Serif", serif !default;
               //background: none; 
               filter: Alpha(Opacity=100);
               opacity: 1;
+              z-index: 1000;
             }
             & .owl-prev,
             & .owl-next{
@@ -284,11 +294,11 @@ $font-family-noto: "Noto Serif", serif !default;
               outline: 1px solid gray;
             }
             .owl-prev{
-              left: 0;
+              left: 3px;
               background-image: url($backboneImgBaseUrl + 'media-gallery-left.png');
             }
             .owl-next{
-              right: 0; 
+              right: 3px; 
               background-image: url($backboneImgBaseUrl + 'media-gallery-right.png');
             }
           }
