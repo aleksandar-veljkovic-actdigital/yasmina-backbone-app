@@ -1,3 +1,11 @@
+@mixin prefixed($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
 $font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 $font-family-noto: "Noto Serif", serif !default;
@@ -249,7 +257,7 @@ $font-family-noto: "Noto Serif", serif !default;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include prefixed( transform, translate(-50%, -50%) );
             max-width: 100%;
             max-height: 100%;
             padding: 0 3px;
