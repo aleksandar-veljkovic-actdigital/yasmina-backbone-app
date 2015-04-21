@@ -391,14 +391,16 @@ $font-family-noto: "Noto Serif", serif !default;
         vertical-align: middle;
         box-sizing: border-box;
       }
-      .mg-titles {
-        height: 0;
-        overflow: hidden;
+      .mg-numers-w {
         .num {
           font-family: $font-family-noto;
           font-size: rem-calc(16);
           color: #fff;
         }
+      }
+      .mg-titles {
+        height: 0;
+        overflow: hidden;
         h3 {
           font-family: $font-family-kufi;
           font-size: rem-calc(18);
@@ -442,13 +444,17 @@ $font-family-noto: "Noto Serif", serif !default;
 
   // // // // // //  MOBIL  // // // // // //  
 
-  $mg-mob-ident: 2%;  
+  
   .media-gallery-fullscreen.mobile {
+    $mg-mob-ident: 2%;
+    $below-header: 50px;
     box-sizing: border-box;
     padding: 0 0;
     .mg-header {
       text-align: center;
-      height: 82px;
+      height: 66px;
+      margin-bottom: $below-header;
+      position: relative;
       .mg-banner-a-mob {
         height: 50px;
         margin-top: 16px;
@@ -456,33 +462,46 @@ $font-family-noto: "Noto Serif", serif !default;
         vertical-align: middle;
       }
     }
+    .mg-numers-w {
+      position: absolute;
+      bottom: -$below-header;
+      height: $below-header;
+      margin-right: $mg-mob-ident;
+      .num {
+        line-height: $below-header;
+        height: $below-header;
+        vertical-align: middle;
+        font-family: $font-family-noto;
+        font-size: rem-calc(24);
+        font-weight: bold;
+      }     
+    }
+
     .mg-titles-w {
       padding: 0 $mg-mob-ident;
       position: relative;
-      height: rem-calc(24+(2*36)+(2*12));
+      height: auto;
       text-align: right;
       width: 100%;
       .mg-title {
-        .num {
-          font-family: $font-family-noto;
-          font-size: rem-calc(24);
-          line-height: rem-calc(24);
-          font-weight: bold;
-        }
         h3 {
           color: #bbb;
           font-size: rem-calc(20);
           line-height: rem-calc(36);
-          height: rem-calc(72);
-          margin: rem-calc(12) 0;
+          height: auto;
+          margin: rem-calc(40) 0 0;
           font-family: $font-family-kufi;
+        }
+        h3:empty {
+          margin: 0;          
         }
       }
     }
     .mg-close {
       left: 0;
-      top: -10px;
+      bottom: -50px;
       z-index: 9999;
+      margin-left: $mg-mob-ident;
     }
 
     .mg-related .mg-related-item .mg-related-title {

@@ -2226,10 +2226,10 @@ define('models/media-gallery',[], function() {
 define('text!templates/media-gallery-social-share.html.tpl',[],function () { return '<div class="mg-share">\n\n\t\t<div id="facebook_share" class="share_btn" ></div>\n\n\t\t<div id="twitter_share" class="share_btn" ></div>\n\n\t\t<div id="gplus_share" class="share_btn" ></div>\n    \n</div>';});
 
 
-define('text!templates/media-gallery-layout.html.tpl',[],function () { return '<div class="media-gallery-fullscreen desktop">\n  \n  <div class="mg-header">\n    <div class="mg-banner-a mg-banner mg-banner-lb"></div>\n    <a href="#mg-close" class="mg-close"></a>\n  </div>\n  \n  <div class="mg-main">\n    <div class=\'mg-slider-w\'></div>\n  </div><!--\n        \n  --><div class="mg-asside">\n    <div class=\'mg-titles-w\'></div>\n    <div class=\'mg-captions-w\'></div>\n    <div class=\'mg-social-w\'></div>\n    <div class="mg-banner-b mg-banner mg-banner-mpu"></div>    \n  </div> \n  \n</div>';});
+define('text!templates/media-gallery-layout.html.tpl',[],function () { return '<div class="media-gallery-fullscreen desktop">\n  \n  <div class="mg-header">\n    <div class="mg-banner-a mg-banner mg-banner-lb"></div>\n    <a href="#mg-close" class="mg-close"></a>\n  </div>\n  \n  <div class="mg-main">\n    <div class=\'mg-slider-w\'></div>\n  </div><!--\n        \n  --><div class="mg-asside">\n    <div class=\'mg-numers-w\'></div>\n    <div class=\'mg-titles-w\'></div>\n    <div class=\'mg-captions-w\'></div>\n    <div class=\'mg-social-w\'></div>\n    <div class="mg-banner-b mg-banner mg-banner-mpu"></div>    \n  </div> \n  \n</div>';});
 
 
-define('text!templates/media-gallery-layout-mob.html.tpl',[],function () { return '<div class="media-gallery-fullscreen mobile">\n  \n  <div class="mg-header">\n    <div class="mg-banner-a-mob mg-banner mg-banner-lb"></div>\n  </div>\n  \n  <div class=\'mg-titles-w\'>\n    <a href="#mg-close" class="mg-close"></a> \n    \n  </div>\n  <div class="mg-main">\n    <div class=\'mg-slider-w\'></div>\n  </div>\n        \n  <div class="mg-asside">    \n    <div class=\'mg-captions-w\'></div> \n    <div class=\'mg-social-w\'></div>\n  </div> \n  \n</div>';});
+define('text!templates/media-gallery-layout-mob.html.tpl',[],function () { return '<div class="media-gallery-fullscreen mobile">\n  \n  <div class="mg-header">\n    <div class="mg-banner-a-mob mg-banner mg-banner-lb"></div>\n    <a href="#mg-close" class="mg-close"></a> \n    <div class=\'mg-numers-w\'></div> \n  </div>  \n    \n  <div class="mg-main">\n    <div class=\'mg-slider-w\'></div>\n  </div>\n        \n  <div class="mg-asside">   \n    <div class=\'mg-titles-w\'></div>\n    <div class=\'mg-captions-w\'></div> \n    <div class=\'mg-social-w\'></div>\n  </div> \n  \n</div>';});
 
 
 define('text!templates/media-gallery-item.html.tpl',[],function () { return '<div class="item">\n  \n  <img  src="<%=img%>" alt="" />\n  \n</div>';});
@@ -2414,9 +2414,10 @@ define('views/media-gallery',[
     $fullScreen: $(),
     $layout: $(),
     $slider: $(),
-    $caption: $(),
+    $captions: $(),
     $social: $(),
-    $title: $(),
+    $titles: $(),
+    $numers: $(),
     bannerVars: {},
     currentItem: null,
     id: null,
@@ -2502,9 +2503,11 @@ define('views/media-gallery',[
       var captRdr = "";
       var clength = this.collection.length;
       var titlRdr = "";
+      var numersRdr = "";
       this.collection.each(function(item, i) {
         captRdr = "<div class='mg-caption'><p>" + item.attributes.caption + "</p></div>" + captRdr;
-        titlRdr = "<div class='mg-title'><div class='num'>" + (i + 1) + "/" + clength + "</div><h3>" + item.attributes.title + "</h3></div>" + titlRdr;
+        titlRdr = "<div class='mg-title'><h3>" + item.attributes.title + "</h3></div>" + titlRdr;
+        numersRdr = "<div class='mg-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>" + numersRdr;
         if (item.get('type') === 'adv') {
           itemsRdr += "<div class='advert-wrap'><div class='advert'>&nbsp;</div></div>";
           return true;
@@ -2527,6 +2530,10 @@ define('views/media-gallery',[
       this.$titles = $("<div class='mg-titles'>" + titlRdr + "</div>");
       this.$titles.galleryCaption({autoHeight: true});
       this.$titles.data('galleryCaption').goTo(-1);
+      // numeration
+      this.$numers = $("<div class='mg-numers'>" + numersRdr + "</div>");
+      this.$numers.galleryCaption({autoHeight: true});
+      this.$numers.data('galleryCaption').goTo(-1);      
       // slider
       this.$slider = $("<div class='mg-slider'>" + itemsRdr + "</div>");
       this.owlSlider(this.$slider);
@@ -2539,6 +2546,7 @@ define('views/media-gallery',[
       $('.mg-slider-w', $layout).append(this.$slider);
       $('.mg-captions-w', $layout).append(this.$captions);
       $('.mg-titles-w', $layout).append(this.$titles);
+      $('.mg-numers-w', $layout).append(this.$numers);
       $('.mg-social-w', $layout).append(this.$social);
       // Full Screen   
       this.fullScreen();
@@ -2551,6 +2559,7 @@ define('views/media-gallery',[
       $('.mg-slider-w', $layout).append(this.$slider);
       $('.mg-captions-w', $layout).append(this.$captions);
       $('.mg-titles-w', $layout).append(this.$titles);
+      $('.mg-numers-w', $layout).append(this.$numers);
       $('.mg-social-w', $layout).append(this.$social);
       this.fullScreen();
     },
@@ -2766,7 +2775,7 @@ define('views/media-gallery',[
         delta = $('.mg-header', this.$layout).outerHeight() + 20;
       }
       else {
-        delta = $('.mg-header', this.$layout).outerHeight() + $('.mg-titles-w', this.$layout).outerHeight() + 20;
+        delta = $('.mg-header', this.$layout).outerHeight(true) + 20;
       }
       var h = $(window).height() - delta;
 
@@ -2791,6 +2800,7 @@ define('views/media-gallery',[
       }
       this.$captions.data('galleryCaption').goTo(owl.currentItem);
       this.$titles.data('galleryCaption').goTo(owl.currentItem);
+      this.$numers.data('galleryCaption').goTo(owl.currentItem);
       this.banner();
     }
   });

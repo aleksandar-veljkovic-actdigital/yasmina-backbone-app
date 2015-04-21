@@ -10,6 +10,7 @@
   </div><!--
         
   --><div class="mg-asside">
+    <div class='mg-numers-w'></div>
     <div class='mg-titles-w'></div>
     <div class='mg-captions-w'></div>
     <div class='mg-social-w'></div>
