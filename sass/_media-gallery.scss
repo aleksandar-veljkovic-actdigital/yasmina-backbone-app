@@ -14,6 +14,9 @@ $font-family-noto: "Noto Serif", serif !default;
 
 .article-gallery {
   position: relative;
+  .mg-start:hover {
+    cursor: pointer;
+  }
   // ux
   .mg-item:hover {
     a {
@@ -444,7 +447,7 @@ $font-family-noto: "Noto Serif", serif !default;
 
   // // // // // //  MOBIL  // // // // // //  
 
-  
+
   .media-gallery-fullscreen.mobile {
     $mg-mob-ident: 2%;
     $below-header: 50px;

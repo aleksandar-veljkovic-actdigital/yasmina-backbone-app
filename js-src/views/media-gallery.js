@@ -82,7 +82,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text().trim()
+          caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
       });
@@ -97,7 +97,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text().trim()
+          caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
         //adv

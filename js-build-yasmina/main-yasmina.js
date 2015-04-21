@@ -2464,7 +2464,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text().trim()
+          caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
       });
@@ -2479,7 +2479,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).text().trim()
+          caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
         //adv
@@ -2952,7 +2952,7 @@ define('app',[
     var itemIndex = 1;
     $gallery.find('.mg-start').each(function(starterIndex, starter) {
       starterIndex = starterIndex + 1;
-      $(starter).attr('href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
+      $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
       itemIndex++;
       if (
               (window.backboneApp.set.device === 'mobile') &&
@@ -2965,7 +2965,13 @@ define('app',[
   });
 
   return function() {
-    window.backboneApp.router = Router.initialize().router;
+    window.backboneApp.router = Router.initialize().router;    
+    $('.mg-start').click(function(e){
+      e.preventDefault();
+      var $tthis = $(this);
+      window.backboneApp.router.navigate($tthis.data('href'), true);
+    });
+    
   };
 
 });

@@ -41,7 +41,7 @@ define([
     var itemIndex = 1;
     $gallery.find('.mg-start').each(function(starterIndex, starter) {
       starterIndex = starterIndex + 1;
-      $(starter).attr('href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
+      $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
       itemIndex++;
       if (
               (window.backboneApp.set.device === 'mobile') &&
@@ -54,7 +54,13 @@ define([
   });
 
   return function() {
-    window.backboneApp.router = Router.initialize().router;
+    window.backboneApp.router = Router.initialize().router;    
+    $('.mg-start').click(function(e){
+      e.preventDefault();
+      var $tthis = $(this);
+      window.backboneApp.router.navigate($tthis.data('href'), true);
+    });
+    
   };
 
 });
