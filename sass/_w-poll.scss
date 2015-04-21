@@ -12,7 +12,9 @@ $gold-dark: #423f32 !default;
 
 $fafa: #fafafa !default;
 
+$font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
+$font-family-noto: "Noto Serif", serif !default;
 
 //  G E N E R I C - A L L   D E V I C E S  /////////////////////////////////////
 .w__poll {
@@ -62,6 +64,12 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
       display: inline-block;
       white-space: nowrap;
       color: $gold;
+      transition: color 0.6s, border 0.5s;
+    }
+    &:hover span {
+      color: #7c7c7c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
     }
   }
   .w__poll--btn-s {
@@ -75,7 +83,13 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
     border:none;
     font-size: rem-calc(18);
     font-weight: bold;
-    font-family: $font-family-kufi;
+    font-family: $font-family-kufi!important;
+    transition: background-color .4s;
+    &:hover {
+      background-color: #3e3e3e;
+      color: #fff;
+      cursor: pointer;
+    }
   }
   // FORM // // // // // // // // // // 
   .w__poll--form {
@@ -135,15 +149,16 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
         .pctg {
           position: absolute;
           left: 0;
-          bottom: 0;
+          bottom: 13px;
           color: $accent-color;
           font-size: 1.1rem;
+          font-family: $font-family-noto;
         }
         .text {
           line-height: 1.25rem;
           font-size: 1.1rem;
-          padding-top: 1rem;
-          padding-bottom: .5rem;
+          padding-top: .8rem;
+          padding-bottom: .7rem;
           display: block;
           margin-left: 38px;
           color: $paragraph;
@@ -191,6 +206,9 @@ $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 div .w__poll--left {
   h2.w__poll--block-title {
     margin-top: 0;
+  }
+  .w-poll__statistics {
+    border-bottom-color: transparent;
   }
   .w-poll__footer {
     text-align: center;
