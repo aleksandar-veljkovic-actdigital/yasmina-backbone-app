@@ -58,7 +58,7 @@ define([
     $('.mg-start').click(function(e){
       e.preventDefault();
       var $tthis = $(this);
-      window.backboneApp.router.navigate($tthis.data('href'), {trigger: true});
+      window.backboneApp.router.navigate($tthis.data('href'), {trigger: true, replace: false});
     });
     
   };
