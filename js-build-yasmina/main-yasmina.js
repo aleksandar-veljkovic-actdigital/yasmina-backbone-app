@@ -2533,7 +2533,7 @@ define('views/media-gallery',[
       // numeration
       this.$numers = $("<div class='mg-numers'>" + numersRdr + "</div>");
       this.$numers.galleryCaption({autoHeight: true});
-      this.$numers.data('galleryCaption').goTo(-1);      
+      this.$numers.data('galleryCaption').goTo(-1);
       // slider
       this.$slider = $("<div class='mg-slider'>" + itemsRdr + "</div>");
       this.owlSlider(this.$slider);
@@ -2594,17 +2594,12 @@ define('views/media-gallery',[
         v.state = 0;
       }
       if (t2) {
-        owl.options.autoHeight = false;
-        $('.owl-wrapper-outer', $layout).css('height', "");
         $('.owl-item .advert-wrap .advert', $layout).html('&nbsp;');
         $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
       }
       v.state++;
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
-      }
-      if (t2) {
-        owl.options.autoHeight = true;
       }
     },
     sharrre: function($target) {
@@ -2726,30 +2721,6 @@ define('views/media-gallery',[
       this.owlSliderGoTo = function(num) {
         owl.goToRtl(num - 1);
       };
-      // // nav position
-      /*
-       var maxH = 0;
-       var $imgs = this.$slider.find('.owl-item > .item img');
-       $imgs.each(function() {
-       var $img = $(this);
-       var protection = 60;
-       var timeout = setTimeout(function() {
-       var h = $img.outerHeight(true);
-       protection--;
-       if (h > 0 || protection < 0) {
-       clearTimeout(timeout);
-       if (h > maxH) {
-       maxH = h;
-       $('.owl-buttons', _this.$slider).css({
-       bottom: 'auto',
-       top: maxH / 2
-       });
-       }
-       }
-       }, 250);
-       });
-       */
-      //
       if (this.currentItem != owl.itemsAmount) {
         owl.jumpToRtl(this.currentItem - 1);
       } else {
@@ -2778,13 +2749,8 @@ define('views/media-gallery',[
         delta = $('.mg-header', this.$layout).outerHeight(true) + 20;
       }
       var h = $(window).height() - delta;
-
-      $('.owl-item .item', this.$slider).css({'width': "1px", height: "1px"});
-      setTimeout(function() {  // OWL AutoHeight bug fixs
-        $('.owl-item .item', this.$slider).css({'height': h + "px", 'width': ""});
-      }, 0);
-      
-
+      $('.owl-item .item', this.$slider).css({'height': h + "px"});
+      $('.owl-item .advert-wrap .advert', this.$slider).css({'minHeight': h + "px"});
       $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
     },
     beforeMove: function(jen, dva) {
