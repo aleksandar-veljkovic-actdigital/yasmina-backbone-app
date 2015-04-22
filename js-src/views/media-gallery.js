@@ -185,7 +185,7 @@ define([
       var _this = this;
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
-          backboneApp.router.navigate('_bb_', {trigger: true});
+          backboneApp.router.navigate('_bb_', {trigger: true, replace: true});
         },
         aditionalStyle: "body{background-color:black}",
         closeButton: false
@@ -380,7 +380,7 @@ define([
     afterMove: function() {
       var owl = this.$slider.data('owlCarousel');
       if (!this.afterMoveUnhashedOnce) {
-        window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl);
+        window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl, {replace: true});
       }
       else {
         this.afterMoveUnhashedOnce = false;
