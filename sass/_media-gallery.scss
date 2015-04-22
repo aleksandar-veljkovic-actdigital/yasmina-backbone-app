@@ -18,7 +18,7 @@ $font-family-noto: "Noto Serif", serif !default;
     cursor: pointer;
   }
   // ux
-  .mg-item:hover {
+  .mg-start:hover {
     a {
       text-decoration: none;
     }
@@ -63,53 +63,7 @@ $font-family-noto: "Noto Serif", serif !default;
     }
   }
 }
-// Galery On Galery Post
-.article-gallery.showGallery {
-  a:hover {
-    text-decoration: none;
-  }
-  .mg-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    z-index: auto;
-    h3 {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-      z-index: auto;
-      color: #000;
-      text-decoration: none;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      float: right;
-      width: 90%;
-    }
-    .ordNumber {
-      float: right;
-      position: relative;
-      height: 100%;
-      opacity: 1;
-      z-index: auto;
-      color: #000;
-      text-decoration: none;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      font-size: 1.17em;
-      font-weight: bold;
-      margin-left: 5px;
-    }
-    .mg-capt {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-      z-index: auto;
-    }
-  }
-}
+
 
 // // // // // //  FULL SCREEN ALL MEDIA // // // // // //
 
@@ -243,6 +197,12 @@ $font-family-noto: "Noto Serif", serif !default;
         //font-size: 1rem/1.375rem;
         font-size: 1rem;
         line-height: 1.5rem;
+      }
+      a {
+        color: $gold;
+      }
+      a:hover {
+        text-decoration: underline;
       }
     }
     .mg-main {
