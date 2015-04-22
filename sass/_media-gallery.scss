@@ -357,6 +357,15 @@ $font-family-noto: "Noto Serif", serif !default;
       }
 
     }
+    &.banner-active-item {
+      .mg-titles-w {
+        visibility: hidden;
+      }      
+      .mg-captions-w, .mg-social-w {
+        height: 0!important;
+        overflow: hidden!important;
+      }
+    }
   }
 
   // // // // // //  DESKTOP  // // // // // //  

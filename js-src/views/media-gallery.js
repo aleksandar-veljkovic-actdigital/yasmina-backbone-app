@@ -127,7 +127,7 @@ define([
         titlRdr = "<div class='mg-title'><h3>" + item.attributes.title + "</h3></div>" + titlRdr;
         numersRdr = "<div class='mg-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>" + numersRdr;
         if (item.get('type') === 'adv') {
-          itemsRdr += "<div class='advert-wrap'><div class='advert'>&nbsp;</div></div>";
+          itemsRdr += "<div class='advert-wrap'><div class='advert' style='height:600px'>&nbsp;</div></div>";
           return true;
         }
         if (item.get('type') === 'item') {
@@ -212,8 +212,12 @@ define([
         v.state = 0;
       }
       if (t2) {
+        this.$layout.addClass('banner-active-item');
         $('.owl-item .advert-wrap .advert', $layout).html('&nbsp;');
         $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
+      }
+      else {
+        this.$layout.removeClass('banner-active-item');
       }
       v.state++;
       if (t1 || t2) {
@@ -368,7 +372,6 @@ define([
       }
       var h = $(window).height() - delta;
       $('.owl-item .item', this.$slider).css({'height': h + "px"});
-      $('.owl-item .advert-wrap .advert', this.$slider).css({'minHeight': h + "px"});
       $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
     },
     beforeMove: function(jen, dva) {
