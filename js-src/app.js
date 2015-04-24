@@ -59,6 +59,7 @@ define([
       e.preventDefault();
       var $tthis = $(this);
       window.backboneApp.router.navigate($tthis.data('href'), {trigger: true, replace: false});
+      //window.location.hash = $tthis.data('href');
     });
     
   };

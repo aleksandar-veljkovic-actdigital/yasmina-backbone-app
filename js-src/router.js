@@ -10,7 +10,7 @@ define([
     routes: {
       //"media-gallery/:id": "mediaGalleryIdRedirect",
       "media-gallery/:id/:pos": "mediaGallery",
-      "_bb_": "clearState",
+      //"_bb_": "clearState",
       "*other": "defaultRoute"
     },
     initialize: function() {
@@ -81,7 +81,7 @@ define([
         backboneApp.mediaGallery.close();
         delete backboneApp.mediaGallery;
       }
-    }
+    } 
   });
 
   return {

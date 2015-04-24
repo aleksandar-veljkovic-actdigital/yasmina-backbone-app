@@ -166,7 +166,7 @@ define([
       $('.mg-titles-w', $layout).append(this.$titles);
       $('.mg-numers-w', $layout).append(this.$numers);
       $('.mg-social-w', $layout).append(this.$social);
-      // Full Screen   
+      // Full Screen 
       this.fullScreen();
     },
     renderMob: function() {
@@ -185,14 +185,22 @@ define([
       var _this = this;
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
-          backboneApp.router.navigate('_bb_', {trigger: true, replace: true});
         },
         aditionalStyle: "body{background-color:black}",
         closeButton: false
       });
       $('.mg-close', this.$layout).click(function(e) {
         e.preventDefault();
-        _this.fullScreen.close();
+        if (
+                window.navigator.userAgent.indexOf("MSIE 10") > -1
+                || window.navigator.userAgent.indexOf("MSIE 9") > -1
+                || window.navigator.userAgent.indexOf("MSIE 8") > -1
+                ) {
+          window.backboneApp.router.navigate("#closed", {trigger: true, replace: true});
+        }
+        else {
+          window.history.back();
+        }
       });
     },
     close: function() {
@@ -380,7 +388,7 @@ define([
     afterMove: function() {
       var owl = this.$slider.data('owlCarousel');
       if (!this.afterMoveUnhashedOnce) {
-        window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl, {replace: true});
+        window.backboneApp.router.navigate('media-gallery/' + this.id + "/" + owl.currentPositionRtl, {trigger: false, replace: true});
       }
       else {
         this.afterMoveUnhashedOnce = false;
