@@ -1187,7 +1187,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 /* line 334, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-header {
   position: relative;
-  height: 180px;
+  height: 130px;
   text-align: center;
 }
 /* line 339, ../sass/_media-gallery.scss */
@@ -1265,7 +1265,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   display: inline-block;
   width: 728px;
   height: 90px;
-  margin-top: 45px;
+  margin-top: 20px;
 }
 /* line 411, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.desktop .mg-banner-b {

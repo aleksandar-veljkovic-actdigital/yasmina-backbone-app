@@ -245,6 +245,8 @@ define([
         enableTracking: false,
         click: function(api, options) {
           api.openPopup('facebook');
+          $(document).trigger("gallerySharrreClick");
+          $(document).trigger("gallerySharrreClickFacebook");
         },
         url: url
       });
@@ -257,6 +259,8 @@ define([
         enableTracking: false,
         click: function(api, options) {
           api.openPopup('twitter');
+          $(document).trigger("gallerySharrreClick");
+          $(document).trigger("gallerySharrreClickTwitter");
         },
         url: url
       });
@@ -270,6 +274,8 @@ define([
         urlCurl: gPlusSharePhp,
         click: function(api, options) {
           api.openPopup('googlePlus');
+          $(document).trigger("gallerySharrreClick");
+          $(document).trigger("gallerySharrreClickGplus");
         },
         url: url
       });
