@@ -516,10 +516,68 @@ $font-family-noto: "Noto Serif", serif !default;
         }
       }
     }
-    .mg-share .share_btn {
-      margin: rem-calc(40) 1%;
+
+
+    .mg-share {
+      text-align: center;
+      .share_btn {
+        margin: rem-calc(40) 0;
+        display: inline-block;
+        float: none;
+        .box {
+          height: 45px;
+          .share {
+            span {
+              display: none;
+            }
+          }
+        }
+      }
     }
-  }  
+    #facebook_share {
+      width: 113px;
+      .box  {
+        .count {
+          width: 70px;
+          height: 45px;
+        }
+        .share {
+          width: 43px;
+          height: 45px;
+          img {
+            margin-right: 8px;
+          }      
+        }       
+      }
+    }
+    #twitter_share {
+      margin-left: 20px;
+      margin-right: 20px;
+      width: 45px;
+      .box {
+        max-width: 45px;
+        .count {
+          display: none;
+        }
+        .share {
+          img {
+            margin-top: 10px;
+          }         
+        }     
+      }
+    }
+    #gplus_share {
+      width: 45px;
+      .box {
+        max-width: 45px;
+        .count {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  
   .clearfix {
   }
 }
