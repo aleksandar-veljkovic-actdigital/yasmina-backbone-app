@@ -2567,6 +2567,8 @@ define('views/media-gallery',[
       var _this = this;
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
+          $(window).resize();
+          $('#myEmbedTarget').css('width',"");
         },
         aditionalStyle: "body{background-color:black}",
         closeButton: false
