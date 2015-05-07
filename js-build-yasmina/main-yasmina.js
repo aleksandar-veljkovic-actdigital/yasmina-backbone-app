@@ -2568,7 +2568,7 @@ define('views/media-gallery',[
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
           $(window).resize();
-          $('#myEmbedTarget').css('width',"");
+          $('#myEmbedTarget').css('width', "");
         },
         aditionalStyle: "body{background-color:black}",
         closeButton: false
@@ -2581,9 +2581,19 @@ define('views/media-gallery',[
                 || window.navigator.userAgent.indexOf("MSIE 8") > -1
                 ) {
           window.backboneApp.router.navigate("#closed", {trigger: true, replace: true});
+          if (window.history) {
+            history.replaceState('', document.title, window.location.pathname);
+          }
         }
         else {
-          window.history.back();
+          if (window.backboneApp.set.gallery.referal) {
+            window.backboneApp.router.navigate("#closed", {trigger: true, replace: true});
+            if (window.history) {
+              history.replaceState('', document.title, window.location.pathname);
+            }
+          } else {
+            window.history.back();
+          }
         }
       });
     },
@@ -2918,6 +2928,7 @@ define('app',[
   window.backboneApp.set.gallery = {};
   window.backboneApp.set.gallery.adMobileInsertOnCount = window.backboneApp.set.gallery.adMobileInsertOnCount || 3;
   window.backboneApp.set.gallery.adMobileActionCount = window.backboneApp.set.gallery.adMobileActionCount || 3;
+  window.backboneApp.set.gallery.referal = true;
   ///////////////////////////////////////////////////////////////////////////////
 
 
@@ -2954,6 +2965,7 @@ define('app',[
     $('.mg-start').click(function(e){
       e.preventDefault();
       var $tthis = $(this);
+      window.backboneApp.set.gallery.referal = false;
       window.backboneApp.router.navigate($tthis.data('href'), {trigger: true, replace: false});
       //window.location.hash = $tthis.data('href');
     });

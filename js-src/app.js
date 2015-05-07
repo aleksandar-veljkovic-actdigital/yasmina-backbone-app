@@ -22,6 +22,7 @@ define([
   window.backboneApp.set.gallery = {};
   window.backboneApp.set.gallery.adMobileInsertOnCount = window.backboneApp.set.gallery.adMobileInsertOnCount || 3;
   window.backboneApp.set.gallery.adMobileActionCount = window.backboneApp.set.gallery.adMobileActionCount || 3;
+  window.backboneApp.set.gallery.referal = true;
   ///////////////////////////////////////////////////////////////////////////////
 
 
@@ -58,6 +59,7 @@ define([
     $('.mg-start').click(function(e){
       e.preventDefault();
       var $tthis = $(this);
+      window.backboneApp.set.gallery.referal = false;
       window.backboneApp.router.navigate($tthis.data('href'), {trigger: true, replace: false});
       //window.location.hash = $tthis.data('href');
     });

@@ -186,7 +186,7 @@ define([
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
           $(window).resize();
-          $('#myEmbedTarget').css('width',"");
+          $('#myEmbedTarget').css('width', "");
         },
         aditionalStyle: "body{background-color:black}",
         closeButton: false
@@ -199,9 +199,19 @@ define([
                 || window.navigator.userAgent.indexOf("MSIE 8") > -1
                 ) {
           window.backboneApp.router.navigate("#closed", {trigger: true, replace: true});
+          if (window.history) {
+            history.replaceState('', document.title, window.location.pathname);
+          }
         }
         else {
-          window.history.back();
+          if (window.backboneApp.set.gallery.referal) {
+            window.backboneApp.router.navigate("#closed", {trigger: true, replace: true});
+            if (window.history) {
+              history.replaceState('', document.title, window.location.pathname);
+            }
+          } else {
+            window.history.back();
+          }
         }
       });
     },
