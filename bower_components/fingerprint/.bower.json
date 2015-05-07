@@ -23,7 +23,6 @@
     "commit": "5431de0603340495c66c8674e4aff9199280491d"
   },
   "_source": "git://github.com/Valve/fingerprintjs.git",
-  "_target": "~0.5.4",
-  "_originalSource": "fingerprint",
-  "_direct": true
+  "_target": "0.5.4",
+  "_originalSource": "fingerprint"
 }
