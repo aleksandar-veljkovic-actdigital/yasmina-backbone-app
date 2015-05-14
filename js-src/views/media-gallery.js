@@ -193,6 +193,15 @@ define([
       });
       $('.mg-close', this.$layout).click(function(e) {
         e.preventDefault();
+
+
+        // refresh page, bad display properties baners bug fix
+        if (backboneApp.set.device === 'desktop') {
+          location = location.origin + location.pathname;
+          return;
+        }
+
+
         if (
                 window.navigator.userAgent.indexOf("MSIE 10") > -1
                 || window.navigator.userAgent.indexOf("MSIE 9") > -1
