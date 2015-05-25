@@ -6,6 +6,28 @@ define([
         Router
         ) {
 
+  // fixing location.replace on ios mobile/tab
+  Backbone.History.prototype._updateHash = function(location, fragment, replace) {
+    if (replace) {
+      var href = location.href.replace(/(javascript:|#).*$/, '');
+      if (
+              window.history &&
+              history.replaceState &&
+              $('html').hasClass('ua-os-name-ios') &&
+              $('html').hasClass('ua-browser-name-chrome')
+              ) {
+        history.replaceState('', document.title, href + '#' + fragment);
+      }
+      else {
+        location.replace(href + '#' + fragment);
+      }
+    } else {
+      // Some browsers require that `hash` contains a leading #.
+      location.hash = '#' + fragment;
+    }
+  };
+
+
   ///////////////////////////////////////////////////////////////////////////////
   window.backboneApp = window.backboneApp || {};
   window.backboneApp.set = window.backboneApp.set || {};
@@ -55,15 +77,15 @@ define([
   });
 
   return function() {
-    window.backboneApp.router = Router.initialize().router;    
-    $('.mg-start').click(function(e){
+    window.backboneApp.router = Router.initialize().router;
+    $('.mg-start').click(function(e) {
       e.preventDefault();
       var $tthis = $(this);
       window.backboneApp.set.gallery.referal = false;
       window.backboneApp.router.navigate($tthis.data('href'), {trigger: true, replace: false});
       //window.location.hash = $tthis.data('href');
     });
-    
+
   };
 
 });
