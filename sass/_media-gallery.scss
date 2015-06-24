@@ -44,6 +44,7 @@ $font-family-noto: "Noto Serif", serif !default;
     height: 1px;
     z-index: -1;
     position: absolute;
+    overflow: hidden;
   }
   .mg-item:first-child {
     opacity: 1;
