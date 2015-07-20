@@ -263,7 +263,7 @@ define([
         },
         template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'fbico.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
-        enableTracking: false,
+        enableTracking: true,
         click: function(api, options) {
           api.openPopup('facebook');
           $(document).trigger("gallerySharrreClick");
@@ -277,7 +277,7 @@ define([
         },
         template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'twitt.png" alt="" /><span>غرّدي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
-        enableTracking: false,
+        enableTracking: true,
         click: function(api, options) {
           api.openPopup('twitter');
           $(document).trigger("gallerySharrreClick");
@@ -291,7 +291,7 @@ define([
         },
         template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'gplus.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
-        enableTracking: false,
+        enableTracking: true,
         urlCurl: gPlusSharePhp,
         click: function(api, options) {
           api.openPopup('googlePlus');
@@ -299,6 +299,25 @@ define([
           $(document).trigger("gallerySharrreClickGplus");
         },
         url: url
+      });
+      $('#whatsapp_share', $target).sharrre({
+        share: {
+          whatsapp: true
+        },
+        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'logo-symbol-white.svg" alt="" /><span>شاركي</span></div></a>',
+        enableHover: false,
+        enableTracking: true,
+        buttons: {
+          whatsapp: {
+            utmTracking: {
+              site: 'yasmina'
+            }
+          }
+        },
+        click: function(api, options) {
+          window.location.href = options.text;
+          _gaq.push(['_trackEvent', 'smart-whats-app-share', 'click', 'share']);
+        }
       });
     },
     owlSlider: function($target) {
