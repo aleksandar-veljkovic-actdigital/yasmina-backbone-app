@@ -1,7 +1,7 @@
-<div class="media-gallery-fullscreen mobile">
+<div class="media-gallery-fullscreen mobile tablet">
   
   <div class="mg-header">
-    <div class="mg-banner-a-mob mg-banner mg-banner-lb"></div>
+    <div class="mg-banner-a mg-banner mg-banner-lb"></div>
     <a href="#mg-close" class="mg-close"></a> 
     <div class='mg-numers-w'></div> 
   </div>  

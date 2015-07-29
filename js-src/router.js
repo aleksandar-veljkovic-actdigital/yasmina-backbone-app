@@ -69,6 +69,9 @@ define([
         if (backboneApp.set.device === 'desktop') {
           backboneApp.mediaGallery.parse();
           backboneApp.mediaGallery.render();
+        } else if (backboneApp.set.device === 'tablet') {
+          backboneApp.mediaGallery.parseTab();
+          backboneApp.mediaGallery.renderTab();
         } else {
           backboneApp.mediaGallery.parseMob();
           backboneApp.mediaGallery.renderMob();

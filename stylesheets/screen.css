@@ -1331,7 +1331,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   font-size: 1.25rem;
   line-height: 2.25rem;
   height: auto;
-  margin: 2.5rem 0 0;
+  margin: 0;
   font-family: "Noto Kufi Arabic", serif, "Noto Serif", serif;
 }
 /* line 478, ../sass/_media-gallery.scss */
@@ -1382,7 +1382,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   font-size: 1.25rem;
   line-height: 2.125rem;
   margin-top: 2.5rem;
-  margin-bottom: 0;
+  margin-bottom: 2.5rem;
 }
 /* line 523, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-asside .mg-captions .mg-caption p:empty {
@@ -1391,75 +1391,77 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 /* line 532, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-share {
   text-align: center;
+  line-height: 0;
 }
-/* line 534, ../sass/_media-gallery.scss */
+/* line 535, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-share .share_btn {
+  line-height: normal;
   margin: 2.5rem 0;
   display: inline-block;
   float: none;
 }
-/* line 538, ../sass/_media-gallery.scss */
+/* line 540, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-share .share_btn .box {
   height: 45px;
 }
-/* line 541, ../sass/_media-gallery.scss */
+/* line 543, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-share .share_btn .box .share span {
   display: none;
 }
-/* line 548, ../sass/_media-gallery.scss */
+/* line 550, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #facebook_share {
   width: 113px;
 }
-/* line 551, ../sass/_media-gallery.scss */
+/* line 553, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #facebook_share .box .count {
   width: 70px;
   height: 45px;
 }
-/* line 555, ../sass/_media-gallery.scss */
+/* line 557, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #facebook_share .box .share {
   width: 43px;
   height: 45px;
 }
-/* line 558, ../sass/_media-gallery.scss */
+/* line 560, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #facebook_share .box .share img {
   margin-right: 8px;
 }
-/* line 565, ../sass/_media-gallery.scss */
+/* line 567, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #whatsapp_share {
   width: 45px;
   margin-right: 10px;
 }
-/* line 568, ../sass/_media-gallery.scss */
+/* line 570, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #whatsapp_share .box {
   max-width: 45px;
 }
-/* line 573, ../sass/_media-gallery.scss */
+/* line 575, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #twitter_share {
   margin-left: 10px;
   margin-right: 10px;
   width: 45px;
 }
-/* line 577, ../sass/_media-gallery.scss */
+/* line 579, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #twitter_share .box {
   max-width: 45px;
 }
-/* line 579, ../sass/_media-gallery.scss */
+/* line 581, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #twitter_share .box .count {
   display: none;
 }
-/* line 583, ../sass/_media-gallery.scss */
+/* line 585, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #twitter_share .box .share img {
   margin-top: 10px;
 }
-/* line 589, ../sass/_media-gallery.scss */
+/* line 591, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #gplus_share {
   width: 45px;
 }
-/* line 591, ../sass/_media-gallery.scss */
+/* line 593, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #gplus_share .box {
   max-width: 45px;
 }
-/* line 593, ../sass/_media-gallery.scss */
+/* line 595, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #gplus_share .box .count {
   display: none;
 }

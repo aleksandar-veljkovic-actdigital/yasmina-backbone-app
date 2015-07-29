@@ -7,6 +7,7 @@ define([
   'text!templates/media-gallery-social-share.html.tpl',
   'text!templates/media-gallery-layout.html.tpl',
   'text!templates/media-gallery-layout-mob.html.tpl',
+  'text!templates/media-gallery-layout-tab.html.tpl',
   'text!templates/media-gallery-item.html.tpl',
   'text!templates/media-gallery-related.html.tpl',
   //
@@ -22,6 +23,7 @@ define([
         templateSocial,
         templateLayout,
         templateLayoutMob,
+        templateLayoutTab,
         templateItem,
         templateRelated
         ) {
@@ -85,6 +87,30 @@ define([
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
+      });
+      this.parseRelated();
+      this.bindObjects();
+    },
+    parseTab: function() {
+      var _this = this;
+      // GET FROM DOM
+      $('.mg-item', _this.$elem).each(function(i, o) {
+        var data = {
+          type: "item",
+          title: $("h3", o).text(),
+          img: $(".mg-img", o).attr('src'),
+          caption: $(".mg-capt", o).html().trim()
+        };
+        _this.collection.add(new MediaGalleryItemModel(data));
+        //adv
+        if ((i + 1) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0) {
+          var advModel = new MediaGalleryItemModel({
+            type: 'adv',
+            title: "<small>ADVERTISEMENT</small>",
+            caption: ""
+          });
+          _this.collection.add(advModel);
+        }
       });
       this.parseRelated();
       this.bindObjects();
@@ -166,7 +192,18 @@ define([
       $('.mg-titles-w', $layout).append(this.$titles);
       $('.mg-numers-w', $layout).append(this.$numers);
       $('.mg-social-w', $layout).append(this.$social);
-      // Full Screen 
+      this.fullScreen();
+    },
+    renderTab: function() {
+      // Layout
+      var layoutTpl = _.template(templateLayoutTab);
+      var $layout;
+      this.$layout = $layout = $(layoutTpl());
+      $('.mg-slider-w', $layout).append(this.$slider);
+      $('.mg-captions-w', $layout).append(this.$captions);
+      $('.mg-titles-w', $layout).append(this.$titles);
+      $('.mg-numers-w', $layout).append(this.$numers);
+      $('.mg-social-w', $layout).append(this.$social);
       this.fullScreen();
     },
     renderMob: function() {
@@ -228,14 +265,14 @@ define([
       this.fullScreen.close();
       this.undelegateEvents();
       this.remove();
-    },
+    },  
     banner: function() {
       var $layout = this.$layout;
       var v = this.bannerVars;
       var owl = this.$slider.data('owlCarousel');
       var t1 = v.state >= v.trigger; // action trigger
       var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0; // slide in trigger
-      if (t1) {
+      if (t1) { 
         $('.mg-banner-lb', $layout).html('<div id="ad-gallery-lb" />');
         $('.mg-banner-mpu', $layout).html('<div id="ad-gallery-mpu" />');
         v.state = 0;
@@ -243,7 +280,7 @@ define([
       if (t2) {
         this.$layout.addClass('banner-active-item');
         $('.owl-item .advert-wrap .advert', $layout).html('&nbsp;');
-        $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
+          $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
       }
       else {
         this.$layout.removeClass('banner-active-item');
@@ -252,7 +289,7 @@ define([
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
       }
-    },
+    },    
     sharrre: function($target) {
       var url = window.location.href;
       url = url.replace(/[^\/]*$/, '1'); // always to point first image in gallery
@@ -426,6 +463,8 @@ define([
       }
       var h = $(window).height() - delta;
       $('.owl-item .item', this.$slider).css({'height': h + "px"});
+      $('.owl-item .advert-wrap', this.$slider).css({'minHeight': h + "px"});
+      $('.owl-item .mg-related', this.$slider).css({'minHeight': ((h / 2) + 100) + "px"});
       $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
     },
     beforeMove: function(jen, dva) {

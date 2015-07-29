@@ -472,7 +472,7 @@ $font-family-noto: "Noto Serif", serif !default;
           font-size: rem-calc(20);
           line-height: rem-calc(36);
           height: auto;
-          margin: rem-calc(40) 0 0;
+          margin: 0;
           font-family: $font-family-kufi;
         }
         h3:empty {
@@ -519,7 +519,7 @@ $font-family-noto: "Noto Serif", serif !default;
             font-size: rem-calc(20);
             line-height: rem-calc(34);
             margin-top: rem-calc(40);
-            margin-bottom: 0;
+            margin-bottom: rem-calc(40);
             &:empty {
               margin-top: 0;
             }
@@ -531,7 +531,9 @@ $font-family-noto: "Noto Serif", serif !default;
 
     .mg-share {
       text-align: center;
+      line-height:0;
       .share_btn {
+        line-height: normal;
         margin: rem-calc(40) 0;
         display: inline-block;
         float: none;

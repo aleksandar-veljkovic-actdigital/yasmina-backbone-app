@@ -33,8 +33,11 @@ define([
   window.backboneApp.set = window.backboneApp.set || {};
   window.backboneApp.set.$mediaGallerySelector = $('.article-gallery');
   //window.backboneApp.set.device = oxAsyncGallery.deviceType;
-  if ($('html').hasClass('ua-type-mobile')) {
+  if ($('html').hasClass('ua-visitor-device-mobile')) {
     window.backboneApp.set.device = 'mobile';
+  } 
+  else if ($('html').hasClass('ua-visitor-device-tablet')) {
+    window.backboneApp.set.device = 'tablet';
   }
   else {
     window.backboneApp.set.device = 'desktop';
