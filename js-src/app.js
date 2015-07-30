@@ -70,7 +70,7 @@ define([
       $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
       itemIndex++;
       if (
-              (window.backboneApp.set.device === 'mobile') &&
+              (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
               ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
               )
       {

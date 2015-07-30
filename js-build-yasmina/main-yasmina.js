@@ -2878,7 +2878,7 @@ define('views/media-gallery',[
 
 
         // refresh page, bad display properties baners bug fix
-        if (backboneApp.set.device === 'desktop') {
+        if (backboneApp.set.device === 'desktop' || backboneApp.set.device === 'tablet') {
           location = location.origin + location.pathname;
           return;
         }
@@ -3309,7 +3309,7 @@ define('app',[
       $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
       itemIndex++;
       if (
-              (window.backboneApp.set.device === 'mobile') &&
+              (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
               ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
               )
       {

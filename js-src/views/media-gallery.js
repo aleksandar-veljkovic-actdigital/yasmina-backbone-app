@@ -233,7 +233,7 @@ define([
 
 
         // refresh page, bad display properties baners bug fix
-        if (backboneApp.set.device === 'desktop') {
+        if (backboneApp.set.device === 'desktop' || backboneApp.set.device === 'tablet') {
           location = location.origin + location.pathname;
           return;
         }

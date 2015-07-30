@@ -379,6 +379,7 @@ $font-family-noto: "Noto Serif", serif !default;
           font-family: $font-family-noto;
           font-size: rem-calc(16);
           color: #fff;
+          white-space: nowrap
         }
       }
       .mg-titles {
@@ -457,6 +458,7 @@ $font-family-noto: "Noto Serif", serif !default;
         font-family: $font-family-noto;
         font-size: rem-calc(24);
         font-weight: bold;
+        white-space: nowrap
       }     
     }
 
