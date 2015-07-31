@@ -1,7 +1,8 @@
 ;
 
 /*
- *  jQuery OwlCarouselRtl v.0.9.0
+ *  jQuery OwlCarouselRtl 
+ *  version in git tag
  *
  *  Copyright (c) 2015 Aleksandar Veljkovic
  *  https://github.com/biosonic
@@ -17,8 +18,8 @@
     var $this = $(this);
     // rtl css
     $this.addClass("owl-rtl");
-    if ($('owl-rtl-css').length < 1) {
-      $($('head')[0]).append("<style class='owl-rtl-css'>.owl-wrapper-outer{direction:ltr;} .owl-wrapper{direction:rtl;}</style>");
+    if ($('.owl-rtl-css').length < 1) {
+      $($('head')[0]).append("<style class='owl-rtl-css'>.owl-wrapper-outer{direction:ltr;opacity:0.001;} .owl-wrapper{direction:rtl;}</style>");
     }
     // rtl reorder & numeration
     var itemNo = 0;
@@ -48,6 +49,7 @@
             afterInitClone();
           }
           rtlEnumeration();
+          $this.find('.owl-wrapper-outer').css({opacity:1});
         }
       }, 300);
     };

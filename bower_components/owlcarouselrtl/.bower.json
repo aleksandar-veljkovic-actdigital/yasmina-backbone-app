@@ -1,12 +1,12 @@
 {
   "name": "owlcarouselrtl",
   "homepage": "https://github.com/biosonic/OwlCarouselRtl",
-  "version": "0.9.4",
-  "_release": "0.9.4",
+  "version": "0.9.5",
+  "_release": "0.9.5",
   "_resolution": {
     "type": "version",
-    "tag": "v0.9.4",
-    "commit": "63b3aece25cf32afaa0a022fd5f5f82379f9e72d"
+    "tag": "v0.9.5",
+    "commit": "d1ee373531f5b139012aff6420e21a081a8f17ff"
   },
   "_source": "git://github.com/biosonic/OwlCarouselRtl.git",
   "_target": "*",

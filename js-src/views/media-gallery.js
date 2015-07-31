@@ -456,6 +456,7 @@ define([
       $(window).unbind('resize', owl.resizer);      
     },
     onResize: function() {
+      $('.owl-item', this.$slider).animate({'opacity': 0},0);
       var owl = this.$slider.data('owlCarousel');
       var delta = 0;
       if (this.$layout.hasClass('desktop')) {
@@ -470,6 +471,7 @@ define([
       $('.owl-item .mg-related', this.$slider).css({'minHeight': ((h / 2) + 100) + "px"});
       $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
       owl.updateVars();
+      $('.owl-item', this.$slider).animate({'opacity': 1},800);
     },
     beforeMove: function(jen, dva) {
 
