@@ -451,6 +451,9 @@ define([
         }, 100);
       });
       tthis.onResize();
+      // disabling owl resize event      
+      var owl = this.$slider.data('owlCarousel');
+      $(window).unbind('resize', owl.resizer);      
     },
     onResize: function() {
       var owl = this.$slider.data('owlCarousel');
@@ -466,6 +469,7 @@ define([
       $('.owl-item .advert-wrap', this.$slider).css({'minHeight': h + "px"});
       $('.owl-item .mg-related', this.$slider).css({'minHeight': ((h / 2) + 100) + "px"});
       $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
+      owl.updateVars();
     },
     beforeMove: function(jen, dva) {
 
