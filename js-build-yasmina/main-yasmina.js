@@ -2865,6 +2865,11 @@ define('views/media-gallery',[
     },
     fullScreen: function() {
       var _this = this;
+      
+      if(backboneApp.set.device === 'tablet'){
+        $('meta[name=viewport]').attr(content='content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+      }     
+      
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
           $(window).resize();
@@ -3096,7 +3101,7 @@ define('views/media-gallery',[
         clearTimeout(timeout);
         timeout = setTimeout(function() {
           tthis.onResize();
-        }, 100);
+        }, 300);
       });
       tthis.onResize();
       // disabling owl resize event      
