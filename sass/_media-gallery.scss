@@ -600,7 +600,13 @@ $font-family-noto: "Noto Serif", serif !default;
       }
     }
   }
-
+  
+  // // // // // //  MOBIL  // // // // // //  
+  .media-gallery-fullscreen.mobile {
+    .mg-header {
+      height: 90px;
+    }
+  }
 
   .clearfix {
   }

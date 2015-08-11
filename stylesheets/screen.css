@@ -1467,3 +1467,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile #gplus_share .box .count {
   display: none;
 }
+/* line 606, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
+  height: 90px;
+}
