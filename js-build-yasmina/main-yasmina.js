@@ -2867,7 +2867,7 @@ define('views/media-gallery',[
       var _this = this;
       
       if(backboneApp.set.device === 'tablet'){
-        $('meta[name=viewport]').attr(content='content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
       }     
       
       this.fullScreen = this.$layout.fullModal({
@@ -3221,6 +3221,9 @@ define('router',[
           backboneApp.mediaGallery.parse();
           backboneApp.mediaGallery.render();
         } else if (backboneApp.set.device === 'tablet') {
+          //dirty fix for viewport 1/2
+          backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");
+          //          
           backboneApp.mediaGallery.parseTab();
           backboneApp.mediaGallery.renderTab();
         } else {
@@ -3231,6 +3234,12 @@ define('router',[
     },
     defaultRoute: function() {
       if (backboneApp.mediaGallery) {
+        //dirty fix for viewport 2/2
+        if(backboneApp.mediaGallery.viewportRollBack){
+          alert(backboneApp.mediaGallery.viewportRollBack);
+          $('meta[name=viewport]').attr("content", backboneApp.mediaGallery.viewportRollBack);
+        }
+        //
         backboneApp.mediaGallery.undelegateEvents();
         backboneApp.mediaGallery.close();
         delete backboneApp.mediaGallery;

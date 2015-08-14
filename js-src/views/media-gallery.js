@@ -222,7 +222,7 @@ define([
       var _this = this;
       
       if(backboneApp.set.device === 'tablet'){
-        $('meta[name=viewport]').attr(content='content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
       }     
       
       this.fullScreen = this.$layout.fullModal({
