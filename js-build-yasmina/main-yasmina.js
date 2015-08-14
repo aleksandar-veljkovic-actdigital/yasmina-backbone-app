@@ -3236,7 +3236,6 @@ define('router',[
       if (backboneApp.mediaGallery) {
         //dirty fix for viewport 2/2
         if(backboneApp.mediaGallery.viewportRollBack){
-          alert(backboneApp.mediaGallery.viewportRollBack);
           $('meta[name=viewport]').attr("content", backboneApp.mediaGallery.viewportRollBack);
         }
         //
