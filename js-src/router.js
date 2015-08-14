@@ -71,7 +71,7 @@ define([
           backboneApp.mediaGallery.render();
         } else if (backboneApp.set.device === 'tablet') {
           //dirty fix for viewport 1/2
-          backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");
+          backboneApp.mediaGallery.refreshOnBack = true;
           //          
           backboneApp.mediaGallery.parseTab();
           backboneApp.mediaGallery.renderTab();
@@ -84,8 +84,9 @@ define([
     defaultRoute: function() {
       if (backboneApp.mediaGallery) {
         //dirty fix for viewport 2/2
-        if(backboneApp.mediaGallery.viewportRollBack){
-          $('meta[name=viewport]').attr("content", backboneApp.mediaGallery.viewportRollBack);
+        if(backboneApp.mediaGallery.refreshOnBack){
+          location = window.location.protocol + '//' + window.location.host + location.pathname;
+          return;
         }
         //
         backboneApp.mediaGallery.undelegateEvents();
