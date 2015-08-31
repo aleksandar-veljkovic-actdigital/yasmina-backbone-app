@@ -244,6 +244,7 @@ $font-family-noto: "Noto Serif", serif !default;
             left: 0;
             position: absolute;
             bottom: 50%;
+            height: 0;
             .owl-prev, 
             .owl-next { 
               // :( overiding owl.theme.css
