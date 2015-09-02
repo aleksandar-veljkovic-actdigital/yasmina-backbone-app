@@ -337,13 +337,13 @@ define([
         template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'gplus.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
         enableHover: false,
         enableTracking: true,
-        urlCurl: gPlusSharePhp,
         click: function(api, options) {
           api.openPopup('googlePlus');
           $(document).trigger("gallerySharrreClick");
           $(document).trigger("gallerySharrreClickGplus");
         },
-        url: url
+        url: url,
+        urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
       });
       $('#whatsapp_share', $target).sharrre({
         share: {
