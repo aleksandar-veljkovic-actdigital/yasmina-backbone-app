@@ -6,6 +6,170 @@
   #{$name}: #{$argument};
 }
 
+@mixin share_large () {
+  $height: rem-calc(43);
+  position: relative;
+  overflow: hidden;
+  .share_btn {
+    position: relative;
+    overflow: hidden;
+    width: 31%;
+    float: right;
+    margin: rem-calc(40) 1%;
+    box-sizing: border-box;
+    text-align: center;
+    .box {
+      box-sizing: border-box;
+      display: inline-block;
+      width: 100%;
+      max-width: 130px;
+      color: white;
+      .count {     
+        font-size: 1rem;
+        line-height: $height;
+        vertical-align: middle;
+        box-sizing: border-box;
+        width: 33%;
+        text-align: center;
+        display: inline-block;
+        height: $height;
+        border-right: 1px solid white;
+        overflow: hidden;
+        font-family: $font-family-noto;
+      }
+      .share {
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: right;
+        white-space: nowrap;
+        line-height: $height;
+        vertical-align: middle;
+        box-sizing: border-box;
+        width: 66%;
+        display: inline-block;
+        overflow: hidden;
+        font-family: $font-family-naskh;
+        span {
+          text-align: center;
+          display: inline-block;
+          width: 45px;
+        }
+        img {
+          width: 30%;
+          vertical-align: top;
+          width: 25px;
+        }
+      }
+    }
+  }
+  #facebook_share .box  {
+    background-color: #44589c;
+    .count {
+      border-right: 1px solid #6171a8;
+    }
+    img {
+      margin-top: 10px;
+    }
+  }
+
+  #whatsapp_share .box {
+
+    background-color: #30ba45;
+    img {
+      margin-top: 10px;
+    }
+  }
+
+  #twitter_share .box {
+    background-color: #3eaaf1;
+    .count {
+      border-right: 1px solid #80c7f6;
+    }
+    img {
+      margin-top: 8px;
+    }
+  }
+  #gplus_share .box {
+    background-color: #d75037;
+    .count {
+      border-right: 1px solid #e79687;
+    }
+    img {
+      margin-top: 8px;
+      margin-right: 3px;
+    }
+  }
+}
+@mixin share_small () {
+  @include share_large;
+  text-align: center;
+  line-height:0;
+  .share_btn {
+    line-height: normal;
+    margin: rem-calc(40) 0;
+    display: inline-block;
+    float: none;
+    .box {
+      height: 45px;
+      .share {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+  #facebook_share {
+    width: 113px;
+    .box  {
+      .count {
+        width: 70px;
+        height: 45px;
+      }
+      .share {
+        width: 43px;
+        height: 45px;
+        img {
+          margin-right: 8px;
+        }      
+      }       
+    }
+  }
+
+  #whatsapp_share { 
+    width: 45px;
+    margin-right: 10px;
+    .box  {
+      max-width: 45px;
+    }
+  }
+
+  #twitter_share {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 45px;
+    .box {
+      max-width: 45px;
+      .count {
+        display: none;
+      }
+      .share {
+        img {
+          margin-top: 10px;
+        }         
+      }     
+    }
+  }
+  #gplus_share {
+    width: 45px;
+    .box {
+      max-width: 45px;
+      .count {
+        display: none;
+      }
+    }
+  }
+}
+
 $font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 $font-family-noto: "Noto Serif", serif !default;
