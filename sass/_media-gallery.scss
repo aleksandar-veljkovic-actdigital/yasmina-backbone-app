@@ -256,6 +256,7 @@ $font-family-noto: "Noto Serif", serif !default;
     }
     .mg-share {
       @include share_small;
+      text-align: right;
     } 
     .mg-titles {
       height: 5rem;
