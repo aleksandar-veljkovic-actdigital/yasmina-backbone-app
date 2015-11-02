@@ -12,8 +12,8 @@ module.exports = function (grunt) {
     requirejs: {
       static: {
         options: {
-          mainConfigFile: "js-src/main.js",
-          dir: "js-build",
+          mainConfigFile: "js-src/main-static.js",
+          dir: "js-build-static",
           removeCombined: true,
           findNestedDependencies: true,
           //skipDirOptimize: true,
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
           //optimize: "uglify2",
           modules: [
             {
-              name: 'main',
+              name: 'main-static',
               //include: ['../bower_components/requirejs/require.js'],
               //exclude: ['views/media-gallery'],
             },
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
         tasks: ['requirejs:static', 'requirejs:yasmina', 'clean']
       },
     },
-    clean: ["js-build/templates", "js-build-yasmina/templates"]
+    clean: ["js-build-static/templates", "js-build-yasmina/templates"]
 
   });
   grunt.loadNpmTasks('grunt-contrib-compass');
