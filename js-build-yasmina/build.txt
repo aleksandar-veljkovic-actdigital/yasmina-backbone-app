@@ -19,6 +19,7 @@ text!templates/media-gallery-related.html.tpl
 fullScreen.js
 caption.js
 views/media-gallery.js
+views/media-gallery-branded.js
 router.js
 app.js
 main-yasmina.js

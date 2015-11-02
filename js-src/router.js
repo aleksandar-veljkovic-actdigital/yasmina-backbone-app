@@ -10,6 +10,7 @@ define([
     routes: {
       //"media-gallery/:id": "mediaGalleryIdRedirect",
       "media-gallery/:id/:pos": "mediaGallery",
+      "media-gallery-branded/:id/:pos": "mediaGalleryBranded",
       //"_bb_": "clearState",
       "*other": "defaultRoute"
     },
@@ -81,6 +82,29 @@ define([
         }
       });
     },
+    
+    
+    mediaGalleryBranded: function(id, currentItem) {
+      currentItem = currentItem || 1;
+      require(['views/media-gallery-branded'], function(mediaGalleryBrandedView) {
+
+        var $elem = $('.media-gallery-' + id);
+        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});
+        
+        backboneApp.mediaGalleryBranded.parse();
+        if (backboneApp.set.device === 'desktop') {
+          backboneApp.mediaGalleryBranded.renderDesk();
+        } else if (backboneApp.set.device === 'tablet') {   
+          backboneApp.mediaGalleryBranded.renderTab();
+        } else {
+          backboneApp.mediaGalleryBranded.renderMob(); 
+        }        
+
+      });
+    },    
+    
+    
+    
     defaultRoute: function() {
       if (backboneApp.mediaGallery) {
         //dirty fix for viewport 2/2

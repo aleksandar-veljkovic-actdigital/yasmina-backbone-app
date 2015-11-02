@@ -1,4 +1,8 @@
-"use strict";
+
+
+  window.backboneApp = {set: {}};
+  window.backboneApp.set.sharrrePhpProxyh = 'bower_components/sharrre/sharrre.php';
+  window.backboneApp.set.imgBaseUrl = "img/";
 
 (function() {
 

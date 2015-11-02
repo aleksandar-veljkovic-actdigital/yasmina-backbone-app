@@ -1,5 +1,5 @@
 
-main.js
+main-static.js
 ----------------
 underscore.js
 backbone.js
@@ -23,6 +23,7 @@ fullScreen.js
 caption.js
 sharrre.js
 views/media-gallery.js
+views/media-gallery-branded.js
 router.js
 app.js
-main.js
+main-static.js
