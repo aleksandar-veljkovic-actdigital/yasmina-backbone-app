@@ -54,6 +54,7 @@ define([
       // not supported ie8, ie9, android 4.1
       // Older iOS versions and Android 4.0.4 claim support, but implementation is too buggy to be useful.
       if (window.history && window.history.pushState) {
+        this.navigate("", {trigger: false, replace: true});
         history.pushState('', document.title, window.location.pathname);
       }
     },

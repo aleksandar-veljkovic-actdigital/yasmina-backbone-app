@@ -6,6 +6,7 @@
     var set = set || {};
     var $this = $(this);
     var rreturn = {};
+    var $active = null;
     //set.autoHeight
 
     // RTL
@@ -36,19 +37,25 @@
       $this.css({height: maxH});
     } else {
       $this.css({
-        transition : 'height .2s'
-      });      
+        transition: 'height .2s'
+      });
+      $(window).resize(function () {
+        if ($active) {
+          var h = $active.outerHeight(true);
+          $this.css('height', h);
+        }
+      });
     }
-
+    
     rreturn.goTo = function(itemNo) {
       if (itemNo === -1 || itemNo === false) {
         $items.css({opacity: 0, zIndex: -1}).removeClass("active");
       } else {
-        var $active = $items.eq(itemNo);
+        $active = $items.eq(itemNo);
         $items.css({opacity: 0, zIndex: -1}).removeClass("active");
         $active.css({opacity: 1, zIndex: 1}).addClass("active");
       }
-      if (set.autoHeight && typeof($active)!=='undefined') {
+      if (set.autoHeight && $active) {
         var h = $active.outerHeight(true);
         $this.css('height', h);
       }

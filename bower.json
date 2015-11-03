@@ -36,6 +36,9 @@
     "jsSHA": "1.5.0",
     "iCheck": "1.0.2",
     "gallery-captions": "*",
-    "fingerprint": "0.5.4"
+    "fingerprint": "0.5.4",
+    "slick.js": "1.5.8",
+    "ua-parser-js": "0.7.9",
+    "ua-parser-diwanee-js": "1.0.3"
   }
 }

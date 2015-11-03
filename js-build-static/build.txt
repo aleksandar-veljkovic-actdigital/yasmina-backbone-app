@@ -23,6 +23,8 @@ fullScreen.js
 caption.js
 sharrre.js
 views/media-gallery.js
+text!templates/media-gallery-branded-layout-desk.html.tpl
+slick.js
 views/media-gallery-branded.js
 router.js
 app.js

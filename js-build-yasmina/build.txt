@@ -19,6 +19,8 @@ text!templates/media-gallery-related.html.tpl
 fullScreen.js
 caption.js
 views/media-gallery.js
+text!templates/media-gallery-branded-layout-desk.html.tpl
+slick.js
 views/media-gallery-branded.js
 router.js
 app.js

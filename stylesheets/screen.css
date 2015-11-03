@@ -1652,3 +1652,275 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
   height: 90px;
 }
+
+/* Slider */
+/* line 3, ../bower_components/slick.js/slick/slick.scss */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 18, ../bower_components/slick.js/slick/slick.scss */
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+/* line 25, ../bower_components/slick.js/slick/slick.scss */
+.slick-list:focus {
+  outline: none;
+}
+/* line 29, ../bower_components/slick.js/slick/slick.scss */
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 35, ../bower_components/slick.js/slick/slick.scss */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 43, ../bower_components/slick.js/slick/slick.scss */
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+}
+/* line 50, ../bower_components/slick.js/slick/slick.scss */
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+/* line 55, ../bower_components/slick.js/slick/slick.scss */
+.slick-track:after {
+  clear: both;
+}
+/* line 59, ../bower_components/slick.js/slick/slick.scss */
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+/* line 63, ../bower_components/slick.js/slick/slick.scss */
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+/* line 67, ../bower_components/slick.js/slick/slick.scss */
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+/* line 70, ../bower_components/slick.js/slick/slick.scss */
+.slick-slide img {
+  display: block;
+}
+/* line 73, ../bower_components/slick.js/slick/slick.scss */
+.slick-slide.slick-loading img {
+  display: none;
+}
+/* line 79, ../bower_components/slick.js/slick/slick.scss */
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+/* line 83, ../bower_components/slick.js/slick/slick.scss */
+.slick-initialized .slick-slide {
+  display: block;
+}
+/* line 87, ../bower_components/slick.js/slick/slick.scss */
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+/* line 91, ../bower_components/slick.js/slick/slick.scss */
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+/* line 97, ../bower_components/slick.js/slick/slick.scss */
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* line 1, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+}
+/* line 13, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main {
+  height: 100%;
+  position: relative;
+}
+/* line 16, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header {
+  height: 64px;
+  position: relative;
+}
+/* line 19, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-list-button {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background: url("../img/mgb/gallery-ico.png") no-repeat center 23px;
+  max-width: 10%;
+}
+/* line 27, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-numers-w {
+  display: inline-block;
+  height: 64px;
+  linge-height: 64px;
+  max-width: 10%;
+}
+/* line 33, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-logo {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 64px;
+  width: 146px;
+  background: url("../img/mgb/yasmina-logo.png") no-repeat center center;
+  max-width: 60%;
+  background-size: 100%;
+  overflow: hidden;
+}
+/* line 47, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-close-button {
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+  background: url("../img/mgb/close-ico.png") no-repeat center center;
+  max-width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 58, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content {
+  height: calc(100% - 64px - 42px);
+  position: relative;
+}
+/* line 61, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w {
+  position: relative;
+  height: 100%;
+}
+/* line 64, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider {
+  position: relative;
+  height: 100%;
+}
+/* line 68, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list {
+  position: relative;
+  height: 100%;
+}
+/* line 71, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track {
+  position: relative;
+  height: 100%;
+}
+/* line 74, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track .item {
+  position: relative;
+  height: 100%;
+}
+/* line 77, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track .item img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+/* line 89, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-prev {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background: url("../img/mgb/right.png") no-repeat center center;
+  width: 40px;
+  height: 50px;
+  z-index: 1;
+}
+/* line 99, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-next {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background: url("../img/mgb/left.png") no-repeat center center;
+  width: 40px;
+  height: 50px;
+}
+/* line 112, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer {
+  height: 42px;
+}
+/* line 114, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-height: 42px;
+  transition: max-height 1s;
+}
+/* line 121, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w.opened {
+  max-height: 2000px;
+}
+/* line 125, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w .mgb-captions .mgb-caption {
+  max-width: 600px;
+}
+/* line 127, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w .mgb-captions .mgb-caption h3 {
+  line-height: 42px;
+  margin: 0;
+}

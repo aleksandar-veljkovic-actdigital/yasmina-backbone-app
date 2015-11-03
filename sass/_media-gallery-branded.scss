@@ -1,0 +1,147 @@
+.media-gallery-branded-fullscreen {  
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;  
+
+  //DESKTOP
+  &.desktop {
+    $heightHeight: 64px;
+    $footerHeight: 42px;
+    .mgb-main{
+      height: 100%;
+      position: relative;
+      .mgb-header{   
+        height: $heightHeight;
+        position: relative;
+        .mgb-list-button {
+          display: inline-block;
+          height: $heightHeight;
+          width: $heightHeight;
+          background: url($backboneImgBaseUrl + 'mgb/gallery-ico.png') no-repeat center 23px;
+          //@include prefixed( background-size, "50% auto" );
+          max-width: 10%;
+        }
+        .mgb-numers-w {
+          display: inline-block;
+          height: $heightHeight;
+          linge-height: $heightHeight;
+          max-width: 10%;
+        }
+        .mgb-logo {
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          @include prefixed( transform, translate(-50%, -50%) );
+          height: $heightHeight;
+          width: 146px;     
+          background: url($backboneImgBaseUrl + 'mgb/yasmina-logo.png') no-repeat center center;
+          max-width: 60%;
+          background-size: 100%;
+          overflow: hidden;
+
+        }
+        .mgb-close-button {
+          display: inline-block;
+          height: $heightHeight;
+          width: $heightHeight;
+          background: url($backboneImgBaseUrl + 'mgb/close-ico.png') no-repeat center center;
+          max-width: 20%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      .mgb-content{
+        height: calc(100% - #{$heightHeight} - #{$footerHeight});
+        position: relative;
+        .mgb-slider-w {
+          position: relative;
+          height: 100%;
+          .mgb-slider{
+            position: relative;
+            height: 100%;
+
+            .slick-list{
+              position: relative;
+              height: 100%;
+              .slick-track{
+                position: relative;
+                height: 100%;
+                .item {
+                  position: relative;
+                  height: 100%;
+                  img {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    @include prefixed( transform, translate(-50%, -50%) );
+                    max-width: 100%;
+                    max-height: 100%;
+                  }
+                }
+              }
+            }
+
+            .mgb-prev{
+              position: absolute;
+              right: 0;
+              top: 50%;
+              @include prefixed( transform, translate(0, -50%) );
+              background: url($backboneImgBaseUrl + 'mgb/right.png') no-repeat center center;
+              width: 40px;
+              height: 50px;
+              z-index: 1;
+            }
+            .mgb-next{
+              position: absolute;
+              left: 0;
+              top: 50%;
+              @include prefixed( transform, translate(0, -50%) );
+              background: url($backboneImgBaseUrl + 'mgb/left.png') no-repeat center center;
+              width: 40px;
+              height: 50px;
+
+            }
+          }
+        }
+      }
+      .mgb-footer{
+        height: $footerHeight;
+        .mgb-captions-w{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          background-color: rgba(255,255,255,0.8);
+          max-height: $footerHeight; 
+          transition: max-height 1s;
+          &.opened {
+            max-height: 2000px;
+          }
+          .mgb-captions {
+            .mgb-caption { 
+              max-width: 600px;
+              h3 {
+                //height: $footerHeight;
+                line-height: $footerHeight;
+                margin: 0;
+              }
+              //outline: 1px solid blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+}

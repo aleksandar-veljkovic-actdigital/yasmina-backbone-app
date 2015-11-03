@@ -21,7 +21,8 @@
       sharrre: '../bower_components/sharrre/jquery.sharrre',
       icheck: '../bower_components/iCheck/icheck',
       owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
-      owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
+      owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl',
+      slick: '../bower_components/slick.js/slick/slick'
     }
   });
 
