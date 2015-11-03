@@ -1,0 +1,9 @@
+{
+  "name": "ua-parser-diwanee-js",
+  "main": "src/ua-parser-diwanee.js",
+  "dependencies": {
+    "ua-parser-js": "*"
+  },
+  "ignore":{
+  }
+}

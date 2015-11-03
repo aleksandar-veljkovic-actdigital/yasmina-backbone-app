@@ -1,6 +1,6 @@
 {
   "name": "gallery-captions",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/biosonic/gallery-captions",
   "authors": [
     "Aleksandar Veljkovic <aleksandar.veljkovic@diwanee.com>"
@@ -18,11 +18,11 @@
   "dependencies": {
     "jquery": "~2.1.3"
   },
-  "_release": "0.0.5",
+  "_release": "0.0.6",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.5",
-    "commit": "be3b2ba6919e7f0925dce3a127b12180668e23d7"
+    "tag": "v0.0.6",
+    "commit": "6a44d9db9c094bb326af5a522eda58885b5d3df3"
   },
   "_source": "git://github.com/biosonic/gallery-captions.git",
   "_target": "*",

@@ -3,9 +3,28 @@
   
   <head>
     <title>Gallery Captions</title>
+    <style>
+      .captions {
+        outline: 1px solid yellow;
+        height: 0;
+        overflow: hidden;        
+      }
+      .captions > div {        
+        outline: 1px solid blue;
+
+      }
+    </style>
   </head>
   
   <body>
+    
+    <p>
+      <a href='#' onclick="$('.captions').data('galleryCaption').goTo(0); return false"> 1 </a>
+      <a href='#' onclick="$('.captions').data('galleryCaption').goTo(1); return false"> 2 </a>
+      <a href='#' onclick="$('.captions').data('galleryCaption').goTo(2); return false"> 3 </a>
+      <a href='#' onclick="$('.captions').data('galleryCaption').goTo(3); return false"> 4 </a>
+      <a href='#' onclick="$('.captions').data('galleryCaption').goTo(4); return false"> 5 </a>      
+    </p>
     
     <div class="captions">
       <div>Caption 1</div>
@@ -13,13 +32,13 @@
       <div>Caption 3<hr>row 2</div>
       <div>Caption 4</div>
       <div>Caption 5</div>
-    </div>
+    </div>    
     
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./gallery-caption.js"></script>
     <script>
       $('.captions').galleryCaption({
-        //autoHeight: true
+        autoHeight: true
       });
     </script>
     

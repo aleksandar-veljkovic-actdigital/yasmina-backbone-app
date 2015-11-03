@@ -31,6 +31,7 @@ window.backboneApp.set.imgBaseUrl = "/assets/images/";
       text: '../bower_components/requirejs-text/text',
       fullScreen: '../bower_components/fullmodal/full-modal',
       caption: '../bower_components/gallery-captions/gallery-caption',
+      slick: '../bower_components/slick.js/slick/slick'
       //sharrre: '../bower_components/sharrre/jquery.sharrre',
       //icheck: '../bower_components/iCheck/icheck',
       //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
