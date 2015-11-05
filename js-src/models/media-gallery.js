@@ -7,7 +7,9 @@ define([], function() {
     defaulst: {
       title: "",
       img: "//:0",
-      caption: ""
+      caption: "",
+      thumb: "//:0",
+      large: "//:0"
     }
   });
   return MediaGalleryItem;

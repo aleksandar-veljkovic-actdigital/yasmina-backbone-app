@@ -1772,32 +1772,43 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   left: 0;
   background-color: #fff;
 }
-/* line 13, ../sass/_media-gallery-branded.scss */
+/* line 14, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop.thumbs .mgb-main {
+  width: calc(100% - 174px);
+}
+/* line 17, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop.thumbs .mgb-asside {
+  width: 174px;
+}
+/* line 21, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main {
   height: 100%;
+  width: 100%;
+  float: right;
   position: relative;
+  transition: width .4s;
 }
-/* line 16, ../sass/_media-gallery-branded.scss */
+/* line 27, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header {
   height: 64px;
   position: relative;
 }
-/* line 19, ../sass/_media-gallery-branded.scss */
-.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-list-button {
+/* line 30, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-thumbs-button {
   display: inline-block;
   height: 64px;
   width: 64px;
   background: url("../img/mgb/gallery-ico.png") no-repeat center 23px;
   max-width: 10%;
 }
-/* line 27, ../sass/_media-gallery-branded.scss */
+/* line 38, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-numers-w {
   display: inline-block;
   height: 64px;
   linge-height: 64px;
   max-width: 10%;
 }
-/* line 33, ../sass/_media-gallery-branded.scss */
+/* line 44, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-logo {
   display: inline-block;
   position: absolute;
@@ -1815,7 +1826,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   background-size: 100%;
   overflow: hidden;
 }
-/* line 47, ../sass/_media-gallery-branded.scss */
+/* line 58, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-header .mgb-close-button {
   display: inline-block;
   height: 64px;
@@ -1826,37 +1837,37 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   top: 0;
   left: 0;
 }
-/* line 58, ../sass/_media-gallery-branded.scss */
+/* line 69, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content {
   height: calc(100% - 64px - 42px);
   position: relative;
 }
-/* line 61, ../sass/_media-gallery-branded.scss */
+/* line 72, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w {
   position: relative;
   height: 100%;
 }
-/* line 64, ../sass/_media-gallery-branded.scss */
+/* line 75, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider {
   position: relative;
   height: 100%;
 }
-/* line 68, ../sass/_media-gallery-branded.scss */
+/* line 79, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list {
   position: relative;
   height: 100%;
 }
-/* line 71, ../sass/_media-gallery-branded.scss */
+/* line 82, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track {
   position: relative;
   height: 100%;
 }
-/* line 74, ../sass/_media-gallery-branded.scss */
+/* line 85, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track .item {
   position: relative;
   height: 100%;
 }
-/* line 77, ../sass/_media-gallery-branded.scss */
+/* line 88, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track .item img {
   position: absolute;
   left: 50%;
@@ -1869,7 +1880,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   max-width: 100%;
   max-height: 100%;
 }
-/* line 89, ../sass/_media-gallery-branded.scss */
+/* line 100, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-prev {
   position: absolute;
   right: 0;
@@ -1884,7 +1895,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   height: 50px;
   z-index: 1;
 }
-/* line 99, ../sass/_media-gallery-branded.scss */
+/* line 110, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-next {
   position: absolute;
   left: 0;
@@ -1898,29 +1909,64 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   width: 40px;
   height: 50px;
 }
-/* line 112, ../sass/_media-gallery-branded.scss */
+/* line 123, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer {
   height: 42px;
+  position: relative;
 }
-/* line 114, ../sass/_media-gallery-branded.scss */
+/* line 126, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w {
   position: absolute;
   bottom: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   max-height: 42px;
-  transition: max-height 1s;
+  transition: max-height .4s;
 }
-/* line 121, ../sass/_media-gallery-branded.scss */
+/* line 133, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w.opened {
-  max-height: 2000px;
+  max-height: 1000px;
 }
-/* line 125, ../sass/_media-gallery-branded.scss */
+/* line 137, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w .mgb-captions .mgb-caption {
+  width: 100%;
   max-width: 600px;
 }
-/* line 127, ../sass/_media-gallery-branded.scss */
+/* line 140, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-captions-w .mgb-captions .mgb-caption h3 {
   line-height: 42px;
   margin: 0;
+}
+/* line 149, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-share {
+  width: 200px;
+  height: 100%;
+  outline: 1px solid blue;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* line 167, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-asside {
+  width: 0;
+  height: 100%;
+  padding: 50px 0;
+  float: right;
+  transition: width .4s;
+}
+/* line 173, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w {
+  overflow: hidden;
+  height: 100%;
+}
+/* line 176, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  margin-left: -100px;
+}
+/* line 181, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
+  padding: 5px 32px 5px 132px;
 }

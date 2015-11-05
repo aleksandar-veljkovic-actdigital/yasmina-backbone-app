@@ -10,13 +10,24 @@
   &.desktop {
     $heightHeight: 64px;
     $footerHeight: 42px;
-    .mgb-main{
+
+    &.thumbs .mgb-main {
+      width: calc(100% - 174px);
+    }
+    &.thumbs .mgb-asside {
+      width: 174px;
+    }
+
+    .mgb-main {
       height: 100%;
+      width: 100%;
+      float: right;
       position: relative;
+      transition: width .4s;
       .mgb-header{   
         height: $heightHeight;
         position: relative;
-        .mgb-list-button {
+        .mgb-thumbs-button {
           display: inline-block;
           height: $heightHeight;
           width: $heightHeight;
@@ -111,18 +122,20 @@
       }
       .mgb-footer{
         height: $footerHeight;
+        position: relative;
         .mgb-captions-w{
           position: absolute;
           bottom: 0;
           width: 100%;
           background-color: rgba(255,255,255,0.8);
           max-height: $footerHeight; 
-          transition: max-height 1s;
+          transition: max-height .4s;
           &.opened {
-            max-height: 2000px;
+            max-height: 1000px;
           }
           .mgb-captions {
             .mgb-caption { 
+              width: 100%;
               max-width: 600px;
               h3 {
                 //height: $footerHeight;
@@ -133,15 +146,44 @@
             }
           }
         }
+        .mgb-share {
+          width: 200px;
+          height: 100%;
+          outline: 1px solid blue;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
       }
+
+
+
+
+
+
+
     }
+
+    .mgb-asside {
+      width: 0;
+      height: 100%;
+      padding: 50px 0;
+      float: right;
+      transition: width .4s;
+      .mgb-thumbs-w {
+        overflow: hidden;
+        height: 100%;
+        .mgb-thumbs {
+          overflow: hidden;
+          overflow-y: auto;
+          height: 100%;
+          margin-left: -100px;
+          .mgb-thumb {
+            padding: 5px 32px 5px 132px; 
+          }
+        }
+      }
+    }   
+
   }
-
-
-
-
-
-
-
-
 }

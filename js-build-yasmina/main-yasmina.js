@@ -2477,7 +2477,9 @@ define('models/media-gallery',[], function() {
     defaulst: {
       title: "",
       img: "//:0",
-      caption: ""
+      caption: "",
+      thumb: "//:0",
+      large: "//:0"
     }
   });
   return MediaGalleryItem;
@@ -3157,7 +3159,7 @@ define('views/media-gallery',[
 
 //});
 
-define('text!templates/media-gallery-branded-layout-desk.html.tpl',[],function () { return '<div class="media-gallery-branded-fullscreen desktop">\n  \n  \n  <div class="mgb-asside">    \n    <div class=\'mgb-list\'></div>\n  </div> \n  \n  \n  <div class="mgb-main">\n    \n    <div class="mgb-header">\n      <a href="#mgb-list" class="mgb-list-button"></a>\n      <div class=\'mgb-numers-w\'></div>\n      <div class=\'mgb-logo\'></div>\n      <a href="#mgb-close" class="mgb-close-button"></a>\n    </div>\n\n    <div class="mgb-content">\n      <div class=\'mgb-slider-w\'></div>\n    </div> \n    \n    <div class="mgb-footer">\n      <div class="mgb-captions-w"></div> \n      <div class="mgb-share"></div>\n    </div> \n    \n  </div>   \n\n\n</div>';});
+define('text!templates/media-gallery-branded-layout-desk.html.tpl',[],function () { return '<div class="media-gallery-branded-fullscreen desktop">\n  \n  \n  <div class="mgb-asside">    \n    <div class=\'mgb-thumbs-w\'></div>\n  </div> \n  \n  \n  <div class="mgb-main">\n    \n    <div class="mgb-header">\n      <a href="#mgb-list" class="mgb-thumbs-button"></a>\n      <div class=\'mgb-numers-w\'></div>\n      <div class=\'mgb-logo\'></div>\n      <a href="#mgb-close" class="mgb-close-button"></a>\n    </div>\n\n    <div class="mgb-content">\n      <div class=\'mgb-slider-w\'></div>\n    </div> \n    \n    <div class="mgb-footer">\n      <div class="mgb-captions-w"></div> \n      <div class="mgb-share-w"></div>\n    </div> \n    \n  </div>   \n\n\n</div>';});
 
 /*
      _ _      _       _
@@ -5821,8 +5823,10 @@ define('views/media-gallery-branded',[
     $layout: $(),
     $slider: $(),
     $captions: $(),
+    $thumbs: $(),
     currentItem: 1,
     id: null,
+    appThumborConfig: false,
     
     initialize: function (attributes) {
             
@@ -5830,6 +5834,13 @@ define('views/media-gallery-branded',[
       this.collection = new Backbone.Collection([], {model: MediaGalleryItemModel});
       this.currentItem = parseInt(attributes.currentItem);
       this.id = parseInt(attributes.id);
+      this.appThumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: true, 
+          hasTrim: false, 
+          isSmart: true,
+          resizeWidth: "110",
+          resizeHeight: "110"
+      }});
       
     },
     
@@ -5841,13 +5852,23 @@ define('views/media-gallery-branded',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
-          caption: $(".mg-capt", o).html().trim()
+          caption: $(".mg-capt", o).html().trim(),
+          thumb: _this.thumborThumb($(".mg-img", o).attr('src'))
         };
         _this.collection.add(new MediaGalleryItemModel(data));
-      });
- 
-     
+      });    
       
+    },
+    
+    thumborThumb: function(src) {
+      //url = src.match(/(https?:\/\/[^\s]+)/g, src);
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(this.appThumborConfig);
+      thumbor.setAmazonUrlPath(this.appThumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
     },
     
     
@@ -5857,30 +5878,39 @@ define('views/media-gallery-branded',[
       var $layout;
       this.$layout = $layout = $(layoutTpl());
       var itemsRdr = "";
-      var captRdr = "";      
-      $layout.css('opacity', 0.001).addClass('render');      
+      var captRdr = "";   
+      var thumbsRdr = "";
+      $layout.css('opacity', 0.001).addClass('render');  
+      
+      
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
           captRdr += "<div class='mgb-caption'><h3>" + item.attributes.title + "</h3><p>" + item.attributes.caption + "</p></div>";
           itemsRdr += '<div class="item"><img  src="' + item.attributes.img + '" alt="" /></div>';
+          thumbsRdr += '<div class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /></div>';
         }
       });
       this.$captions = $("<div class='mgb-captions'>" + captRdr + "</div>");
       this.$slider = $("<div class='mgb-slider'>" + itemsRdr + "</div>");
+      this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
       $('.mgb-slider-w', $layout).append(this.$slider);
       $('.mgb-captions-w', $layout).append(this.$captions);
+      $('.mgb-thumbs-w', $layout).append(this.$thumbs);
       this.fullScreen();
-      this.bindings(); 
+      this.bindings();      
       $layout.css('opacity', 1).addClass('initialized');
     },
 
 
     bindings: function () {
+      var _this = this;
       // captions      
       this.$captions.galleryCaption({autoHeight: true});
       this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
       // slider      
       this.slider(this.$slider);
+      // thumbs
+      this.thumbs(this.$thumbs);
       // close button
       var _this = this;
       $('.mgb-close-button', this.$layout).click(function (e) {
@@ -5888,7 +5918,8 @@ define('views/media-gallery-branded',[
         _this.close();
       });
       // captions toggle
-      $('.mgb-caption').on('click', function(){
+      $('.mgb-caption').on('click', function(e){
+        e.preventDefault();
         $this = $(this);
         $parent = $this.parents('.mgb-captions-w');
         if ($parent.hasClass('opened')){
@@ -5897,6 +5928,25 @@ define('views/media-gallery-branded',[
         else {
           $parent.addClass('opened');
         }        
+      });
+      // list toggle
+      $('.mgb-thumbs-button').on('click', function(e){
+        e.preventDefault();
+        var $o = _this.$layout;
+        if ($o.hasClass('thumbs')){
+          $o.removeClass('thumbs');
+        } 
+        else {
+          $o.addClass('thumbs');
+        }  
+        var interval;
+        interval = setInterval(function(){
+          _this.$slider.slick('setPosition');
+          //_this.$thumbs.slick('setPosition');
+        },25);        
+        setTimeout(function(){
+          clearInterval(interval);
+        },2000); 
       });
     },
     
@@ -5913,6 +5963,31 @@ define('views/media-gallery-branded',[
       $('body').append(this.$layout);   
     },
     
+    
+    thumbs: function ($target) {
+      var _this = this;
+
+      /*
+      $target.slick({
+        centerMode: true,
+        centerPadding: ($(window).height() / 2) - 110 + 'px',
+        vertical: true,
+        rows: 1,
+        slidesPerRow: 1,
+        //slidesToShow: Math.floor( $(window).height() / 110 ) - 1,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        mobileFirst: true,
+        prevArrow: "<a href='#' class='mgb-prev'>prev</a>",
+        nextArrow: "<a href='#' class='mgb-next'>next</a>",
+        initialSlide: this.currentItem - 1,
+        infinite: false,
+        asNavFor: '.mgb-slider'
+      });
+      */
+      
+
+    },   
     
     slider: function ($target) {
       var _this = this;
