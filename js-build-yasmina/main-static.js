@@ -22,7 +22,8 @@
       icheck: '../bower_components/iCheck/icheck',
       owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
       owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl',
-      slick: '../bower_components/slick.js/slick/slick'
+      slick: '../bower_components/slick.js/slick/slick',
+      iscroll: '../bower_components/iscroll/build/iscroll'
     }
   });
 

@@ -6,7 +6,8 @@ define([
   //
   'jquery',
   'slick',
-  'caption'
+  'caption',
+  'iscroll'
 ], function (
         MediaGalleryItemModel,
         templateLayoutDedsk
@@ -18,6 +19,7 @@ define([
     $slider: $(),
     $captions: $(),
     $thumbs: $(),
+    $numers: $(),
     currentItem: 1,
     id: null,
     appThumborConfig: false,
@@ -50,8 +52,7 @@ define([
           thumb: _this.thumborThumb($(".mg-img", o).attr('src'))
         };
         _this.collection.add(new MediaGalleryItemModel(data));
-      });    
-      
+      });
     },
     
     thumborThumb: function(src) {
@@ -74,22 +75,25 @@ define([
       var itemsRdr = "";
       var captRdr = "";   
       var thumbsRdr = "";
-      $layout.css('opacity', 0.001).addClass('render');  
-      
-      
+      var numersRdr = "";
+      var clength = this.collection.length;
+      $layout.css('opacity', 0.001).addClass('render');      
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
           captRdr += "<div class='mgb-caption'><h3>" + item.attributes.title + "</h3><p>" + item.attributes.caption + "</p></div>";
           itemsRdr += '<div class="item"><img  src="' + item.attributes.img + '" alt="" /></div>';
-          thumbsRdr += '<div class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /></div>';
+          thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i<9)?"0"+(i + 1):(i + 1)) + '</span></a>';
+          numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
         }
       });
       this.$captions = $("<div class='mgb-captions'>" + captRdr + "</div>");
       this.$slider = $("<div class='mgb-slider'>" + itemsRdr + "</div>");
       this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
+      this.$numers = $("<div class='mgb-numers'>" + numersRdr + "</div>");
       $('.mgb-slider-w', $layout).append(this.$slider);
       $('.mgb-captions-w', $layout).append(this.$captions);
       $('.mgb-thumbs-w', $layout).append(this.$thumbs);
+      $('.mgb-numers-w', $layout).append(this.$numers);
       this.fullScreen();
       this.bindings();      
       $layout.css('opacity', 1).addClass('initialized');
@@ -103,8 +107,11 @@ define([
       this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
       // slider      
       this.slider(this.$slider);
-      // thumbs
-      this.thumbs(this.$thumbs);
+      // thumbs      
+      this.thumbs(this.$thumbs); 
+      //numeration
+      this.$numers.galleryCaption({autoHeight: true});
+      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
       // close button
       var _this = this;
       $('.mgb-close-button', this.$layout).click(function (e) {
@@ -123,7 +130,7 @@ define([
           $parent.addClass('opened');
         }        
       });
-      // list toggle
+      // thumbs toggle
       $('.mgb-thumbs-button').on('click', function(e){
         e.preventDefault();
         var $o = _this.$layout;
@@ -136,14 +143,49 @@ define([
         var interval;
         interval = setInterval(function(){
           _this.$slider.slick('setPosition');
-          //_this.$thumbs.slick('setPosition');
+          _this.$thumbs.iscroll.refresh();
+          _this.thumbGo(_this.currentItem - 1);
         },25);        
         setTimeout(function(){
           clearInterval(interval);
-        },2000); 
+        },1000); 
       });
-    },
-    
+      // thumb click
+      var $thumbItems = this.$thumbs.find('.mgb-thumb');
+      $thumbItems.on('click', function(e){        
+        e.preventDefault();
+        var position = $thumbItems.index(this);
+        _this.$slider.slick('slickGoTo', position);
+      });
+      // thumbs up/down
+
+      $('#mgb-thumbs-up').on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+      });
+      $('#mgb-thumbs-dw').on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+      });
+      
+      $('#mgb-thumbs-up').on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      $('#mgb-thumbs-dw').on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });      
+      _this.$thumbs.iscroll.on('scrollEnd', function () {
+        if ($('#mgb-thumbs-up').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+        }
+        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+        }
+      });
+      $('#mgb-thumbs-up, #mgb-thumbs-dw').on('click', function (e) {
+        e.preventDefault();
+      });
+    },    
     
     close: function() {      
       this.$layout.remove();
@@ -159,35 +201,41 @@ define([
     
     
     thumbs: function ($target) {
-      var _this = this;
-
-      /*
-      $target.slick({
-        centerMode: true,
-        centerPadding: ($(window).height() / 2) - 110 + 'px',
-        vertical: true,
-        rows: 1,
-        slidesPerRow: 1,
-        //slidesToShow: Math.floor( $(window).height() / 110 ) - 1,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        mobileFirst: true,
-        prevArrow: "<a href='#' class='mgb-prev'>prev</a>",
-        nextArrow: "<a href='#' class='mgb-next'>next</a>",
-        initialSlide: this.currentItem - 1,
-        infinite: false,
-        asNavFor: '.mgb-slider'
-      });
-      */
+      var iscroll = new IScroll($target.parent()[0], {
+        mouseWheel: true,
+        scrollbars: false,
+        click: true        
+      });      
+      $.fn.iscroll = iscroll;
+      this.thumbGo(this.currentItem - 1);
+    }, 
+    
+    thumbGo: function (index) {   
       
+      this.$thumbs.children().removeClass('mgb-thumb-active');
+      this.$thumbs.children().eq(index).addClass('mgb-thumb-active'); 
 
-    },   
+      if ( !this.isVisible(this.$thumbs.children().eq(index), this.$thumbs.parent()) ) {
+        this.$thumbs.iscroll.scrollToElement(this.$thumbs.children()[index], 400);
+      }
+
+    },
+
+    isVisible: function ($element, $container) {
+      if ($container.position().top < $element.position().top &&
+              $container.position().top + $container.outerHeight(true) > $element.position().top + $element.outerHeight(true)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
     
     slider: function ($target) {
       var _this = this;
       $target.on('afterChange', function (slick, currentSlide) {
-        _this.currentItem = currentSlide.currentSlide;
-        _this.sliderAfterChange(slick, currentSlide);
+        _this.currentItem = currentSlide.currentSlide + 1;
+        _this.sliderAfterChange(currentSlide - 1);
       });
       $target.one('init', function () {
         // $(window).trigger('resize');
@@ -205,9 +253,11 @@ define([
       });
     },
     
-    sliderAfterChange: function(slick, currentSlide){      
-      window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + (this.currentItem+1), {trigger: false, replace: true});
-      this.$captions.data('galleryCaption').goTo(this.currentItem);
+    sliderAfterChange: function( currentSlide ){      
+      window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + ( this.currentItem ), {trigger: false, replace: true});
+      this.$captions.data('galleryCaption').goTo(this.currentItem-1);
+      this.$numers.data('galleryCaption').goTo(this.currentItem-1);
+      this.thumbGo(this.currentItem-1);
     }
 
   });

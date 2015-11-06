@@ -3,13 +3,15 @@
   
   <div class="mgb-asside">    
     <div class='mgb-thumbs-w'></div>
+    <a href='#' id="mgb-thumbs-up"></a>
+    <a href='#' id="mgb-thumbs-dw"></a>
   </div> 
   
   
   <div class="mgb-main">
     
     <div class="mgb-header">
-      <a href="#mgb-list" class="mgb-thumbs-button"></a>
+      <a href="#mgb-thumbs-button" class="mgb-thumbs-button"></a>
       <div class='mgb-numers-w'></div>
       <div class='mgb-logo'></div>
       <a href="#mgb-close" class="mgb-close-button"></a>
