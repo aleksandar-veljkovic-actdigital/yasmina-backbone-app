@@ -27,6 +27,10 @@ $rem-base: 16 !default;
   @return $remValues;
 }
 
+$font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
+$font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
+$font-family-noto: "Noto Serif", serif !default;
+
 
 @import "w-poll";
 @import "icheck";
