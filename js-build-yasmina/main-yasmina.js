@@ -7839,6 +7839,7 @@ define('views/media-gallery-branded',[
     $captions: $(),
     $thumbs: $(),
     $numers: $(),
+    $share: $(),
     currentItem: 1,
     id: null,
     appThumborConfig: false,
@@ -7899,7 +7900,7 @@ define('views/media-gallery-branded',[
       $layout.css('opacity', 0.001).addClass('render');      
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
-          captRdr += "<div class='mgb-caption'><h3>" + item.attributes.title + "</h3><p>" + item.attributes.caption + "</p></div>";
+          captRdr += "<div class='mgb-caption'><h3><span class='tx'>" + item.attributes.title + "</span><span class='ui'>فستان خمري</span></h3><p>" + item.attributes.caption + "</p></div>";
           itemsRdr += '<div class="item"><img  src="' + item.attributes.img + '" alt="" /></div>';
           thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i<9)?"0"+(i + 1):(i + 1)) + '</span></a>';
           numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
@@ -7909,10 +7910,12 @@ define('views/media-gallery-branded',[
       this.$slider = $("<div class='mgb-slider'>" + itemsRdr + "</div>");
       this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
       this.$numers = $("<div class='mgb-numers'>" + numersRdr + "</div>");
+      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="gplus_share" class="share_btn" ></div></div>');
       $('.mgb-slider-w', $layout).append(this.$slider);
       $('.mgb-captions-w', $layout).append(this.$captions);
       $('.mgb-thumbs-w', $layout).append(this.$thumbs);
       $('.mgb-numers-w', $layout).append(this.$numers);
+      $('.mgb-share-w', $layout).append(this.$share);
       this.fullScreen();
       this.bindings();      
       $layout.css('opacity', 1).addClass('initialized');
@@ -7931,6 +7934,8 @@ define('views/media-gallery-branded',[
       //numeration
       this.$numers.galleryCaption({autoHeight: true});
       this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
+      //share on social networks
+      this.sharrre(this.$share);
       // close button
       var _this = this;
       $('.mgb-close-button', this.$layout).click(function (e) {
@@ -8077,7 +8082,87 @@ define('views/media-gallery-branded',[
       this.$captions.data('galleryCaption').goTo(this.currentItem-1);
       this.$numers.data('galleryCaption').goTo(this.currentItem-1);
       this.thumbGo(this.currentItem-1);
+    },
+    
+
+    
+    sharrre: function ($target) {
+      var url = window.location.href;
+      url = url.replace(/[^\/]*$/, '1'); // always to point first image in gallery
+      var imgBaseUrl = this.imgBaseUrl;
+      $('#facebook_share', $target).sharrre({
+        share: {
+          facebook: true
+        },
+        template: '&nbsp;',
+        enableHover: false,
+        //enableTracking: true,
+        click: function (api, options) {
+          api.openPopup('facebook');
+          $(document).trigger("galleryBrandedSharrreClick");
+          $(document).trigger("galleryBrandedSharrreClickFacebook");
+        },
+        url: url,
+        enableCounter: false
+      });
+      $('#twitter_share', $target).sharrre({
+        share: {
+          twitter: true
+        },
+        template: '&nbsp;',
+        enableHover: false,
+        //enableTracking: true,
+        click: function (api, options) {
+          api.openPopup('twitter');
+          $(document).trigger("galleryBrandedSharrreClick");
+          $(document).trigger("galleryBrandedSharrreClickTwitter");
+        },
+        url: url,
+        enableCounter: false
+      });
+      $('#gplus_share', $target).sharrre({
+        share: {
+          googlePlus: true
+        },
+        template: '&nbsp;',
+        enableHover: false,
+        //enableTracking: true,
+        click: function (api, options) {
+          api.openPopup('googlePlus');
+          $(document).trigger("galleryBrandedSharrreClick");
+          $(document).trigger("galleryBrandedSharrreClickGplus");
+        },
+        url: url,
+        urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
+        enableCounter: false
+      });
+      $('#whatsapp_share', $target).sharrre({
+        share: {
+          whatsapp: true
+        },
+        template: '&nbsp;',
+        enableHover: false,
+        //enableTracking: true,
+        click: function (api, options) {
+          api.openPopup('googlePlus');
+          $(document).trigger("galleryBrandedSharrreClick");
+          $(document).trigger("galleryBrandedSharrreClickGplus");
+        },
+        enableCounter: false
+    /*
+        buttons: {
+          whatsapp: {
+            utmTracking: {
+              site: 'yasmina'
+            }
+          }
+        }
+        */
+      });
     }
+
+    
+    
 
   });
 
@@ -8207,7 +8292,13 @@ define('router',[
         backboneApp.mediaGallery.close();
         delete backboneApp.mediaGallery;
       }
-    } 
+      if (backboneApp.mediaGalleryBranded) {
+        backboneApp.mediaGalleryBranded.undelegateEvents();
+        backboneApp.mediaGalleryBranded.close();
+        delete backboneApp.mediaGalleryBranded;
+      }
+    }
+
   });
 
   return {
