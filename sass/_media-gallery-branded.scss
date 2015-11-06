@@ -1,3 +1,5 @@
+@import "compass/utilities/general/clearfix";
+
 .media-gallery-branded-fullscreen {  
   position: fixed;
   width: 100%;
@@ -5,6 +7,9 @@
   top: 0;
   left: 0;
   background-color: #fff;  
+  & *:focus {
+    outline: none;
+  }
 
   //DESKTOP
   &.desktop {
@@ -127,44 +132,57 @@
           }
         }
       }
-      .mgb-footer{
+      .mgb-footer {
         height: $footerHeight;
         position: relative;
-        .mgb-captions-w{
+        .mgb-captions-w {
+          $titleLineHeight: 19px;
           position: absolute;
           bottom: 0;
           width: 100%;
           background-color: rgba(255,255,255,0.8);
           max-height: $footerHeight; 
-          transition: max-height .4s;
-          &.opened {
-            max-height: 1000px;
-            .mgb-captions {
-              .mgb-caption { 
-                width: 100%;
-                max-width: 600px;
-                h3 {
-                  line-height: 19px;
-                  margin-top: 10px;
-                }
-              }
-            }
-          }
-
-
+          transition: max-height 1s;
           .mgb-captions {
+
             .mgb-caption { 
               width: 100%;
               max-width: 600px;
+              padding: 0 12px;
+              &:hover {
+                cursor: pointer;
+              }
               h3 {
-
-                line-height: $footerHeight;
-                margin: 0;
+                margin: 12px 0 0 0;
                 font-family: $font-family-kufi;
-                font-weight: bold;
-                color: black;
+                font-weight: bold;                
                 font-size: 11px;
                 transition: all .4s;
+                @include pie-clearfix;
+                span {
+
+                }
+                .tx {
+                  float: right;
+                  overflow: hidden;
+                  line-height: $titleLineHeight;
+                  max-height:  $titleLineHeight;
+                  color: black;
+                  max-width: calc( 100% - 85px );
+                  padding-left: 8px;
+                  transition: max-height .5s;
+                }
+                .ui {
+                  float: right;
+                  overflow: hidden;
+                  width: 85px;
+                  height: $titleLineHeight;
+                  line-height: $titleLineHeight;
+                  padding-left: 12px;
+                  color: $gold;
+                  background: url($backboneImgBaseUrl + 'mgb/arrow-ico.png') no-repeat left 7px;
+                  transition: all .5s;
+                }
               }
               p {
                 font-family: $font-family-naskh;
@@ -175,13 +193,54 @@
             }
           }
         }
-        .mgb-share {
-          width: 200px;
-          height: 100%;
-          outline: 1px solid blue;
+        .mgb-captions-w.opened {
+          max-height: 1000px;
+          .mgb-captions {
+            .mgb-caption { 
+              width: 100%;
+              max-width: 600px;
+              h3 {
+                .tx {
+                  max-height: 600px;
+                }
+                .ui {
+                  width: 0px;
+                  font-size: 0;
+                }
+              }
+            }
+          }
+        }
+        .mgb-share-w {          
           position: absolute;
           bottom: 0;
           left: 0;
+          z-index: 1;
+          @include pie-clearfix;
+          .mgb-share {
+            vertical-align: middle;
+            & > div {
+              float: right;
+
+              width: 38px;
+              height: 38px;  
+              &:hover {
+                cursor:pointer;
+              }              
+            }
+            #facebook_share {
+              background: url($backboneImgBaseUrl + 'mgb/fb-ico.png') no-repeat center center;
+            }
+            #twitter_share {
+              background: url($backboneImgBaseUrl + 'mgb/twitter-ico.png') no-repeat center center;
+            }
+            #gplus_share {
+              background: url($backboneImgBaseUrl + 'mgb/gplus-ico.png') no-repeat center center;
+            }
+            #whatsapp_share {
+              display: none; 
+            }
+          }
         }
       }
 

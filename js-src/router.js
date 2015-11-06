@@ -119,7 +119,13 @@ define([
         backboneApp.mediaGallery.close();
         delete backboneApp.mediaGallery;
       }
-    } 
+      if (backboneApp.mediaGalleryBranded) {
+        backboneApp.mediaGalleryBranded.undelegateEvents();
+        backboneApp.mediaGalleryBranded.close();
+        delete backboneApp.mediaGalleryBranded;
+      }
+    }
+
   });
 
   return {
