@@ -95,7 +95,10 @@ define([
         backboneApp.mediaGalleryBranded.parse();
         if (backboneApp.set.device === 'desktop') {
           backboneApp.mediaGalleryBranded.renderDesk();
-        } else if (backboneApp.set.device === 'tablet') {   
+        } else if (backboneApp.set.device === 'tablet') { 
+          //dirty fix for viewport 1/2
+          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content");  
+          //
           backboneApp.mediaGalleryBranded.renderTab();
         } else {
           backboneApp.mediaGalleryBranded.renderMob(); 
@@ -120,6 +123,12 @@ define([
         delete backboneApp.mediaGallery;
       }
       if (backboneApp.mediaGalleryBranded) {
+        //dirty fix for viewport 2/2
+        if(backboneApp.mediaGallery.viewportRollBack){
+          $('meta[name=viewport]').attr("content", backboneApp.mediaGalleryBranded.viewportRollBack);
+          $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+        //
         backboneApp.mediaGalleryBranded.undelegateEvents();
         backboneApp.mediaGalleryBranded.close();
         delete backboneApp.mediaGalleryBranded;

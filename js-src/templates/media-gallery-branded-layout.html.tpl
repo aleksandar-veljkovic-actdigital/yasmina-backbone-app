@@ -1,7 +1,11 @@
-<div class="media-gallery-branded-fullscreen desktop">
+<div class="media-gallery-branded-fullscreen">
   
   
-  <div class="mgb-asside">    
+  <div class="mgb-asside">   
+    <div class="mgb-asside-header">
+      <div class='mgb-logo'></div>
+      <div class='mgb-thumbs-close'></div>
+    </div>
     <div class='mgb-thumbs-w'></div>
     <a href='#' id="mgb-thumbs-up"></a>
     <a href='#' id="mgb-thumbs-dw"></a>

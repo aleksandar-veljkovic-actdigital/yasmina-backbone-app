@@ -2,7 +2,7 @@
 
 define([
   'models/media-gallery',
-  'text!templates/media-gallery-branded-layout-desk.html.tpl',
+  'text!templates/media-gallery-branded-layout.html.tpl',
   //
   'jquery',
   'slick',
@@ -10,7 +10,7 @@ define([
   'iscroll'
 ], function (
         MediaGalleryItemModel,
-        templateLayoutDedsk
+        templateLayout
         ) {
 
   var MediaGallryBrandedView = Backbone.View.extend({
@@ -35,8 +35,8 @@ define([
           hasResize: true, 
           hasTrim: false, 
           isSmart: true,
-          resizeWidth: "110",
-          resizeHeight: "110"
+          resizeWidth: "188",
+          resizeHeight: "188"
       }});
       
     },
@@ -69,21 +69,48 @@ define([
     
     
     
-    renderDesk: function () {
-      var layoutTpl = _.template(templateLayoutDedsk);
-      var $layout;
-      this.$layout = $layout = $(layoutTpl());
-      var itemsRdr = "";
-      var captRdr = "";   
+    renderDesk: function () {   
+      var layoutTpl = _.template(templateLayout);
+      this.$layout = $(layoutTpl());
+      this.$layout.css('opacity', 0.001).addClass('render desktop');
+      this._render();    
+      this.fullScreen();
+      this.bindings();  
+      this.$layout.css('opacity', 1).addClass('initialized');
+     },
+    
+    
+    renderTab: function(){
+      var layoutTpl = _.template(templateLayout);
+      this.$layout = $(layoutTpl());
+      this.$layout.css('opacity', 0.001).addClass('render tablet');
+      this._render();    
+      this.fullScreen();
+      this.bindings();  
+      this.$layout.css('opacity', 1).addClass('initialized');
+    },
+
+    renderMob: function () {
+      var layoutTpl = _.template(templateLayout);
+      this.$layout = $(layoutTpl());
+      this.$layout.css('opacity', 0.001).addClass('render mobile');
+      this._render();    
+      this.fullScreen();
+      this.bindings();  
+      this.$layout.css('opacity', 1).addClass('initialized');
+    },
+    
+    _render: function () {      
       var thumbsRdr = "";
+      var itemsRdr = "";
+      var captRdr = "";
       var numersRdr = "";
       var clength = this.collection.length;
-      $layout.css('opacity', 0.001).addClass('render');      
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
           captRdr += "<div class='mgb-caption'><h3><span class='tx'>" + item.attributes.title + "</span><span class='ui'>فستان خمري</span></h3><p>" + item.attributes.caption + "</p></div>";
           itemsRdr += '<div class="item"><img  src="' + item.attributes.img + '" alt="" /></div>';
-          thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i<9)?"0"+(i + 1):(i + 1)) + '</span></a>';
+          thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i < 9) ? "0" + (i + 1) : (i + 1)) + '</span></a>';
           numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
         }
       });
@@ -92,15 +119,19 @@ define([
       this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
       this.$numers = $("<div class='mgb-numers'>" + numersRdr + "</div>");
       this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="gplus_share" class="share_btn" ></div></div>');
-      $('.mgb-slider-w', $layout).append(this.$slider);
-      $('.mgb-captions-w', $layout).append(this.$captions);
-      $('.mgb-thumbs-w', $layout).append(this.$thumbs);
-      $('.mgb-numers-w', $layout).append(this.$numers);
-      $('.mgb-share-w', $layout).append(this.$share);
-      this.fullScreen();
-      this.bindings();      
-      $layout.css('opacity', 1).addClass('initialized');
+      $('.mgb-slider-w', this.$layout).append(this.$slider);
+      $('.mgb-captions-w', this.$layout).append(this.$captions);
+      $('.mgb-thumbs-w', this.$layout).append(this.$thumbs);
+      $('.mgb-numers-w', this.$layout).append(this.$numers);
+      $('.mgb-share-w', this.$layout).append(this.$share); 
     },
+
+
+
+
+
+
+
 
 
     bindings: function () {
@@ -124,10 +155,10 @@ define([
         _this.close();
       });
       // captions toggle
-      $('.mgb-caption').on('click', function(e){
+      $('.mgb-caption', this.$layout).on('click', function(e){
         e.preventDefault();
-        $this = $(this);
-        $parent = $this.parents('.mgb-captions-w');
+        var $this = $(this);
+        var $parent = $this.parents('.mgb-captions-w');
         if ($parent.hasClass('opened')){
           $parent.removeClass('opened');
         } 
@@ -136,7 +167,7 @@ define([
         }        
       });
       // thumbs toggle
-      $('.mgb-thumbs-button').on('click', function(e){
+      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function(e){
         e.preventDefault();
         var $o = _this.$layout;
         if ($o.hasClass('thumbs')){
@@ -161,22 +192,25 @@ define([
         e.preventDefault();
         var position = $thumbItems.index(this);
         _this.$slider.slick('slickGoTo', position);
+        if( _this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')){
+          $('.mgb-thumbs-close', this.$layout).trigger('click');
+        }
       });
       // thumbs up/down
 
-      $('#mgb-thumbs-up').on('touchstart mousedown', function (e) {
+      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
         $(this).addClass('scroll');
         _this.$thumbs.iscroll.scrollBy(0, 100, 300);
       });
-      $('#mgb-thumbs-dw').on('touchstart mousedown', function (e) {
+      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
         $(this).addClass('scroll');
         _this.$thumbs.iscroll.scrollBy(0, -100, 300);
       });
       
-      $('#mgb-thumbs-up').on('touchend mouseup mouseleave', function (e) {
+      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
         $(this).removeClass('scroll');
       });
-      $('#mgb-thumbs-dw').on('touchend mouseup mouseleave', function (e) {
+      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
         $(this).removeClass('scroll');
       });      
       _this.$thumbs.iscroll.on('scrollEnd', function () {
@@ -187,7 +221,7 @@ define([
           _this.$thumbs.iscroll.scrollBy(0, -100, 300);
         }
       });
-      $('#mgb-thumbs-up, #mgb-thumbs-dw').on('click', function (e) {
+      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
         e.preventDefault();
       });
     },    
