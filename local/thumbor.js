@@ -12,6 +12,7 @@ var thumborUrlBuilder = function(config) {
   this.isSmart = config.thumbor.isSmart;
   this.resizeWidth = config.thumbor.resizeWidth;
   this.resizeHeight = config.thumbor.resizeHeight;
+  this.fitIn = config.thumbor.fitIn;
 
 
   this.setAmazonUrlPath = function(amazonS3Path, scope){
@@ -58,6 +59,10 @@ var thumborUrlBuilder = function(config) {
 
     if (tthis.isSmart) {
       operation = operation + 'smart/';
+    }
+    
+    if (tthis.fitIn) {
+      operation = operation + 'fit-in/' + tthis.fitIn.E + 'x' + tthis.fitIn.F + '/';
     }
 
     if (tthis.thumborSecurityKey) {
