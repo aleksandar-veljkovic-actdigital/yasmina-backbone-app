@@ -1,0 +1,334 @@
+$headerHeight: 64px;
+$footerHeight: 42px;
+
+&.thumbs .mgb-asside {
+  left: 0%;
+}
+.mgb-thumbs-button {
+  display: inline-block;
+  height: $headerHeight;
+  width: $headerHeight;
+  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico.png') no-repeat center 21px;
+  //@include prefixed( background-size, "50% auto" );
+  max-width: 10%;
+}
+&.thumbs .mgb-thumbs-button {
+  background-position: center -24px;
+}
+
+.mgb-main {
+  height: 100%;
+  width: 100%;
+  float: right;
+  position: relative;
+  transition: width .4s;
+  .mgb-header {   
+    height: $headerHeight;
+    position: relative;
+    .mgb-numers-w {
+      display: inline-block;
+      height: $headerHeight;
+      line-height: $headerHeight;
+      width: 10%;
+      font-size: 14px;
+      font-family: $font-family-noto;
+    }
+    .mgb-logo {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include prefixed( transform, translate(-50%, -50%) );
+      height: $headerHeight;
+      width: 146px;     
+      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.png') no-repeat center center;
+      max-width: 60%;
+      background-size: 100%;
+      overflow: hidden;
+    }
+    .mgb-close-button {
+      display: inline-block;
+      height: $headerHeight;
+      width: $headerHeight;
+      background: url('#{$backboneImgBaseUrl}mgb/close-ico.png') no-repeat center center;
+      max-width: 20%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  .mgb-content{
+    //height: calc(100% - #{$headerHeight} - #{$footerHeight});
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: $headerHeight;
+    bottom: $footerHeight;
+
+    .mgb-slider-w {
+      position: relative;
+      height: 100%;
+      .mgb-slider{
+        position: relative;
+        height: 100%;
+
+        .slick-list{
+          position: relative;
+          height: 100%;
+          .slick-track{
+            position: relative;
+            height: 100%;
+            .item {
+              position: relative;
+              height: 100%;
+
+              img {
+                position: absolute;
+                padding: 0 8px;
+                left: 50%;
+                top: 50%;
+                @include prefixed( transform, translate(-50%, -50%) );
+                max-width: 100%;
+                max-height: 100%;
+              }
+            }
+          }
+        }
+        .mgb-prev{
+          position: absolute;
+          right: 0;
+          top: 50%;
+          @include prefixed( transform, translate(0, -50%) );
+          background: url('#{$backboneImgBaseUrl}mgb/right.png') no-repeat center center;
+          width: 40px;
+          height: 50px;
+          z-index: 1;
+        }
+        .mgb-next{
+          position: absolute;
+          left: 0;
+          top: 50%;
+          @include prefixed( transform, translate(0, -50%) );
+          background: url('#{$backboneImgBaseUrl}mgb/left.png') no-repeat center center;
+          width: 40px;
+          height: 50px;
+
+        }
+      }
+    }
+  }
+  .mgb-footer {
+    height: $footerHeight;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .mgb-captions-w {
+      $titleLineHeight: 19px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(255,255,255,0.8);
+      max-height: $footerHeight; 
+      transition: max-height 1s;
+      .mgb-captions {
+
+        .mgb-caption { 
+          width: 100%;
+          max-width: 600px;
+          padding: 0 12px;
+          &:hover {
+            cursor: pointer;
+          }
+          h3 {
+            margin: 12px 0 0 0;
+            font-family: $font-family-kufi;
+            font-weight: bold;                
+            font-size: 11px;
+            transition: all .4s;
+            @include pie-clearfix;
+            padding-left: 90px;
+            display: inline-block;
+            position: relative;
+            .tx {
+              overflow: hidden;
+              line-height: $titleLineHeight;
+              max-height:  $titleLineHeight;
+              color: black;
+              transition: max-height .5s;
+            }
+            .ui {
+              position: absolute;
+              left: 0;
+              top: 0;
+              overflow: hidden;
+              width: 85px;
+              height: $titleLineHeight;
+              line-height: $titleLineHeight;
+              padding-left: 12px;
+              color: $gold;
+              background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 9px;
+              transition: all .5s;
+            }
+          }
+          p {
+            font-family: $font-family-naskh;
+            font-size: 14px;
+            line-height: 19px;
+            color: black;
+          }
+        }
+      }
+    }
+    .mgb-captions-w.opened {
+      max-height: 1000px;
+      .mgb-captions {
+        .mgb-caption { 
+          width: 100%;
+          max-width: 600px;
+          h3 {
+            .tx {
+              max-height: 600px;
+            }
+            .ui {
+              width: 0px;
+              font-size: 0;
+              left: 70px;
+            }
+          }
+        }
+      }
+    }
+    .mgb-share-w {          
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      @include pie-clearfix;
+      .mgb-share {
+        vertical-align: middle;
+        & > div {
+          float: right;
+
+          width: 38px;
+          height: 38px;  
+          &:hover {
+            cursor:pointer;
+          }              
+        }
+        #facebook_share {
+          background: url('#{$backboneImgBaseUrl}mgb/fb-ico.png') no-repeat center center;
+        }
+        #twitter_share {
+          background: url('#{$backboneImgBaseUrl}mgb/twitter-ico.png') no-repeat center center;
+        }
+        #gplus_share {
+          background: url('#{$backboneImgBaseUrl}mgb/gplus-ico.png') no-repeat center center;
+        }
+        #whatsapp_share {
+          display: none; 
+        }
+      }
+    }
+  }
+}
+.mgb-asside {
+  width: 100%;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  bottom: 0;
+  transition: all .5s;
+  z-index: 2;
+  background-color: white;   
+  .mgb-asside-header {
+    height: $headerHeight;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    .mgb-logo {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include prefixed( transform, translate(-50%, -50%) );
+      height: $headerHeight;
+      width: 146px;     
+      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.png') no-repeat center center;
+      max-width: 60%;
+      background-size: 100%;
+      overflow: hidden;
+    }
+    .mgb-thumbs-close {
+      max-width: $headerHeight;
+      height: $headerHeight;
+      float: left;
+      width: 10%;
+      background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.png') no-repeat center center;
+    }
+
+  }
+  .mgb-thumbs-w {
+    overflow: hidden;
+    max-width: 640px;
+    width: 100%;
+    left: 50%;
+    @include prefixed( transform, translate(-50%, 0) );
+    position: absolute;
+    top: $headerHeight;
+    bottom: 0;
+    .mgb-thumbs {
+      position: relative;
+      transition-timing-function: linear!important;
+      @include pie-clearfix;
+      .mgb-thumb {
+        width: 29%;
+        margin: 0 2% 4%;
+        position: relative;
+        float: right;
+        img {
+          width: 100%;
+          max-width: none;
+          transition: opacity .5s;
+        }
+        span {
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 56px;
+          height: 56px;
+          line-height: 56px;
+          font-size: 30px;
+          color: white;
+          font-family: $font-family-noto;             
+          background-color: black;
+          text-align: center;
+        }
+        &.mgb-thumb-active, &:hover {
+          img {
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .mgb-thumbs-w {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      .mgb-thumbs .mgb-thumb {
+        width: 46%;
+        margin: 0 2% 4%;
+      }
+    }
+
+
+  }
+
+
+}   
+
