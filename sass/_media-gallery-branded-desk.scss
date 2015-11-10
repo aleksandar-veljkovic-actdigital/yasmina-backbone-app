@@ -80,14 +80,38 @@ $thumbsWidth: 174px;
             .item {
               position: relative;
               height: 100%;
-              img {
+              .img-w {
+                display: block;
                 position: absolute;
+                padding: 0 8px;
                 left: 50%;
                 top: 50%;
                 @include prefixed( transform, translate(-50%, -50%) );
                 max-width: 100%;
                 max-height: 100%;
+                img {
+                  display: block;
+                  max-width: 200%;
+                  max-height: 200%;
+                  width: auto;
+                  height: auto;
+                }  
+                .zoom {
+                  opacity: 0.001;
+                  display: block;
+                  background: url('#{$backboneImgBaseUrl}mgb/zoom.png') no-repeat left bottom;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  width: 56px;
+                  height: 48px;
+                  transition: opacity .5s;
+                }
+                &:hover .zoom {
+                  opacity: 1;
+                }
               }
+
             }
           }
         }
@@ -140,30 +164,32 @@ $thumbsWidth: 174px;
             font-weight: bold;                
             font-size: 11px;
             transition: all .4s;
-            @include pie-clearfix;
-            span {
-
-            }
+            display: inline-block;
+            position: relative;
+            //padding-left: $uiWidth;
             .tx {
-              float: right;
+              display: inline-block;
               overflow: hidden;
               line-height: $titleLineHeight;
               max-height:  $titleLineHeight;
               color: black;
-              max-width: calc( 100% - 85px );
-              padding-left: 8px;
               transition: max-height .5s;
             }
             .ui {
-              float: right;
-              overflow: hidden;
-              width: 85px;
-              height: $titleLineHeight;
+              position: absolute;
+              right: 100%;
+              top: 0;
+              display: inline-block;
+              width: 48px;
               line-height: $titleLineHeight;
-              padding-left: 12px;
+              height: $titleLineHeight;
               color: $gold;
-              background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 9px;
+              background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 7px;
               transition: all .5s;
+              margin-right: 4px;
+              &:after {
+                content: 'المزيد';
+              }
             }
           }
           p {
@@ -186,7 +212,7 @@ $thumbsWidth: 174px;
               max-height: 600px;
             }
             .ui {
-              width: 0px;
+              width: 10px;
               font-size: 0;
             }
           }
@@ -292,5 +318,33 @@ $thumbsWidth: 174px;
     width: 100%;
     height: 42px;
     background: url('#{$backboneImgBaseUrl}mgb/down.png') no-repeat center center;
+  }
+}
+
+.mgb-hi-res {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: black;
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: block;
+    @include prefixed( transform, translate(-50%, -50%) );
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .mgb-hi-res-close {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: url('#{$backboneImgBaseUrl}mgb/hi-res-close.png') no-repeat center center;
   }
 }

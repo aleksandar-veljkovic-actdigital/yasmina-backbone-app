@@ -23,7 +23,6 @@ define([
     $share: $(),
     currentItem: 1,
     id: null,
-    appThumborConfig: false,
     
     initialize: function (attributes) {
             
@@ -31,14 +30,7 @@ define([
       this.collection = new Backbone.Collection([], {model: MediaGalleryItemModel});
       this.currentItem = parseInt(attributes.currentItem);
       this.id = parseInt(attributes.id);
-      this.appThumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
-          hasResize: true, 
-          hasTrim: false, 
-          isSmart: true,
-          resizeWidth: "188",
-          resizeHeight: "188"
-      }});
-      
+     
     },
     
     
@@ -57,12 +49,38 @@ define([
     },
     
     thumborThumb: function(src) {
-      //url = src.match(/(https?:\/\/[^\s]+)/g, src);
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: true, 
+          hasTrim: false, 
+          isSmart: true,
+          resizeWidth: "188",
+          resizeHeight: "188"
+      }});      
       var data = {
         hash: src.split('/').pop().split(".")[0]
       };
-      var thumbor = new thumborUrlBuilder(this.appThumborConfig);
-      thumbor.setAmazonUrlPath(this.appThumborConfig.amazonS3Path, data);
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
+    },
+    
+    thumborHiRes: function(src) {
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: false, 
+          hasTrim: false, 
+          isSmart: false,
+          fitIn: {E:2000,F:2000}
+      }});  
+    
+      delete thumborConfig.resizeWidth;
+      delete thumborConfig.resizeHeight;
+      
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
       var url = thumbor.finalUrl();
       return url;
     },
@@ -108,8 +126,8 @@ define([
       var clength = this.collection.length;
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
-          captRdr += "<div class='mgb-caption'><h3><span class='tx'>" + item.attributes.title + "</span><span class='ui'>فستان خمري</span></h3><p>" + item.attributes.caption + "</p></div>";
-          itemsRdr += '<div class="item"><img  src="' + item.attributes.img + '" alt="" /></div>';
+          captRdr += "<div class='mgb-caption'><h3><span class='ui'></span><span class='tx'>" + item.attributes.title + "</span></h3><p>" + item.attributes.caption + "</p></div>";
+          itemsRdr += '<div class="item"><div class="img-w"><img  src="' + item.attributes.img + '" alt="" /><a href="#" class="zoom"></a></div></div>';
           thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i < 9) ? "0" + (i + 1) : (i + 1)) + '</span></a>';
           numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
         }
@@ -118,114 +136,15 @@ define([
       this.$slider = $("<div class='mgb-slider'>" + itemsRdr + "</div>");
       this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
       this.$numers = $("<div class='mgb-numers'>" + numersRdr + "</div>");
-      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="gplus_share" class="share_btn" ></div></div>');
+      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="gplus_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div></div>');
       $('.mgb-slider-w', this.$layout).append(this.$slider);
       $('.mgb-captions-w', this.$layout).append(this.$captions);
       $('.mgb-thumbs-w', this.$layout).append(this.$thumbs);
       $('.mgb-numers-w', this.$layout).append(this.$numers);
       $('.mgb-share-w', this.$layout).append(this.$share); 
     },
-
-
-
-
-
-
-
-
-
-    bindings: function () {
-      var _this = this;
-      // captions      
-      this.$captions.galleryCaption({autoHeight: true});
-      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
-      // slider      
-      this.slider(this.$slider);
-      // thumbs      
-      this.thumbs(this.$thumbs); 
-      //numeration
-      this.$numers.galleryCaption({autoHeight: true});
-      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
-      //share on social networks
-      this.sharrre(this.$share);
-      // close button
-      var _this = this;
-      $('.mgb-close-button', this.$layout).click(function (e) {
-        e.preventDefault();
-        _this.close();
-      });
-      // captions toggle
-      $('.mgb-caption', this.$layout).on('click', function(e){
-        e.preventDefault();
-        var $this = $(this);
-        var $parent = $this.parents('.mgb-captions-w');
-        if ($parent.hasClass('opened')){
-          $parent.removeClass('opened');
-        } 
-        else {
-          $parent.addClass('opened');
-        }        
-      });
-      // thumbs toggle
-      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function(e){
-        e.preventDefault();
-        var $o = _this.$layout;
-        if ($o.hasClass('thumbs')){
-          $o.removeClass('thumbs');
-        } 
-        else {
-          $o.addClass('thumbs');
-        }  
-        var interval;
-        interval = setInterval(function(){
-          _this.$slider.slick('setPosition');
-          _this.$thumbs.iscroll.refresh();
-          _this.thumbGo(_this.currentItem - 1);
-        },25);        
-        setTimeout(function(){
-          clearInterval(interval);
-        },1000); 
-      });
-      // thumb click
-      var $thumbItems = this.$thumbs.find('.mgb-thumb');
-      $thumbItems.on('click', function(e){        
-        e.preventDefault();
-        var position = $thumbItems.index(this);
-        _this.$slider.slick('slickGoTo', position);
-        if( _this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')){
-          $('.mgb-thumbs-close', this.$layout).trigger('click');
-        }
-      });
-      // thumbs up/down
-
-      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
-        $(this).addClass('scroll');
-        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
-      });
-      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
-        $(this).addClass('scroll');
-        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
-      });
-      
-      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
-        $(this).removeClass('scroll');
-      });
-      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
-        $(this).removeClass('scroll');
-      });      
-      _this.$thumbs.iscroll.on('scrollEnd', function () {
-        if ($('#mgb-thumbs-up').hasClass('scroll')) {
-          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
-        }
-        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
-          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
-        }
-      });
-      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
-        e.preventDefault();
-      });
-    },    
-    
+       
+       
     close: function() {      
       this.$layout.remove();
       this.undelegateEvents();
@@ -374,13 +293,148 @@ define([
         }
         */
       });
+    },
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+    // B I N D I N G S
+    bindings: function () {
+      var _this = this;
+      // captions      
+      this.$captions.galleryCaption({autoHeight: true});
+      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
+      // slider      
+      this.slider(this.$slider);
+      // thumbs      
+      this.thumbs(this.$thumbs);
+      //numeration
+      this.$numers.galleryCaption({autoHeight: true});
+      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
+      //share on social networks
+      this.sharrre(this.$share);
+      // close button
+      var _this = this;
+      $('.mgb-close-button', this.$layout).click(function (e) {
+        e.preventDefault();
+        _this.close();
+      });
+      // captions toggle
+      $('.mgb-caption', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $parent = $this.parents('.mgb-captions-w');
+        if ($parent.hasClass('opened')) {
+          $parent.removeClass('opened');
+          $('.mgb-footer', $this.$layout).removeClass('opened');
+        }
+        else {
+          $parent.addClass('opened');
+          $('.mgb-footer', $this.$layout).addClass('opened');
+        }
+      });
+      // thumbs toggle
+      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var $o = _this.$layout;
+        if ($o.hasClass('thumbs')) {
+          $o.removeClass('thumbs');
+        }
+        else {
+          $o.addClass('thumbs');
+        }
+        var interval;
+        interval = setInterval(function () {
+          _this.$slider.slick('setPosition');
+          _this.$thumbs.iscroll.refresh();
+          _this.thumbGo(_this.currentItem - 1);
+        }, 25);
+        setTimeout(function () {
+          clearInterval(interval);
+        }, 1000);
+      });
+      // thumb click
+      var $thumbItems = this.$thumbs.find('.mgb-thumb');
+      $thumbItems.on('click', function (e) {
+        e.preventDefault();
+        var position = $thumbItems.index(this);
+        _this.$slider.slick('slickGoTo', position);
+        if (_this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')) {
+          $('.mgb-thumbs-close', this.$layout).trigger('click');
+        }
+      });
+      // thumbs up/down
+
+      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+      });
+      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+      });
+
+      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      _this.$thumbs.iscroll.on('scrollEnd', function () {
+        if ($('#mgb-thumbs-up').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+        }
+        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+        }
+      });
+      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
+        e.preventDefault();
+      });
+      // HI RES
+      $('.zoom', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var src = $(this).parent('.img-w').children('img').attr('src');       
+        var dest = _this.thumborHiRes(src);
+        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><img src='"+dest+"'></div>");
+        _this.$layout.append($hiRes); 
+        $('.mgb-hi-res-close', $hiRes).one('click', function (e) {
+          e.preventDefault();
+          $('.mgb-hi-res', this.$layout).remove();
+        });       
+      });
+
+      
+      
     }
 
-    
+
+
+
+
     
 
   });
-
+  
   return MediaGallryBrandedView;
 
 }
