@@ -292,7 +292,7 @@ $footerHeight: 42px!default;
     .mgb-thumbs {
       position: relative;
       transition-timing-function: linear!important;
-      @include pie-clearfix;
+      @include clearfix;
       .mgb-thumb {
         width: 29%;
         margin: 0 2% 4%;

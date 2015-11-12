@@ -207,7 +207,8 @@ define([
         mobileFirst: true,
         prevArrow: "<a href='#' class='mgb-prev'></a>",
         nextArrow: "<a href='#' class='mgb-next'></a>",
-        initialSlide: this.currentItem - 1
+        initialSlide: this.currentItem - 1,
+        adaptiveHeight: true
       });
     },
     

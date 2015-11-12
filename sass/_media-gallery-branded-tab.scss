@@ -210,7 +210,7 @@ $footerHeight: 42px;
       bottom: 0;
       left: 0;
       z-index: 1;
-      @include pie-clearfix;
+      @include clearfix;
       .mgb-share {
         vertical-align: middle;
         & > div {
@@ -286,7 +286,7 @@ $footerHeight: 42px;
     .mgb-thumbs {
       position: relative;
       transition-timing-function: linear!important;
-      @include pie-clearfix;
+      @include clearfix;
       .mgb-thumb {
         width: 29%;
         margin: 0 2% 4%;

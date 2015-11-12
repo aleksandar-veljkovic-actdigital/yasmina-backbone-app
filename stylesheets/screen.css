@@ -1880,7 +1880,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 }
 /* line 83, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track .item .img-w {
-  display: block;
+  display: inline-block;
   position: absolute;
   padding: 0 8px;
   left: 50%;
@@ -1896,8 +1896,8 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 /* line 92, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .slick-list .slick-track .item .img-w img {
   display: block;
-  max-width: 200%;
-  max-height: 200%;
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
 }
@@ -2038,13 +2038,8 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   bottom: 0;
   left: 0;
   z-index: 1;
+  overflow: hidden;
   *zoom: 1;
-}
-/* line 38, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-share-w:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 /* line 228, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-share-w .mgb-share {
@@ -2429,13 +2424,8 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   bottom: 0;
   left: 0;
   z-index: 1;
+  overflow: hidden;
   *zoom: 1;
-}
-/* line 38, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.media-gallery-branded-fullscreen.tablet .mgb-main .mgb-footer .mgb-share-w:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 /* line 214, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-main .mgb-footer .mgb-share-w .mgb-share {
@@ -2530,13 +2520,8 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs {
   position: relative;
   transition-timing-function: linear !important;
+  overflow: hidden;
   *zoom: 1;
-}
-/* line 38, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 /* line 290, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
@@ -2923,13 +2908,8 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs {
   position: relative;
   transition-timing-function: linear !important;
+  overflow: hidden;
   *zoom: 1;
-}
-/* line 38, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 /* line 296, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
