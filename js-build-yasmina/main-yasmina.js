@@ -7817,6 +7817,55 @@ if ( typeof module != 'undefined' && module.exports ) {
 })(window, document, Math);
 define("iscroll", function(){});
 
+;(function($) {
+
+  $.fn.maxDimensionPercentage = function(options) {
+    
+    var $this = $(this);
+    
+    options = options || {};  
+    options._pct = {};
+        
+    switch (typeof(options.pct)) {
+      case "undefined" :
+        options._pct.h = 100;
+        options._pct.w = 100;
+        break;
+      case "number"  :
+        options._pct.h = options.pct;
+        options._pct.w = options.pct;
+        break
+      case "object" :
+        options._pct.h = options.pct.h || 100;
+        options._pct.w = options.pct.w || 100;
+        break;      
+    }
+    
+    options.$source = options.$source || $this.offsetParent(); 
+        
+    $this.addClass('max-dimension-js');
+    
+    var returns = {};
+
+    returns.process = function() {
+      var h = Math.floor(options.$source.height() * (options._pct.h / 100));
+      var w = Math.floor(options.$source.width() * (options._pct.w / 100));
+      $this.css({maxHeight: h + "px", maxWidth: w + "px"});
+    };
+
+    $(document).ready(returns.process);
+    $(window).load(returns.process);
+    $(window).resize(returns.process);
+    returns.process();
+
+    return returns;
+
+  };
+
+})(jQuery);
+
+define("maxDimensionPercentage", function(){});
+
 
 
 define('views/media-gallery-branded',[
@@ -7826,7 +7875,8 @@ define('views/media-gallery-branded',[
   'jquery',
   'slick',
   'caption',
-  'iscroll'
+  'iscroll',
+  'maxDimensionPercentage'
 ], function (
         MediaGalleryItemModel,
         templateLayout
@@ -7840,6 +7890,7 @@ define('views/media-gallery-branded',[
     $thumbs: $(),
     $numers: $(),
     $share: $(),
+    maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
     
@@ -8026,9 +8077,9 @@ define('views/media-gallery-branded',[
         mobileFirst: true,
         prevArrow: "<a href='#' class='mgb-prev'></a>",
         nextArrow: "<a href='#' class='mgb-next'></a>",
-        initialSlide: this.currentItem - 1,
-        adaptiveHeight: true
+        initialSlide: this.currentItem - 1
       });
+      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct:100, $source: $target});
     },
     
     sliderAfterChange: function( currentSlide ){      
@@ -8187,7 +8238,8 @@ define('views/media-gallery-branded',[
           _this.$slider.slick('setPosition');
           _this.$thumbs.iscroll.refresh();
           _this.thumbGo(_this.currentItem - 1);
-        }, 25);
+          _this.maxDimensionPercentage.process();
+        }, 15);
         setTimeout(function () {
           clearInterval(interval);
         }, 1000);
@@ -8541,7 +8593,8 @@ window.backboneApp.set.imgBaseUrl = "/assets/images/";
       fullScreen: '../bower_components/fullmodal/full-modal',
       caption: '../bower_components/gallery-captions/gallery-caption',
       slick: '../bower_components/slick.js/slick/slick',
-      iscroll: '../bower_components/iscroll/build/iscroll'
+      iscroll: '../bower_components/iscroll/build/iscroll',
+      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage'
       //sharrre: '../bower_components/sharrre/jquery.sharrre',
       //icheck: '../bower_components/iCheck/icheck',
       //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',

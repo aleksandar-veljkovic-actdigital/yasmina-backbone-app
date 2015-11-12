@@ -82,8 +82,7 @@ $thumbsWidth: 174px;
               height: 100%;
               .img-w {
                 display: inline-block;
-                position: absolute;
-                padding: 0 8px;
+                position: absolute;                
                 left: 50%;
                 top: 50%;
                 @include prefixed( transform, translate(-50%, -50%) );
@@ -95,6 +94,7 @@ $thumbsWidth: 174px;
                   max-height: 100%;
                   width: auto;
                   height: auto;
+                  padding: 0 8px;
                 }  
                 .zoom {
                   opacity: 0.001;

@@ -23,7 +23,8 @@
       owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
       owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl',
       slick: '../bower_components/slick.js/slick/slick',
-      iscroll: '../bower_components/iscroll/build/iscroll'
+      iscroll: '../bower_components/iscroll/build/iscroll',
+      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage'
     }
   });
 

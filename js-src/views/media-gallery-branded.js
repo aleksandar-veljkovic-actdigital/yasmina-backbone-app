@@ -7,7 +7,8 @@ define([
   'jquery',
   'slick',
   'caption',
-  'iscroll'
+  'iscroll',
+  'maxDimensionPercentage'
 ], function (
         MediaGalleryItemModel,
         templateLayout
@@ -21,6 +22,7 @@ define([
     $thumbs: $(),
     $numers: $(),
     $share: $(),
+    maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
     
@@ -207,9 +209,9 @@ define([
         mobileFirst: true,
         prevArrow: "<a href='#' class='mgb-prev'></a>",
         nextArrow: "<a href='#' class='mgb-next'></a>",
-        initialSlide: this.currentItem - 1,
-        adaptiveHeight: true
+        initialSlide: this.currentItem - 1
       });
+      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct:100, $source: $target});
     },
     
     sliderAfterChange: function( currentSlide ){      
@@ -368,7 +370,8 @@ define([
           _this.$slider.slick('setPosition');
           _this.$thumbs.iscroll.refresh();
           _this.thumbGo(_this.currentItem - 1);
-        }, 25);
+          _this.maxDimensionPercentage.process();
+        }, 15);
         setTimeout(function () {
           clearInterval(interval);
         }, 1000);

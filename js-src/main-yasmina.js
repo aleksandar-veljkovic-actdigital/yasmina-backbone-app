@@ -32,7 +32,8 @@ window.backboneApp.set.imgBaseUrl = "/assets/images/";
       fullScreen: '../bower_components/fullmodal/full-modal',
       caption: '../bower_components/gallery-captions/gallery-caption',
       slick: '../bower_components/slick.js/slick/slick',
-      iscroll: '../bower_components/iscroll/build/iscroll'
+      iscroll: '../bower_components/iscroll/build/iscroll',
+      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage'
       //sharrre: '../bower_components/sharrre/jquery.sharrre',
       //icheck: '../bower_components/iCheck/icheck',
       //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
