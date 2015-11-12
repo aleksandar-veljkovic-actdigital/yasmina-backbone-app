@@ -178,6 +178,7 @@ $font-family-noto: "Noto Serif", serif !default;
 
 .article-gallery {
   position: relative;
+  z-index: 0; // fixing childrens z bug
   .mg-start:hover {
     cursor: pointer;
   }
