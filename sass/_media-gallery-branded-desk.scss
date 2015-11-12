@@ -81,7 +81,7 @@ $thumbsWidth: 174px;
               position: relative;
               height: 100%;
               .img-w {
-                display: block;
+                display: inline-block;
                 position: absolute;
                 padding: 0 8px;
                 left: 50%;
@@ -91,8 +91,8 @@ $thumbsWidth: 174px;
                 max-height: 100%;
                 img {
                   display: block;
-                  max-width: 200%;
-                  max-height: 200%;
+                  max-width: 100%;
+                  max-height: 100%;
                   width: auto;
                   height: auto;
                 }  
@@ -224,7 +224,7 @@ $thumbsWidth: 174px;
       bottom: 0;
       left: 0;
       z-index: 1;
-      @include pie-clearfix;
+      @include clearfix;
       .mgb-share {
         vertical-align: middle;
         & > div {
