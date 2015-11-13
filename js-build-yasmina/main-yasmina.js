@@ -4,7 +4,7 @@
 //     Underscore may be freely distributed under the MIT license.
 (function(){function n(n){function t(t,r,e,u,i,o){for(;i>=0&&o>i;i+=n){var a=u?u[i]:i;e=r(e,t[a],a,t)}return e}return function(r,e,u,i){e=b(e,i,4);var o=!k(r)&&m.keys(r),a=(o||r).length,c=n>0?0:a-1;return arguments.length<3&&(u=r[o?o[c]:c],c+=n),t(r,e,u,o,c,a)}}function t(n){return function(t,r,e){r=x(r,e);for(var u=O(t),i=n>0?0:u-1;i>=0&&u>i;i+=n)if(r(t[i],i,t))return i;return-1}}function r(n,t,r){return function(e,u,i){var o=0,a=O(e);if("number"==typeof i)n>0?o=i>=0?i:Math.max(i+a,o):a=i>=0?Math.min(i+1,a):i+a+1;else if(r&&i&&a)return i=r(e,u),e[i]===u?i:-1;if(u!==u)return i=t(l.call(e,o,a),m.isNaN),i>=0?i+o:-1;for(i=n>0?o:a-1;i>=0&&a>i;i+=n)if(e[i]===u)return i;return-1}}function e(n,t){var r=I.length,e=n.constructor,u=m.isFunction(e)&&e.prototype||a,i="constructor";for(m.has(n,i)&&!m.contains(t,i)&&t.push(i);r--;)i=I[r],i in n&&n[i]!==u[i]&&!m.contains(t,i)&&t.push(i)}var u=this,i=u._,o=Array.prototype,a=Object.prototype,c=Function.prototype,f=o.push,l=o.slice,s=a.toString,p=a.hasOwnProperty,h=Array.isArray,v=Object.keys,g=c.bind,y=Object.create,d=function(){},m=function(n){return n instanceof m?n:this instanceof m?void(this._wrapped=n):new m(n)};"undefined"!=typeof exports?("undefined"!=typeof module&&module.exports&&(exports=module.exports=m),exports._=m):u._=m,m.VERSION="1.8.3";var b=function(n,t,r){if(t===void 0)return n;switch(null==r?3:r){case 1:return function(r){return n.call(t,r)};case 2:return function(r,e){return n.call(t,r,e)};case 3:return function(r,e,u){return n.call(t,r,e,u)};case 4:return function(r,e,u,i){return n.call(t,r,e,u,i)}}return function(){return n.apply(t,arguments)}},x=function(n,t,r){return null==n?m.identity:m.isFunction(n)?b(n,t,r):m.isObject(n)?m.matcher(n):m.property(n)};m.iteratee=function(n,t){return x(n,t,1/0)};var _=function(n,t){return function(r){var e=arguments.length;if(2>e||null==r)return r;for(var u=1;e>u;u++)for(var i=arguments[u],o=n(i),a=o.length,c=0;a>c;c++){var f=o[c];t&&r[f]!==void 0||(r[f]=i[f])}return r}},j=function(n){if(!m.isObject(n))return{};if(y)return y(n);d.prototype=n;var t=new d;return d.prototype=null,t},w=function(n){return function(t){return null==t?void 0:t[n]}},A=Math.pow(2,53)-1,O=w("length"),k=function(n){var t=O(n);return"number"==typeof t&&t>=0&&A>=t};m.each=m.forEach=function(n,t,r){t=b(t,r);var e,u;if(k(n))for(e=0,u=n.length;u>e;e++)t(n[e],e,n);else{var i=m.keys(n);for(e=0,u=i.length;u>e;e++)t(n[i[e]],i[e],n)}return n},m.map=m.collect=function(n,t,r){t=x(t,r);for(var e=!k(n)&&m.keys(n),u=(e||n).length,i=Array(u),o=0;u>o;o++){var a=e?e[o]:o;i[o]=t(n[a],a,n)}return i},m.reduce=m.foldl=m.inject=n(1),m.reduceRight=m.foldr=n(-1),m.find=m.detect=function(n,t,r){var e;return e=k(n)?m.findIndex(n,t,r):m.findKey(n,t,r),e!==void 0&&e!==-1?n[e]:void 0},m.filter=m.select=function(n,t,r){var e=[];return t=x(t,r),m.each(n,function(n,r,u){t(n,r,u)&&e.push(n)}),e},m.reject=function(n,t,r){return m.filter(n,m.negate(x(t)),r)},m.every=m.all=function(n,t,r){t=x(t,r);for(var e=!k(n)&&m.keys(n),u=(e||n).length,i=0;u>i;i++){var o=e?e[i]:i;if(!t(n[o],o,n))return!1}return!0},m.some=m.any=function(n,t,r){t=x(t,r);for(var e=!k(n)&&m.keys(n),u=(e||n).length,i=0;u>i;i++){var o=e?e[i]:i;if(t(n[o],o,n))return!0}return!1},m.contains=m.includes=m.include=function(n,t,r,e){return k(n)||(n=m.values(n)),("number"!=typeof r||e)&&(r=0),m.indexOf(n,t,r)>=0},m.invoke=function(n,t){var r=l.call(arguments,2),e=m.isFunction(t);return m.map(n,function(n){var u=e?t:n[t];return null==u?u:u.apply(n,r)})},m.pluck=function(n,t){return m.map(n,m.property(t))},m.where=function(n,t){return m.filter(n,m.matcher(t))},m.findWhere=function(n,t){return m.find(n,m.matcher(t))},m.max=function(n,t,r){var e,u,i=-1/0,o=-1/0;if(null==t&&null!=n){n=k(n)?n:m.values(n);for(var a=0,c=n.length;c>a;a++)e=n[a],e>i&&(i=e)}else t=x(t,r),m.each(n,function(n,r,e){u=t(n,r,e),(u>o||u===-1/0&&i===-1/0)&&(i=n,o=u)});return i},m.min=function(n,t,r){var e,u,i=1/0,o=1/0;if(null==t&&null!=n){n=k(n)?n:m.values(n);for(var a=0,c=n.length;c>a;a++)e=n[a],i>e&&(i=e)}else t=x(t,r),m.each(n,function(n,r,e){u=t(n,r,e),(o>u||1/0===u&&1/0===i)&&(i=n,o=u)});return i},m.shuffle=function(n){for(var t,r=k(n)?n:m.values(n),e=r.length,u=Array(e),i=0;e>i;i++)t=m.random(0,i),t!==i&&(u[i]=u[t]),u[t]=r[i];return u},m.sample=function(n,t,r){return null==t||r?(k(n)||(n=m.values(n)),n[m.random(n.length-1)]):m.shuffle(n).slice(0,Math.max(0,t))},m.sortBy=function(n,t,r){return t=x(t,r),m.pluck(m.map(n,function(n,r,e){return{value:n,index:r,criteria:t(n,r,e)}}).sort(function(n,t){var r=n.criteria,e=t.criteria;if(r!==e){if(r>e||r===void 0)return 1;if(e>r||e===void 0)return-1}return n.index-t.index}),"value")};var F=function(n){return function(t,r,e){var u={};return r=x(r,e),m.each(t,function(e,i){var o=r(e,i,t);n(u,e,o)}),u}};m.groupBy=F(function(n,t,r){m.has(n,r)?n[r].push(t):n[r]=[t]}),m.indexBy=F(function(n,t,r){n[r]=t}),m.countBy=F(function(n,t,r){m.has(n,r)?n[r]++:n[r]=1}),m.toArray=function(n){return n?m.isArray(n)?l.call(n):k(n)?m.map(n,m.identity):m.values(n):[]},m.size=function(n){return null==n?0:k(n)?n.length:m.keys(n).length},m.partition=function(n,t,r){t=x(t,r);var e=[],u=[];return m.each(n,function(n,r,i){(t(n,r,i)?e:u).push(n)}),[e,u]},m.first=m.head=m.take=function(n,t,r){return null==n?void 0:null==t||r?n[0]:m.initial(n,n.length-t)},m.initial=function(n,t,r){return l.call(n,0,Math.max(0,n.length-(null==t||r?1:t)))},m.last=function(n,t,r){return null==n?void 0:null==t||r?n[n.length-1]:m.rest(n,Math.max(0,n.length-t))},m.rest=m.tail=m.drop=function(n,t,r){return l.call(n,null==t||r?1:t)},m.compact=function(n){return m.filter(n,m.identity)};var S=function(n,t,r,e){for(var u=[],i=0,o=e||0,a=O(n);a>o;o++){var c=n[o];if(k(c)&&(m.isArray(c)||m.isArguments(c))){t||(c=S(c,t,r));var f=0,l=c.length;for(u.length+=l;l>f;)u[i++]=c[f++]}else r||(u[i++]=c)}return u};m.flatten=function(n,t){return S(n,t,!1)},m.without=function(n){return m.difference(n,l.call(arguments,1))},m.uniq=m.unique=function(n,t,r,e){m.isBoolean(t)||(e=r,r=t,t=!1),null!=r&&(r=x(r,e));for(var u=[],i=[],o=0,a=O(n);a>o;o++){var c=n[o],f=r?r(c,o,n):c;t?(o&&i===f||u.push(c),i=f):r?m.contains(i,f)||(i.push(f),u.push(c)):m.contains(u,c)||u.push(c)}return u},m.union=function(){return m.uniq(S(arguments,!0,!0))},m.intersection=function(n){for(var t=[],r=arguments.length,e=0,u=O(n);u>e;e++){var i=n[e];if(!m.contains(t,i)){for(var o=1;r>o&&m.contains(arguments[o],i);o++);o===r&&t.push(i)}}return t},m.difference=function(n){var t=S(arguments,!0,!0,1);return m.filter(n,function(n){return!m.contains(t,n)})},m.zip=function(){return m.unzip(arguments)},m.unzip=function(n){for(var t=n&&m.max(n,O).length||0,r=Array(t),e=0;t>e;e++)r[e]=m.pluck(n,e);return r},m.object=function(n,t){for(var r={},e=0,u=O(n);u>e;e++)t?r[n[e]]=t[e]:r[n[e][0]]=n[e][1];return r},m.findIndex=t(1),m.findLastIndex=t(-1),m.sortedIndex=function(n,t,r,e){r=x(r,e,1);for(var u=r(t),i=0,o=O(n);o>i;){var a=Math.floor((i+o)/2);r(n[a])<u?i=a+1:o=a}return i},m.indexOf=r(1,m.findIndex,m.sortedIndex),m.lastIndexOf=r(-1,m.findLastIndex),m.range=function(n,t,r){null==t&&(t=n||0,n=0),r=r||1;for(var e=Math.max(Math.ceil((t-n)/r),0),u=Array(e),i=0;e>i;i++,n+=r)u[i]=n;return u};var E=function(n,t,r,e,u){if(!(e instanceof t))return n.apply(r,u);var i=j(n.prototype),o=n.apply(i,u);return m.isObject(o)?o:i};m.bind=function(n,t){if(g&&n.bind===g)return g.apply(n,l.call(arguments,1));if(!m.isFunction(n))throw new TypeError("Bind must be called on a function");var r=l.call(arguments,2),e=function(){return E(n,e,t,this,r.concat(l.call(arguments)))};return e},m.partial=function(n){var t=l.call(arguments,1),r=function(){for(var e=0,u=t.length,i=Array(u),o=0;u>o;o++)i[o]=t[o]===m?arguments[e++]:t[o];for(;e<arguments.length;)i.push(arguments[e++]);return E(n,r,this,this,i)};return r},m.bindAll=function(n){var t,r,e=arguments.length;if(1>=e)throw new Error("bindAll must be passed function names");for(t=1;e>t;t++)r=arguments[t],n[r]=m.bind(n[r],n);return n},m.memoize=function(n,t){var r=function(e){var u=r.cache,i=""+(t?t.apply(this,arguments):e);return m.has(u,i)||(u[i]=n.apply(this,arguments)),u[i]};return r.cache={},r},m.delay=function(n,t){var r=l.call(arguments,2);return setTimeout(function(){return n.apply(null,r)},t)},m.defer=m.partial(m.delay,m,1),m.throttle=function(n,t,r){var e,u,i,o=null,a=0;r||(r={});var c=function(){a=r.leading===!1?0:m.now(),o=null,i=n.apply(e,u),o||(e=u=null)};return function(){var f=m.now();a||r.leading!==!1||(a=f);var l=t-(f-a);return e=this,u=arguments,0>=l||l>t?(o&&(clearTimeout(o),o=null),a=f,i=n.apply(e,u),o||(e=u=null)):o||r.trailing===!1||(o=setTimeout(c,l)),i}},m.debounce=function(n,t,r){var e,u,i,o,a,c=function(){var f=m.now()-o;t>f&&f>=0?e=setTimeout(c,t-f):(e=null,r||(a=n.apply(i,u),e||(i=u=null)))};return function(){i=this,u=arguments,o=m.now();var f=r&&!e;return e||(e=setTimeout(c,t)),f&&(a=n.apply(i,u),i=u=null),a}},m.wrap=function(n,t){return m.partial(t,n)},m.negate=function(n){return function(){return!n.apply(this,arguments)}},m.compose=function(){var n=arguments,t=n.length-1;return function(){for(var r=t,e=n[t].apply(this,arguments);r--;)e=n[r].call(this,e);return e}},m.after=function(n,t){return function(){return--n<1?t.apply(this,arguments):void 0}},m.before=function(n,t){var r;return function(){return--n>0&&(r=t.apply(this,arguments)),1>=n&&(t=null),r}},m.once=m.partial(m.before,2);var M=!{toString:null}.propertyIsEnumerable("toString"),I=["valueOf","isPrototypeOf","toString","propertyIsEnumerable","hasOwnProperty","toLocaleString"];m.keys=function(n){if(!m.isObject(n))return[];if(v)return v(n);var t=[];for(var r in n)m.has(n,r)&&t.push(r);return M&&e(n,t),t},m.allKeys=function(n){if(!m.isObject(n))return[];var t=[];for(var r in n)t.push(r);return M&&e(n,t),t},m.values=function(n){for(var t=m.keys(n),r=t.length,e=Array(r),u=0;r>u;u++)e[u]=n[t[u]];return e},m.mapObject=function(n,t,r){t=x(t,r);for(var e,u=m.keys(n),i=u.length,o={},a=0;i>a;a++)e=u[a],o[e]=t(n[e],e,n);return o},m.pairs=function(n){for(var t=m.keys(n),r=t.length,e=Array(r),u=0;r>u;u++)e[u]=[t[u],n[t[u]]];return e},m.invert=function(n){for(var t={},r=m.keys(n),e=0,u=r.length;u>e;e++)t[n[r[e]]]=r[e];return t},m.functions=m.methods=function(n){var t=[];for(var r in n)m.isFunction(n[r])&&t.push(r);return t.sort()},m.extend=_(m.allKeys),m.extendOwn=m.assign=_(m.keys),m.findKey=function(n,t,r){t=x(t,r);for(var e,u=m.keys(n),i=0,o=u.length;o>i;i++)if(e=u[i],t(n[e],e,n))return e},m.pick=function(n,t,r){var e,u,i={},o=n;if(null==o)return i;m.isFunction(t)?(u=m.allKeys(o),e=b(t,r)):(u=S(arguments,!1,!1,1),e=function(n,t,r){return t in r},o=Object(o));for(var a=0,c=u.length;c>a;a++){var f=u[a],l=o[f];e(l,f,o)&&(i[f]=l)}return i},m.omit=function(n,t,r){if(m.isFunction(t))t=m.negate(t);else{var e=m.map(S(arguments,!1,!1,1),String);t=function(n,t){return!m.contains(e,t)}}return m.pick(n,t,r)},m.defaults=_(m.allKeys,!0),m.create=function(n,t){var r=j(n);return t&&m.extendOwn(r,t),r},m.clone=function(n){return m.isObject(n)?m.isArray(n)?n.slice():m.extend({},n):n},m.tap=function(n,t){return t(n),n},m.isMatch=function(n,t){var r=m.keys(t),e=r.length;if(null==n)return!e;for(var u=Object(n),i=0;e>i;i++){var o=r[i];if(t[o]!==u[o]||!(o in u))return!1}return!0};var N=function(n,t,r,e){if(n===t)return 0!==n||1/n===1/t;if(null==n||null==t)return n===t;n instanceof m&&(n=n._wrapped),t instanceof m&&(t=t._wrapped);var u=s.call(n);if(u!==s.call(t))return!1;switch(u){case"[object RegExp]":case"[object String]":return""+n==""+t;case"[object Number]":return+n!==+n?+t!==+t:0===+n?1/+n===1/t:+n===+t;case"[object Date]":case"[object Boolean]":return+n===+t}var i="[object Array]"===u;if(!i){if("object"!=typeof n||"object"!=typeof t)return!1;var o=n.constructor,a=t.constructor;if(o!==a&&!(m.isFunction(o)&&o instanceof o&&m.isFunction(a)&&a instanceof a)&&"constructor"in n&&"constructor"in t)return!1}r=r||[],e=e||[];for(var c=r.length;c--;)if(r[c]===n)return e[c]===t;if(r.push(n),e.push(t),i){if(c=n.length,c!==t.length)return!1;for(;c--;)if(!N(n[c],t[c],r,e))return!1}else{var f,l=m.keys(n);if(c=l.length,m.keys(t).length!==c)return!1;for(;c--;)if(f=l[c],!m.has(t,f)||!N(n[f],t[f],r,e))return!1}return r.pop(),e.pop(),!0};m.isEqual=function(n,t){return N(n,t)},m.isEmpty=function(n){return null==n?!0:k(n)&&(m.isArray(n)||m.isString(n)||m.isArguments(n))?0===n.length:0===m.keys(n).length},m.isElement=function(n){return!(!n||1!==n.nodeType)},m.isArray=h||function(n){return"[object Array]"===s.call(n)},m.isObject=function(n){var t=typeof n;return"function"===t||"object"===t&&!!n},m.each(["Arguments","Function","String","Number","Date","RegExp","Error"],function(n){m["is"+n]=function(t){return s.call(t)==="[object "+n+"]"}}),m.isArguments(arguments)||(m.isArguments=function(n){return m.has(n,"callee")}),"function"!=typeof/./&&"object"!=typeof Int8Array&&(m.isFunction=function(n){return"function"==typeof n||!1}),m.isFinite=function(n){return isFinite(n)&&!isNaN(parseFloat(n))},m.isNaN=function(n){return m.isNumber(n)&&n!==+n},m.isBoolean=function(n){return n===!0||n===!1||"[object Boolean]"===s.call(n)},m.isNull=function(n){return null===n},m.isUndefined=function(n){return n===void 0},m.has=function(n,t){return null!=n&&p.call(n,t)},m.noConflict=function(){return u._=i,this},m.identity=function(n){return n},m.constant=function(n){return function(){return n}},m.noop=function(){},m.property=w,m.propertyOf=function(n){return null==n?function(){}:function(t){return n[t]}},m.matcher=m.matches=function(n){return n=m.extendOwn({},n),function(t){return m.isMatch(t,n)}},m.times=function(n,t,r){var e=Array(Math.max(0,n));t=b(t,r,1);for(var u=0;n>u;u++)e[u]=t(u);return e},m.random=function(n,t){return null==t&&(t=n,n=0),n+Math.floor(Math.random()*(t-n+1))},m.now=Date.now||function(){return(new Date).getTime()};var B={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","`":"&#x60;"},T=m.invert(B),R=function(n){var t=function(t){return n[t]},r="(?:"+m.keys(n).join("|")+")",e=RegExp(r),u=RegExp(r,"g");return function(n){return n=null==n?"":""+n,e.test(n)?n.replace(u,t):n}};m.escape=R(B),m.unescape=R(T),m.result=function(n,t,r){var e=null==n?void 0:n[t];return e===void 0&&(e=r),m.isFunction(e)?e.call(n):e};var q=0;m.uniqueId=function(n){var t=++q+"";return n?n+t:t},m.templateSettings={evaluate:/<%([\s\S]+?)%>/g,interpolate:/<%=([\s\S]+?)%>/g,escape:/<%-([\s\S]+?)%>/g};var K=/(.)^/,z={"'":"'","\\":"\\","\r":"r","\n":"n","\u2028":"u2028","\u2029":"u2029"},D=/\\|'|\r|\n|\u2028|\u2029/g,L=function(n){return"\\"+z[n]};m.template=function(n,t,r){!t&&r&&(t=r),t=m.defaults({},t,m.templateSettings);var e=RegExp([(t.escape||K).source,(t.interpolate||K).source,(t.evaluate||K).source].join("|")+"|$","g"),u=0,i="__p+='";n.replace(e,function(t,r,e,o,a){return i+=n.slice(u,a).replace(D,L),u=a+t.length,r?i+="'+\n((__t=("+r+"))==null?'':_.escape(__t))+\n'":e?i+="'+\n((__t=("+e+"))==null?'':__t)+\n'":o&&(i+="';\n"+o+"\n__p+='"),t}),i+="';\n",t.variable||(i="with(obj||{}){\n"+i+"}\n"),i="var __t,__p='',__j=Array.prototype.join,"+"print=function(){__p+=__j.call(arguments,'');};\n"+i+"return __p;\n";try{var o=new Function(t.variable||"obj","_",i)}catch(a){throw a.source=i,a}var c=function(n){return o.call(this,n,m)},f=t.variable||"obj";return c.source="function("+f+"){\n"+i+"}",c},m.chain=function(n){var t=m(n);return t._chain=!0,t};var P=function(n,t){return n._chain?m(t).chain():t};m.mixin=function(n){m.each(m.functions(n),function(t){var r=m[t]=n[t];m.prototype[t]=function(){var n=[this._wrapped];return f.apply(n,arguments),P(this,r.apply(m,n))}})},m.mixin(m),m.each(["pop","push","reverse","shift","sort","splice","unshift"],function(n){var t=o[n];m.prototype[n]=function(){var r=this._wrapped;return t.apply(r,arguments),"shift"!==n&&"splice"!==n||0!==r.length||delete r[0],P(this,r)}}),m.each(["concat","join","slice"],function(n){var t=o[n];m.prototype[n]=function(){return P(this,t.apply(this._wrapped,arguments))}}),m.prototype.value=function(){return this._wrapped},m.prototype.valueOf=m.prototype.toJSON=m.prototype.value,m.prototype.toString=function(){return""+this._wrapped},"function"==typeof define&&define.amd&&define("underscore",[],function(){return m})}).call(this);
 //# sourceMappingURL=underscore-min.map;
-//     Backbone.js 1.2.0
+//     Backbone.js 1.2.3
 
 //     (c) 2010-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Backbone may be freely distributed under the MIT license.
@@ -46,12 +46,11 @@
   // restored later on, if `noConflict` is used.
   var previousBackbone = root.Backbone;
 
-  // Create local references to array methods we'll want to use later.
-  var array = [];
-  var slice = array.slice;
+  // Create a local reference to a common array method we'll want to use later.
+  var slice = Array.prototype.slice;
 
   // Current version of the library. Keep in sync with `package.json`.
-  Backbone.VERSION = '1.2.0';
+  Backbone.VERSION = '1.2.3';
 
   // For Backbone's purposes, jQuery, Zepto, Ender, or My Library (kidding) owns
   // the `$` variable.
@@ -75,12 +74,60 @@
   // form param named `model`.
   Backbone.emulateJSON = false;
 
+  // Proxy Backbone class methods to Underscore functions, wrapping the model's
+  // `attributes` object or collection's `models` array behind the scenes.
+  //
+  // collection.filter(function(model) { return model.get('age') > 10 });
+  // collection.each(this.addView);
+  //
+  // `Function#apply` can be slow so we use the method's arg count, if we know it.
+  var addMethod = function(length, method, attribute) {
+    switch (length) {
+      case 1: return function() {
+        return _[method](this[attribute]);
+      };
+      case 2: return function(value) {
+        return _[method](this[attribute], value);
+      };
+      case 3: return function(iteratee, context) {
+        return _[method](this[attribute], cb(iteratee, this), context);
+      };
+      case 4: return function(iteratee, defaultVal, context) {
+        return _[method](this[attribute], cb(iteratee, this), defaultVal, context);
+      };
+      default: return function() {
+        var args = slice.call(arguments);
+        args.unshift(this[attribute]);
+        return _[method].apply(_, args);
+      };
+    }
+  };
+  var addUnderscoreMethods = function(Class, methods, attribute) {
+    _.each(methods, function(length, method) {
+      if (_[method]) Class.prototype[method] = addMethod(length, method, attribute);
+    });
+  };
+
+  // Support `collection.sortBy('attr')` and `collection.findWhere({id: 1})`.
+  var cb = function(iteratee, instance) {
+    if (_.isFunction(iteratee)) return iteratee;
+    if (_.isObject(iteratee) && !instance._isModel(iteratee)) return modelMatcher(iteratee);
+    if (_.isString(iteratee)) return function(model) { return model.get(iteratee); };
+    return iteratee;
+  };
+  var modelMatcher = function(attrs) {
+    var matcher = _.matches(attrs);
+    return function(model) {
+      return matcher(model.attributes);
+    };
+  };
+
   // Backbone.Events
   // ---------------
 
   // A module that can be mixed in to *any object* in order to provide it with
-  // custom events. You may bind with `on` or remove with `off` callback
-  // functions to an event; `trigger`-ing an event fires all callbacks in
+  // a custom event channel. You may bind a callback to an event with `on` or
+  // remove with `off`; `trigger`-ing an event fires all callbacks in
   // succession.
   //
   //     var object = {};
@@ -95,25 +142,25 @@
 
   // Iterates over the standard `event, callback` (as well as the fancy multiple
   // space-separated events `"change blur", callback` and jQuery-style event
-  // maps `{event: callback}`), reducing them by manipulating `memo`.
-  // Passes a normalized single event name and callback, as well as any
-  // optional `opts`.
-  var eventsApi = function(iteratee, memo, name, callback, opts) {
+  // maps `{event: callback}`).
+  var eventsApi = function(iteratee, events, name, callback, opts) {
     var i = 0, names;
     if (name && typeof name === 'object') {
       // Handle event maps.
+      if (callback !== void 0 && 'context' in opts && opts.context === void 0) opts.context = callback;
       for (names = _.keys(name); i < names.length ; i++) {
-        memo = iteratee(memo, names[i], name[names[i]], opts);
+        events = eventsApi(iteratee, events, names[i], name[names[i]], opts);
       }
     } else if (name && eventSplitter.test(name)) {
-      // Handle space separated event names.
+      // Handle space separated event names by delegating them individually.
       for (names = name.split(eventSplitter); i < names.length; i++) {
-        memo = iteratee(memo, names[i], callback, opts);
+        events = iteratee(events, names[i], callback, opts);
       }
     } else {
-      memo = iteratee(memo, name, callback, opts);
+      // Finally, standard events.
+      events = iteratee(events, name, callback, opts);
     }
-    return memo;
+    return events;
   };
 
   // Bind an event to a `callback` function. Passing `"all"` will bind
@@ -122,8 +169,7 @@
     return internalOn(this, name, callback, context);
   };
 
-  // An internal use `on` function, used to guard the `listening` argument from
-  // the public API.
+  // Guard the `listening` argument from the public API.
   var internalOn = function(obj, name, callback, context, listening) {
     obj._events = eventsApi(onApi, obj._events || {}, name, callback, {
         context: context,
@@ -140,7 +186,8 @@
   };
 
   // Inversion-of-control versions of `on`. Tell *this* object to listen to
-  // an event in another object... keeping track of what it's listening to.
+  // an event in another object... keeping track of what it's listening to
+  // for easier unbinding later.
   Events.listenTo =  function(obj, name, callback) {
     if (!obj) return this;
     var id = obj._listenId || (obj._listenId = _.uniqueId('l'));
@@ -208,10 +255,9 @@
 
   // The reducing API that removes a callback from the `events` object.
   var offApi = function(events, name, callback, options) {
-    // No events to consider.
     if (!events) return;
 
-    var i = 0, length, listening;
+    var i = 0, listening;
     var context = options.context, listeners = options.listeners;
 
     // Delete all events listeners and "drop" events.
@@ -263,9 +309,9 @@
   };
 
   // Bind an event to only be triggered a single time. After the first time
-  // the callback is invoked, it will be removed. When multiple events are
-  // passed in using the space-separated syntax, the event will fire once for every
-  // event you passed in, not once for a combination of all events
+  // the callback is invoked, its listener will be removed. If multiple events
+  // are passed in using the space-separated syntax, the handler will fire
+  // once for each event, not once for a combination of all events.
   Events.once =  function(name, callback, context) {
     // Map the event into a `{event: once}` object.
     var events = eventsApi(onceMap, {}, name, callback, _.bind(this.off, this));
@@ -280,7 +326,7 @@
   };
 
   // Reduces the event callbacks into a map of `{event: onceWrapper}`.
-  // `offer` unbinds the `onceWrapper` after it as been called.
+  // `offer` unbinds the `onceWrapper` after it has been called.
   var onceMap = function(map, name, callback, offer) {
     if (callback) {
       var once = map[name] = _.once(function() {
@@ -331,35 +377,6 @@
       case 3: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2, a3); return;
       default: while (++i < l) (ev = events[i]).callback.apply(ev.ctx, args); return;
     }
-  };
-
-  // Proxy Underscore methods to a Backbone class' prototype using a
-  // particular attribute as the data argument
-  var addMethod = function(length, method, attribute) {
-    switch (length) {
-      case 1: return function() {
-        return _[method](this[attribute]);
-      };
-      case 2: return function(value) {
-        return _[method](this[attribute], value);
-      };
-      case 3: return function(iteratee, context) {
-        return _[method](this[attribute], iteratee, context);
-      };
-      case 4: return function(iteratee, defaultVal, context) {
-        return _[method](this[attribute], iteratee, defaultVal, context);
-      };
-      default: return function() {
-        var args = slice.call(arguments);
-        args.unshift(this[attribute]);
-        return _[method].apply(_, args);
-      };
-    }
-  };
-  var addUnderscoreMethods = function(Class, methods, attribute) {
-    _.each(methods, function(length, method) {
-      if (_[method]) Class.prototype[method] = addMethod(length, method, attribute);
-    });
   };
 
   // Aliases for backwards compatibility.
@@ -450,10 +467,10 @@
     // the core primitive operation of a model, updating the data and notifying
     // anyone who needs to know about the change in state. The heart of the beast.
     set: function(key, val, options) {
-      var attr, attrs, unset, changes, silent, changing, prev, current;
       if (key == null) return this;
 
       // Handle both `"key", value` and `{key: value}` -style arguments.
+      var attrs;
       if (typeof key === 'object') {
         attrs = key;
         options = val;
@@ -467,32 +484,35 @@
       if (!this._validate(attrs, options)) return false;
 
       // Extract attributes and options.
-      unset           = options.unset;
-      silent          = options.silent;
-      changes         = [];
-      changing        = this._changing;
-      this._changing  = true;
+      var unset      = options.unset;
+      var silent     = options.silent;
+      var changes    = [];
+      var changing   = this._changing;
+      this._changing = true;
 
       if (!changing) {
         this._previousAttributes = _.clone(this.attributes);
         this.changed = {};
       }
-      current = this.attributes, prev = this._previousAttributes;
 
-      // Check for changes of `id`.
-      if (this.idAttribute in attrs) this.id = attrs[this.idAttribute];
+      var current = this.attributes;
+      var changed = this.changed;
+      var prev    = this._previousAttributes;
 
       // For each `set` attribute, update or delete the current value.
-      for (attr in attrs) {
+      for (var attr in attrs) {
         val = attrs[attr];
         if (!_.isEqual(current[attr], val)) changes.push(attr);
         if (!_.isEqual(prev[attr], val)) {
-          this.changed[attr] = val;
+          changed[attr] = val;
         } else {
-          delete this.changed[attr];
+          delete changed[attr];
         }
         unset ? delete current[attr] : current[attr] = val;
       }
+
+      // Update the `id`.
+      this.id = this.get(this.idAttribute);
 
       // Trigger all relevant attribute changes.
       if (!silent) {
@@ -545,13 +565,14 @@
     // determining if there *would be* a change.
     changedAttributes: function(diff) {
       if (!diff) return this.hasChanged() ? _.clone(this.changed) : false;
-      var val, changed = false;
       var old = this._changing ? this._previousAttributes : this.attributes;
+      var changed = {};
       for (var attr in diff) {
-        if (_.isEqual(old[attr], (val = diff[attr]))) continue;
-        (changed || (changed = {}))[attr] = val;
+        var val = diff[attr];
+        if (_.isEqual(old[attr], val)) continue;
+        changed[attr] = val;
       }
-      return changed;
+      return _.size(changed) ? changed : false;
     },
 
     // Get the previous value of an attribute, recorded at the time the last
@@ -570,12 +591,12 @@
     // Fetch the model from the server, merging the response with the model's
     // local attributes. Any changed attributes will trigger a "change" event.
     fetch: function(options) {
-      options = options ? _.clone(options) : {};
-      if (options.parse === void 0) options.parse = true;
+      options = _.extend({parse: true}, options);
       var model = this;
       var success = options.success;
       options.success = function(resp) {
-        if (!model.set(model.parse(resp, options), options)) return false;
+        var serverAttrs = options.parse ? model.parse(resp, options) : resp;
+        if (!model.set(serverAttrs, options)) return false;
         if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
       };
@@ -587,9 +608,8 @@
     // If the server returns an attributes hash that differs, the model's
     // state will be `set` again.
     save: function(key, val, options) {
-      var attrs, method, xhr, attributes = this.attributes, wait;
-
       // Handle both `"key", value` and `{key: value}` -style arguments.
+      var attrs;
       if (key == null || typeof key === 'object') {
         attrs = key;
         options = val;
@@ -597,8 +617,8 @@
         (attrs = {})[key] = val;
       }
 
-      options = _.extend({validate: true}, options);
-      wait = options.wait;
+      options = _.extend({validate: true, parse: true}, options);
+      var wait = options.wait;
 
       // If we're not waiting and attributes exist, save acts as
       // `set(attr).save(null, opts)` with validation. Otherwise, check if
@@ -609,35 +629,31 @@
         if (!this._validate(attrs, options)) return false;
       }
 
-      // Set temporary attributes if `{wait: true}`.
-      if (attrs && wait) {
-        this.attributes = _.extend({}, attributes, attrs);
-      }
-
       // After a successful server-side save, the client is (optionally)
       // updated with the server-side state.
-      if (options.parse === void 0) options.parse = true;
       var model = this;
       var success = options.success;
+      var attributes = this.attributes;
       options.success = function(resp) {
         // Ensure attributes are restored during synchronous saves.
         model.attributes = attributes;
         var serverAttrs = options.parse ? model.parse(resp, options) : resp;
-        if (wait) serverAttrs = _.extend(attrs || {}, serverAttrs);
-        if (_.isObject(serverAttrs) && !model.set(serverAttrs, options)) {
-          return false;
-        }
+        if (wait) serverAttrs = _.extend({}, attrs, serverAttrs);
+        if (serverAttrs && !model.set(serverAttrs, options)) return false;
         if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
       };
       wrapError(this, options);
 
-      method = this.isNew() ? 'create' : (options.patch ? 'patch' : 'update');
+      // Set temporary attributes if `{wait: true}` to properly find new ids.
+      if (attrs && wait) this.attributes = _.extend({}, attributes, attrs);
+
+      var method = this.isNew() ? 'create' : (options.patch ? 'patch' : 'update');
       if (method === 'patch' && !options.attrs) options.attrs = attrs;
-      xhr = this.sync(method, this, options);
+      var xhr = this.sync(method, this, options);
 
       // Restore attributes.
-      if (attrs && wait) this.attributes = attributes;
+      this.attributes = attributes;
 
       return xhr;
     },
@@ -682,8 +698,8 @@
         _.result(this.collection, 'url') ||
         urlError();
       if (this.isNew()) return base;
-      var id = this.id || this.attributes[this.idAttribute];
-      return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(id);
+      var id = this.get(this.idAttribute);
+      return base.replace(/[^\/]$/, '$&/') + encodeURIComponent(id);
     },
 
     // **parse** converts a response into the hash of attributes to be `set` on
@@ -704,7 +720,7 @@
 
     // Check if the model is currently in a valid state.
     isValid: function(options) {
-      return this._validate({}, _.extend(options || {}, { validate: true }));
+      return this._validate({}, _.defaults({validate: true}, options));
     },
 
     // Run validation against the next complete set of model attributes,
@@ -720,7 +736,8 @@
 
   });
 
-  // Underscore methods that we want to implement on the Model.
+  // Underscore methods that we want to implement on the Model, mapped to the
+  // number of arguments they take.
   var modelMethods = { keys: 1, values: 1, pairs: 1, invert: 1, pick: 0,
       omit: 0, chain: 1, isEmpty: 1 };
 
@@ -753,6 +770,16 @@
   var setOptions = {add: true, remove: true, merge: true};
   var addOptions = {add: true, remove: false};
 
+  // Splices `insert` into `array` at index `at`.
+  var splice = function(array, insert, at) {
+    at = Math.min(Math.max(at, 0), array.length);
+    var tail = Array(array.length - at);
+    var length = insert.length;
+    for (var i = 0; i < tail.length; i++) tail[i] = array[i + at];
+    for (i = 0; i < length; i++) array[i + at] = insert[i];
+    for (i = 0; i < tail.length; i++) array[i + length + at] = tail[i];
+  };
+
   // Define the Collection's inheritable methods.
   _.extend(Collection.prototype, Events, {
 
@@ -767,7 +794,7 @@
     // The JSON representation of a Collection is an array of the
     // models' attributes.
     toJSON: function(options) {
-      return this.map(function(model){ return model.toJSON(options); });
+      return this.map(function(model) { return model.toJSON(options); });
     },
 
     // Proxy `Backbone.sync` by default.
@@ -775,19 +802,21 @@
       return Backbone.sync.apply(this, arguments);
     },
 
-    // Add a model, or list of models to the set.
+    // Add a model, or list of models to the set. `models` may be Backbone
+    // Models or raw JavaScript objects to be converted to Models, or any
+    // combination of the two.
     add: function(models, options) {
       return this.set(models, _.extend({merge: false}, options, addOptions));
     },
 
     // Remove a model, or a list of models from the set.
     remove: function(models, options) {
-      var singular = !_.isArray(models), removed;
+      options = _.extend({}, options);
+      var singular = !_.isArray(models);
       models = singular ? [models] : _.clone(models);
-      options || (options = {});
-      removed = this._removeModels(models, options);
+      var removed = this._removeModels(models, options);
       if (!options.silent && removed) this.trigger('update', this, options);
-      return singular ? models[0] : models;
+      return singular ? removed[0] : removed;
     },
 
     // Update a collection by `set`-ing a new list of models, adding new ones,
@@ -795,83 +824,88 @@
     // already exist in the collection, as necessary. Similar to **Model#set**,
     // the core operation for updating the data contained by the collection.
     set: function(models, options) {
+      if (models == null) return;
+
       options = _.defaults({}, options, setOptions);
-      if (options.parse) models = this.parse(models, options);
+      if (options.parse && !this._isModel(models)) models = this.parse(models, options);
+
       var singular = !_.isArray(models);
-      models = singular ? (models ? [models] : []) : models.slice();
-      var id, model, attrs, existing, sort;
+      models = singular ? [models] : models.slice();
+
       var at = options.at;
       if (at != null) at = +at;
       if (at < 0) at += this.length + 1;
+
+      var set = [];
+      var toAdd = [];
+      var toRemove = [];
+      var modelMap = {};
+
+      var add = options.add;
+      var merge = options.merge;
+      var remove = options.remove;
+
+      var sort = false;
       var sortable = this.comparator && (at == null) && options.sort !== false;
       var sortAttr = _.isString(this.comparator) ? this.comparator : null;
-      var toAdd = [], toRemove = [], modelMap = {};
-      var add = options.add, merge = options.merge, remove = options.remove;
-      var order = !sortable && add && remove ? [] : false;
-      var orderChanged = false;
 
       // Turn bare objects into model references, and prevent invalid models
       // from being added.
+      var model;
       for (var i = 0; i < models.length; i++) {
-        attrs = models[i];
+        model = models[i];
 
         // If a duplicate is found, prevent it from being added and
         // optionally merge it into the existing model.
-        if (existing = this.get(attrs)) {
-          if (remove) modelMap[existing.cid] = true;
-          if (merge && attrs !== existing) {
-            attrs = this._isModel(attrs) ? attrs.attributes : attrs;
+        var existing = this.get(model);
+        if (existing) {
+          if (merge && model !== existing) {
+            var attrs = this._isModel(model) ? model.attributes : model;
             if (options.parse) attrs = existing.parse(attrs, options);
             existing.set(attrs, options);
-            if (sortable && !sort && existing.hasChanged(sortAttr)) sort = true;
+            if (sortable && !sort) sort = existing.hasChanged(sortAttr);
+          }
+          if (!modelMap[existing.cid]) {
+            modelMap[existing.cid] = true;
+            set.push(existing);
           }
           models[i] = existing;
 
         // If this is a new, valid model, push it to the `toAdd` list.
         } else if (add) {
-          model = models[i] = this._prepareModel(attrs, options);
-          if (!model) continue;
-          toAdd.push(model);
-          this._addReference(model, options);
+          model = models[i] = this._prepareModel(model, options);
+          if (model) {
+            toAdd.push(model);
+            this._addReference(model, options);
+            modelMap[model.cid] = true;
+            set.push(model);
+          }
         }
-
-        // Do not add multiple models with the same `id`.
-        model = existing || model;
-        if (!model) continue;
-        id = this.modelId(model.attributes);
-        if (order && (model.isNew() || !modelMap[id])) {
-          order.push(model);
-
-          // Check to see if this is actually a new model at this index.
-          orderChanged = orderChanged || !this.models[i] || model.cid !== this.models[i].cid;
-        }
-
-        modelMap[id] = true;
       }
 
-      // Remove nonexistent models if appropriate.
+      // Remove stale models.
       if (remove) {
-        for (var i = 0; i < this.length; i++) {
-          if (!modelMap[(model = this.models[i]).cid]) toRemove.push(model);
+        for (i = 0; i < this.length; i++) {
+          model = this.models[i];
+          if (!modelMap[model.cid]) toRemove.push(model);
         }
         if (toRemove.length) this._removeModels(toRemove, options);
       }
 
       // See if sorting is needed, update `length` and splice in new models.
-      if (toAdd.length || orderChanged) {
+      var orderChanged = false;
+      var replace = !sortable && add && remove;
+      if (set.length && replace) {
+        orderChanged = this.length != set.length || _.some(this.models, function(model, index) {
+          return model !== set[index];
+        });
+        this.models.length = 0;
+        splice(this.models, set, 0);
+        this.length = this.models.length;
+      } else if (toAdd.length) {
         if (sortable) sort = true;
-        this.length += toAdd.length;
-        if (at != null) {
-          for (var i = 0; i < toAdd.length; i++) {
-            this.models.splice(at + i, 0, toAdd[i]);
-          }
-        } else {
-          if (order) this.models.length = 0;
-          var orderedModels = order || toAdd;
-          for (var i = 0; i < orderedModels.length; i++) {
-            this.models.push(orderedModels[i]);
-          }
-        }
+        splice(this.models, toAdd, at == null ? this.length : at);
+        this.length = this.models.length;
       }
 
       // Silently sort the collection if appropriate.
@@ -879,10 +913,10 @@
 
       // Unless silenced, it's time to fire all appropriate add/sort events.
       if (!options.silent) {
-        var addOpts = at != null ? _.clone(options) : options;
-        for (var i = 0; i < toAdd.length; i++) {
-          if (at != null) addOpts.index = at + i;
-          (model = toAdd[i]).trigger('add', model, this, addOpts);
+        for (i = 0; i < toAdd.length; i++) {
+          if (at != null) options.index = at + i;
+          model = toAdd[i];
+          model.trigger('add', model, this, options);
         }
         if (sort || orderChanged) this.trigger('sort', this, options);
         if (toAdd.length || toRemove.length) this.trigger('update', this, options);
@@ -916,8 +950,7 @@
     // Remove a model from the end of the collection.
     pop: function(options) {
       var model = this.at(this.length - 1);
-      this.remove(model, options);
-      return model;
+      return this.remove(model, options);
     },
 
     // Add a model to the beginning of the collection.
@@ -928,8 +961,7 @@
     // Remove a model from the beginning of the collection.
     shift: function(options) {
       var model = this.at(0);
-      this.remove(model, options);
-      return model;
+      return this.remove(model, options);
     },
 
     // Slice out a sub-array of models from the collection.
@@ -953,10 +985,7 @@
     // Return models with matching attributes. Useful for simple cases of
     // `filter`.
     where: function(attrs, first) {
-      var matches = _.matches(attrs);
-      return this[first ? 'find' : 'filter'](function(model) {
-        return matches(model.attributes);
-      });
+      return this[first ? 'find' : 'filter'](attrs);
     },
 
     // Return the first model with matching attributes. Useful for simple cases
@@ -969,16 +998,19 @@
     // normal circumstances, as the set will maintain sort order as each item
     // is added.
     sort: function(options) {
-      if (!this.comparator) throw new Error('Cannot sort a set without a comparator');
+      var comparator = this.comparator;
+      if (!comparator) throw new Error('Cannot sort a set without a comparator');
       options || (options = {});
 
-      // Run sort based on type of `comparator`.
-      if (_.isString(this.comparator) || this.comparator.length === 1) {
-        this.models = this.sortBy(this.comparator, this);
-      } else {
-        this.models.sort(_.bind(this.comparator, this));
-      }
+      var length = comparator.length;
+      if (_.isFunction(comparator)) comparator = _.bind(comparator, this);
 
+      // Run sort based on type of `comparator`.
+      if (length === 1 || _.isString(comparator)) {
+        this.models = this.sortBy(comparator);
+      } else {
+        this.models.sort(comparator);
+      }
       if (!options.silent) this.trigger('sort', this, options);
       return this;
     },
@@ -992,8 +1024,7 @@
     // collection when they arrive. If `reset: true` is passed, the response
     // data will be passed through the `reset` method instead of `set`.
     fetch: function(options) {
-      options = options ? _.clone(options) : {};
-      if (options.parse === void 0) options.parse = true;
+      options = _.extend({parse: true}, options);
       var success = options.success;
       var collection = this;
       options.success = function(resp) {
@@ -1012,7 +1043,8 @@
     create: function(model, options) {
       options = options ? _.clone(options) : {};
       var wait = options.wait;
-      if (!(model = this._prepareModel(model, options))) return false;
+      model = this._prepareModel(model, options);
+      if (!model) return false;
       if (!wait) this.add(model, options);
       var collection = this;
       var success = options.success;
@@ -1066,31 +1098,26 @@
       return false;
     },
 
-    // Internal method called by both remove and set. Does not trigger any
-    // additional events. Returns true if anything was actually removed.
+    // Internal method called by both remove and set.
     _removeModels: function(models, options) {
-      var i, l, index, model, removed = false;
-      for (var i = 0, j = 0; i < models.length; i++) {
-        var model = models[i] = this.get(models[i]);
+      var removed = [];
+      for (var i = 0; i < models.length; i++) {
+        var model = this.get(models[i]);
         if (!model) continue;
-        var id = this.modelId(model.attributes);
-        if (id != null) delete this._byId[id];
-        delete this._byId[model.cid];
+
         var index = this.indexOf(model);
         this.models.splice(index, 1);
         this.length--;
+
         if (!options.silent) {
           options.index = index;
           model.trigger('remove', model, this, options);
         }
-        models[j++] = model;
+
+        removed.push(model);
         this._removeReference(model, options);
-        removed = true;
       }
-      // We only need to slice if models array should be smaller, which is
-      // caused by some models not actually getting removed.
-      if (models.length !== j) models = models.slice(0, j);
-      return removed;
+      return removed.length ? removed : false;
     },
 
     // Method for checking whether an object should be considered a model for
@@ -1109,6 +1136,9 @@
 
     // Internal method to sever a model's ties to a collection.
     _removeReference: function(model, options) {
+      delete this._byId[model.cid];
+      var id = this.modelId(model.attributes);
+      if (id != null) delete this._byId[id];
       if (this === model.collection) delete model.collection;
       model.off('all', this._onModelEvent, this);
     },
@@ -1138,28 +1168,15 @@
   // right here:
   var collectionMethods = { forEach: 3, each: 3, map: 3, collect: 3, reduce: 4,
       foldl: 4, inject: 4, reduceRight: 4, foldr: 4, find: 3, detect: 3, filter: 3,
-      select: 3, reject: 3, every: 3, all: 3, some: 3, any: 3, include: 2,
-      contains: 2, invoke: 2, max: 3, min: 3, toArray: 1, size: 1, first: 3,
+      select: 3, reject: 3, every: 3, all: 3, some: 3, any: 3, include: 3, includes: 3,
+      contains: 3, invoke: 0, max: 3, min: 3, toArray: 1, size: 1, first: 3,
       head: 3, take: 3, initial: 3, rest: 3, tail: 3, drop: 3, last: 3,
       without: 0, difference: 0, indexOf: 3, shuffle: 1, lastIndexOf: 3,
-      isEmpty: 1, chain: 1, sample: 3, partition: 3 };
+      isEmpty: 1, chain: 1, sample: 3, partition: 3, groupBy: 3, countBy: 3,
+      sortBy: 3, indexBy: 3};
 
   // Mix in each Underscore method as a proxy to `Collection#models`.
   addUnderscoreMethods(Collection, collectionMethods, 'models');
-
-  // Underscore methods that take a property name as an argument.
-  var attributeMethods = ['groupBy', 'countBy', 'sortBy', 'indexBy'];
-
-  // Use attributes instead of properties.
-  _.each(attributeMethods, function(method) {
-    if (!_[method]) return;
-    Collection.prototype[method] = function(value, context) {
-      var iterator = _.isFunction(value) ? value : function(model) {
-        return model.get(value);
-      };
-      return _[method](this.models, iterator, context);
-    };
-  });
 
   // Backbone.View
   // -------------
@@ -1176,7 +1193,6 @@
   // if an existing element is not provided...
   var View = Backbone.View = function(options) {
     this.cid = _.uniqueId('view');
-    options || (options = {});
     _.extend(this, _.pick(options, viewOptions));
     this._ensureElement();
     this.initialize.apply(this, arguments);
@@ -1185,7 +1201,7 @@
   // Cached regex to split keys for `delegate`.
   var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
-  // List of view options to be merged as properties.
+  // List of view options to be set as properties.
   var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
 
   // Set up all inheritable **Backbone.View** properties and methods.
@@ -1259,11 +1275,12 @@
     // Uses event delegation for efficiency.
     // Omitting the selector binds the event to `this.el`.
     delegateEvents: function(events) {
-      if (!(events || (events = _.result(this, 'events')))) return this;
+      events || (events = _.result(this, 'events'));
+      if (!events) return this;
       this.undelegateEvents();
       for (var key in events) {
         var method = events[key];
-        if (!_.isFunction(method)) method = this[events[key]];
+        if (!_.isFunction(method)) method = this[method];
         if (!method) continue;
         var match = key.match(delegateEventSplitter);
         this.delegate(match[1], match[2], _.bind(method, this));
@@ -1276,6 +1293,7 @@
     // `blur`, and not `change`, `submit`, and `reset` in Internet Explorer.
     delegate: function(eventName, selector, listener) {
       this.$el.on(eventName + '.delegateEvents' + this.cid, selector, listener);
+      return this;
     },
 
     // Clears all callbacks previously bound to the view by `delegateEvents`.
@@ -1290,6 +1308,7 @@
     // `selector` and `listener` are both optional.
     undelegate: function(eventName, selector, listener) {
       this.$el.off(eventName + '.delegateEvents' + this.cid, selector, listener);
+      return this;
     },
 
     // Produces a DOM element to be assigned to your view. Exposed for
@@ -1526,7 +1545,7 @@
   // falls back to polling.
   var History = Backbone.History = function() {
     this.handlers = [];
-    _.bindAll(this, 'checkUrl');
+    this.checkUrl = _.bind(this.checkUrl, this);
 
     // Ensure that `History` can be used outside of the browser.
     if (typeof window !== 'undefined') {
@@ -1619,7 +1638,7 @@
       this.options          = _.extend({root: '/'}, this.options, options);
       this.root             = this.options.root;
       this._wantsHashChange = this.options.hashChange !== false;
-      this._hasHashChange   = 'onhashchange' in window;
+      this._hasHashChange   = 'onhashchange' in window && (document.documentMode === void 0 || document.documentMode > 7);
       this._useHashChange   = this._wantsHashChange && this._hasHashChange;
       this._wantsPushState  = !!this.options.pushState;
       this._hasPushState    = !!(this.history && this.history.pushState);
@@ -1653,15 +1672,16 @@
       // support the `hashchange` event, HTML5 history, or the user wants
       // `hashChange` but not `pushState`.
       if (!this._hasHashChange && this._wantsHashChange && !this._usePushState) {
-        var iframe = document.createElement('iframe');
-        iframe.src = 'javascript:0';
-        iframe.style.display = 'none';
-        iframe.tabIndex = -1;
+        this.iframe = document.createElement('iframe');
+        this.iframe.src = 'javascript:0';
+        this.iframe.style.display = 'none';
+        this.iframe.tabIndex = -1;
         var body = document.body;
         // Using `appendChild` will throw on IE < 9 if the document is not ready.
-        this.iframe = body.insertBefore(iframe, body.firstChild).contentWindow;
-        this.iframe.document.open().close();
-        this.iframe.location.hash = '#' + this.fragment;
+        var iWindow = body.insertBefore(this.iframe, body.firstChild).contentWindow;
+        iWindow.document.open();
+        iWindow.document.close();
+        iWindow.location.hash = '#' + this.fragment;
       }
 
       // Add a cross-platform `addEventListener` shim for older browsers.
@@ -1699,7 +1719,7 @@
 
       // Clean up the iframe if necessary.
       if (this.iframe) {
-        document.body.removeChild(this.iframe.frameElement);
+        document.body.removeChild(this.iframe);
         this.iframe = null;
       }
 
@@ -1722,7 +1742,7 @@
       // If the user pressed the back button, the iframe's hash will have
       // changed and we should use that for comparison.
       if (current === this.fragment && this.iframe) {
-        current = this.getHash(this.iframe);
+        current = this.getHash(this.iframe.contentWindow);
       }
 
       if (current === this.fragment) return false;
@@ -1737,7 +1757,7 @@
       // If the root doesn't match, no routes can match either.
       if (!this.matchRoot()) return false;
       fragment = this.fragment = this.getFragment(fragment);
-      return _.any(this.handlers, function(handler) {
+      return _.some(this.handlers, function(handler) {
         if (handler.route.test(fragment)) {
           handler.callback(fragment);
           return true;
@@ -1780,12 +1800,18 @@
       // fragment to store history.
       } else if (this._wantsHashChange) {
         this._updateHash(this.location, fragment, options.replace);
-        if (this.iframe && (fragment !== this.getHash(this.iframe))) {
+        if (this.iframe && (fragment !== this.getHash(this.iframe.contentWindow))) {
+          var iWindow = this.iframe.contentWindow;
+
           // Opening and closing the iframe tricks IE7 and earlier to push a
           // history entry on hash-tag change.  When replace is true, we don't
           // want this.
-          if (!options.replace) this.iframe.document.open().close();
-          this._updateHash(this.iframe.location, fragment, options.replace);
+          if (!options.replace) {
+            iWindow.document.open();
+            iWindow.document.close();
+          }
+
+          this._updateHash(iWindow.location, fragment, options.replace);
         }
 
       // If you've told us that you explicitly don't want fallback hashchange-
@@ -3159,7 +3185,7 @@ define('views/media-gallery',[
 
 //});
 
-define('text!templates/media-gallery-branded-layout.html.tpl',[],function () { return '<div class="media-gallery-branded-fullscreen">\n  \n  \n  <div class="mgb-asside">   \n    <div class="mgb-asside-header">\n      <div class=\'mgb-logo\'></div>\n      <div class=\'mgb-thumbs-close\'></div>\n    </div>\n    <div class=\'mgb-thumbs-w\'></div>\n    <a href=\'#\' id="mgb-thumbs-up"></a>\n    <a href=\'#\' id="mgb-thumbs-dw"></a>\n  </div> \n  \n  \n  <div class="mgb-main">\n    \n    <div class="mgb-header">\n      <a href="#mgb-thumbs-button" class="mgb-thumbs-button"></a>\n      <div class=\'mgb-numers-w\'></div>\n      <div class=\'mgb-logo\'></div>\n      <a href="#mgb-close" class="mgb-close-button"></a>\n    </div>\n\n    <div class="mgb-content">\n      <div class=\'mgb-slider-w\'></div>\n    </div> \n    \n    <div class="mgb-footer">\n      <div class="mgb-captions-w"></div> \n      <div class="mgb-share-w"></div>\n    </div> \n    \n  </div>   \n\n\n</div>';});
+define('text!templates/media-gallery-branded-layout.html.tpl',[],function () { return '<div class="media-gallery-branded-fullscreen">\n  \n  \n  <div class="mgb-asside">   \n    <div class="mgb-asside-header">\n      <div class=\'mgb-logo\'></div>\n      <div class=\'mgb-thumbs-close\'></div>\n    </div>\n    <div class=\'mgb-thumbs-w\'></div>\n    <a href=\'#\' id="mgb-thumbs-up"></a>\n    <a href=\'#\' id="mgb-thumbs-dw"></a>\n  </div> \n  \n  \n  <div class="mgb-main">\n    \n    <div class="mgb-header">\n      <a href="#mgb-thumbs-button" class="mgb-thumbs-button"></a>\n      <div class=\'mgb-numers-w\'></div>\n      <div class=\'mgb-logo\'></div>\n      <a href="#mgb-close" class="mgb-close-button"></a>\n    </div>\n\n    <div class="mgb-content">\n      <div class=\'mgb-slider-w\'></div>\n    </div> \n    \n    <div class="mgb-footer">\n      <div class="mgb-captions-w"></div> \n      <div class="mgb-share-w"></div>\n    </div> \n    \n  </div>   \n\n  <div class="mgb-hidder"></div>\n\n</div>';});
 
 /*
      _ _      _       _
@@ -7883,7 +7909,6 @@ define('views/media-gallery-branded',[
         ) {
 
   var MediaGallryBrandedView = Backbone.View.extend({
-    
     $layout: $(),
     $slider: $(),
     $captions: $(),
@@ -7893,17 +7918,17 @@ define('views/media-gallery-branded',[
     maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
-    
+    //
+    // MAIN METHODS
+    //
     initialize: function (attributes) {
-            
       this.$elem = attributes.$elem;
       this.collection = new Backbone.Collection([], {model: MediaGalleryItemModel});
       this.currentItem = parseInt(attributes.currentItem);
       this.id = parseInt(attributes.id);
-     
+      this.parse();
+      this.render();
     },
-    
-    
     parse: function () {
       var _this = this;
       $('.mg-item', _this.$elem).each(function (i, o) {
@@ -7917,82 +7942,15 @@ define('views/media-gallery-branded',[
         _this.collection.add(new MediaGalleryItemModel(data));
       });
     },
-    
-    thumborThumb: function(src) {
-      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
-          hasResize: true, 
-          hasTrim: false, 
-          isSmart: true,
-          resizeWidth: "188",
-          resizeHeight: "188"
-      }});      
-      var data = {
-        hash: src.split('/').pop().split(".")[0]
-      };
-      var thumbor = new thumborUrlBuilder(thumborConfig);
-      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
-      var url = thumbor.finalUrl();
-      return url;
-    },
-    
-    thumborHiRes: function(src) {
-      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
-          hasResize: false, 
-          hasTrim: false, 
-          isSmart: false,
-          fitIn: {E:2000,F:2000}
-      }});  
-    
-      delete thumborConfig.resizeWidth;
-      delete thumborConfig.resizeHeight;
-      
-      var data = {
-        hash: src.split('/').pop().split(".")[0]
-      };
-      var thumbor = new thumborUrlBuilder(thumborConfig);
-      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
-      var url = thumbor.finalUrl();
-      return url;
-    },
-    
-    
-    
-    renderDesk: function () {   
+    render: function () {
+      this.$layout.css('opacity', 0.001).addClass('render');
       var layoutTpl = _.template(templateLayout);
       this.$layout = $(layoutTpl());
-      this.$layout.css('opacity', 0.001).addClass('render desktop');
-      this._render();    
-      this.fullScreen();
-      this.bindings();  
-      this.$layout.css('opacity', 1).addClass('initialized');
-     },
-    
-    
-    renderTab: function(){
-      var layoutTpl = _.template(templateLayout);
-      this.$layout = $(layoutTpl());
-      this.$layout.css('opacity', 0.001).addClass('render tablet');
-      this._render();    
-      this.fullScreen();
-      this.bindings();  
-      this.$layout.css('opacity', 1).addClass('initialized');
-    },
-
-    renderMob: function () {
-      var layoutTpl = _.template(templateLayout);
-      this.$layout = $(layoutTpl());
-      this.$layout.css('opacity', 0.001).addClass('render mobile');
-      this._render();    
-      this.fullScreen();
-      this.bindings();  
-      this.$layout.css('opacity', 1).addClass('initialized');
-    },
-    
-    _render: function () {      
       var thumbsRdr = "";
       var itemsRdr = "";
       var captRdr = "";
       var numersRdr = "";
+      this.$layout.addClass(backboneApp.set.device);
       var clength = this.collection.length;
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
@@ -8011,54 +7969,131 @@ define('views/media-gallery-branded',[
       $('.mgb-captions-w', this.$layout).append(this.$captions);
       $('.mgb-thumbs-w', this.$layout).append(this.$thumbs);
       $('.mgb-numers-w', this.$layout).append(this.$numers);
-      $('.mgb-share-w', this.$layout).append(this.$share); 
+      $('.mgb-share-w', this.$layout).append(this.$share);
+      this.fullScreen();
+      this.bindings();
+      this.$layout.css('opacity', 1).addClass('initialized');
     },
-       
-       
-    close: function() {      
+    bindings: function () {
+      var _this = this;
+      // captions      
+      this.$captions.galleryCaption({autoHeight: true});
+      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
+      // slider      
+      this.slider(this.$slider);
+      // thumbs      
+      this.thumbs(this.$thumbs);
+      //numeration
+      this.$numers.galleryCaption({autoHeight: true});
+      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
+      //share on social networks
+      this.sharrre(this.$share);
+      // close button
+      var _this = this;
+      $('.mgb-close-button', this.$layout).click(function (e) {
+        e.preventDefault();
+        //window.backboneApp.router.navigate("",{trigger: false, replace: true});
+        window.history.back();
+        _this.close();
+      });
+      // captions toggle
+      $('.mgb-caption', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $parent = $this.parents('.mgb-captions-w');
+        if ($parent.hasClass('opened')) {
+          $parent.removeClass('opened');
+          $('.mgb-footer', $this.$layout).removeClass('opened');
+        }
+        else {
+          $parent.addClass('opened');
+          $('.mgb-footer', $this.$layout).addClass('opened');
+        }
+      });
+      // thumbs toggle
+      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var $o = _this.$layout;
+        if ($o.hasClass('thumbs')) {
+          $o.removeClass('thumbs');
+        }
+        else {
+          $o.addClass('thumbs');
+        }
+        var interval;
+        interval = setInterval(function () {
+          _this.$slider.slick('setPosition');
+          _this.$thumbs.iscroll.refresh();
+          _this.thumbGo(_this.currentItem - 1);
+          _this.maxDimensionPercentage.process();
+        }, 15);
+        setTimeout(function () {
+          clearInterval(interval);
+        }, 1000);
+      });
+      // thumb click
+      var $thumbItems = this.$thumbs.find('.mgb-thumb');
+      $thumbItems.on('click', function (e) {
+        e.preventDefault();
+        var position = $thumbItems.index(this);
+        _this.$slider.slick('slickGoTo', position);
+        if (_this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')) {
+          $('.mgb-thumbs-close', this.$layout).trigger('click');
+        }
+      });
+      // thumbs up/down
+      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+      });
+      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+      });
+      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      _this.$thumbs.iscroll.on('scrollEnd', function () {
+        if ($('#mgb-thumbs-up').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+        }
+        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+        }
+      });
+      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
+        e.preventDefault();
+      });
+      // hi res
+      $('.zoom', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var src = $(this).parent('.img-w').children('img').attr('src');
+        var dest = _this.thumborHiRes(src);
+        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><img src='" + dest + "'></div>");
+        _this.$layout.append($hiRes);
+        $('.mgb-hi-res-close', $hiRes).one('click', function (e) {
+          e.preventDefault();
+          $('.mgb-hi-res', this.$layout).remove();
+        });
+      });
+    },
+    //
+    // D I A L O G
+    //
+    close: function () {
       this.$layout.remove();
       this.undelegateEvents();
       this.remove();
-      window.backboneApp.router.clearState();      
     },
-    
-    
     fullScreen: function () {
-      $('body').append(this.$layout);   
+      $('body').append(this.$layout);
     },
-    
-    
-    thumbs: function ($target) {
-      var iscroll = new IScroll($target.parent()[0], {
-        mouseWheel: true,
-        scrollbars: false,
-        click: true        
-      });      
-      $.fn.iscroll = iscroll;
-      this.thumbGo(this.currentItem - 1);
-    }, 
-    
-    thumbGo: function (index) {   
-      
-      this.$thumbs.children().removeClass('mgb-thumb-active');
-      this.$thumbs.children().eq(index).addClass('mgb-thumb-active'); 
-
-      if ( !this.isVisible(this.$thumbs.children().eq(index), this.$thumbs.parent()) ) {
-        this.$thumbs.iscroll.scrollToElement(this.$thumbs.children()[index], 400);
-      }
-
-    },
-
-    isVisible: function ($element, $container) {
-      if ($container.position().top < $element.position().top &&
-              $container.position().top + $container.outerHeight(true) > $element.position().top + $element.outerHeight(true)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    },
-    
+    //
+    // S L I D E R
+    //
     slider: function ($target) {
       var _this = this;
       $target.on('afterChange', function (slick, currentSlide) {
@@ -8079,18 +8114,81 @@ define('views/media-gallery-branded',[
         nextArrow: "<a href='#' class='mgb-next'></a>",
         initialSlide: this.currentItem - 1
       });
-      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct:100, $source: $target});
+      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
     },
-    
-    sliderAfterChange: function( currentSlide ){      
-      window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + ( this.currentItem ), {trigger: false, replace: true});
-      this.$captions.data('galleryCaption').goTo(this.currentItem-1);
-      this.$numers.data('galleryCaption').goTo(this.currentItem-1);
-      this.thumbGo(this.currentItem-1);
+    sliderAfterChange: function (currentSlide) {
+      window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + (this.currentItem), {trigger: false, replace: true});
+      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
+      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
+      this.thumbGo(this.currentItem - 1);
     },
-    
-
-    
+    //
+    // C A R O U S E L
+    //
+    thumbs: function ($target) {
+      var iscroll = new IScroll($target.parent()[0], {
+        mouseWheel: true,
+        scrollbars: false,
+        click: true
+      });
+      $.fn.iscroll = iscroll;
+      this.thumbGo(this.currentItem - 1);
+    },
+    thumbGo: function (index) {
+      this.$thumbs.children().removeClass('mgb-thumb-active');
+      this.$thumbs.children().eq(index).addClass('mgb-thumb-active');
+      if (!this.isVisible(this.$thumbs.children().eq(index), this.$thumbs.parent())) {
+        this.$thumbs.iscroll.scrollToElement(this.$thumbs.children()[index], 400);
+      }
+    },
+    isVisible: function ($element, $container) {
+      if ($container.position().top < $element.position().top &&
+              $container.position().top + $container.outerHeight(true) > $element.position().top + $element.outerHeight(true)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
+    //
+    // T H U M B O R
+    //
+    thumborThumb: function (src) {
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: true,
+          hasTrim: false,
+          isSmart: true,
+          resizeWidth: "188",
+          resizeHeight: "188"
+        }});
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
+    },
+    thumborHiRes: function (src) {
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: false,
+          hasTrim: false,
+          isSmart: false,
+          fitIn: {E: 2000, F: 2000}
+        }});
+      delete thumborConfig.resizeWidth;
+      delete thumborConfig.resizeHeight;
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
+    },
+    //
+    // S O C I A L   S H A R E
+    //
     sharrre: function ($target) {
       var url = window.location.href;
       url = url.replace(/[^\/]*$/, '1'); // always to point first image in gallery
@@ -8153,160 +8251,20 @@ define('views/media-gallery-branded',[
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickGplus");
         },
+        //buttons: {
+        //  whatsapp: {
+        //    utmTracking: {
+        //      site: 'yasmina'
+        //    }
+        //  }
+        //},
         enableCounter: false
-    /*
-        buttons: {
-          whatsapp: {
-            utmTracking: {
-              site: 'yasmina'
-            }
-          }
-        }
-        */
       });
-    },
-
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-    // B I N D I N G S
-    bindings: function () {
-      var _this = this;
-      // captions      
-      this.$captions.galleryCaption({autoHeight: true});
-      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
-      // slider      
-      this.slider(this.$slider);
-      // thumbs      
-      this.thumbs(this.$thumbs);
-      //numeration
-      this.$numers.galleryCaption({autoHeight: true});
-      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
-      //share on social networks
-      this.sharrre(this.$share);
-      // close button
-      var _this = this;
-      $('.mgb-close-button', this.$layout).click(function (e) {
-        e.preventDefault();
-        _this.close();
-      });
-      // captions toggle
-      $('.mgb-caption', this.$layout).on('click', function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $parent = $this.parents('.mgb-captions-w');
-        if ($parent.hasClass('opened')) {
-          $parent.removeClass('opened');
-          $('.mgb-footer', $this.$layout).removeClass('opened');
-        }
-        else {
-          $parent.addClass('opened');
-          $('.mgb-footer', $this.$layout).addClass('opened');
-        }
-      });
-      // thumbs toggle
-      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function (e) {
-        e.preventDefault();
-        var $o = _this.$layout;
-        if ($o.hasClass('thumbs')) {
-          $o.removeClass('thumbs');
-        }
-        else {
-          $o.addClass('thumbs');
-        }
-        var interval;
-        interval = setInterval(function () {
-          _this.$slider.slick('setPosition');
-          _this.$thumbs.iscroll.refresh();
-          _this.thumbGo(_this.currentItem - 1);
-          _this.maxDimensionPercentage.process();
-        }, 15);
-        setTimeout(function () {
-          clearInterval(interval);
-        }, 1000);
-      });
-      // thumb click
-      var $thumbItems = this.$thumbs.find('.mgb-thumb');
-      $thumbItems.on('click', function (e) {
-        e.preventDefault();
-        var position = $thumbItems.index(this);
-        _this.$slider.slick('slickGoTo', position);
-        if (_this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')) {
-          $('.mgb-thumbs-close', this.$layout).trigger('click');
-        }
-      });
-      // thumbs up/down
-
-      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
-        $(this).addClass('scroll');
-        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
-      });
-      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
-        $(this).addClass('scroll');
-        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
-      });
-
-      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
-        $(this).removeClass('scroll');
-      });
-      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
-        $(this).removeClass('scroll');
-      });
-      _this.$thumbs.iscroll.on('scrollEnd', function () {
-        if ($('#mgb-thumbs-up').hasClass('scroll')) {
-          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
-        }
-        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
-          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
-        }
-      });
-      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
-        e.preventDefault();
-      });
-      // HI RES
-      $('.zoom', this.$layout).on('click', function (e) {
-        e.preventDefault();
-        var src = $(this).parent('.img-w').children('img').attr('src');       
-        var dest = _this.thumborHiRes(src);
-        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><img src='"+dest+"'></div>");
-        _this.$layout.append($hiRes); 
-        $('.mgb-hi-res-close', $hiRes).one('click', function (e) {
-          e.preventDefault();
-          $('.mgb-hi-res', this.$layout).remove();
-        });       
-      });
-
-      
-      
     }
 
 
-
-
-
-    
-
   });
-  
+
   return MediaGallryBrandedView;
 
 }
@@ -8364,14 +8322,6 @@ define('router',[
         });
       });
     },
-    clearState: function() {
-      // not supported ie8, ie9, android 4.1
-      // Older iOS versions and Android 4.0.4 claim support, but implementation is too buggy to be useful.
-      if (window.history && window.history.pushState) {
-        this.navigate("", {trigger: false, replace: true});
-        history.pushState('', document.title, window.location.pathname);
-      }
-    },
     mediaGallery: function(id, currentItem) {
       currentItem = currentItem || 1;
       require(['views/media-gallery'], function(mediaGalleryView) {
@@ -8386,9 +8336,7 @@ define('router',[
           backboneApp.mediaGallery.parse();
           backboneApp.mediaGallery.render();
         } else if (backboneApp.set.device === 'tablet') {
-          //dirty fix for viewport 1/2
-          backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");
-          //          
+          backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");      
           backboneApp.mediaGallery.parseTab();
           backboneApp.mediaGallery.renderTab();
         } else {
@@ -8402,22 +8350,12 @@ define('router',[
     mediaGalleryBranded: function(id, currentItem) {
       currentItem = currentItem || 1;
       require(['views/media-gallery-branded'], function(mediaGalleryBrandedView) {
-
-        var $elem = $('.media-gallery-' + id);
-        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});
-        
-        backboneApp.mediaGalleryBranded.parse();
-        if (backboneApp.set.device === 'desktop') {
-          backboneApp.mediaGalleryBranded.renderDesk();
-        } else if (backboneApp.set.device === 'tablet') { 
-          //dirty fix for viewport 1/2
-          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content");  
-          //
-          backboneApp.mediaGalleryBranded.renderTab();
-        } else {
-          backboneApp.mediaGalleryBranded.renderMob(); 
-        }        
-
+        var $elem = $('.media-gallery-branded' + id);
+        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});        
+        if (backboneApp.set.device === 'tablet') { 
+          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content"); 
+          $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
       });
     },    
     
@@ -8425,25 +8363,21 @@ define('router',[
     
     defaultRoute: function() {
       if (backboneApp.mediaGallery) {
-        //dirty fix for viewport 2/2
         if(backboneApp.mediaGallery.viewportRollBack){
           $('meta[name=viewport]').attr("content", backboneApp.mediaGallery.viewportRollBack);
           location = window.location.protocol + '//' + window.location.host + location.pathname;
           return;
         }
-        //
         backboneApp.mediaGallery.undelegateEvents();
         backboneApp.mediaGallery.close();
         delete backboneApp.mediaGallery;
       }
+      
       if (backboneApp.mediaGalleryBranded) {
-        //dirty fix for viewport 2/2
-        if(backboneApp.mediaGallery.viewportRollBack){
+        console.log('default route / backboneApp.mediaGalleryBranded');
+        if(backboneApp.mediaGalleryBranded.viewportRollBack){
           $('meta[name=viewport]').attr("content", backboneApp.mediaGalleryBranded.viewportRollBack);
-          $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
         }
-        //
-        backboneApp.mediaGalleryBranded.undelegateEvents();
         backboneApp.mediaGalleryBranded.close();
         delete backboneApp.mediaGalleryBranded;
       }
@@ -8472,17 +8406,17 @@ define('app',[
         Router
         ) {
 
-  // fixing location.replace on ios mobile/tab
+  // @Override
   Backbone.History.prototype._updateHash = function(location, fragment, replace) {
     if (replace) {
       var href = location.href.replace(/(javascript:|#).*$/, '');
-      if (
-              window.history &&
-              history.replaceState &&
-              $('html').hasClass('ua-os-name-ios') &&
-              $('html').hasClass('ua-browser-name-chrome')
-              ) {
-        history.replaceState('', document.title, href + '#' + fragment);
+      if (window.backboneApp.set.replaceStateSuported) {
+        if (fragment) {
+          history.replaceState('', document.title, href + '#' + fragment);
+        }
+        else {
+          history.replaceState('', document.title, href);
+        }
       }
       else {
         location.replace(href + '#' + fragment);
@@ -8497,8 +8431,9 @@ define('app',[
   ///////////////////////////////////////////////////////////////////////////////
   window.backboneApp = window.backboneApp || {};
   window.backboneApp.set = window.backboneApp.set || {};
-  window.backboneApp.set.$mediaGallerySelector = $('.article-gallery');
-  //window.backboneApp.set.device = oxAsyncGallery.deviceType;
+  window.backboneApp.set.ua = (new UAParser()).getResult();
+  window.backboneApp.set.$mediaGallerySelector = $('.article-gallery:not(.branded)');
+  window.backboneApp.set.$mediaGalleryBrandedSelector = $('.article-gallery.branded');
   if ($('html').hasClass('ua-visitor-device-mobile')) {
     window.backboneApp.set.device = 'mobile';
   } 
@@ -8544,6 +8479,33 @@ define('app',[
       }
     });
   });
+  
+  // Media Gallery Branded enumeration
+  window.backboneApp.set.$mediaGalleryBrandedSelector.each(function(galleryIndex, gallery) {
+    var $gallery = $(gallery);
+    $gallery.addClass("media-gallery-branded");
+    $gallery.addClass("media-gallery-branded" + galleryIndex);
+    var itemIndex = 1;
+    $gallery.find('.mg-start').each(function(starterIndex, starter) {
+      starterIndex = starterIndex + 1;
+      $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
+      itemIndex++;
+      if (
+              (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
+              ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
+              )
+      {
+        itemIndex++;
+      }
+    });
+  });  
+  
+  
+  var ua = window.backboneApp.set.ua;
+  window.backboneApp.set.replaceStateSuported = !(
+          (ua.browser.name === "IE" && (ua.browser.major <= 9)) ||
+          (ua.browser.name === "Android Browser" && (ua.browser.major < 4.3))   
+  );
 
   return function() {
     window.backboneApp.router = Router.initialize().router;

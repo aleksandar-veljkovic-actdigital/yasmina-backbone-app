@@ -50,14 +50,6 @@ define([
         });
       });
     },
-    clearState: function() {
-      // not supported ie8, ie9, android 4.1
-      // Older iOS versions and Android 4.0.4 claim support, but implementation is too buggy to be useful.
-      if (window.history && window.history.pushState) {
-        this.navigate("", {trigger: false, replace: true});
-        history.pushState('', document.title, window.location.pathname);
-      }
-    },
     mediaGallery: function(id, currentItem) {
       currentItem = currentItem || 1;
       require(['views/media-gallery'], function(mediaGalleryView) {
@@ -72,9 +64,7 @@ define([
           backboneApp.mediaGallery.parse();
           backboneApp.mediaGallery.render();
         } else if (backboneApp.set.device === 'tablet') {
-          //dirty fix for viewport 1/2
-          backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");
-          //          
+          backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");      
           backboneApp.mediaGallery.parseTab();
           backboneApp.mediaGallery.renderTab();
         } else {
@@ -88,22 +78,12 @@ define([
     mediaGalleryBranded: function(id, currentItem) {
       currentItem = currentItem || 1;
       require(['views/media-gallery-branded'], function(mediaGalleryBrandedView) {
-
-        var $elem = $('.media-gallery-' + id);
-        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});
-        
-        backboneApp.mediaGalleryBranded.parse();
-        if (backboneApp.set.device === 'desktop') {
-          backboneApp.mediaGalleryBranded.renderDesk();
-        } else if (backboneApp.set.device === 'tablet') { 
-          //dirty fix for viewport 1/2
-          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content");  
-          //
-          backboneApp.mediaGalleryBranded.renderTab();
-        } else {
-          backboneApp.mediaGalleryBranded.renderMob(); 
-        }        
-
+        var $elem = $('.media-gallery-branded' + id);
+        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});        
+        if (backboneApp.set.device === 'tablet') { 
+          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content"); 
+          $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
       });
     },    
     
@@ -111,25 +91,21 @@ define([
     
     defaultRoute: function() {
       if (backboneApp.mediaGallery) {
-        //dirty fix for viewport 2/2
         if(backboneApp.mediaGallery.viewportRollBack){
           $('meta[name=viewport]').attr("content", backboneApp.mediaGallery.viewportRollBack);
           location = window.location.protocol + '//' + window.location.host + location.pathname;
           return;
         }
-        //
         backboneApp.mediaGallery.undelegateEvents();
         backboneApp.mediaGallery.close();
         delete backboneApp.mediaGallery;
       }
+      
       if (backboneApp.mediaGalleryBranded) {
-        //dirty fix for viewport 2/2
-        if(backboneApp.mediaGallery.viewportRollBack){
+        console.log('default route / backboneApp.mediaGalleryBranded');
+        if(backboneApp.mediaGalleryBranded.viewportRollBack){
           $('meta[name=viewport]').attr("content", backboneApp.mediaGalleryBranded.viewportRollBack);
-          $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
         }
-        //
-        backboneApp.mediaGalleryBranded.undelegateEvents();
         backboneApp.mediaGalleryBranded.close();
         delete backboneApp.mediaGalleryBranded;
       }

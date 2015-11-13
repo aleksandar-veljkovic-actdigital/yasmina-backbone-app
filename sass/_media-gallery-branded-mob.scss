@@ -110,7 +110,7 @@ $footerHeight: 42px!default;
           background: url('#{$backboneImgBaseUrl}mgb/right.png') no-repeat center center;
           width: 40px;
           height: 50px;
-          z-index: 1;
+          z-index: $zIndexBase + 1;
         }
         .mgb-next{
           position: absolute;
@@ -139,7 +139,7 @@ $footerHeight: 42px!default;
       background-color: rgba(255,255,255,0.8);
       max-height: $footerHeight; 
       transition: max-height 1s;
-      z-index: 2;
+      z-index: $zIndexBase + 2;
       .mgb-captions {
 
         .mgb-caption { 
@@ -200,7 +200,7 @@ $footerHeight: 42px!default;
       bottom: 0;
       left: 50%;
       @include prefixed( transform, translate(-50%, 0) );
-      z-index: 4;      
+      z-index: $zIndexBase + 4;      
       .mgb-share {
         white-space: nowrap;
         vertical-align: bottom;
@@ -255,7 +255,7 @@ $footerHeight: 42px!default;
   top: 0;
   bottom: 0;
   transition: all .5s;
-  z-index: 6;
+  z-index: $zIndexBase + 6;
   background-color: white;   
   .mgb-asside-header {
     height: $headerHeight;

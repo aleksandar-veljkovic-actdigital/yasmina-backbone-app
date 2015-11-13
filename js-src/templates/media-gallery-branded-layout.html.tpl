@@ -32,5 +32,6 @@
     
   </div>   
 
+  <div class="mgb-hidder"></div>
 
 </div>

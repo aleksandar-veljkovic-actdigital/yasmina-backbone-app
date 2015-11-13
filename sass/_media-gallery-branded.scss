@@ -1,14 +1,26 @@
 @import "compass/utilities/general/clearfix";
 
-.media-gallery-branded-fullscreen {  
+.media-gallery-branded-fullscreen { 
+  
+  $zIndexBase: 9999;
+  
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   background-color: #fff;  
+  z-index: $zIndexBase;
   & *:focus {
     outline: none;
+  }
+  .mgb-hidder {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;    
   }
 
   //DESKTOP
@@ -20,11 +32,11 @@
   &.tablet {
     @import "media-gallery-branded-tab";
   }
-  
+
   //MOBILE
   &.mobile {
     @import "media-gallery-branded-mob";
   }
-  
-  
+
+
 }

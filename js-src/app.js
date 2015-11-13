@@ -6,17 +6,17 @@ define([
         Router
         ) {
 
-  // fixing location.replace on ios mobile/tab
+  // @Override
   Backbone.History.prototype._updateHash = function(location, fragment, replace) {
     if (replace) {
       var href = location.href.replace(/(javascript:|#).*$/, '');
-      if (
-              window.history &&
-              history.replaceState &&
-              $('html').hasClass('ua-os-name-ios') &&
-              $('html').hasClass('ua-browser-name-chrome')
-              ) {
-        history.replaceState('', document.title, href + '#' + fragment);
+      if (window.backboneApp.set.replaceStateSuported) {
+        if (fragment) {
+          history.replaceState('', document.title, href + '#' + fragment);
+        }
+        else {
+          history.replaceState('', document.title, href);
+        }
       }
       else {
         location.replace(href + '#' + fragment);
@@ -31,8 +31,9 @@ define([
   ///////////////////////////////////////////////////////////////////////////////
   window.backboneApp = window.backboneApp || {};
   window.backboneApp.set = window.backboneApp.set || {};
-  window.backboneApp.set.$mediaGallerySelector = $('.article-gallery');
-  //window.backboneApp.set.device = oxAsyncGallery.deviceType;
+  window.backboneApp.set.ua = (new UAParser()).getResult();
+  window.backboneApp.set.$mediaGallerySelector = $('.article-gallery:not(.branded)');
+  window.backboneApp.set.$mediaGalleryBrandedSelector = $('.article-gallery.branded');
   if ($('html').hasClass('ua-visitor-device-mobile')) {
     window.backboneApp.set.device = 'mobile';
   } 
@@ -78,6 +79,33 @@ define([
       }
     });
   });
+  
+  // Media Gallery Branded enumeration
+  window.backboneApp.set.$mediaGalleryBrandedSelector.each(function(galleryIndex, gallery) {
+    var $gallery = $(gallery);
+    $gallery.addClass("media-gallery-branded");
+    $gallery.addClass("media-gallery-branded" + galleryIndex);
+    var itemIndex = 1;
+    $gallery.find('.mg-start').each(function(starterIndex, starter) {
+      starterIndex = starterIndex + 1;
+      $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
+      itemIndex++;
+      if (
+              (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
+              ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
+              )
+      {
+        itemIndex++;
+      }
+    });
+  });  
+  
+  
+  var ua = window.backboneApp.set.ua;
+  window.backboneApp.set.replaceStateSuported = !(
+          (ua.browser.name === "IE" && (ua.browser.major <= 9)) ||
+          (ua.browser.name === "Android Browser" && (ua.browser.major < 4.3))   
+  );
 
   return function() {
     window.backboneApp.router = Router.initialize().router;

@@ -15,7 +15,6 @@ define([
         ) {
 
   var MediaGallryBrandedView = Backbone.View.extend({
-    
     $layout: $(),
     $slider: $(),
     $captions: $(),
@@ -25,17 +24,17 @@ define([
     maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
-    
+    //
+    // MAIN METHODS
+    //
     initialize: function (attributes) {
-            
       this.$elem = attributes.$elem;
       this.collection = new Backbone.Collection([], {model: MediaGalleryItemModel});
       this.currentItem = parseInt(attributes.currentItem);
       this.id = parseInt(attributes.id);
-     
+      this.parse();
+      this.render();
     },
-    
-    
     parse: function () {
       var _this = this;
       $('.mg-item', _this.$elem).each(function (i, o) {
@@ -49,82 +48,15 @@ define([
         _this.collection.add(new MediaGalleryItemModel(data));
       });
     },
-    
-    thumborThumb: function(src) {
-      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
-          hasResize: true, 
-          hasTrim: false, 
-          isSmart: true,
-          resizeWidth: "188",
-          resizeHeight: "188"
-      }});      
-      var data = {
-        hash: src.split('/').pop().split(".")[0]
-      };
-      var thumbor = new thumborUrlBuilder(thumborConfig);
-      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
-      var url = thumbor.finalUrl();
-      return url;
-    },
-    
-    thumborHiRes: function(src) {
-      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
-          hasResize: false, 
-          hasTrim: false, 
-          isSmart: false,
-          fitIn: {E:2000,F:2000}
-      }});  
-    
-      delete thumborConfig.resizeWidth;
-      delete thumborConfig.resizeHeight;
-      
-      var data = {
-        hash: src.split('/').pop().split(".")[0]
-      };
-      var thumbor = new thumborUrlBuilder(thumborConfig);
-      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
-      var url = thumbor.finalUrl();
-      return url;
-    },
-    
-    
-    
-    renderDesk: function () {   
+    render: function () {
+      this.$layout.css('opacity', 0.001).addClass('render');
       var layoutTpl = _.template(templateLayout);
       this.$layout = $(layoutTpl());
-      this.$layout.css('opacity', 0.001).addClass('render desktop');
-      this._render();    
-      this.fullScreen();
-      this.bindings();  
-      this.$layout.css('opacity', 1).addClass('initialized');
-     },
-    
-    
-    renderTab: function(){
-      var layoutTpl = _.template(templateLayout);
-      this.$layout = $(layoutTpl());
-      this.$layout.css('opacity', 0.001).addClass('render tablet');
-      this._render();    
-      this.fullScreen();
-      this.bindings();  
-      this.$layout.css('opacity', 1).addClass('initialized');
-    },
-
-    renderMob: function () {
-      var layoutTpl = _.template(templateLayout);
-      this.$layout = $(layoutTpl());
-      this.$layout.css('opacity', 0.001).addClass('render mobile');
-      this._render();    
-      this.fullScreen();
-      this.bindings();  
-      this.$layout.css('opacity', 1).addClass('initialized');
-    },
-    
-    _render: function () {      
       var thumbsRdr = "";
       var itemsRdr = "";
       var captRdr = "";
       var numersRdr = "";
+      this.$layout.addClass(backboneApp.set.device);
       var clength = this.collection.length;
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
@@ -143,54 +75,131 @@ define([
       $('.mgb-captions-w', this.$layout).append(this.$captions);
       $('.mgb-thumbs-w', this.$layout).append(this.$thumbs);
       $('.mgb-numers-w', this.$layout).append(this.$numers);
-      $('.mgb-share-w', this.$layout).append(this.$share); 
+      $('.mgb-share-w', this.$layout).append(this.$share);
+      this.fullScreen();
+      this.bindings();
+      this.$layout.css('opacity', 1).addClass('initialized');
     },
-       
-       
-    close: function() {      
+    bindings: function () {
+      var _this = this;
+      // captions      
+      this.$captions.galleryCaption({autoHeight: true});
+      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
+      // slider      
+      this.slider(this.$slider);
+      // thumbs      
+      this.thumbs(this.$thumbs);
+      //numeration
+      this.$numers.galleryCaption({autoHeight: true});
+      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
+      //share on social networks
+      this.sharrre(this.$share);
+      // close button
+      var _this = this;
+      $('.mgb-close-button', this.$layout).click(function (e) {
+        e.preventDefault();
+        //window.backboneApp.router.navigate("",{trigger: false, replace: true});
+        window.history.back();
+        _this.close();
+      });
+      // captions toggle
+      $('.mgb-caption', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $parent = $this.parents('.mgb-captions-w');
+        if ($parent.hasClass('opened')) {
+          $parent.removeClass('opened');
+          $('.mgb-footer', $this.$layout).removeClass('opened');
+        }
+        else {
+          $parent.addClass('opened');
+          $('.mgb-footer', $this.$layout).addClass('opened');
+        }
+      });
+      // thumbs toggle
+      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var $o = _this.$layout;
+        if ($o.hasClass('thumbs')) {
+          $o.removeClass('thumbs');
+        }
+        else {
+          $o.addClass('thumbs');
+        }
+        var interval;
+        interval = setInterval(function () {
+          _this.$slider.slick('setPosition');
+          _this.$thumbs.iscroll.refresh();
+          _this.thumbGo(_this.currentItem - 1);
+          _this.maxDimensionPercentage.process();
+        }, 15);
+        setTimeout(function () {
+          clearInterval(interval);
+        }, 1000);
+      });
+      // thumb click
+      var $thumbItems = this.$thumbs.find('.mgb-thumb');
+      $thumbItems.on('click', function (e) {
+        e.preventDefault();
+        var position = $thumbItems.index(this);
+        _this.$slider.slick('slickGoTo', position);
+        if (_this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')) {
+          $('.mgb-thumbs-close', this.$layout).trigger('click');
+        }
+      });
+      // thumbs up/down
+      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+      });
+      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
+        $(this).addClass('scroll');
+        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+      });
+      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
+        $(this).removeClass('scroll');
+      });
+      _this.$thumbs.iscroll.on('scrollEnd', function () {
+        if ($('#mgb-thumbs-up').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
+        }
+        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
+          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
+        }
+      });
+      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
+        e.preventDefault();
+      });
+      // hi res
+      $('.zoom', this.$layout).on('click', function (e) {
+        e.preventDefault();
+        var src = $(this).parent('.img-w').children('img').attr('src');
+        var dest = _this.thumborHiRes(src);
+        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><img src='" + dest + "'></div>");
+        _this.$layout.append($hiRes);
+        $('.mgb-hi-res-close', $hiRes).one('click', function (e) {
+          e.preventDefault();
+          $('.mgb-hi-res', this.$layout).remove();
+        });
+      });
+    },
+    //
+    // D I A L O G
+    //
+    close: function () {
       this.$layout.remove();
       this.undelegateEvents();
       this.remove();
-      window.backboneApp.router.clearState();      
     },
-    
-    
     fullScreen: function () {
-      $('body').append(this.$layout);   
+      $('body').append(this.$layout);
     },
-    
-    
-    thumbs: function ($target) {
-      var iscroll = new IScroll($target.parent()[0], {
-        mouseWheel: true,
-        scrollbars: false,
-        click: true        
-      });      
-      $.fn.iscroll = iscroll;
-      this.thumbGo(this.currentItem - 1);
-    }, 
-    
-    thumbGo: function (index) {   
-      
-      this.$thumbs.children().removeClass('mgb-thumb-active');
-      this.$thumbs.children().eq(index).addClass('mgb-thumb-active'); 
-
-      if ( !this.isVisible(this.$thumbs.children().eq(index), this.$thumbs.parent()) ) {
-        this.$thumbs.iscroll.scrollToElement(this.$thumbs.children()[index], 400);
-      }
-
-    },
-
-    isVisible: function ($element, $container) {
-      if ($container.position().top < $element.position().top &&
-              $container.position().top + $container.outerHeight(true) > $element.position().top + $element.outerHeight(true)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    },
-    
+    //
+    // S L I D E R
+    //
     slider: function ($target) {
       var _this = this;
       $target.on('afterChange', function (slick, currentSlide) {
@@ -211,18 +220,81 @@ define([
         nextArrow: "<a href='#' class='mgb-next'></a>",
         initialSlide: this.currentItem - 1
       });
-      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct:100, $source: $target});
+      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
     },
-    
-    sliderAfterChange: function( currentSlide ){      
-      window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + ( this.currentItem ), {trigger: false, replace: true});
-      this.$captions.data('galleryCaption').goTo(this.currentItem-1);
-      this.$numers.data('galleryCaption').goTo(this.currentItem-1);
-      this.thumbGo(this.currentItem-1);
+    sliderAfterChange: function (currentSlide) {
+      window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + (this.currentItem), {trigger: false, replace: true});
+      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
+      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
+      this.thumbGo(this.currentItem - 1);
     },
-    
-
-    
+    //
+    // C A R O U S E L
+    //
+    thumbs: function ($target) {
+      var iscroll = new IScroll($target.parent()[0], {
+        mouseWheel: true,
+        scrollbars: false,
+        click: true
+      });
+      $.fn.iscroll = iscroll;
+      this.thumbGo(this.currentItem - 1);
+    },
+    thumbGo: function (index) {
+      this.$thumbs.children().removeClass('mgb-thumb-active');
+      this.$thumbs.children().eq(index).addClass('mgb-thumb-active');
+      if (!this.isVisible(this.$thumbs.children().eq(index), this.$thumbs.parent())) {
+        this.$thumbs.iscroll.scrollToElement(this.$thumbs.children()[index], 400);
+      }
+    },
+    isVisible: function ($element, $container) {
+      if ($container.position().top < $element.position().top &&
+              $container.position().top + $container.outerHeight(true) > $element.position().top + $element.outerHeight(true)) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
+    //
+    // T H U M B O R
+    //
+    thumborThumb: function (src) {
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: true,
+          hasTrim: false,
+          isSmart: true,
+          resizeWidth: "188",
+          resizeHeight: "188"
+        }});
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
+    },
+    thumborHiRes: function (src) {
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: false,
+          hasTrim: false,
+          isSmart: false,
+          fitIn: {E: 2000, F: 2000}
+        }});
+      delete thumborConfig.resizeWidth;
+      delete thumborConfig.resizeHeight;
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
+    },
+    //
+    // S O C I A L   S H A R E
+    //
     sharrre: function ($target) {
       var url = window.location.href;
       url = url.replace(/[^\/]*$/, '1'); // always to point first image in gallery
@@ -285,160 +357,20 @@ define([
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickGplus");
         },
+        //buttons: {
+        //  whatsapp: {
+        //    utmTracking: {
+        //      site: 'yasmina'
+        //    }
+        //  }
+        //},
         enableCounter: false
-    /*
-        buttons: {
-          whatsapp: {
-            utmTracking: {
-              site: 'yasmina'
-            }
-          }
-        }
-        */
       });
-    },
-
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-    // B I N D I N G S
-    bindings: function () {
-      var _this = this;
-      // captions      
-      this.$captions.galleryCaption({autoHeight: true});
-      this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
-      // slider      
-      this.slider(this.$slider);
-      // thumbs      
-      this.thumbs(this.$thumbs);
-      //numeration
-      this.$numers.galleryCaption({autoHeight: true});
-      this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
-      //share on social networks
-      this.sharrre(this.$share);
-      // close button
-      var _this = this;
-      $('.mgb-close-button', this.$layout).click(function (e) {
-        e.preventDefault();
-        _this.close();
-      });
-      // captions toggle
-      $('.mgb-caption', this.$layout).on('click', function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $parent = $this.parents('.mgb-captions-w');
-        if ($parent.hasClass('opened')) {
-          $parent.removeClass('opened');
-          $('.mgb-footer', $this.$layout).removeClass('opened');
-        }
-        else {
-          $parent.addClass('opened');
-          $('.mgb-footer', $this.$layout).addClass('opened');
-        }
-      });
-      // thumbs toggle
-      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function (e) {
-        e.preventDefault();
-        var $o = _this.$layout;
-        if ($o.hasClass('thumbs')) {
-          $o.removeClass('thumbs');
-        }
-        else {
-          $o.addClass('thumbs');
-        }
-        var interval;
-        interval = setInterval(function () {
-          _this.$slider.slick('setPosition');
-          _this.$thumbs.iscroll.refresh();
-          _this.thumbGo(_this.currentItem - 1);
-          _this.maxDimensionPercentage.process();
-        }, 15);
-        setTimeout(function () {
-          clearInterval(interval);
-        }, 1000);
-      });
-      // thumb click
-      var $thumbItems = this.$thumbs.find('.mgb-thumb');
-      $thumbItems.on('click', function (e) {
-        e.preventDefault();
-        var position = $thumbItems.index(this);
-        _this.$slider.slick('slickGoTo', position);
-        if (_this.$layout.hasClass('tablet') || _this.$layout.hasClass('mobile')) {
-          $('.mgb-thumbs-close', this.$layout).trigger('click');
-        }
-      });
-      // thumbs up/down
-
-      $('#mgb-thumbs-up', this.$layout).on('touchstart mousedown', function (e) {
-        $(this).addClass('scroll');
-        _this.$thumbs.iscroll.scrollBy(0, 100, 300);
-      });
-      $('#mgb-thumbs-dw', this.$layout).on('touchstart mousedown', function (e) {
-        $(this).addClass('scroll');
-        _this.$thumbs.iscroll.scrollBy(0, -100, 300);
-      });
-
-      $('#mgb-thumbs-up', this.$layout).on('touchend mouseup mouseleave', function (e) {
-        $(this).removeClass('scroll');
-      });
-      $('#mgb-thumbs-dw', this.$layout).on('touchend mouseup mouseleave', function (e) {
-        $(this).removeClass('scroll');
-      });
-      _this.$thumbs.iscroll.on('scrollEnd', function () {
-        if ($('#mgb-thumbs-up').hasClass('scroll')) {
-          _this.$thumbs.iscroll.scrollBy(0, 100, 300);
-        }
-        if ($('#mgb-thumbs-dw').hasClass('scroll')) {
-          _this.$thumbs.iscroll.scrollBy(0, -100, 300);
-        }
-      });
-      $('#mgb-thumbs-up, #mgb-thumbs-dw', this.$layout).on('click', function (e) {
-        e.preventDefault();
-      });
-      // HI RES
-      $('.zoom', this.$layout).on('click', function (e) {
-        e.preventDefault();
-        var src = $(this).parent('.img-w').children('img').attr('src');       
-        var dest = _this.thumborHiRes(src);
-        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><img src='"+dest+"'></div>");
-        _this.$layout.append($hiRes); 
-        $('.mgb-hi-res-close', $hiRes).one('click', function (e) {
-          e.preventDefault();
-          $('.mgb-hi-res', this.$layout).remove();
-        });       
-      });
-
-      
-      
     }
 
 
-
-
-
-    
-
   });
-  
+
   return MediaGallryBrandedView;
 
 }

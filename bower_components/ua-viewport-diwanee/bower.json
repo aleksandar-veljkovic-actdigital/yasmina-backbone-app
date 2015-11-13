@@ -1,0 +1,20 @@
+{
+  "name": "ua-viewport-diwanee",
+  "main": "ua-viewport-diwanee.js",
+  "version": "1.0.0",
+  "authors": [
+    "Aleksandar Veljkovic <aleksandar.veljkovic@diwanee.com>"
+  ],
+  "description": "This script change screen zoom by switching viewport according the user agent",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ua-parser-diwanee-js": "*"
+  }
+}
