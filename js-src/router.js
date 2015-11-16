@@ -84,7 +84,7 @@ define([
           backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content"); 
           $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
         }
-      });
+      }); 
     },    
     
     
@@ -102,7 +102,6 @@ define([
       }
       
       if (backboneApp.mediaGalleryBranded) {
-        console.log('default route / backboneApp.mediaGalleryBranded');
         if(backboneApp.mediaGalleryBranded.viewportRollBack){
           $('meta[name=viewport]').attr("content", backboneApp.mediaGalleryBranded.viewportRollBack);
         }

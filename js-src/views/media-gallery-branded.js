@@ -8,7 +8,8 @@ define([
   'slick',
   'caption',
   'iscroll',
-  'maxDimensionPercentage'
+  'maxDimensionPercentage',
+  'fullScreen'
 ], function (
         MediaGalleryItemModel,
         templateLayout
@@ -24,6 +25,7 @@ define([
     maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
+    fullModal: {},
     //
     // MAIN METHODS
     //
@@ -98,9 +100,9 @@ define([
       var _this = this;
       $('.mgb-close-button', this.$layout).click(function (e) {
         e.preventDefault();
-        //window.backboneApp.router.navigate("",{trigger: false, replace: true});
-        window.history.back();
         _this.close();
+        //window.backboneApp.router.navigate("",{trigger: false, replace: true});
+        window.history.back();        
       });
       // captions toggle
       $('.mgb-caption', this.$layout).on('click', function (e) {
@@ -139,7 +141,7 @@ define([
       });
       // thumb click
       var $thumbItems = this.$thumbs.find('.mgb-thumb');
-      $thumbItems.on('click', function (e) {
+      $thumbItems.on('tap click', function (e) {
         e.preventDefault();
         var position = $thumbItems.index(this);
         _this.$slider.slick('slickGoTo', position);
@@ -190,12 +192,24 @@ define([
     // D I A L O G
     //
     close: function () {
+      if (backboneApp.set.device !== "desktop") {
+        this.fullModal.close();
+      }      
       this.$layout.remove();
       this.undelegateEvents();
-      this.remove();
+      this.remove();      
     },
     fullScreen: function () {
-      $('body').append(this.$layout);
+      if (backboneApp.set.device==="desktop") {
+        $('body').append(this.$layout);
+      }
+      else {
+        this.fullModal = this.$layout.fullModal({
+          onClose: function () {
+          },
+          closeButton: false
+        });        
+      }
     },
     //
     // S L I D E R
@@ -235,7 +249,8 @@ define([
       var iscroll = new IScroll($target.parent()[0], {
         mouseWheel: true,
         scrollbars: false,
-        click: true
+        click: false,
+        tap: true
       });
       $.fn.iscroll = iscroll;
       this.thumbGo(this.currentItem - 1);

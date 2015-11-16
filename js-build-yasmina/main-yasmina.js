@@ -7902,7 +7902,8 @@ define('views/media-gallery-branded',[
   'slick',
   'caption',
   'iscroll',
-  'maxDimensionPercentage'
+  'maxDimensionPercentage',
+  'fullScreen'
 ], function (
         MediaGalleryItemModel,
         templateLayout
@@ -7918,6 +7919,7 @@ define('views/media-gallery-branded',[
     maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
+    fullModal: {},
     //
     // MAIN METHODS
     //
@@ -7992,9 +7994,9 @@ define('views/media-gallery-branded',[
       var _this = this;
       $('.mgb-close-button', this.$layout).click(function (e) {
         e.preventDefault();
-        //window.backboneApp.router.navigate("",{trigger: false, replace: true});
-        window.history.back();
         _this.close();
+        //window.backboneApp.router.navigate("",{trigger: false, replace: true});
+        window.history.back();        
       });
       // captions toggle
       $('.mgb-caption', this.$layout).on('click', function (e) {
@@ -8033,7 +8035,7 @@ define('views/media-gallery-branded',[
       });
       // thumb click
       var $thumbItems = this.$thumbs.find('.mgb-thumb');
-      $thumbItems.on('click', function (e) {
+      $thumbItems.on('tap click', function (e) {
         e.preventDefault();
         var position = $thumbItems.index(this);
         _this.$slider.slick('slickGoTo', position);
@@ -8084,12 +8086,24 @@ define('views/media-gallery-branded',[
     // D I A L O G
     //
     close: function () {
+      if (backboneApp.set.device !== "desktop") {
+        this.fullModal.close();
+      }      
       this.$layout.remove();
       this.undelegateEvents();
-      this.remove();
+      this.remove();      
     },
     fullScreen: function () {
-      $('body').append(this.$layout);
+      if (backboneApp.set.device==="desktop") {
+        $('body').append(this.$layout);
+      }
+      else {
+        this.fullModal = this.$layout.fullModal({
+          onClose: function () {
+          },
+          closeButton: false
+        });        
+      }
     },
     //
     // S L I D E R
@@ -8129,7 +8143,8 @@ define('views/media-gallery-branded',[
       var iscroll = new IScroll($target.parent()[0], {
         mouseWheel: true,
         scrollbars: false,
-        click: true
+        click: false,
+        tap: true
       });
       $.fn.iscroll = iscroll;
       this.thumbGo(this.currentItem - 1);
@@ -8356,7 +8371,7 @@ define('router',[
           backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content"); 
           $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
         }
-      });
+      }); 
     },    
     
     
@@ -8374,7 +8389,6 @@ define('router',[
       }
       
       if (backboneApp.mediaGalleryBranded) {
-        console.log('default route / backboneApp.mediaGalleryBranded');
         if(backboneApp.mediaGalleryBranded.viewportRollBack){
           $('meta[name=viewport]').attr("content", backboneApp.mediaGalleryBranded.viewportRollBack);
         }

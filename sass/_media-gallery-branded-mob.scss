@@ -106,7 +106,7 @@ $footerHeight: 42px!default;
           position: absolute;
           right: 0;
           top: 50%;
-          @include prefixed( transform, translate(0, -50%) );
+          @include prefixed( transform, translate3d(0, -50%, 1px) );
           background: url('#{$backboneImgBaseUrl}mgb/right.png') no-repeat center center;
           width: 40px;
           height: 50px;
@@ -116,7 +116,7 @@ $footerHeight: 42px!default;
           position: absolute;
           left: 0;
           top: 50%;
-          @include prefixed( transform, translate(0, -50%) );
+          @include prefixed( transform, translate3d(0, -50%, 1px) );
           background: url('#{$backboneImgBaseUrl}mgb/left.png') no-repeat center center;
           width: 40px;
           height: 50px;
@@ -146,9 +146,6 @@ $footerHeight: 42px!default;
           width: 100%;
           max-width: 600px;
           padding: 0 10% 54px;
-          &:hover {
-            cursor: pointer;
-          }
           h3 {
             margin: 0;
             font-family: $font-family-kufi;
@@ -208,10 +205,7 @@ $footerHeight: 42px!default;
           vertical-align: bottom;
           display: inline-block;
           width: 68px;
-          height: 68px;  
-          &:hover {
-            cursor:pointer;
-          }              
+          height: 68px;           
         }
         #facebook_share {
           background: url('#{$backboneImgBaseUrl}mgb/fb-mob.png') no-repeat center center;
@@ -249,6 +243,7 @@ $footerHeight: 42px!default;
 }
 
 .mgb-asside {
+  @include prefixed( transform, translate(0, 0) );
   width: 100%;
   position: absolute;
   left: -100%;
@@ -321,7 +316,7 @@ $footerHeight: 42px!default;
           background-color: black;
           text-align: center;
         }
-        &.mgb-thumb-active, &:hover {
+        &.mgb-thumb-active {
           img {
             opacity: 0.4;
           }
