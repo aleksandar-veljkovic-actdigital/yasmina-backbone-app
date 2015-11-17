@@ -8367,8 +8367,11 @@ define('router',[
       require(['views/media-gallery-branded'], function(mediaGalleryBrandedView) {
         var $elem = $('.media-gallery-branded' + id);
         backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});        
-        if (backboneApp.set.device === 'tablet') { 
-          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content"); 
+        if (
+                backboneApp.set.device === 'tablet' &&
+                window.backboneApp.set.ua.browser.name !== "Android Browser"
+                ) {
+          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content");
           $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
         }
       }); 
