@@ -3185,7 +3185,7 @@ define('views/media-gallery',[
 
 //});
 
-define('text!templates/media-gallery-branded-layout.html.tpl',[],function () { return '<div class="media-gallery-branded-fullscreen">\n  \n  \n  <div class="mgb-asside">   \n    <div class="mgb-asside-header">\n      <div class=\'mgb-logo\'></div>\n      <div class=\'mgb-thumbs-close\'></div>\n    </div>\n    <div class=\'mgb-thumbs-w\'></div>\n    <a href=\'#\' id="mgb-thumbs-up"></a>\n    <a href=\'#\' id="mgb-thumbs-dw"></a>\n  </div> \n  \n  \n  <div class="mgb-main">\n    \n    <div class="mgb-header">\n      <a href="#mgb-thumbs-button" class="mgb-thumbs-button"></a>\n      <div class=\'mgb-numers-w\'></div>\n      <div class=\'mgb-logo\'></div>\n      <a href="#mgb-close" class="mgb-close-button"></a>\n    </div>\n\n    <div class="mgb-content">\n      <div class=\'mgb-slider-w\'></div>\n    </div> \n    \n    <div class="mgb-footer">\n      <div class="mgb-captions-w"></div> \n      <div class="mgb-share-w"></div>\n    </div> \n    \n  </div>   \n\n  <div class="mgb-hidder"></div>\n\n</div>';});
+define('text!templates/media-gallery-branded-layout.html.tpl',[],function () { return '<div class="media-gallery-branded-fullscreen">\n  \n  \n  <div class="mgb-asside">   \n    <div class="mgb-asside-header">\n      <div class=\'mgb-logo\'></div>\n      <div class=\'mgb-thumbs-close\'></div>\n    </div>\n    <div class=\'mgb-thumbs-w\'></div>\n    <a href=\'#\' id="mgb-thumbs-up"></a>\n    <a href=\'#\' id="mgb-thumbs-dw"></a>\n  </div> \n  \n  \n  <div class="mgb-main">\n    \n    <div class="mgb-header">\n      <a href="#mgb-thumbs-button" class="mgb-thumbs-button"></a>\n      <div class=\'mgb-numers-w\'></div>\n      <div class=\'mgb-logo\'></div>\n      <a href="#mgb-close" class="mgb-close-button"></a>\n    </div>\n\n    <div class="mgb-content">\n      <div class=\'mgb-slider-w\'></div>\n    </div> \n    \n    <div class="mgb-footer">\n      <div class="mgb-captions-w"></div> \n      <div class="mgb-share-w"></div>\n    </div> \n    \n  </div>   \n\n</div>';});
 
 /*
      _ _      _       _
@@ -8128,7 +8128,31 @@ define('views/media-gallery-branded',[
         nextArrow: "<a href='#' class='mgb-next'></a>",
         initialSlide: this.currentItem - 1
       });
-      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
+      if ( backboneApp.set.device === 'desktop' ){
+        _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
+      } 
+      // tablet maximize image as consequence of viewport resizing
+      else {
+        _this.maxDimensionPercentage.process = function(){};
+      }
+      if (backboneApp.set.device === 'tablet') {
+        var maximizeImage = function () {
+          $('.img-w img', $target).each(function (i, o) {
+            var $img = $(o);
+            var $wrap = $img.parent();
+            $wrap.css({lineHeight: $wrap.innerHeight()+"px"})
+            if ($img.outerHeight(true) > $wrap.innerHeight()) {
+              $img.css({width: 'auto', height: '100%'});
+            }
+            else {
+              $img.css({width: '', height: ''});
+            }
+          });
+        };
+        maximizeImage();
+        $(window).resize(maximizeImage);
+      }
+      //
     },
     sliderAfterChange: function (currentSlide) {
       window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + (this.currentItem), {trigger: false, replace: true});
@@ -8362,19 +8386,12 @@ define('router',[
     },
     
     
-    mediaGalleryBranded: function(id, currentItem) {
+    mediaGalleryBranded: function (id, currentItem) {
       currentItem = currentItem || 1;
-      require(['views/media-gallery-branded'], function(mediaGalleryBrandedView) {
+      require(['views/media-gallery-branded'], function (mediaGalleryBrandedView) {  
         var $elem = $('.media-gallery-branded' + id);
-        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});        
-        if (
-                backboneApp.set.device === 'tablet' &&
-                window.backboneApp.set.ua.browser.name !== "Android Browser"
-                ) {
-          backboneApp.mediaGalleryBranded.viewportRollBack = $('meta[name=viewport]').attr("content");
-          $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
-        }
-      }); 
+        backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});
+      });
     },    
     
     
@@ -8392,9 +8409,6 @@ define('router',[
       }
       
       if (backboneApp.mediaGalleryBranded) {
-        if(backboneApp.mediaGalleryBranded.viewportRollBack){
-          $('meta[name=viewport]').attr("content", backboneApp.mediaGalleryBranded.viewportRollBack);
-        }
         backboneApp.mediaGalleryBranded.close();
         delete backboneApp.mediaGalleryBranded;
       }

@@ -234,7 +234,31 @@ define([
         nextArrow: "<a href='#' class='mgb-next'></a>",
         initialSlide: this.currentItem - 1
       });
-      _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
+      if ( backboneApp.set.device === 'desktop' ){
+        _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
+      } 
+      // tablet maximize image as consequence of viewport resizing
+      else {
+        _this.maxDimensionPercentage.process = function(){};
+      }
+      if (backboneApp.set.device === 'tablet') {
+        var maximizeImage = function () {
+          $('.img-w img', $target).each(function (i, o) {
+            var $img = $(o);
+            var $wrap = $img.parent();
+            $wrap.css({lineHeight: $wrap.innerHeight()+"px"})
+            if ($img.outerHeight(true) > $wrap.innerHeight()) {
+              $img.css({width: 'auto', height: '100%'});
+            }
+            else {
+              $img.css({width: '', height: ''});
+            }
+          });
+        };
+        maximizeImage();
+        $(window).resize(maximizeImage);
+      }
+      //
     },
     sliderAfterChange: function (currentSlide) {
       window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + (this.currentItem), {trigger: false, replace: true});
