@@ -90,13 +90,6 @@ define([
       starterIndex = starterIndex + 1;
       $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
       itemIndex++;
-      if (
-              (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
-              ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
-              )
-      {
-        itemIndex++;
-      }
     });
   });  
   

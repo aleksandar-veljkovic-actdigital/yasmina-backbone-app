@@ -2314,7 +2314,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   vertical-align: middle;
   width: 100%;
   height: auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 /* line 117, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-prev {

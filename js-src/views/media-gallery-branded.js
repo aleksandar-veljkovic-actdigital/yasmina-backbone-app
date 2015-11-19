@@ -220,9 +220,7 @@ define([
         _this.currentItem = currentSlide.currentSlide + 1;
         _this.sliderAfterChange(currentSlide - 1);
       });
-      $target.one('init', function () {
-        // $(window).trigger('resize');
-      });
+
       $target.slick({
         rtl: true,
         rows: 1,
@@ -234,28 +232,29 @@ define([
         nextArrow: "<a href='#' class='mgb-next'></a>",
         initialSlide: this.currentItem - 1
       });
-      if ( backboneApp.set.device === 'desktop' ){
+      if (backboneApp.set.device !== 'tablet') {
         _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
-      } 
-      // tablet maximize image as consequence of viewport resizing
-      else {
-        _this.maxDimensionPercentage.process = function(){};
       }
-      if (backboneApp.set.device === 'tablet') {
+      else {
+        // on tablet image is maximized as consequence of viewport resizing
+        _this.maxDimensionPercentage.process = function () {};
         var maximizeImage = function () {
           $('.img-w img', $target).each(function (i, o) {
             var $img = $(o);
             var $wrap = $img.parent();
-            $wrap.css({lineHeight: $wrap.innerHeight()+"px"})
-            if ($img.outerHeight(true) > $wrap.innerHeight()) {
-              $img.css({width: 'auto', height: '100%'});
-            }
-            else {
+            var aspectImg = $img[0].naturalWidth / $img[0].naturalHeight;
+            var aspectWrap = $wrap.innerWidth() / $wrap.innerHeight();            
+            if (aspectImg > aspectWrap) {
               $img.css({width: '', height: ''});
             }
+            else {
+              $img.css({width: 'auto', height: $wrap.innerHeight() + "px"});
+            }
+            $wrap.css({lineHeight: $wrap.innerHeight() + "px"});
           });
         };
         maximizeImage();
+        $target.on('setPosition', maximizeImage);
         $(window).resize(maximizeImage);
       }
       //
