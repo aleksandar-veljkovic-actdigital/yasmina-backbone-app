@@ -1,5 +1,7 @@
+$zoomFactor: 1.6;
+
 $headerHeight: 64px;
-$footerHeight: 42px;
+$footerHeight: #{$zoomFactor * 42}px;
 
 & {
   position: absolute;
@@ -144,7 +146,7 @@ $footerHeight: 42px;
     left: 0;
     right: 0;
     .mgb-captions-w {
-      $titleLineHeight: 19px;
+      $titleLineHeight: #{$zoomFactor * 19}px;
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -155,17 +157,18 @@ $footerHeight: 42px;
 
         .mgb-caption { 
           width: 100%;
-          max-width: 600px;
-          padding: 0 12px;
+          max-width: #{$zoomFactor * 600}px;
+          padding: 0 #{$zoomFactor * 12}px;
+          font-size: 0;
           h3 {
-            margin: 12px 0 0 0;
+            margin: #{$zoomFactor * 14}px 0 0 0;
             font-family: $font-family-kufi;
             font-weight: bold;                
-            font-size: 11px;
-            transition: all .4s;
+            font-size: #{$zoomFactor * 11}px;
+            transition: all .5s;
             display: inline-block;
             position: relative;
-            //padding-left: $uiWidth;
+            line-height: $titleLineHeight;
             .tx {
               display: inline-block;
               overflow: hidden;
@@ -179,13 +182,13 @@ $footerHeight: 42px;
               right: 100%;
               top: 0;
               display: inline-block;
-              width: 48px;
+              width: #{$zoomFactor * 48}px;
               line-height: $titleLineHeight;
               height: $titleLineHeight;
               color: $gold;
-              background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 7px;
-              transition: all .5s;
-              margin-right: 4px;
+              background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 14px;
+              transition: width .5s, font-size .5s;
+              margin-right: #{$zoomFactor * 4}px;
               &:after {
                 content: 'المزيد';
               }
@@ -193,26 +196,31 @@ $footerHeight: 42px;
           }
           p {
             font-family: $font-family-naskh;
-            font-size: 14px;
-            line-height: 19px;
+            font-size: #{$zoomFactor * 14}px;
+            line-height: #{$zoomFactor * 19}px;
             color: black;
+          }
+          p:empty {
+            margin: 0;
           }
         }
       }
     }
     .mgb-captions-w.opened {
-      max-height: 1000px;
+      max-height: #{$zoomFactor * 1000}px;
       .mgb-captions {
         .mgb-caption { 
           width: 100%;
-          max-width: 600px;
+          //max-width: 600px;
           h3 {
             .tx {
-              max-height: 600px;
+              max-height: #{$zoomFactor * 600}px;
+              transition: max-height 0s;
             }
             .ui {
-              width: 10px;
+              width: #{$zoomFactor * 10}px;
               font-size: 0;
+              background-position: left -10px;
             }
           }
         }

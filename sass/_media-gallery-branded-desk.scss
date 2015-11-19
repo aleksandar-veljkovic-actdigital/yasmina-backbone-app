@@ -169,18 +169,19 @@ $thumbsWidth: 174px;
           width: 100%;
           max-width: 600px;
           padding: 0 12px;
+          font-size: 0;
           &:hover {
             cursor: pointer;
           }
           h3 {
-            margin: 12px 0 0 0;
+            margin: 14px 0 0 0;
             font-family: $font-family-kufi;
             font-weight: bold;                
             font-size: 11px;
-            transition: all .4s;
+            transition: all .5s;
             display: inline-block;
             position: relative;
-            //padding-left: $uiWidth;
+            line-height: 0;
             .tx {
               display: inline-block;
               overflow: hidden;
@@ -199,7 +200,7 @@ $thumbsWidth: 174px;
               height: $titleLineHeight;
               color: $gold;
               background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 7px;
-              transition: all .5s;
+              transition: width .5s, font-size .5s;
               margin-right: 4px;
               &:after {
                 content: 'المزيد';
@@ -211,6 +212,9 @@ $thumbsWidth: 174px;
             font-size: 14px;
             line-height: 19px;
             color: black;
+          }
+          p:empty {
+            margin: 0;
           }
         }
       }
@@ -224,10 +228,13 @@ $thumbsWidth: 174px;
           h3 {
             .tx {
               max-height: 600px;
+              transition: max-height 0s;
             }
             .ui {
               width: 10px;
               font-size: 0;
+              background-position: left -16px;
+              
             }
           }
         }

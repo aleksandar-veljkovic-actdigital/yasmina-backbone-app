@@ -1,0 +1,38 @@
+{
+  "name": "max-dimension-percentage",
+  "main": "max-dimension-percentage.js",
+  "version": "1.0.4",
+  "homepage": "https://github.com/biosonic/max-dimension-percentage",
+  "authors": [
+    "Aleksandar Veljkovic <aleksandar.veljkovic@diwanee.com>"
+  ],
+  "description": "fix for max-height and max-width given by percents",
+  "keywords": [
+    "css",
+    "javascript",
+    "jquery",
+    "max-width",
+    "max-height",
+    "precents"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  },
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.4",
+    "commit": "7a488cd65cee2b0b7822f5841b2090396a4e3066"
+  },
+  "_source": "git://github.com/biosonic/max-dimension-percentage.git",
+  "_target": "*",
+  "_originalSource": "max-dimension-percentage"
+}

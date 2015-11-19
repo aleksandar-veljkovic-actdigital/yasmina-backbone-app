@@ -115,7 +115,8 @@ define([
         }
         else {
           $parent.addClass('opened');
-          $('.mgb-footer', $this.$layout).addClass('opened');
+          $('.mgb-footer', $this.$layout).addClass('opened');          
+          _this.$captions.data('galleryCaption').goTo(_this.currentItem - 1); // recalculate height after class is added
         }
       });
       // thumbs toggle
