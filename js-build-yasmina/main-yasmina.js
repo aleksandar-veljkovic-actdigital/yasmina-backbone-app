@@ -8036,7 +8036,10 @@ define('views/media-gallery-branded',[
       });
       // thumb click
       var $thumbItems = this.$thumbs.find('.mgb-thumb');
-      $thumbItems.on('tap click', function (e) {
+      $thumbItems.on('click', function (e) {
+        e.preventDefault();
+      });      
+      $thumbItems.on('tap', function (e) {
         e.preventDefault();
         var position = $thumbItems.index(this);
         _this.$slider.slick('slickGoTo', position);
@@ -8110,12 +8113,11 @@ define('views/media-gallery-branded',[
     // S L I D E R
     //
     slider: function ($target) {
-      var _this = this;
+      var _this = this;  
       $target.on('afterChange', function (slick, currentSlide) {
         _this.currentItem = currentSlide.currentSlide + 1;
         _this.sliderAfterChange(currentSlide - 1);
       });
-
       $target.slick({
         rtl: true,
         rows: 1,
@@ -8132,25 +8134,33 @@ define('views/media-gallery-branded',[
       }
       else {
         // on tablet image is maximized as consequence of viewport resizing
-        _this.maxDimensionPercentage.process = function () {};
-        var maximizeImage = function () {
-          $('.img-w img', $target).each(function (i, o) {
-            var $img = $(o);
-            var $wrap = $img.parent();
-            var aspectImg = $img[0].naturalWidth / $img[0].naturalHeight;
-            var aspectWrap = $wrap.innerWidth() / $wrap.innerHeight();            
-            if (aspectImg > aspectWrap) {
-              $img.css({width: '', height: ''});
-            }
-            else {
-              $img.css({width: 'auto', height: $wrap.innerHeight() + "px"});
-            }
-            $wrap.css({lineHeight: $wrap.innerHeight() + "px"});
-          });
+        _this.maxDimensionPercentage.process = function () {
         };
-        maximizeImage();
-        $target.on('setPosition', maximizeImage);
-        $(window).resize(maximizeImage);
+        var maximizeImage = function ($img) {
+          var $wrap = $img.parent();
+          var aspectImg = $img[0].naturalWidth / $img[0].naturalHeight;
+          var aspectWrap = $wrap.innerWidth() / $wrap.innerHeight();
+          if (aspectImg > aspectWrap) {
+            $img.css({width: '', height: ''});
+          }
+          else {
+            $img.css({width: 'auto', height: $wrap.innerHeight() + "px"});
+          }
+          $wrap.css({lineHeight: $wrap.innerHeight() + "px"});
+        };
+        var maximizeImages = function () {
+          $('.img-w img', $target).each(function (i, o) {
+            if (!o.nativeWidth) {
+              $(o).load(function () {
+                maximizeImage($(o));
+              });
+            }
+            maximizeImage($(o));
+          });
+        };      
+        maximizeImages();
+        $target.on('setPosition', maximizeImages);
+        $(window).resize(maximizeImages);
       }
       //
     },
@@ -8172,7 +8182,7 @@ define('views/media-gallery-branded',[
       });
       $.fn.iscroll = iscroll;
       this.thumbGo(this.currentItem - 1);
-    },
+    }, 
     thumbGo: function (index) {
       this.$thumbs.children().removeClass('mgb-thumb-active');
       this.$thumbs.children().eq(index).addClass('mgb-thumb-active');
