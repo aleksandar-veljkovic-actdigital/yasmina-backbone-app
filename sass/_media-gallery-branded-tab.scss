@@ -57,7 +57,7 @@ $footerHeight: #{$zoomFactor * 42}px;
       @include prefixed( transform, translate(-50%, -50%) );
       height: $headerHeight;
       width: 146px;     
-      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.png') no-repeat center center;
+      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
       max-width: 60%;
       background-size: 100%;
       overflow: hidden;
@@ -236,18 +236,20 @@ $footerHeight: #{$zoomFactor * 42}px;
         vertical-align: middle;
         & > div {
           float: right;
-
-          width: 38px;
-          height: 38px;             
+          width: $footerHeight;
+          height: $footerHeight;         
         }
         #facebook_share {
-          background: url('#{$backboneImgBaseUrl}mgb/fb-ico.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/fb.svg') no-repeat center center;
+          background-size: 80% 80%;
         }
         #twitter_share {
-          background: url('#{$backboneImgBaseUrl}mgb/twitter-ico.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/tw.svg') no-repeat center center;
+          background-size: 80% 80%;
         }
         #gplus_share {
-          background: url('#{$backboneImgBaseUrl}mgb/gplus-ico.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/gp.svg') no-repeat center center;
+          background-size: 80% 80%;
         }
         #whatsapp_share {
           display: none; 
