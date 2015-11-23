@@ -35,7 +35,7 @@ $footerHeight: 42px!default;
   width: 100%;
   float: right;
   position: relative;
-  transition: width .4s;
+  //transition: width .4s;
   .mgb-header {   
     height: $headerHeight;
     position: relative;
@@ -263,7 +263,7 @@ $footerHeight: 42px!default;
   left: -100%;
   top: 0;
   bottom: 0;
-  transition: all .5s;
+  //transition: all .5s;
   z-index: $zIndexBase + 6;
   background-color: white;   
   .mgb-asside-header {
@@ -304,7 +304,7 @@ $footerHeight: 42px!default;
     bottom: 0;
     .mgb-thumbs {
       position: relative;
-      transition-timing-function: linear!important;
+      //transition-timing-function: linear!important;
       @include clearfix;
       .mgb-thumb {
         width: 29%;
@@ -314,7 +314,7 @@ $footerHeight: 42px!default;
         img {
           width: 100%;
           max-width: none;
-          transition: opacity .5s;
+          //transition: opacity .5s;
         }
         span {
           display: block;

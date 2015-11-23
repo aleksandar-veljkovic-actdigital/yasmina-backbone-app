@@ -2639,7 +2639,6 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   width: 100%;
   float: right;
   position: relative;
-  transition: width .4s;
 }
 /* line 39, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-main .mgb-header {
@@ -2902,7 +2901,6 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   left: -100%;
   top: 0;
   bottom: 0;
-  transition: all .5s;
   z-index: 10005;
   background-color: white;
 }
@@ -2957,7 +2955,6 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 /* line 305, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs {
   position: relative;
-  transition-timing-function: linear !important;
   overflow: hidden;
   *zoom: 1;
 }
@@ -2972,7 +2969,6 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb img {
   width: 100%;
   max-width: none;
-  transition: opacity .5s;
 }
 /* line 319, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb span {
