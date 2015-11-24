@@ -1,6 +1,6 @@
-$zoomFactor: 1.6;
+$zoomFactor: 1.67;
 
-$headerHeight: 64px;
+$headerHeight: #{$zoomFactor * 64}px;
 $footerHeight: #{$zoomFactor * 42}px;
 
 & {
@@ -24,12 +24,12 @@ $footerHeight: #{$zoomFactor * 42}px;
   display: inline-block;
   height: $headerHeight;
   width: $headerHeight;
-  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico.png') no-repeat center 21px;
-  //@include prefixed( background-size, "50% auto" );
+  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico.svg') no-repeat -27% -24%;
+  background-size: 160%;
   max-width: 10%;
 }
 &.thumbs .mgb-thumbs-button {
-  background-position: center -24px;
+  background-position: -28% 108%;
 }
 
 .mgb-main {
@@ -56,7 +56,7 @@ $footerHeight: #{$zoomFactor * 42}px;
       top: 50%;
       @include prefixed( transform, translate(-50%, -50%) );
       height: $headerHeight;
-      width: 146px;     
+      width: #{$zoomFactor * 146}px;     
       background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
       max-width: 60%;
       background-size: 100%;
@@ -66,7 +66,8 @@ $footerHeight: #{$zoomFactor * 42}px;
       display: inline-block;
       height: $headerHeight;
       width: $headerHeight;
-      background: url('#{$backboneImgBaseUrl}mgb/close-ico.png') no-repeat center center;
+      background: url('#{$backboneImgBaseUrl}mgb/close-ico.svg') no-repeat center center;
+      background-size: 35%;
       max-width: 20%;
       position: absolute;
       top: 0;
@@ -121,7 +122,7 @@ $footerHeight: #{$zoomFactor * 42}px;
           right: 0;
           top: 50%;
           @include prefixed( transform, translate3d(0, -50%, 1px) );
-          background: url('#{$backboneImgBaseUrl}mgb/right.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/right.svg') no-repeat center center;
           width: 40px;
           height: 50px;
           z-index: $zIndexBase + 1;
@@ -131,7 +132,7 @@ $footerHeight: #{$zoomFactor * 42}px;
           left: 0;
           top: 50%;
           @include prefixed( transform, translate3d(0, -50%, 1px) );
-          background: url('#{$backboneImgBaseUrl}mgb/left.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/left.svg') no-repeat center center;
           width: 40px;
           height: 50px;
 
@@ -280,8 +281,8 @@ $footerHeight: #{$zoomFactor * 42}px;
       top: 50%;
       @include prefixed( transform, translate(-50%, -50%) );
       height: $headerHeight;
-      width: 146px;     
-      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.png') no-repeat center center;
+      width: #{$zoomFactor * 146}px;     
+      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
       max-width: 60%;
       background-size: 100%;
       overflow: hidden;
@@ -291,13 +292,13 @@ $footerHeight: #{$zoomFactor * 42}px;
       height: $headerHeight;
       float: left;
       width: 10%;
-      background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.png') no-repeat center center;
+      background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.svg') no-repeat center center;
     }
 
   }
   .mgb-thumbs-w {
     overflow: hidden;
-    max-width: 640px;
+    max-width: #{$zoomFactor * 640}px;
     width: 100%;
     left: 50%;
     @include prefixed( transform, translate(-50%, 0) );
@@ -309,7 +310,7 @@ $footerHeight: #{$zoomFactor * 42}px;
       transition-timing-function: linear!important;
       @include clearfix;
       .mgb-thumb {
-        width: 29%;
+        width: 29.33%;
         margin: 0 2% 4%;
         position: relative;
         float: right;
@@ -341,9 +342,9 @@ $footerHeight: #{$zoomFactor * 42}px;
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: #{$zoomFactor * 768}px) {
     .mgb-thumbs-w {
-      max-width: 600px;
+      max-width: #{$zoomFactor * 600}px;
       width: 100%;
       margin: 0 auto;
       .mgb-thumbs .mgb-thumb {

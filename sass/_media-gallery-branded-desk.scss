@@ -26,12 +26,12 @@ $thumbsWidth: 174px;
   display: inline-block;
   height: $headerHeight;
   width: $headerHeight;
-  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico.png') no-repeat center 21px;
+  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico.svg') no-repeat 13px 11px;
   //@include prefixed( background-size, "50% auto" );
   max-width: 10%;
 }
 &.thumbs .mgb-thumbs-button {
-  background-position: center -24px;
+  background-position: 13px -34px;
 }
 
 .mgb-main {
@@ -68,7 +68,7 @@ $thumbsWidth: 174px;
       display: inline-block;
       height: $headerHeight;
       width: $headerHeight;
-      background: url('#{$backboneImgBaseUrl}mgb/close-ico.png') no-repeat center center;
+      background: url('#{$backboneImgBaseUrl}mgb/close-ico.svg') no-repeat center center;
       max-width: 20%;
       position: absolute;
       top: 0;
@@ -134,7 +134,7 @@ $thumbsWidth: 174px;
           right: 0;
           top: 50%;
           @include prefixed( transform, translate(0, -50%) );
-          background: url('#{$backboneImgBaseUrl}mgb/right.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/right.svg') no-repeat center center;
           width: 40px;
           height: 50px;
           z-index: $zIndexBase + 1;
@@ -144,7 +144,7 @@ $thumbsWidth: 174px;
           left: 0;
           top: 50%;
           @include prefixed( transform, translate(0, -50%) );
-          background: url('#{$backboneImgBaseUrl}mgb/left.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/left.svg') no-repeat center center;
           width: 40px;
           height: 50px;
 
