@@ -33,6 +33,6 @@
     "commit": "7a488cd65cee2b0b7822f5841b2090396a4e3066"
   },
   "_source": "git://github.com/biosonic/max-dimension-percentage.git",
-  "_target": "*",
+  "_target": "1.0.4",
   "_originalSource": "max-dimension-percentage"
 }

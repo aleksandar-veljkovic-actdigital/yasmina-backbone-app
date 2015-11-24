@@ -9,6 +9,6 @@
     "commit": "a62e5b7f9bc9cb302069865e7425093c6e9f3519"
   },
   "_source": "git://github.com/biosonic/FullModal.git",
-  "_target": "*",
+  "_target": "0.9.0",
   "_originalSource": "fullmodal"
 }

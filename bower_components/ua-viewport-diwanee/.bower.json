@@ -25,6 +25,6 @@
     "commit": "74826746ce829dc38b0b98900e57cf2bf5606381"
   },
   "_source": "git://github.com/biosonic/ua-viewport-diwanee.git",
-  "_target": "*",
+  "_target": "1.0.4",
   "_originalSource": "ua-viewport-diwanee"
 }
