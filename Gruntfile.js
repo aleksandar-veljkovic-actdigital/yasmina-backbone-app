@@ -63,12 +63,19 @@ module.exports = function (grunt) {
         tasks: ['requirejs:static', 'requirejs:yasmina', 'clean']
       },
     },
-    clean: ["js-build-static/templates", "js-build-yasmina/templates"]
-
+    clean: ["js-build-static/templates", "js-build-yasmina/templates"],    
+    copy: {
+      main: {
+        files: [
+          {src: 'bower_components/slick.js/slick/slick.scss', dest: 'sass/_slick.scss'}
+        ]
+      }
+    }
   });
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.registerTask('default', ['compass','requirejs', 'clean', 'watch']);
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.registerTask('default', ['copy','compass','requirejs', 'clean', 'watch']);
 };
