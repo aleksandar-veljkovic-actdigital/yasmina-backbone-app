@@ -50,6 +50,7 @@ $thumbsWidth: 174px;
       width: 10%;
       font-size: 14px;
       font-family: $font-family-noto;
+      color: #4c4c4c;
     }
     .mgb-logo {
       display: inline-block;
@@ -367,8 +368,8 @@ $thumbsWidth: 174px;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 64px;
+    height: 64px;
     background: url('#{$backboneImgBaseUrl}mgb/hi-res-close.png') no-repeat center center;
   }
 }

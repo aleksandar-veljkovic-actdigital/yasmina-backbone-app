@@ -7996,7 +7996,12 @@ define('views/media-gallery-branded',[
         e.preventDefault();
         _this.close();
         //window.backboneApp.router.navigate("",{trigger: false, replace: true});
-        window.history.back();        
+        if(history.length>1){
+          window.history.back();
+        } else {
+          window.close();
+          window.backboneApp.router.navigate("",{trigger: true, replace: true});
+        }               
       });
       // captions toggle
       $('.mgb-caption', this.$layout).on('click', function (e) {
@@ -8095,7 +8100,8 @@ define('views/media-gallery-branded',[
       }      
       this.$layout.remove();
       this.undelegateEvents();
-      this.remove();      
+      this.remove();
+      $('html').removeClass('mgb-fullscreen');
     },
     fullScreen: function () {
       if (backboneApp.set.device==="desktop") {
@@ -8108,6 +8114,7 @@ define('views/media-gallery-branded',[
           closeButton: false
         });        
       }
+      $('html').addClass('mgb-fullscreen');
     },
     //
     // S L I D E R

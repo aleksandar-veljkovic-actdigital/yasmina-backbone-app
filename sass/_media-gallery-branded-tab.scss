@@ -46,8 +46,9 @@ $footerHeight: #{$zoomFactor * 42}px;
       height: $headerHeight;
       line-height: $headerHeight;
       width: 10%;
-      font-size: 14px;
+      font-size: #{$zoomFactor * 14p}x;
       font-family: $font-family-noto;
+      color: #4c4c4c;
     }
     .mgb-logo {
       display: inline-block;

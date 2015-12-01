@@ -1,5 +1,9 @@
 @import "compass/utilities/general/clearfix";
 
+html.mgb-fullscreen body {
+  overflow: hidden;
+}
+
 .media-gallery-branded-fullscreen { 
   
   $zIndexBase: 9999;
