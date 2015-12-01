@@ -2132,7 +2132,6 @@ html.mgb-fullscreen body {
 .media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb span {
   display: none;
   position: absolute;
-  position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -2145,15 +2144,15 @@ html.mgb-fullscreen body {
   font-size: 18px;
   line-height: 18px;
 }
-/* line 324, ../sass/_media-gallery-branded-desk.scss */
+/* line 323, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb.mgb-thumb-active img, .media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb:hover img {
   opacity: 0.4;
 }
-/* line 327, ../sass/_media-gallery-branded-desk.scss */
+/* line 326, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb.mgb-thumb-active span, .media-gallery-branded-fullscreen.desktop .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb:hover span {
   display: inline-block;
 }
-/* line 334, ../sass/_media-gallery-branded-desk.scss */
+/* line 333, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-asside #mgb-thumbs-up {
   display: block;
   position: absolute;
@@ -2163,7 +2162,7 @@ html.mgb-fullscreen body {
   height: 42px;
   background: url("../img/mgb/up.png") no-repeat center center;
 }
-/* line 343, ../sass/_media-gallery-branded-desk.scss */
+/* line 342, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-asside #mgb-thumbs-dw {
   display: block;
   position: absolute;
@@ -2173,7 +2172,7 @@ html.mgb-fullscreen body {
   height: 42px;
   background: url("../img/mgb/down.png") no-repeat center center;
 }
-/* line 354, ../sass/_media-gallery-branded-desk.scss */
+/* line 353, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-hi-res {
   position: absolute;
   top: 0;
@@ -2182,22 +2181,29 @@ html.mgb-fullscreen body {
   bottom: 0;
   z-index: 10009;
   background-color: black;
+  direction: ltr;
 }
 /* line 362, ../sass/_media-gallery-branded-desk.scss */
-.media-gallery-branded-fullscreen.desktop .mgb-hi-res img {
+.media-gallery-branded-fullscreen.desktop .mgb-hi-res .mgb-hi-res-img-wrap {
   position: absolute;
   left: 50%;
   top: 50%;
-  display: block;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  max-width: 100%;
+  width: 100%;
   max-height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
 }
 /* line 371, ../sass/_media-gallery-branded-desk.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-hi-res .mgb-hi-res-img-wrap img {
+  display: block;
+  margin: 0 auto;
+}
+/* line 376, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-hi-res .mgb-hi-res-close {
   display: block;
   position: absolute;
@@ -2206,6 +2212,7 @@ html.mgb-fullscreen body {
   width: 64px;
   height: 64px;
   background: url("../img/mgb/hi-res-close.png") no-repeat center center;
+  z-index: 10011;
 }
 /* line 6, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet {

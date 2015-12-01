@@ -310,7 +310,6 @@ $thumbsWidth: 174px;
         span {
           display: none;
           position: absolute;
-          position: absolute;
           left: 50%;
           top: 50%;
           @include prefixed( transform, translate(-50%, -50%) );
@@ -358,15 +357,21 @@ $thumbsWidth: 174px;
   left: 0;
   bottom: 0;
   z-index: $zIndexBase + 10;
-  background-color: black;
-  img {
+  background-color: black;  
+  direction: ltr;
+  .mgb-hi-res-img-wrap {
     position: absolute;
     left: 50%;
     top: 50%;
-    display: block;
     @include prefixed( transform, translate(-50%, -50%) );
-    max-width: 100%;
+    width: 100%;
     max-height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
   .mgb-hi-res-close {
     display: block;
@@ -376,5 +381,6 @@ $thumbsWidth: 174px;
     width: 64px;
     height: 64px;
     background: url('#{$backboneImgBaseUrl}mgb/hi-res-close.png') no-repeat center center;
+    z-index: $zIndexBase + 12;
   }
 }

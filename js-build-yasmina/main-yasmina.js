@@ -8083,7 +8083,7 @@ define('views/media-gallery-branded',[
         e.preventDefault();
         var src = $(this).parent('.img-w').children('img').attr('src');
         var dest = _this.thumborHiRes(src);
-        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><img src='" + dest + "'></div>");
+        var $hiRes = $("<div class='mgb-hi-res'><a href='#' class='mgb-hi-res-close'></a><div class='mgb-hi-res-img-wrap'><img src='" + dest + "'></div></div>");
         _this.$layout.append($hiRes);
         $('.mgb-hi-res-close', $hiRes).one('click', function (e) {
           e.preventDefault();
@@ -8230,7 +8230,7 @@ define('views/media-gallery-branded',[
           hasResize: false,
           hasTrim: false,
           isSmart: false,
-          fitIn: {E: 2000, F: 2000}
+          fitIn: {E: 2500, F: 2500}
         }});
       delete thumborConfig.resizeWidth;
       delete thumborConfig.resizeHeight;
