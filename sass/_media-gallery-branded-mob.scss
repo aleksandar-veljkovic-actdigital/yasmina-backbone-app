@@ -22,9 +22,10 @@ $footerHeight: 42px!default;
   display: inline-block;
   height: $headerHeight;
   width: $headerHeight;
-  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico.png') no-repeat center 21px;
+  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico-silver.svg') no-repeat center 21px;
+  //background-size: 160%;
   //@include prefixed( background-size, "50% auto" );
-  max-width: 10%;
+  max-width: 15%;
 }
 &.thumbs .mgb-thumbs-button {
   background-position: center -24px;
@@ -56,8 +57,8 @@ $footerHeight: 42px!default;
       @include prefixed( transform, translate(-50%, -50%) );
       height: $headerHeight;
       width: 146px;     
-      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.png') no-repeat center center;
-      max-width: 60%;
+      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
+      max-width: 40%;
       background-size: 100%;
       overflow: hidden;
     }
@@ -65,8 +66,8 @@ $footerHeight: 42px!default;
       display: inline-block;
       height: $headerHeight;
       width: $headerHeight;
-      background: url('#{$backboneImgBaseUrl}mgb/close-ico.png') no-repeat center center;
-      max-width: 20%;
+      background: url('#{$backboneImgBaseUrl}mgb/close-ico.svg') no-repeat center center;
+      max-width: 15%;
       position: absolute;
       top: 0;
       left: 0;
@@ -118,21 +119,23 @@ $footerHeight: 42px!default;
           }
         }
         .mgb-prev{
+          display: none!important;
           position: absolute;
           right: 0;
           top: 50%;
           @include prefixed( transform, translate3d(0, -50%, 1px) );
-          background: url('#{$backboneImgBaseUrl}mgb/right.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/right.svg') no-repeat center center;
           width: 40px;
           height: 50px;
           z-index: $zIndexBase + 1;
         }
         .mgb-next{
+          display: none!important;
           position: absolute;
           left: 0;
           top: 50%;
           @include prefixed( transform, translate3d(0, -50%, 1px) );
-          background: url('#{$backboneImgBaseUrl}mgb/left.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/left.svg') no-repeat center center;
           width: 40px;
           height: 50px;
 
@@ -186,7 +189,7 @@ $footerHeight: 42px!default;
               font-size: 13px;
               font-weight: normal;
               color: black;
-              background: url('#{$backboneImgBaseUrl}mgb/arrow-gallery-sprite.png') no-repeat left 13px;
+              background: url('#{$backboneImgBaseUrl}mgb/arrow-gallery-sprite.svg') no-repeat left 10px;
 
               &:after{
                 content: "عن الصورة";
@@ -223,10 +226,10 @@ $footerHeight: 42px!default;
           height: 68px;           
         }
         #facebook_share {
-          background: url('#{$backboneImgBaseUrl}mgb/fb-mob.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/fb.svg') no-repeat center center;
         }
         #twitter_share {
-          background: url('#{$backboneImgBaseUrl}mgb/twitter-mob.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/tw.svg') no-repeat center center;
         }
         #gplus_share {
           display: none;
@@ -243,7 +246,7 @@ $footerHeight: 42px!default;
       max-height: 1000px;
       .mgb-captions .mgb-caption h3 {
         .ui {
-          background-position: left -26px;
+          background-position: left -30px;
           &:after{
             content: "إغلاق";
           }
@@ -280,8 +283,8 @@ $footerHeight: 42px!default;
       @include prefixed( transform, translate(-50%, -50%) );
       height: $headerHeight;
       width: 146px;     
-      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.png') no-repeat center center;
-      max-width: 60%;
+      background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
+      max-width: 40%;
       background-size: 100%;
       overflow: hidden;
     }
@@ -289,8 +292,9 @@ $footerHeight: 42px!default;
       max-width: $headerHeight;
       height: $headerHeight;
       float: left;
-      width: 10%;
-      background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.png') no-repeat center center;
+      width: 15%;
+      background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.svg') no-repeat center center;
+      background-size: 27px;
     }
 
   }

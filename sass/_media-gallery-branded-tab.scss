@@ -119,6 +119,7 @@ $footerHeight: #{$zoomFactor * 42}px;
           }
         }
         .mgb-prev{
+          display: none!important;
           position: absolute;
           right: 0;
           top: 50%;
@@ -129,6 +130,7 @@ $footerHeight: #{$zoomFactor * 42}px;
           z-index: $zIndexBase + 1;
         }
         .mgb-next{
+          display: none!important;
           position: absolute;
           left: 0;
           top: 50%;
