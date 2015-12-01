@@ -156,6 +156,7 @@ $footerHeight: #{$zoomFactor * 42}px;
       width: 100%;
       background-color: rgba(255,255,255,0.8);
       max-height: $footerHeight; 
+      min-height: $footerHeight; 
       transition: max-height 1s;
       .mgb-captions {
 
@@ -182,6 +183,7 @@ $footerHeight: #{$zoomFactor * 42}px;
               transition: max-height .5s;
             }
             .ui {
+              opacity: 1;
               position: absolute;
               right: 100%;
               top: 0;
@@ -191,7 +193,7 @@ $footerHeight: #{$zoomFactor * 42}px;
               height: $titleLineHeight;
               color: $gold;
               background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 14px;
-              transition: width .5s, font-size .5s;
+              transition: width .5s, font-size .5s, opacity .5s;
               margin-right: #{$zoomFactor * 4}px;
               &:after {
                 content: 'المزيد';
@@ -210,6 +212,9 @@ $footerHeight: #{$zoomFactor * 42}px;
         }
       }
     }
+    .mgb-captions-w .mgb-captions .mgb-caption.empty .ui {
+      opacity: 0;
+    }    
     .mgb-captions-w.opened {
       max-height: #{$zoomFactor * 1000}px;
       .mgb-captions {

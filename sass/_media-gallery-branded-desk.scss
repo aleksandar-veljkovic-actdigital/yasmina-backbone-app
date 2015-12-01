@@ -163,6 +163,7 @@ $thumbsWidth: 174px;
       width: 100%;
       background-color: rgba(255,255,255,0.8);
       max-height: $footerHeight; 
+      min-height: $footerHeight; 
       transition: max-height 1s;
       .mgb-captions {
 
@@ -192,6 +193,7 @@ $thumbsWidth: 174px;
               transition: max-height .5s;
             }
             .ui {
+              opacity: 1;
               position: absolute;
               right: 100%;
               top: 0;
@@ -201,7 +203,7 @@ $thumbsWidth: 174px;
               height: $titleLineHeight;
               color: $gold;
               background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 7px;
-              transition: width .5s, font-size .5s;
+              transition: width .5s, font-size .5s, opacity .5s;
               margin-right: 4px;
               &:after {
                 content: 'المزيد';
@@ -220,6 +222,9 @@ $thumbsWidth: 174px;
         }
       }
     }
+    .mgb-captions-w .mgb-captions .mgb-caption.empty .ui {
+      opacity: 0;
+    }    
     .mgb-captions-w.opened {
       max-height: 1000px;
       .mgb-captions {

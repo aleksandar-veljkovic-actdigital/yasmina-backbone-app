@@ -62,7 +62,7 @@ define([
       var clength = this.collection.length;
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
-          captRdr += "<div class='mgb-caption'><h3><span class='ui'></span><span class='tx'>" + item.attributes.title + "</span></h3><p>" + item.attributes.caption + "</p></div>";
+          captRdr += "<div class='mgb-caption " + ((!!item.attributes.caption) ? "filled" : "empty") + "'><h3><span class='ui'></span><span class='tx'>" + item.attributes.title + "</span></h3><p>" + item.attributes.caption + "</p></div>";
           itemsRdr += '<div class="item"><div class="img-w"><img  src="' + item.attributes.img + '" alt="" /><a href="#" class="zoom"></a></div></div>';
           thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i < 9) ? "0" + (i + 1) : (i + 1)) + '</span></a>';
           numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
