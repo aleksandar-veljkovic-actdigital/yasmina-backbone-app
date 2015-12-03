@@ -23,8 +23,7 @@ $footerHeight: 42px!default;
   height: $headerHeight;
   width: $headerHeight;
   background: url('#{$backboneImgBaseUrl}mgb/gallery-ico-silver.svg') no-repeat center 21px;
-  //background-size: 160%;
-  //@include prefixed( background-size, "50% auto" );
+  position: relative;
   max-width: 15%;
 }
 &.thumbs .mgb-thumbs-button {
@@ -36,10 +35,11 @@ $footerHeight: 42px!default;
   width: 100%;
   float: right;
   position: relative;
-  //transition: width .4s;
+  z-index: 10;
   .mgb-header {   
     height: $headerHeight;
     position: relative;
+    z-index: 10;
     .mgb-numers-w {
       display: inline-block;
       height: $headerHeight;
@@ -47,7 +47,7 @@ $footerHeight: 42px!default;
       width: 10%;
       font-size: 14px;
       font-family: $font-family-noto;
-      color: #4c4c4c;
+      color: #a3a3a3;
     }
     .mgb-logo {
       display: inline-block;
@@ -74,14 +74,12 @@ $footerHeight: 42px!default;
     }
   }
   .mgb-content{
-    //height: calc(100% - #{$headerHeight} - #{$footerHeight});
-
     position: absolute;
     left: 0;
     right: 0;
     top: $headerHeight;
     bottom: $footerHeight;
-
+    z-index: 20;
     .mgb-slider-w {
       position: relative;
       height: 100%;
@@ -127,7 +125,6 @@ $footerHeight: 42px!default;
           background: url('#{$backboneImgBaseUrl}mgb/right.svg') no-repeat center center;
           width: 40px;
           height: 50px;
-          z-index: $zIndexBase + 1;
         }
         .mgb-next{
           display: none!important;
@@ -149,6 +146,7 @@ $footerHeight: 42px!default;
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 30;
     .mgb-captions-w {
       $titleLineHeight: 19px;
       position: absolute;
@@ -157,7 +155,7 @@ $footerHeight: 42px!default;
       background-color: rgba(255,255,255,0.8);
       max-height: $footerHeight; 
       transition: max-height 1s;
-      z-index: $zIndexBase + 2;
+      z-index: 10;
       .mgb-captions {
 
         .mgb-caption { 
@@ -215,7 +213,7 @@ $footerHeight: 42px!default;
       bottom: 0;
       left: 50%;
       @include prefixed( transform, translate(-50%, 0) );
-      z-index: $zIndexBase + 4;      
+      z-index: 20;   
       .mgb-share {
         white-space: nowrap;
         vertical-align: bottom;
@@ -235,7 +233,7 @@ $footerHeight: 42px!default;
           display: none;
         }
         #whatsapp_share {
-          background: url('#{$backboneImgBaseUrl}mgb/wts-mob.png') no-repeat center center;
+          background: url('#{$backboneImgBaseUrl}mgb/wts.svg') no-repeat center center;
         }
       }
     }
@@ -268,7 +266,7 @@ $footerHeight: 42px!default;
   top: 0;
   bottom: 0;
   //transition: all .5s;
-  z-index: $zIndexBase + 6;
+  z-index: 20;
   background-color: white;   
   .mgb-asside-header {
     height: $headerHeight;
