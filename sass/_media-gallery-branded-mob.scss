@@ -1,4 +1,4 @@
-$headerHeight: 64px!default;
+$headerHeight: 44px!default;
 $footerHeight: 42px!default;
 
 & {
@@ -20,11 +20,13 @@ $footerHeight: 42px!default;
 }
 .mgb-thumbs-button {
   display: inline-block;
-  height: $headerHeight;
-  width: $headerHeight;
-  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico-silver.svg') no-repeat center 21px;
   position: relative;
+  height: $headerHeight;
+  width: $headerHeight * 0.8;
+  background: url('#{$backboneImgBaseUrl}mgb/gallery-ico-silver.svg') no-repeat center 14px;
+  background-size: 15px;
   max-width: 15%;
+  float: right;
 }
 &.thumbs .mgb-thumbs-button {
   background-position: center -24px;
@@ -48,6 +50,7 @@ $footerHeight: 42px!default;
       font-size: 14px;
       font-family: $font-family-noto;
       color: #a3a3a3;
+      float: right;
     }
     .mgb-logo {
       display: inline-block;
@@ -59,7 +62,7 @@ $footerHeight: 42px!default;
       width: 146px;     
       background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
       max-width: 40%;
-      background-size: 100%;
+      background-size: 96px;
       overflow: hidden;
     }
     .mgb-close-button {
@@ -67,6 +70,7 @@ $footerHeight: 42px!default;
       height: $headerHeight;
       width: $headerHeight;
       background: url('#{$backboneImgBaseUrl}mgb/close-ico.svg') no-repeat center center;
+      background-size: 15px;
       max-width: 15%;
       position: absolute;
       top: 0;
@@ -108,7 +112,7 @@ $footerHeight: 42px!default;
                   height: 100%;
                   max-width: none;
                   max-height: none;
-                  padding: 0 8px;
+                  padding: 0 0;
                 }                         
               }
             }
@@ -158,7 +162,6 @@ $footerHeight: 42px!default;
 
         .mgb-caption { 
           width: 100%;
-          max-width: 600px;
           padding: 0 10% 54px;
           h3 {
             margin: 0;

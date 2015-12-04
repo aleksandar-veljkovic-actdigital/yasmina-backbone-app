@@ -7968,7 +7968,7 @@ define('views/media-gallery-branded',[
         }
       });
       // thumbs toggle
-      $('.mgb-thumbs-button, .mgb-thumbs-close', this.$layout).on('click', function (e) {
+      $('.mgb-thumbs-button, .mgb-thumbs-close, .mgb-numers', this.$layout).on('click', function (e) {
         e.preventDefault();
         var $o = _this.$layout;
         if ($o.hasClass('thumbs')) {
