@@ -7843,55 +7843,6 @@ if ( typeof module != 'undefined' && module.exports ) {
 })(window, document, Math);
 define("iscroll", function(){});
 
-;(function($) {
-
-  $.fn.maxDimensionPercentage = function(options) {
-    
-    var $this = $(this);
-    
-    options = options || {};  
-    options._pct = {};
-        
-    switch (typeof(options.pct)) {
-      case "undefined" :
-        options._pct.h = 100;
-        options._pct.w = 100;
-        break;
-      case "number"  :
-        options._pct.h = options.pct;
-        options._pct.w = options.pct;
-        break
-      case "object" :
-        options._pct.h = options.pct.h || 100;
-        options._pct.w = options.pct.w || 100;
-        break;      
-    }
-    
-    options.$source = options.$source || $this.offsetParent(); 
-        
-    $this.addClass('max-dimension-js');
-    
-    var returns = {};
-
-    returns.process = function() {
-      var h = Math.floor(options.$source.height() * (options._pct.h / 100));
-      var w = Math.floor(options.$source.width() * (options._pct.w / 100));
-      $this.css({maxHeight: h + "px", maxWidth: w + "px"});
-    };
-
-    $(document).ready(returns.process);
-    $(window).load(returns.process);
-    $(window).resize(returns.process);
-    returns.process();
-
-    return returns;
-
-  };
-
-})(jQuery);
-
-define("maxDimensionPercentage", function(){});
-
 
 
 define('views/media-gallery-branded',[
@@ -7902,7 +7853,6 @@ define('views/media-gallery-branded',[
   'slick',
   'caption',
   'iscroll',
-  'maxDimensionPercentage',
   'fullScreen'
 ], function (
         MediaGalleryItemModel,
@@ -7916,7 +7866,6 @@ define('views/media-gallery-branded',[
     $thumbs: $(),
     $numers: $(),
     $share: $(),
-    maxDimensionPercentage: {},
     currentItem: 1,
     id: null,
     fullModal: {},
@@ -7957,7 +7906,7 @@ define('views/media-gallery-branded',[
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
           captRdr += "<div class='mgb-caption " + ((!!item.attributes.caption) ? "filled" : "empty") + "'><h3><span class='ui'></span><span class='tx'>" + item.attributes.title + "</span></h3><p>" + item.attributes.caption + "</p></div>";
-          itemsRdr += '<div class="item"><div class="img-w"><img  src="' + item.attributes.img + '" alt="" /><a href="#" class="zoom"></a></div></div>';
+          itemsRdr += '<div class="item"><div class="img-w"><img class="mgb-slider-item-img" src="' + item.attributes.img + '" alt="" /><a href="#" class="zoom"></a></div></div>';
           thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i < 9) ? "0" + (i + 1) : (i + 1)) + '</span></a>';
           numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
         }
@@ -8033,7 +7982,6 @@ define('views/media-gallery-branded',[
           _this.$slider.slick('setPosition');
           _this.$thumbs.iscroll.refresh();
           _this.thumbGo(_this.currentItem - 1);
-          _this.maxDimensionPercentage.process();
         }, 15);
         setTimeout(function () {
           clearInterval(interval);
@@ -8123,7 +8071,7 @@ define('views/media-gallery-branded',[
       var _this = this;  
       $target.on('afterChange', function (slick, currentSlide) {
         _this.currentItem = currentSlide.currentSlide + 1;
-        _this.sliderAfterChange(currentSlide - 1);
+        _this.sliderAfterChange(slick, currentSlide);
       });
       $target.slick({
         rtl: true,
@@ -8136,47 +8084,50 @@ define('views/media-gallery-branded',[
         nextArrow: "<a href='#' class='mgb-next'></a>",
         initialSlide: this.currentItem - 1
       });
-      if (backboneApp.set.device !== 'tablet') {
-        _this.maxDimensionPercentage = $('.img-w, .img-w img', $target).maxDimensionPercentage({pct: 100, $source: $target});
-      }
-      else {
-        // on tablet image is maximized as consequence of viewport resizing
-        _this.maxDimensionPercentage.process = function () {
-        };
-        var maximizeImage = function ($img) {
-          var $wrap = $img.parent();
-          var aspectImg = $img[0].naturalWidth / $img[0].naturalHeight;
-          var aspectWrap = $wrap.innerWidth() / $wrap.innerHeight();
-          if (aspectImg > aspectWrap) {
-            $img.css({width: '', height: ''});
-          }
-          else {
-            $img.css({width: 'auto', height: $wrap.innerHeight() + "px"});
-          }
-          $wrap.css({lineHeight: $wrap.innerHeight() + "px"});
-        };
-        var maximizeImages = function () {
-          $('.img-w img', $target).each(function (i, o) {
-            if (!o.nativeWidth) {
-              $(o).load(function () {
-                maximizeImage($(o));
-              });
-            }
-            maximizeImage($(o));
-          });
-        };      
-        maximizeImages();
-        $target.on('setPosition', maximizeImages);
-        $(window).resize(maximizeImages);
-      }
       //
+      var maximizeImage = function ($img, $wrap) {
+        $wrap = $wrap || $img.parent();
+        var aspectImg = $img[0].naturalWidth / $img[0].naturalHeight;
+        var aspectWrap = $wrap.innerWidth() / $wrap.innerHeight();
+        if (aspectImg > aspectWrap) {
+          $img.css({width: $wrap.innerWidth() + "px", height: 'auto'});
+        }
+        else {
+          $img.css({width: 'auto', height: $wrap.innerHeight() + "px"});
+        }
+      };
+      var maximizeImages = function () {
+        $('.img-w img', $target).each(function (i, o) {
+          if (!o.nativeWidth) {
+            $(o).load(function () {
+              maximizeImage($(o), $(o).parent().parent());
+            });
+          }
+          maximizeImage($(o), $(o).parent().parent());
+        });
+      };
+      maximizeImages();
+      $target.on('setPosition', maximizeImages);
+      $(window).resize(maximizeImages);
+      //
+      this.imgBigReplacement();
     },
-    sliderAfterChange: function (currentSlide) {
+    sliderAfterChange: function (slick, currentSlide) {
       window.backboneApp.router.navigate('media-gallery-branded/' + this.id + "/" + (this.currentItem), {trigger: false, replace: true});
       this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
       this.$numers.data('galleryCaption').goTo(this.currentItem - 1);
       this.thumbGo(this.currentItem - 1);
+      this.imgBigReplacement();
     },
+    imgBigReplacement: function () {
+      if (backboneApp.set.device === 'desktop') {
+        var $currentImg = this.$slider.find('.slick-current .img-w .mgb-slider-item-img:not(.mgb-maximized)');
+        if ($currentImg.length > 0) {
+          $currentImg.addClass('mgb-maximized');
+          $currentImg.attr('src', this.thumbrBigReplacement($currentImg.attr('src')));
+        }
+      }
+    },    
     //
     // C A R O U S E L
     //
@@ -8241,7 +8192,27 @@ define('views/media-gallery-branded',[
       thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
       var url = thumbor.finalUrl();
       return url;
-    },
+    },   
+    thumbrBigReplacement: function (src) {
+      var aspectArr = src.match(/\/([0-9]+)x([0-9]+)\//g)[0].replace(/\//g, "").split("x");
+      var aspect = aspectArr[0] / aspectArr[1];      
+      var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
+          hasResize: true,
+          hasTrim: false,
+          isSmart: true,
+          resizeWidth: "2500",
+          resizeHeight: "2500"
+        }});      
+      thumborConfig.thumbor.resizeWidth = (aspect > 1) ? thumborConfig.thumbor.resizeWidth : Math.round(thumborConfig.thumbor.resizeWidth * aspect);
+      thumborConfig.thumbor.resizeHeight = (aspect > 1) ?  Math.round(thumborConfig.thumbor.resizeHeight / aspect) : thumborConfig.thumbor.resizeHeight;      
+      var data = {
+        hash: src.split('/').pop().split(".")[0]
+      };
+      var thumbor = new thumborUrlBuilder(thumborConfig);
+      thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
+      var url = thumbor.finalUrl();
+      return url;
+    },    
     //
     // S O C I A L   S H A R E
     //

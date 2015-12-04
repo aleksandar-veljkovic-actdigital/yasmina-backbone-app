@@ -22,7 +22,6 @@ views/media-gallery.js
 text!templates/media-gallery-branded-layout.html.tpl
 slick.js
 iscroll.js
-maxDimensionPercentage.js
 views/media-gallery-branded.js
 router.js
 app.js
