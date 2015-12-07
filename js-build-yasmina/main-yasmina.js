@@ -8122,7 +8122,10 @@ define('views/media-gallery-branded',[
     imgBigReplacement: function () {
       if (backboneApp.set.device !== 'mobile') {
         var $currentImg = this.$slider.find('.slick-current .img-w .mgb-slider-item-img:not(.mgb-maximized)');
-        if ($currentImg.length > 0) {
+        if (
+                ($currentImg.length > 0) &&
+                (($currentImg.data('original-width') > this.thumborHiResW) || ($currentImg.data('original-height') > this.thumborHiResH))
+                ) {
           $currentImg.addClass('mgb-maximized');
           $currentImg.attr('src', this.thumbrBigReplacement($currentImg));
         }
@@ -8195,16 +8198,11 @@ define('views/media-gallery-branded',[
       return url;
     },   
     thumbrBigReplacement: function ($img) {
-      console.log('bigReplacement')
-      var _this = this;
-      var src = $img.attr('src');
-      if (($img.data('original-width') < _this.thumborHiResW) || ($img.data('original-height') < _this.thumborHiResH)) {
-        return src;
-      }     
+      var src = $img.attr('src');   
       return this.thumborHiRes(src);
       
       /*  // IF CROP IS REQUIRED
-      
+      var _this = this;
       var aspectArr = src.match(/\/([0-9]+)x([0-9]+)\//g)[0].replace(/\//g, "").split("x");
       var aspect = aspectArr[0] / aspectArr[1];      
       var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
