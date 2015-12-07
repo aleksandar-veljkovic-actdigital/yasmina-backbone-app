@@ -7869,6 +7869,8 @@ define('views/media-gallery-branded',[
     currentItem: 1,
     id: null,
     fullModal: {},
+    thumborHiResW: 2500,
+    thumborHiResH: 2500,
     //
     // MAIN METHODS
     //
@@ -7887,6 +7889,8 @@ define('views/media-gallery-branded',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          originalWidth: $(".mg-img", o).data('original-width'),
+          originalHeight: $(".mg-img", o).data('original-height'),
           caption: $(".mg-capt", o).html().trim(),
           thumb: _this.thumborThumb($(".mg-img", o).attr('src'))
         };
@@ -7906,7 +7910,7 @@ define('views/media-gallery-branded',[
       this.collection.each(function (item, i) {
         if (item.get('type') === 'item') {
           captRdr += "<div class='mgb-caption " + ((!!item.attributes.caption) ? "filled" : "empty") + "'><h3><span class='ui'></span><span class='tx'>" + item.attributes.title + "</span></h3><p>" + item.attributes.caption + "</p></div>";
-          itemsRdr += '<div class="item"><div class="img-w"><img class="mgb-slider-item-img" src="' + item.attributes.img + '" alt="" /><a href="#" class="zoom"></a></div></div>';
+          itemsRdr += '<div class="item"><div class="img-w"><img  data-original-width="' + item.attributes.originalWidth + '" data-original-height="' + item.attributes.originalHeight + '" class="mgb-slider-item-img" src="' + item.attributes.img + '" alt="" /><a href="#" class="zoom"></a></div></div>';
           thumbsRdr += '<a href="#" class="mgb-thumb"><img  src="' + item.attributes.thumb + '" alt="" /><span>' + ((i < 9) ? "0" + (i + 1) : (i + 1)) + '</span></a>';
           numersRdr += "<div class='mgb-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>";
         }
@@ -8086,26 +8090,22 @@ define('views/media-gallery-branded',[
       });
       //
       var maximizeImage = function ($img, $wrap) {
-        $wrap = $wrap || $img.parent();
-        var aspectImg = $img[0].naturalWidth / $img[0].naturalHeight;
+        var aspectImg = $img.data('original-width') / $img.data('original-height');
         var aspectWrap = $wrap.innerWidth() / $wrap.innerHeight();
         if (aspectImg > aspectWrap) {
-          $img.css({width: $wrap.innerWidth() + "px", height: 'auto'});
+          var w = (backboneApp.set.device==='tablet') ? $img.data('original-width') * 1.6 : $img.data('original-width');
+          $img.css({width: w+"px", maxWidth: $wrap.innerWidth()+"px", height: 'auto', maxHeight: 'none'});
         }
         else {
-          $img.css({width: 'auto', height: $wrap.innerHeight() + "px"});
+          var h = (backboneApp.set.device==='tablet') ? $img.data('original-height') * 1.6 : $img.data('original-height');
+          $img.css({width: 'auto', maxWidth: 'none', height: h+"px", maxHeight: $wrap.innerHeight()+"px"});
         }
-      };
+      };      
       var maximizeImages = function () {
-        $('.img-w img', $target).each(function (i, o) {
-          if (!o.nativeWidth) {
-            $(o).load(function () {
-              maximizeImage($(o), $(o).parent().parent());
-            });
-          }
+        $('.img-w .mgb-slider-item-img', $target).each(function (i, o) {
           maximizeImage($(o), $(o).parent().parent());
         });
-      };
+      };      
       maximizeImages();
       $target.on('setPosition', maximizeImages);
       $(window).resize(maximizeImages);
@@ -8120,11 +8120,11 @@ define('views/media-gallery-branded',[
       this.imgBigReplacement();
     },
     imgBigReplacement: function () {
-      if (backboneApp.set.device === 'desktop') {
+      if (backboneApp.set.device !== 'mobile') {
         var $currentImg = this.$slider.find('.slick-current .img-w .mgb-slider-item-img:not(.mgb-maximized)');
         if ($currentImg.length > 0) {
           $currentImg.addClass('mgb-maximized');
-          $currentImg.attr('src', this.thumbrBigReplacement($currentImg.attr('src')));
+          $currentImg.attr('src', this.thumbrBigReplacement($currentImg));
         }
       }
     },    
@@ -8176,12 +8176,13 @@ define('views/media-gallery-branded',[
       var url = thumbor.finalUrl();
       return url;
     },
-    thumborHiRes: function (src) {
+    thumborHiRes: function (src) {      
+      var _this = this;
       var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
           hasResize: false,
           hasTrim: false,
           isSmart: false,
-          fitIn: {E: 2500, F: 2500}
+          fitIn: {E: _this.thumborHiResW, F: _this.thumborHiResH}
         }});
       delete thumborConfig.resizeWidth;
       delete thumborConfig.resizeHeight;
@@ -8193,15 +8194,25 @@ define('views/media-gallery-branded',[
       var url = thumbor.finalUrl();
       return url;
     },   
-    thumbrBigReplacement: function (src) {
+    thumbrBigReplacement: function ($img) {
+      console.log('bigReplacement')
+      var _this = this;
+      var src = $img.attr('src');
+      if (($img.data('original-width') < _this.thumborHiResW) || ($img.data('original-height') < _this.thumborHiResH)) {
+        return src;
+      }     
+      return this.thumborHiRes(src);
+      
+      /*  // IF CROP IS REQUIRED
+      
       var aspectArr = src.match(/\/([0-9]+)x([0-9]+)\//g)[0].replace(/\//g, "").split("x");
       var aspect = aspectArr[0] / aspectArr[1];      
       var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
           hasResize: true,
           hasTrim: false,
           isSmart: true,
-          resizeWidth: "2500",
-          resizeHeight: "2500"
+          resizeWidth: _this.thumborHiResW,
+          resizeHeight: _this.thumborHiResH
         }});      
       thumborConfig.thumbor.resizeWidth = (aspect > 1) ? thumborConfig.thumbor.resizeWidth : Math.round(thumborConfig.thumbor.resizeWidth * aspect);
       thumborConfig.thumbor.resizeHeight = (aspect > 1) ?  Math.round(thumborConfig.thumbor.resizeHeight / aspect) : thumborConfig.thumbor.resizeHeight;      
@@ -8212,6 +8223,7 @@ define('views/media-gallery-branded',[
       thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
       var url = thumbor.finalUrl();
       return url;
+      */
     },    
     //
     // S O C I A L   S H A R E
