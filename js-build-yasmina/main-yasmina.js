@@ -8124,7 +8124,7 @@ define('views/media-gallery-branded',[
         var $currentImg = this.$slider.find('.slick-current .img-w .mgb-slider-item-img:not(.mgb-maximized)');
         if (
                 ($currentImg.length > 0) &&
-                (($currentImg.data('original-width') > this.thumborHiResW) || ($currentImg.data('original-height') > this.thumborHiResH))
+                ($currentImg.data('original-width') > 800)
                 ) {
           $currentImg.addClass('mgb-maximized');
           $currentImg.attr('src', this.thumbrBigReplacement($currentImg));
