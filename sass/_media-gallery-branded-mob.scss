@@ -284,7 +284,7 @@ $footerHeight: 42px!default;
       width: 146px;     
       background: url('#{$backboneImgBaseUrl}mgb/yasmina-logo.svg') no-repeat center center;
       max-width: 40%;
-      background-size: 100%;
+      background-size: 96px;
       overflow: hidden;
     }
     .mgb-thumbs-close {
@@ -293,7 +293,7 @@ $footerHeight: 42px!default;
       float: left;
       width: 15%;
       background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.svg') no-repeat center center;
-      background-size: 27px;
+      background-size: 15px;
     }
 
   }

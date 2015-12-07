@@ -296,11 +296,15 @@ $footerHeight: #{$zoomFactor * 42}px;
       overflow: hidden;
     }
     .mgb-thumbs-close {
-      max-width: $headerHeight;
+      display: inline-block;
       height: $headerHeight;
-      float: left;
-      width: 10%;
+      width: $headerHeight;
       background: url('#{$backboneImgBaseUrl}mgb/arrow-tablet.svg') no-repeat center center;
+      background-size: 35%;
+      max-width: 20%;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
   }

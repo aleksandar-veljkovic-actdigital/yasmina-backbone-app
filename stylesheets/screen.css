@@ -2561,13 +2561,17 @@ html.mgb-fullscreen body {
 }
 /* line 298, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-asside-header .mgb-thumbs-close {
-  max-width: 106.88px;
+  display: inline-block;
   height: 106.88px;
-  float: left;
-  width: 10%;
+  width: 106.88px;
   background: url("../img/mgb/arrow-tablet.svg") no-repeat center center;
+  background-size: 35%;
+  max-width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-/* line 307, ../sass/_media-gallery-branded-tab.scss */
+/* line 311, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w {
   overflow: hidden;
   max-width: 1068.8px;
@@ -2582,27 +2586,27 @@ html.mgb-fullscreen body {
   top: 106.88px;
   bottom: 0;
 }
-/* line 316, ../sass/_media-gallery-branded-tab.scss */
+/* line 320, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs {
   position: relative;
   transition-timing-function: linear !important;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 320, ../sass/_media-gallery-branded-tab.scss */
+/* line 324, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
   width: 29.33%;
   margin: 0 2% 4%;
   position: relative;
   float: right;
 }
-/* line 325, ../sass/_media-gallery-branded-tab.scss */
+/* line 329, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb img {
   width: 100%;
   max-width: none;
   transition: opacity .5s;
 }
-/* line 330, ../sass/_media-gallery-branded-tab.scss */
+/* line 334, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb span {
   display: block;
   position: absolute;
@@ -2617,18 +2621,18 @@ html.mgb-fullscreen body {
   background-color: black;
   text-align: center;
 }
-/* line 345, ../sass/_media-gallery-branded-tab.scss */
+/* line 349, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb.mgb-thumb-active img {
   opacity: 0.4;
 }
 @media screen and (max-width: 1282.56px) {
-  /* line 354, ../sass/_media-gallery-branded-tab.scss */
+  /* line 358, ../sass/_media-gallery-branded-tab.scss */
   .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w {
     max-width: 1002px;
     width: 100%;
     margin: 0 auto;
   }
-  /* line 358, ../sass/_media-gallery-branded-tab.scss */
+  /* line 362, ../sass/_media-gallery-branded-tab.scss */
   .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
     width: 46%;
     margin: 0 2% 4%;
@@ -2966,7 +2970,7 @@ html.mgb-fullscreen body {
   width: 146px;
   background: url("../img/mgb/yasmina-logo.svg") no-repeat center center;
   max-width: 40%;
-  background-size: 100%;
+  background-size: 96px;
   overflow: hidden;
 }
 /* line 290, ../sass/_media-gallery-branded-mob.scss */
@@ -2976,7 +2980,7 @@ html.mgb-fullscreen body {
   float: left;
   width: 15%;
   background: url("../img/mgb/arrow-tablet.svg") no-repeat center center;
-  background-size: 27px;
+  background-size: 15px;
 }
 /* line 300, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w {
