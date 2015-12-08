@@ -7853,7 +7853,8 @@ define('views/media-gallery-branded',[
   'slick',
   'caption',
   'iscroll',
-  'fullScreen'
+  'fullScreen',
+  'sharrre'
 ], function (
         MediaGalleryItemModel,
         templateLayout
@@ -8237,10 +8238,10 @@ define('views/media-gallery-branded',[
         template: '&nbsp;',
         enableHover: false,
         //enableTracking: true,
-        click: function (api, options) {
-          api.openPopup('facebook');
+        click: function (api, options) {          
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickFacebook");
+          api.openPopup('facebook');
         },
         url: url,
         enableCounter: false
@@ -8252,10 +8253,10 @@ define('views/media-gallery-branded',[
         template: '&nbsp;',
         enableHover: false,
         //enableTracking: true,
-        click: function (api, options) {
-          api.openPopup('twitter');
+        click: function (api, options) {          
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickTwitter");
+          api.openPopup('twitter');
         },
         url: url,
         enableCounter: false
@@ -8268,9 +8269,9 @@ define('views/media-gallery-branded',[
         enableHover: false,
         //enableTracking: true,
         click: function (api, options) {
-          api.openPopup('googlePlus');
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickGplus");
+          api.openPopup('googlePlus');
         },
         url: url,
         urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
@@ -8283,19 +8284,18 @@ define('views/media-gallery-branded',[
         template: '&nbsp;',
         enableHover: false,
         //enableTracking: true,
-        click: function (api, options) {
-          api.openPopup('googlePlus');
-          $(document).trigger("galleryBrandedSharrreClick");
-          $(document).trigger("galleryBrandedSharrreClickGplus");
+        buttons: {
+          whatsapp: {
+            utmTracking: {
+              site: 'yasmina'
+            }
+          }
         },
-        //buttons: {
-        //  whatsapp: {
-        //    utmTracking: {
-        //      site: 'yasmina'
-        //    }
-        //  }
-        //},
-        enableCounter: false
+        click: function (api, options) {
+          $(document).trigger("galleryBrandedSharrreClick");
+          $(document).trigger("galleryBrandedSharrreClickWhatsApp");
+          window.location.href = options.text;         
+        }
       });
     }
 
