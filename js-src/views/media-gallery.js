@@ -63,6 +63,7 @@ define([
           var data = {
             title: $("h3", o).text(),
             img: $(".mg-related-img", o).attr('src'),
+            imgAlt: $(".mg-related-img", o).attr('alt') || "",
             caption: $(".mg-related-capt", o).text(),
             link: $(o).attr('href')
           };
@@ -84,6 +85,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          imgAlt: $(".mg-img", o).attr('alt') || "",
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
@@ -99,6 +101,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          imgAlt: $(".mg-img", o).attr('alt') || "",
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
@@ -123,6 +126,7 @@ define([
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          imgAlt: $(".mg-img", o).attr('alt') || "",
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));

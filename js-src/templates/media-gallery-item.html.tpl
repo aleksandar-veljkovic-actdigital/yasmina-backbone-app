@@ -1,5 +1,5 @@
 <div class="item">
   
-  <img  src="<%=img%>" alt="" />
+  <img  src="<%=img%>" alt="<%=imgAlt%>" />
   
 </div>

@@ -2523,7 +2523,7 @@ define('text!templates/media-gallery-layout-mob.html.tpl',[],function () { retur
 define('text!templates/media-gallery-layout-tab.html.tpl',[],function () { return '<div class="media-gallery-fullscreen mobile tablet">\n  \n  <div class="mg-header">\n    <div class="mg-banner-a mg-banner mg-banner-lb"></div>\n    <a href="#mg-close" class="mg-close"></a> \n    <div class=\'mg-numers-w\'></div> \n  </div>  \n    \n  <div class="mg-main">\n    <div class=\'mg-slider-w\'></div>\n  </div>\n        \n  <div class="mg-asside">   \n    <div class=\'mg-social-w\'></div>\n    <div class=\'mg-titles-w\'></div>\n    <div class=\'mg-captions-w\'></div>     \n  </div> \n  \n</div>';});
 
 
-define('text!templates/media-gallery-item.html.tpl',[],function () { return '<div class="item">\n  \n  <img  src="<%=img%>" alt="" />\n  \n</div>';});
+define('text!templates/media-gallery-item.html.tpl',[],function () { return '<div class="item">\n  \n  <img  src="<%=img%>" alt="<%=imgAlt%>" />\n  \n</div>';});
 
 
 define('text!templates/media-gallery-related.html.tpl',[],function () { return '<div class="mg-related">\n  <h3>ألبومات سوف تحبينها</h3><!--\n  <% _.forEach(articles, function (a, i) { %>\n    --><a href="<%=a.link%>" class="mg-related-item mg-related-item-<%=i%>">\n          <div class="mg-related-img">\n            <img  src="<%=a.img%>" alt="" />\n          </div>\n          <p class="mg-related-title">\n            <%= a.title %>\n          </p>\n    </a><!--\n  <% }); %>\n--></div>';});
@@ -2743,6 +2743,7 @@ define('views/media-gallery',[
           var data = {
             title: $("h3", o).text(),
             img: $(".mg-related-img", o).attr('src'),
+            imgAlt: $(".mg-related-img", o).attr('alt') || "",
             caption: $(".mg-related-capt", o).text(),
             link: $(o).attr('href')
           };
@@ -2764,6 +2765,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          imgAlt: $(".mg-img", o).attr('alt') || "",
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
@@ -2779,6 +2781,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          imgAlt: $(".mg-img", o).attr('alt') || "",
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
@@ -2803,6 +2806,7 @@ define('views/media-gallery',[
           type: "item",
           title: $("h3", o).text(),
           img: $(".mg-img", o).attr('src'),
+          imgAlt: $(".mg-img", o).attr('alt') || "",
           caption: $(".mg-capt", o).html().trim()
         };
         _this.collection.add(new MediaGalleryItemModel(data));
