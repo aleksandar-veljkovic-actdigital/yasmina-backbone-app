@@ -51,7 +51,29 @@ module.exports = function (grunt) {
                     //}
           ]
         }
+      },      
+      aa2ilati: {
+        options: {
+          mainConfigFile: "js-src/main-3a2ilati.js",
+          dir: "js-build-3a2ilati",
+          removeCombined: true,
+          findNestedDependencies: true,
+          //skipDirOptimize: true,
+          optimize: "none",
+          //optimize: "uglify2",
+          modules: [
+            {
+              name: 'main-3a2ilati',
+              //include: ['../bower_components/requirejs/require.js'],
+              //exclude: ['views/media-gallery'],
+            },
+                    //{
+                    //  name: 'views/media-gallery'
+                    //}
+          ]
+        }
       }
+      
     },
     watch: {
       css: {
@@ -60,10 +82,10 @@ module.exports = function (grunt) {
       },
       requirejs: {
         files: ['js-src/*', 'js-src/*/*'],
-        tasks: ['requirejs:static', 'requirejs:yasmina', 'clean']
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'clean']
       },
     },
-    clean: ["js-build-static/templates", "js-build-yasmina/templates"],    
+    clean: ["js-build-static/templates", "js-build-yasmina/templates", "js-build-3a2ilati/templates"],    
     copy: {
       main: {
         files: [

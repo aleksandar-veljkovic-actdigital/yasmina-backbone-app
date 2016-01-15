@@ -1,10 +1,17 @@
-@import "compass/utilities/general/clearfix";
 
 html.mgb-fullscreen body {
   overflow: hidden;
 }
 
 .media-gallery-branded-fullscreen { 
+  
+  @mixin clearfix {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }  
   
   $zIndexBase: 9999;
   

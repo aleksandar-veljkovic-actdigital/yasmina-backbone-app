@@ -1765,7 +1765,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   display: none;
 }
 
-/* line 3, ../sass/_media-gallery-branded.scss */
+/* line 2, ../sass/_media-gallery-branded.scss */
 html.mgb-fullscreen body {
   overflow: hidden;
 }
@@ -2059,8 +2059,12 @@ html.mgb-fullscreen body {
   bottom: 0;
   left: 0;
   z-index: 10000;
-  overflow: hidden;
-  *zoom: 1;
+}
+/* line 9, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-share-w:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 /* line 253, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-share-w .mgb-share {
@@ -2486,8 +2490,12 @@ html.mgb-fullscreen body {
   bottom: 0;
   left: 0;
   z-index: 10000;
-  overflow: hidden;
-  *zoom: 1;
+}
+/* line 9, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.tablet .mgb-main .mgb-footer .mgb-share-w:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 /* line 244, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-main .mgb-footer .mgb-share-w .mgb-share {
@@ -2590,8 +2598,12 @@ html.mgb-fullscreen body {
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs {
   position: relative;
   transition-timing-function: linear !important;
-  overflow: hidden;
-  *zoom: 1;
+}
+/* line 9, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 /* line 324, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
@@ -3000,8 +3012,12 @@ html.mgb-fullscreen body {
 /* line 309, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs {
   position: relative;
-  overflow: hidden;
-  *zoom: 1;
+}
+/* line 9, ../sass/_media-gallery-branded.scss */
+.media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 /* line 313, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile .mgb-asside .mgb-thumbs-w .mgb-thumbs .mgb-thumb {
