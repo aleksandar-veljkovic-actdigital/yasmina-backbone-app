@@ -2292,10 +2292,10 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!templates/poll-form.html.tpl',[],function () { return '<div class="w__poll--inner">\n  <h2 class="w__poll--block-title">\nإستطلاع الرأي\n  </h2>\n  <!--img src="public/assets/images/erase-poll.jpg" alt="title"-->\n  <img src="<%= img %>" alt="">\n  <h3 class="w__poll--question">\n    <%= data.name %>\n  </h3>\n  <form class="w__poll--form">\n    <div class="w__poll--radios">\n    <% _.forEach(elements, function (e) { %>\n      <% if (e.type===\'poll_answer\') { %>    \n        <label>\n          <input value=\'<%= e.id %>\' type="radio" class="" name="radio">    \n          <span>\n            <%= e.data.text %>\n          </span>\n        </label>    \n      <% } %>\n    <% }); %>\n    </div>\n    <div class="form-err"></div>\n    <div class="w-poll__footer">\n      <input type="submit" value="صوّتي" class="w__poll--btn-s"> \n    </div>\n  </form>\n</div>';});
+define('text!templates/poll-form.html.tpl',[],function () { return '<div class="w__poll--inner">\n  <h2 class="w__poll--block-title">\n<%= window.backboneApp.t("Poll") %>\n  </h2>\n  <!--img src="public/assets/images/erase-poll.jpg" alt="title"-->\n  <img src="<%= img %>" alt="">\n  <h3 class="w__poll--question">\n    <%= data.name %>\n  </h3>\n  <form class="w__poll--form">\n    <div class="w__poll--radios">\n    <% _.forEach(elements, function (e) { %>\n      <% if (e.type===\'poll_answer\') { %>    \n        <label>\n          <input value=\'<%= e.id %>\' type="radio" class="" name="radio">    \n          <span>\n            <%= e.data.text %>\n          </span>\n        </label>    \n      <% } %>\n    <% }); %>\n    </div>\n    <div class="form-err"></div>\n    <div class="w-poll__footer">\n      <input type="submit" value="<%= window.backboneApp.t("Submit") %>" class="w__poll--btn-s"> \n    </div>\n  </form>\n</div>';});
 
 
-define('text!templates/poll-submit.html.tpl',[],function () { return '<div class="w__poll--inner">\n  \n  <h2 class="w__poll--block-title">\nإستطلاع الرأي\n  </h2>\n\n  <img src="<%= img %>" alt="">\n  \n  <h3 class="w__poll--question">\n    <%= data.name %>\n  </h3>\n  \n  <div class="w-poll__content w-poll__statistics" style="position:relative;">\n    <% _.forEach(elements, function (e) { %>\n      <% if (e.type===\'poll_answer\') { %>       \n        <div class="poll-row">      \n          <div class="bar-label">        \n            <span class="text">\n              <%= e.data.text %>\n            </span>        \n            <span class="pctg">\n              <%= e.procents %>%\n            </span>        \n          </div>      \n          <div class="bar-wrap">\n            <div class="bar" style=\'width:<%= e.procents %>%\'>\n            </div>\n          </div>\n        </div>\n      <% } %>\n    <% }); %>   \n  </div>\n  \n  <div class="w-poll__footer">    \n    <a class="w-poll__link-all" href="/%D8%A5%D8%B3%D8%AA%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D8%A3%D9%8A/all-polls">\n      <span>\n        المزيد من إستطلاعات الرأي\n      </span>\n    </a>    \n </div> \n  \n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n';});
+define('text!templates/poll-submit.html.tpl',[],function () { return '<div class="w__poll--inner">\n  \n  <h2 class="w__poll--block-title">\n<%= window.backboneApp.t("Poll") %>\n  </h2>\n\n  <img src="<%= img %>" alt="">\n  \n  <h3 class="w__poll--question">\n    <%= data.name %>\n  </h3>\n  \n  <div class="w-poll__content w-poll__statistics" style="position:relative;">\n    <% _.forEach(elements, function (e) { %>\n      <% if (e.type===\'poll_answer\') { %>       \n        <div class="poll-row">      \n          <div class="bar-label">        \n            <span class="text">\n              <%= e.data.text %>\n            </span>        \n            <span class="pctg">\n              <%= e.procents %>%\n            </span>        \n          </div>      \n          <div class="bar-wrap">\n            <div class="bar" style=\'width:<%= e.procents %>%\'>\n            </div>\n          </div>\n        </div>\n      <% } %>\n    <% }); %>   \n  </div>\n  \n  <div class="w-poll__footer">    \n    <a class="w-poll__link-all" href="/%D8%A5%D8%B3%D8%AA%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA-%D8%A7%D9%84%D8%B1%D8%A3%D9%8A/all-polls">\n      <span>\n<%= window.backboneApp.t("More Polls") %>\n      </span>\n    </a>    \n </div> \n  \n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n';});
 
 
 
@@ -2415,7 +2415,7 @@ define('views/poll',[
         if (answerId) {
           _this.pollSubmit(answerId);
         } else {
-          _this.formError(_this.$elem.find('form .w__poll--radios'), "إختاري احتمالاً");
+          _this.formError(_this.$elem.find('form .w__poll--radios'), _this.t("Select Anawer"));
         }
 
 
@@ -8460,7 +8460,13 @@ define('app',[
       location.hash = '#' + fragment;
     }
   };
-
+  
+  window.backboneApp.t = function (txt) {
+    window.backboneApp.translations = window.backboneApp.translations || {};
+    txt = window.backboneApp.translations[txt] || txt;
+    return txt;
+  };  
+  Backbone.View.prototype.t = window.backboneApp.t;
 
   ///////////////////////////////////////////////////////////////////////////////
   window.backboneApp = window.backboneApp || {};
@@ -8533,8 +8539,8 @@ define('app',[
           (ua.browser.name === "IE" && (ua.browser.major <= 9)) ||
           (ua.browser.name === "Android Browser" && (ua.browser.major < 4.3))   
   );
-
-  return function() {
+  
+  return function() {  
     window.backboneApp.router = Router.initialize().router;
     $('.mg-start').click(function(e) {
       e.preventDefault();
@@ -8550,7 +8556,8 @@ define('app',[
 
 
 
-window.backboneApp = {set:{}};
+window.backboneApp = window.backboneApp || {};
+window.backboneApp.set = {};
 window.backboneApp.set.imgBaseUrl = "/assets/images/";
 
 

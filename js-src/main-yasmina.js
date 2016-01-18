@@ -1,6 +1,7 @@
 "use strict";
 
-window.backboneApp = {set:{}};
+window.backboneApp = window.backboneApp || {};
+window.backboneApp.set = {};
 window.backboneApp.set.imgBaseUrl = "/assets/images/";
 
 

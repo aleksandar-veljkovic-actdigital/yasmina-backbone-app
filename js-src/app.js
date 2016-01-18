@@ -26,7 +26,13 @@ define([
       location.hash = '#' + fragment;
     }
   };
-
+  
+  window.backboneApp.t = function (txt) {
+    window.backboneApp.translations = window.backboneApp.translations || {};
+    txt = window.backboneApp.translations[txt] || txt;
+    return txt;
+  };  
+  Backbone.View.prototype.t = window.backboneApp.t;
 
   ///////////////////////////////////////////////////////////////////////////////
   window.backboneApp = window.backboneApp || {};
@@ -99,8 +105,8 @@ define([
           (ua.browser.name === "IE" && (ua.browser.major <= 9)) ||
           (ua.browser.name === "Android Browser" && (ua.browser.major < 4.3))   
   );
-
-  return function() {
+  
+  return function() {  
     window.backboneApp.router = Router.initialize().router;
     $('.mg-start').click(function(e) {
       e.preventDefault();

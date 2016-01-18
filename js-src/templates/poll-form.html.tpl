@@ -1,6 +1,6 @@
 <div class="w__poll--inner">
   <h2 class="w__poll--block-title">
-إستطلاع الرأي
+<%= window.backboneApp.t("Poll") %>
   </h2>
   <!--img src="public/assets/images/erase-poll.jpg" alt="title"-->
   <img src="<%= img %>" alt="">
@@ -22,7 +22,7 @@
     </div>
     <div class="form-err"></div>
     <div class="w-poll__footer">
-      <input type="submit" value="صوّتي" class="w__poll--btn-s"> 
+      <input type="submit" value="<%= window.backboneApp.t("Submit") %>" class="w__poll--btn-s"> 
     </div>
   </form>
 </div>

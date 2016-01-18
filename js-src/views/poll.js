@@ -69,7 +69,7 @@ define([
         if (answerId) {
           _this.pollSubmit(answerId);
         } else {
-          _this.formError(_this.$elem.find('form .w__poll--radios'), "إختاري احتمالاً");
+          _this.formError(_this.$elem.find('form .w__poll--radios'), _this.t("Select Anawer"));
         }
 
 
