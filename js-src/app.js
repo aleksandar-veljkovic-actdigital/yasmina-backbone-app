@@ -27,9 +27,11 @@ define([
     }
   };
   
-  window.backboneApp.t = function (txt) {
+  // translation interface
+  window.backboneApp.t = function (group, txt) {
     window.backboneApp.translations = window.backboneApp.translations || {};
-    txt = window.backboneApp.translations[txt] || txt;
+    window.backboneApp.translations[group] = window.backboneApp.translations[group] || {};    
+    txt = window.backboneApp.translations[group][txt] || txt;
     return txt;
   };  
   Backbone.View.prototype.t = window.backboneApp.t;
