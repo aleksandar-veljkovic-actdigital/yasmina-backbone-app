@@ -3788,7 +3788,7 @@ define('translations-default',[
       'selectAnswer': 'یک گزینه را انتخاب كنيد',
       'poll': 'نظرسنجی',
       'morePolls': 'نظرسنجی بیشتر',
-      'submit': 'boban'
+      'submit': 'رای'
     }
   };
 });
