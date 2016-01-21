@@ -22,5 +22,6 @@ views/media-gallery.js
 text!templates/media-gallery-branded-layout.html.tpl
 views/media-gallery-branded.js
 router.js
+translations-default.js
 app.js
 main-3a2ilati.js

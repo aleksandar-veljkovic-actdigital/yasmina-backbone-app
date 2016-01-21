@@ -28,5 +28,6 @@ slick.js
 iscroll.js
 views/media-gallery-branded.js
 router.js
+translations-default.js
 app.js
 main-static.js

@@ -1,9 +1,11 @@
 "use strict";
 
 define([
-  'router'
+  'router',
+  'translations-default'
 ], function(
-        Router
+        Router,
+        translationsDefault
         ) {
 
   // @Override
@@ -28,10 +30,12 @@ define([
   };
   
   // translation interface
+  window.backboneApp.translations = window.backboneApp.translations || {};  
+  window.backboneApp.translations = $.extend(true, translationsDefault, window.backboneApp.translations);
+  console.log(window.backboneApp.translations);  
   window.backboneApp.t = function (group, txt) {
-    window.backboneApp.translations = window.backboneApp.translations || {};
     window.backboneApp.translations[group] = window.backboneApp.translations[group] || {};    
-    txt = window.backboneApp.translations[group][txt] || txt;
+    txt = window.backboneApp.translations[group][txt] || txt;    
     return txt;
   };  
   Backbone.View.prototype.t = window.backboneApp.t;
