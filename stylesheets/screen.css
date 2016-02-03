@@ -1779,7 +1779,7 @@ html.mgb-fullscreen body {
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: 9999;
+  z-index: 99999;
 }
 /* line 14, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop *:focus {
@@ -1937,7 +1937,7 @@ html.mgb-fullscreen body {
   background: url("../img/mgb/right.svg") no-repeat center center;
   width: 40px;
   height: 50px;
-  z-index: 10000;
+  z-index: 100000;
 }
 /* line 141, ../sass/_media-gallery-branded-desk.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-next {
@@ -2058,7 +2058,7 @@ html.mgb-fullscreen body {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 100000;
 }
 /* line 9, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.desktop .mgb-main .mgb-footer .mgb-share-w:after {
@@ -2181,7 +2181,7 @@ html.mgb-fullscreen body {
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 10009;
+  z-index: 100009;
   background-color: black;
   direction: ltr;
 }
@@ -2214,7 +2214,7 @@ html.mgb-fullscreen body {
   width: 64px;
   height: 64px;
   background: url("../img/mgb/hi-res-close.png") no-repeat center center;
-  z-index: 10011;
+  z-index: 100011;
 }
 /* line 6, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet {
@@ -2225,7 +2225,7 @@ html.mgb-fullscreen body {
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: 9999;
+  z-index: 99999;
 }
 /* line 15, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet *:focus {
@@ -2369,7 +2369,7 @@ html.mgb-fullscreen body {
   background: url("../img/mgb/right.svg") no-repeat center center;
   width: 40px;
   height: 50px;
-  z-index: 10000;
+  z-index: 100000;
 }
 /* line 132, ../sass/_media-gallery-branded-tab.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-main .mgb-content .mgb-slider-w .mgb-slider .mgb-next {
@@ -2489,7 +2489,7 @@ html.mgb-fullscreen body {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 100000;
 }
 /* line 9, ../sass/_media-gallery-branded.scss */
 .media-gallery-branded-fullscreen.tablet .mgb-main .mgb-footer .mgb-share-w:after {
@@ -2539,7 +2539,7 @@ html.mgb-fullscreen body {
   top: 0;
   bottom: 0;
   transition: all .5s;
-  z-index: 10005;
+  z-index: 100005;
   background-color: white;
 }
 /* line 280, ../sass/_media-gallery-branded-tab.scss */
@@ -2659,7 +2659,7 @@ html.mgb-fullscreen body {
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: 9999;
+  z-index: 99999;
 }
 /* line 13, ../sass/_media-gallery-branded-mob.scss */
 .media-gallery-branded-fullscreen.mobile *:focus {
