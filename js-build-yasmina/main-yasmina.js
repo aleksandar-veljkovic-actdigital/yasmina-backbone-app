@@ -8481,8 +8481,7 @@ define('app',[
   
   // translation interface
   window.backboneApp.translations = window.backboneApp.translations || {};  
-  window.backboneApp.translations = $.extend(true, translationsDefault, window.backboneApp.translations);
-  console.log(window.backboneApp.translations);  
+  window.backboneApp.translations = $.extend(true, translationsDefault, window.backboneApp.translations); 
   window.backboneApp.t = function (group, txt) {
     window.backboneApp.translations[group] = window.backboneApp.translations[group] || {};    
     txt = window.backboneApp.translations[group][txt] || txt;    
