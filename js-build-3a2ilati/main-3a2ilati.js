@@ -8441,10 +8441,10 @@ define('translations-default',[
 
   return {
     'poll': {
-      'selectAnswer': 'یک گزینه را انتخاب كنيد',
-      'poll': 'نظرسنجی',
-      'morePolls': 'نظرسنجی بیشتر',
-      'submit': 'رای'
+      'selectAnswer': 'إختاري احتمالا',
+      'poll': 'إستطلاع الرأي',
+      'morePolls': 'المزيد من إستطلاعات الرأي',
+      'submit': 'إرسال'
     }
   };
 });
