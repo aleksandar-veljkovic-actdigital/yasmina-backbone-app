@@ -2526,7 +2526,7 @@ define('text!templates/media-gallery-layout-tab.html.tpl',[],function () { retur
 define('text!templates/media-gallery-item.html.tpl',[],function () { return '<div class="item">\n  \n  <img  src="<%=img%>" alt="<%=imgAlt%>" />\n  \n</div>';});
 
 
-define('text!templates/media-gallery-related.html.tpl',[],function () { return '<div class="mg-related">\n  <h3>ألبومات سوف تحبينها</h3><!--\n  <% _.forEach(articles, function (a, i) { %>\n    --><a href="<%=a.link%>" class="mg-related-item mg-related-item-<%=i%>">\n          <div class="mg-related-img">\n            <img  src="<%=a.img%>" alt="<%=a.imgAlt%>" />\n          </div>\n          <p class="mg-related-title">\n            <%= a.title %>\n          </p>\n    </a><!--\n  <% }); %>\n--></div>';});
+define('text!templates/media-gallery-related.html.tpl',[],function () { return '<div class="mg-related">\n  <h3><%= window.backboneApp.t("mediaGallery", "relatedArticles") %></h3>\n  <!--h3>ألبومات سوف تحبينها</h3--><!--\n  <% _.forEach(articles, function (a, i) { %>\n    --><a href="<%=a.link%>" class="mg-related-item mg-related-item-<%=i%>">\n          <div class="mg-related-img">\n            <img  src="<%=a.img%>" alt="<%=a.imgAlt%>" />\n          </div>\n          <p class="mg-related-title">\n            <%= a.title %>\n          </p>\n    </a><!--\n  <% }); %>\n--></div>';});
 
 ;
 
@@ -8445,6 +8445,9 @@ define('translations-default',[
       'poll': 'إستطلاع الرأي',
       'morePolls': 'المزيد من إستطلاعات الرأي',
       'submit': 'إرسال'
+    },
+    'mediaGallery': {
+      'relatedArticles': 'ألبومات سوف تحبينها'
     }
   };
 });
