@@ -72,6 +72,27 @@ module.exports = function (grunt) {
                     //}
           ]
         }
+      },
+      mazyun: {
+        options: {
+          mainConfigFile: "js-src/main-mazyun.js",
+          dir: "js-build-mazyun",
+          removeCombined: true,
+          findNestedDependencies: true,
+          //skipDirOptimize: true,
+          optimize: "none",
+          //optimize: "uglify2",
+          modules: [
+            {
+              name: 'main-mazyun',
+              //include: ['../bower_components/requirejs/require.js'],
+              //exclude: ['views/media-gallery'],
+            },
+                    //{
+                    //  name: 'views/media-gallery'
+                    //}
+          ]
+        }
       }
       
     },
@@ -82,10 +103,10 @@ module.exports = function (grunt) {
       },
       requirejs: {
         files: ['js-src/*', 'js-src/*/*'],
-        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'clean']
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun', 'clean']
       },
     },
-    clean: ["js-build-static/templates", "js-build-yasmina/templates", "js-build-3a2ilati/templates"],    
+    clean: ["js-build-static/templates", "js-build-yasmina/templates", "js-build-3a2ilati/templates", "js-build-mazyun/templates"],    
     copy: {
       main: {
         files: [
