@@ -65,10 +65,10 @@ define([
           backboneApp.mediaGallery.render();
         } else if (backboneApp.set.device === 'tablet') {
           backboneApp.mediaGallery.viewportRollBack = $('meta[name=viewport]').attr("content");      
-          backboneApp.mediaGallery.parseTab();
+          backboneApp.mediaGallery.parse();
           backboneApp.mediaGallery.renderTab();
         } else {
-          backboneApp.mediaGallery.parseMob();
+          backboneApp.mediaGallery.parse();
           backboneApp.mediaGallery.renderMob();
         }
       });

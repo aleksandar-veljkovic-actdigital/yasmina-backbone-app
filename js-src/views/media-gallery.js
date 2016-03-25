@@ -47,8 +47,10 @@ define([
     },
     initialize: function(attributes) {
       this.bannerVars = {
-        state: window.backboneApp.set.gallery.adMobileActionCount,
-        trigger: window.backboneApp.set.gallery.adMobileActionCount
+        topTrigger: window.backboneApp.set.gallery.adTopTrigger,
+        topCounter: window.backboneApp.set.gallery.adTopTrigger,
+        overTrigger: window.backboneApp.set.gallery.adOverTrigger,
+        overCounter: 1
       };
       this.collection = new Backbone.Collection([], {model: MediaGalleryItemModel});
       this.$elem = attributes.$elem;
@@ -93,56 +95,6 @@ define([
       this.parseRelated();
       this.bindObjects();
     },
-    parseTab: function() {
-      var _this = this;
-      // GET FROM DOM
-      $('.mg-item', _this.$elem).each(function(i, o) {
-        var data = {
-          type: "item",
-          title: $("h3", o).text(),
-          img: $(".mg-img", o).attr('src'),
-          imgAlt: $(".mg-img", o).attr('alt') || "",
-          caption: $(".mg-capt", o).html().trim()
-        };
-        _this.collection.add(new MediaGalleryItemModel(data));
-        //adv
-        if ((i + 1) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0) {
-          var advModel = new MediaGalleryItemModel({
-            type: 'adv',
-            title: "<small>ADVERTISEMENT</small>",
-            caption: ""
-          });
-          _this.collection.add(advModel);
-        }
-      });
-      this.parseRelated();
-      this.bindObjects();
-    },
-    parseMob: function() {
-      var _this = this;
-      // GET FROM DOM
-      $('.mg-item', _this.$elem).each(function(i, o) {
-        var data = {
-          type: "item",
-          title: $("h3", o).text(),
-          img: $(".mg-img", o).attr('src'),
-          imgAlt: $(".mg-img", o).attr('alt') || "",
-          caption: $(".mg-capt", o).html().trim()
-        };
-        _this.collection.add(new MediaGalleryItemModel(data));
-        //adv
-        if ((i + 1) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0) {
-          var advModel = new MediaGalleryItemModel({
-            type: 'adv',
-            title: "<small>ADVERTISEMENT</small>",
-            caption: ""
-          });
-          _this.collection.add(advModel);
-        }
-      });
-      this.parseRelated();
-      this.bindObjects();
-    },
     bindObjects: function() {
       var itemTpl = _.template(templateItem);
       var itemsRdr = "";
@@ -156,10 +108,12 @@ define([
         captRdr = "<div class='mg-caption'><p>" + item.attributes.caption + "</p></div>" + captRdr;
         titlRdr = "<div class='mg-title'><h3>" + item.attributes.title + "</h3></div>" + titlRdr;
         numersRdr = "<div class='mg-numer'><div class='num'>" + (i + 1) + "/" + clength + "</div></div>" + numersRdr;
+        /*
         if (item.get('type') === 'adv') {
           itemsRdr += "<div class='advert-wrap'><div class='advert' style='height:600px'>&nbsp;</div></div>";
           return true;
         }
+        */
         if (item.get('type') === 'item') {
           itemsRdr += itemTpl(item.attributes);
         }
@@ -277,27 +231,47 @@ define([
       this.fullScreen.close();
       this.undelegateEvents();
       this.remove();
-    },  
+    },     
     banner: function() {
       var $layout = this.$layout;
       var v = this.bannerVars;
       var owl = this.$slider.data('owlCarousel');
-      var t1 = v.state >= v.trigger; // action trigger
-      var t2 = $('.owl-item.active .advert-wrap', $layout).length > 0; // slide in trigger
+      var t1 = v.topCounter >= v.topTrigger;
+      var t2 = v.overCounter >= v.overTrigger && (backboneApp.set.device === 'mobile' || backboneApp.set.device === 'tablet');
       if (t1) { 
         $('.mg-banner-lb', $layout).html('<div id="ad-gallery-lb" />');
         $('.mg-banner-mpu', $layout).html('<div id="ad-gallery-mpu" />');
-        v.state = 0;
+        v.topCounter = 0;
       }
-      if (t2) {
-        this.$layout.addClass('banner-active-item');
-        $('.owl-item .advert-wrap .advert', $layout).html('&nbsp;');
-          $('.owl-item.active .advert-wrap .advert', $layout).html('<div id="ad-gallery-mpu">&nbsp;</div>');
+      v.topCounter++;      
+      
+
+      if (t2) { 
+        var $overlayContainer = $('.mg-main', this.$layout);
+        var $notation = $('<div class="mg-ad-overlay-notation"></div>');        
+        var $overlay = $('<div class="mg-ad-overlay"></div>');
+        var $topAd = $('<div id="ad-gallery-mpu">&nbsp;</div>');
+        
+        var $skip = $('<a class="mg-ad-overlay-skip" href="#"></a>');
+        
+        $layout.addClass('mg-ad-overlayed');
+        $overlay.append($notation).append($topAd).append($skip).appendTo($overlayContainer);
+        $skip.click(function(e){
+          e.preventDefault();
+          $overlay.remove();
+          $layout.removeClass('mg-ad-overlayed');
+        });       
+        v.overCounter = 0;
       }
-      else {
-        this.$layout.removeClass('banner-active-item');
-      }
-      v.state++;
+      v.overCounter++;
+      
+      
+      
+      
+      
+      
+      
+      
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
       }
@@ -417,7 +391,7 @@ define([
         //Mouse Events
         dragBeforeAnimFinish: true,
         mouseDrag: true,
-        touchDrag: false,
+        touchDrag: true,
         //Transitions
         transitionStyle: false,
         // Other
@@ -479,7 +453,7 @@ define([
       }
       var h = $(window).height() - delta;
       $('.owl-item .item', this.$slider).css({'height': h + "px"});
-      $('.owl-item .advert-wrap', this.$slider).css({'minHeight': h + "px"});
+//$('.owl-item .advert-wrap', this.$slider).css({'minHeight': h + "px"});
       $('.owl-item .mg-related', this.$slider).css({'minHeight': ((h / 2) + 100) + "px"});
       $('.owl-buttons', this.$slider).css('top', (h / 2) + 'px');
       owl.updateVars();
