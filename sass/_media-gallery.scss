@@ -500,7 +500,7 @@
     }
   }    
 
-  // // // // // //  MOBIL  // // // // // //  
+  // // // // // //  MOBILE  // // // // // //  
 
 
   .media-gallery-fullscreen.mobile {
@@ -510,7 +510,7 @@
     padding: 0 0;
     .mg-header {
       text-align: center;
-      height: 66px;
+      height: 90px;
       margin-bottom: $below-header;
       position: relative;
       .mg-banner-a-mob {
@@ -663,13 +663,25 @@
     
   }
   
-  // // // // // //  MOBIL  // // // // // //  
-  .media-gallery-fullscreen.mobile {
+  // AD FIX FOR SUPER SMALL MOBILES
+  .media-gallery-fullscreen.mobile-small {
     .mg-header {
-      height: 90px;
+      height: 50px;
+      .mg-banner-a-mob {
+        margin-top: 0;
+      }
     }
+    .mg-numers-w {
+      .num{
+        font-size: 1.1rem;
+      }
+    }
+    .mg-ad-overlay {
+      .mg-ad-overlay-notation {
+        margin-top: 0;
+      }
+    } 
   }
+  // eof ad fix for super small mobiles
 
-  .clearfix {
-  }
 }

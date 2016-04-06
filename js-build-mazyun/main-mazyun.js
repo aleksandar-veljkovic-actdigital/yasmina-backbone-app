@@ -2849,6 +2849,9 @@ define('views/media-gallery',[
       var layoutTpl = _.template(templateLayoutMob);
       var $layout;
       this.$layout = $layout = $(layoutTpl());
+      if ($(window).width() < 540 && $(window).height() < 540) {
+        this.$layout.addClass('mobile-small');
+      }
       $('.mg-slider-w', $layout).append(this.$slider);
       $('.mg-captions-w', $layout).append(this.$captions);
       $('.mg-titles-w', $layout).append(this.$titles);

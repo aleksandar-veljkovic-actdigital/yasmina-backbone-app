@@ -1370,7 +1370,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 /* line 511, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
   text-align: center;
-  height: 66px;
+  height: 90px;
   margin-bottom: 50px;
   position: relative;
 }
@@ -1706,8 +1706,20 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   content: "Skip Ad";
 }
 /* line 668, ../sass/_media-gallery.scss */
-#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-header {
-  height: 90px;
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-header {
+  height: 50px;
+}
+/* line 670, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-header .mg-banner-a-mob {
+  margin-top: 0;
+}
+/* line 675, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-numers-w .num {
+  font-size: 1.1rem;
+}
+/* line 680, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-ad-overlay .mg-ad-overlay-notation {
+  margin-top: 0;
 }
 
 /* Slider */
