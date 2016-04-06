@@ -1721,6 +1721,10 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-ad-overlay .mg-ad-overlay-notation {
   margin-top: 0;
 }
+/* line 683, ../sass/_media-gallery.scss */
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-ad-overlay .mg-ad-overlay-skip {
+  margin-top: 0;
+}
 
 /* Slider */
 /* line 3, ../sass/_slick.scss */

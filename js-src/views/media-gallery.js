@@ -258,7 +258,7 @@ define([
         var $skip = $('<a class="mg-ad-overlay-skip" href="#"></a>');
         
         $layout.addClass('mg-ad-overlayed');
-        $overlay.append($notation).append($topAd).append($skip).appendTo($overlayContainer);
+        $overlay.append($skip).append($notation).append($topAd).appendTo($overlayContainer);
         $skip.click(function(e){
           e.preventDefault();
           $overlay.remove();

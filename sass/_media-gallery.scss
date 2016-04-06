@@ -662,7 +662,7 @@
     // eof overlayed Ad
     
   }
-  
+
   // AD FIX FOR SUPER SMALL MOBILES
   .media-gallery-fullscreen.mobile-small {
     .mg-header {
@@ -678,6 +678,9 @@
     }
     .mg-ad-overlay {
       .mg-ad-overlay-notation {
+        margin-top: 0;
+      }
+      .mg-ad-overlay-skip {
         margin-top: 0;
       }
     } 
