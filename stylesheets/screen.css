@@ -1720,10 +1720,12 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 /* line 680, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-ad-overlay .mg-ad-overlay-notation {
   margin-top: 0;
+  display: none;
 }
-/* line 683, ../sass/_media-gallery.scss */
+/* line 684, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile-small .mg-ad-overlay .mg-ad-overlay-skip {
   margin-top: 0;
+  margin-bottom: 3px;
 }
 
 /* Slider */

@@ -679,9 +679,11 @@
     .mg-ad-overlay {
       .mg-ad-overlay-notation {
         margin-top: 0;
+        display: none;
       }
       .mg-ad-overlay-skip {
         margin-top: 0;
+        margin-bottom: 3px;
       }
     } 
   }

@@ -2927,8 +2927,6 @@ define('views/media-gallery',[
         v.topCounter = 0;
       }
       v.topCounter++;      
-      
-
       if (t2) { 
         var $overlayContainer = $('.mg-main', this.$layout);
         var $notation = $('<div class="mg-ad-overlay-notation"></div>');        
@@ -2936,7 +2934,6 @@ define('views/media-gallery',[
         var $topAd = $('<div id="ad-gallery-mpu">&nbsp;</div>');
         
         var $skip = $('<a class="mg-ad-overlay-skip" href="#"></a>');
-        
         $layout.addClass('mg-ad-overlayed');
         $overlay.append($skip).append($notation).append($topAd).appendTo($overlayContainer);
         $skip.click(function(e){
@@ -2947,14 +2944,6 @@ define('views/media-gallery',[
         v.overCounter = 0;
       }
       v.overCounter++;
-      
-      
-      
-      
-      
-      
-      
-      
       if (t1 || t2) {
         oxAsyncGallery.asyncAdUnitsRender();
       }
