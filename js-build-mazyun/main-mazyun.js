@@ -3005,7 +3005,7 @@ define('views/media-gallery',[
         buttons: {
           whatsapp: {
             utmTracking: {
-              site: 'yasmina'
+              site: window.backboneApp.build
             }
           }
         },
@@ -5615,7 +5615,7 @@ define('views/media-gallery-branded',[
         buttons: {
           whatsapp: {
             utmTracking: {
-              site: 'yasmina'
+              site: window.backboneApp.build
             }
           }
         },
@@ -5910,6 +5910,7 @@ define('app',[
 window.backboneApp = window.backboneApp || {};
 window.backboneApp.set = {};
 window.backboneApp.set.imgBaseUrl = "/assets/images/";
+window.backboneApp.build = "";
 
 
 (function() {

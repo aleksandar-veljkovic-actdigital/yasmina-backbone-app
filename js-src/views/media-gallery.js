@@ -325,7 +325,7 @@ define([
         buttons: {
           whatsapp: {
             utmTracking: {
-              site: 'yasmina'
+              site: window.backboneApp.build
             }
           }
         },

@@ -52,7 +52,7 @@
   float: left;
 }
 
-/* line 45, ../sass/_owl.carousel.scss */
+/* line 44, ../sass/_owl.carousel.scss */
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div {
   cursor: pointer;
@@ -65,7 +65,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* mouse grab icon */
@@ -75,7 +75,7 @@
 }
 
 /* fix */
-/* line 64, ../sass/_owl.carousel.scss */
+/* line 63, ../sass/_owl.carousel.scss */
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
   -webkit-backface-visibility: hidden;
@@ -165,311 +165,221 @@
 /* Keyframes */
 /*empty*/
 @-webkit-keyframes empty {
-  /* line 64, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
-
 @-moz-keyframes empty {
-  /* line 67, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
-
 @keyframes empty {
-  /* line 70, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeIn {
-  /* line 73, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 74, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
-
 @-moz-keyframes fadeIn {
-  /* line 77, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 78, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
-  /* line 81, ../sass/_owl.transitions.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 82, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeOut {
-  /* line 85, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
-
-  /* line 86, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
-
 @-moz-keyframes fadeOut {
-  /* line 89, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
-
-  /* line 90, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
-
 @keyframes fadeOut {
-  /* line 93, ../sass/_owl.transitions.scss */
   0% {
     opacity: 1;
   }
-
-  /* line 94, ../sass/_owl.transitions.scss */
   100% {
     opacity: 0;
   }
 }
-
 @-webkit-keyframes backSlideOut {
-  /* line 97, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     -webkit-transform: translateZ(-500px);
   }
-
-  /* line 98, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(-200%);
   }
-
-  /* line 99, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(-200%);
   }
 }
-
 @-moz-keyframes backSlideOut {
-  /* line 102, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     -moz-transform: translateZ(-500px);
   }
-
-  /* line 103, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(-200%);
   }
-
-  /* line 104, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(-200%);
   }
 }
-
 @keyframes backSlideOut {
-  /* line 107, ../sass/_owl.transitions.scss */
   25% {
     opacity: .5;
     transform: translateZ(-500px);
   }
-
-  /* line 108, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     transform: translateZ(-500px) translateX(-200%);
   }
-
-  /* line 109, ../sass/_owl.transitions.scss */
   100% {
     opacity: .5;
     transform: translateZ(-500px) translateX(-200%);
   }
 }
-
 @-webkit-keyframes backSlideIn {
-  /* line 112, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     -webkit-transform: translateZ(-500px) translateX(200%);
   }
-
-  /* line 113, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -webkit-transform: translateZ(-500px);
   }
-
-  /* line 114, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     -webkit-transform: translateZ(0) translateX(0);
   }
 }
-
 @-moz-keyframes backSlideIn {
-  /* line 117, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     -moz-transform: translateZ(-500px) translateX(200%);
   }
-
-  /* line 118, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     -moz-transform: translateZ(-500px);
   }
-
-  /* line 119, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     -moz-transform: translateZ(0) translateX(0);
   }
 }
-
 @keyframes backSlideIn {
-  /* line 122, ../sass/_owl.transitions.scss */
   0%, 25% {
     opacity: .5;
     transform: translateZ(-500px) translateX(200%);
   }
-
-  /* line 123, ../sass/_owl.transitions.scss */
   75% {
     opacity: .5;
     transform: translateZ(-500px);
   }
-
-  /* line 124, ../sass/_owl.transitions.scss */
   100% {
     opacity: 1;
     transform: translateZ(0) translateX(0);
   }
 }
-
 @-webkit-keyframes scaleToFade {
-  /* line 127, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(0.8);
   }
 }
-
 @-moz-keyframes scaleToFade {
-  /* line 130, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -moz-transform: scale(0.8);
   }
 }
-
 @keyframes scaleToFade {
-  /* line 133, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     transform: scale(0.8);
   }
 }
-
 @-webkit-keyframes goDown {
-  /* line 136, ../sass/_owl.transitions.scss */
   from {
     -webkit-transform: translateY(-100%);
   }
 }
-
 @-moz-keyframes goDown {
-  /* line 139, ../sass/_owl.transitions.scss */
   from {
     -moz-transform: translateY(-100%);
   }
 }
-
 @keyframes goDown {
-  /* line 142, ../sass/_owl.transitions.scss */
   from {
     transform: translateY(-100%);
   }
 }
-
 @-webkit-keyframes scaleUpFrom {
-  /* line 146, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     -webkit-transform: scale(1.5);
   }
 }
-
 @-moz-keyframes scaleUpFrom {
-  /* line 149, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     -moz-transform: scale(1.5);
   }
 }
-
 @keyframes scaleUpFrom {
-  /* line 152, ../sass/_owl.transitions.scss */
   from {
     opacity: 0;
     transform: scale(1.5);
   }
 }
-
 @-webkit-keyframes scaleUpTo {
-  /* line 156, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -webkit-transform: scale(1.5);
   }
 }
-
 @-moz-keyframes scaleUpTo {
-  /* line 159, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     -moz-transform: scale(1.5);
   }
 }
-
 @keyframes scaleUpTo {
-  /* line 162, ../sass/_owl.transitions.scss */
   to {
     opacity: 0;
     transform: scale(1.5);
   }
 }
-
 /* line 20, ../sass/_w-poll.scss */
 .w__poll {
   width: 100%;
@@ -760,7 +670,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 
 /* iCheck plugin Minimal skin, black
 ----------------------------------- */
-/* line 6, ../sass/_icheck.scss */
+/* line 5, ../sass/_icheck.scss */
 .icheckbox_minimal,
 .iradio_minimal {
   display: inline-block;
@@ -853,7 +763,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 .article-gallery .mg-item img {
   transition: width .2s, opacity .2s;
 }
-/* line 202, ../sass/_media-gallery.scss */
+/* line 199, ../sass/_media-gallery.scss */
 .article-gallery .mg-item,
 .article-gallery .mg-related-item,
 .article-gallery .mg-capt,
@@ -1179,7 +1089,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   bottom: 50%;
   height: 0;
 }
-/* line 322, ../sass/_media-gallery.scss */
+/* line 321, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev,
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   color: auto;
@@ -1195,7 +1105,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   opacity: 1;
   z-index: 1000;
 }
-/* line 339, ../sass/_media-gallery.scss */
+/* line 338, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-prev, #dwf-fullscreen-wrap .media-gallery-fullscreen .mg-main .mg-slider-w .owl-controls .owl-buttons .owl-next {
   box-sizing: border-box;
   position: absolute;
@@ -1442,7 +1352,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-main .mg-related .mg-related-item {
   display: none;
 }
-/* line 583, ../sass/_media-gallery.scss */
+/* line 580, ../sass/_media-gallery.scss */
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-main .mg-related .mg-related-item-1,
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-main .mg-related .mg-related-item-2,
 #dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-main .mg-related .mg-related-item-3,
@@ -1764,7 +1674,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   cursor: hand;
 }
 
-/* line 35, ../sass/_slick.scss */
+/* line 34, ../sass/_slick.scss */
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -1781,7 +1691,7 @@ div .w__poll--right .w-poll__footer .w-poll__link-all {
   top: 0;
   display: block;
 }
-/* line 50, ../sass/_slick.scss */
+/* line 49, ../sass/_slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;

@@ -4,6 +4,7 @@ window.backboneApp = window.backboneApp || {};
 window.backboneApp.set = {};
 window.backboneApp.set.sharrrePhpProxyh = 'bower_components/sharrre/sharrre.php';
 window.backboneApp.set.imgBaseUrl = "img/";
+window.backboneApp.build = "";
 
 (function() {
 
