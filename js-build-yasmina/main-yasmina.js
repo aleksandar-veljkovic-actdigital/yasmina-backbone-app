@@ -1910,7 +1910,7 @@
   java, location, Components, FileUtils */
 
 define('text',['module'], function (module) {
-    
+    'use strict';
 
     var text, fs, Cc, Ci, xpcIsWindows,
         progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'],
@@ -3175,7 +3175,7 @@ define('text!templates/media-gallery-branded-layout.html.tpl',[],function () { r
  */
 /* global window, document, define, jQuery, setInterval, clearInterval */
 (function(factory) {
-    
+    'use strict';
     if (typeof define === 'function' && define.amd) {
         define('slick',['jquery'], factory);
     } else if (typeof exports !== 'undefined') {
@@ -3185,7 +3185,7 @@ define('text!templates/media-gallery-branded-layout.html.tpl',[],function () { r
     }
 
 }(function($) {
-    
+    'use strict';
     var Slick = window.Slick || {};
 
     Slick = (function() {
