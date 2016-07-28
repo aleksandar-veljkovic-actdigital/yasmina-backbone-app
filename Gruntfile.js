@@ -5,7 +5,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           sassDir: 'src/sass',
-          cssDir: 'stylesheets'
+          cssDir: 'static/css'
         }
       }
     },
@@ -13,7 +13,7 @@ module.exports = function (grunt) {
       static: {
         options: {
           name: "main-static",
-          out: "js-build-static/main-static.js",
+          out: "dist/main-static.js",
           baseUrl: "src/",
           mainConfigFile: "src/main-static.js",
           findNestedDependencies: true,
@@ -23,7 +23,7 @@ module.exports = function (grunt) {
       yasmina: {
         options: {
           name: "main-yasmina",
-          out: "js-build-yasmina/main-yasmina.js",
+          out: "dist/main-yasmina.js",
           baseUrl: "src/",
           mainConfigFile: "src/main-yasmina.js",
           findNestedDependencies: true,
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
       aa2ilati: {
         options: {
           name: "main-3a2ilati",
-          out: "js-build-3a2ilati/main-3a2ilati.js",
+          out: "dist/main-3a2ilati.js",
           baseUrl: "src/",
           mainConfigFile: "src/main-3a2ilati.js",
           findNestedDependencies: true,
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
       mazyun: {
         options: {
           name: "main-mazyun",
-          out: "js-build-mazyun/main-mazyun.js",
+          out: "dist/main-mazyun.js",
           baseUrl: "src/",
           mainConfigFile: "src/main-mazyun.js",
           findNestedDependencies: true,
@@ -58,11 +58,10 @@ module.exports = function (grunt) {
         tasks: ['compass']
       },
       requirejs: {
-        files: ['src/*', 'src/*/*'],
-        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun', 'clean']
+        files: ['src/*.js', 'src/*/*.js', 'src/templates/*'],
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun']
       },
     },
-    clean: ["js-build-static/templates", "js-build-yasmina/templates", "js-build-3a2ilati/templates", "js-build-mazyun/templates"],    
     copy: {
       main: {
         files: [
@@ -74,7 +73,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask('default', ['copy','compass','requirejs', 'clean', 'watch']);
+  grunt.registerTask('default', ['copy', 'requirejs', 'compass', 'watch']);
 };
