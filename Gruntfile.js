@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     compass: {
       dist: {
         options: {
-          sassDir: 'sass',
+          sassDir: 'src/sass',
           cssDir: 'stylesheets'
         }
       }
@@ -12,60 +12,61 @@ module.exports = function (grunt) {
     requirejs: {
       static: {
         options: {
-          include: ["main-static"],
-          //include: ["main-yasmina",'../bower_components/requirejs/require.js'],
+          name: "main-static",
+          out: "js-build-static/main-static.js",
+          baseUrl: "src/",
           mainConfigFile: "src/main-static.js",
-          out: "dist/main-static.js",
           findNestedDependencies: true,
-          optimize: "none",
+          optimize: "none"
         }
       },
       yasmina: {
         options: {
-          include: ["main-yasmina"],
-          //include: ["main-yasmina",'../bower_components/requirejs/require.js'],
+          name: "main-yasmina",
+          out: "js-build-yasmina/main-yasmina.js",
+          baseUrl: "src/",
           mainConfigFile: "src/main-yasmina.js",
-          out: "dist/main-yasmina.js",
           findNestedDependencies: true,
-          optimize: "none",
+          optimize: "none"
         }
-      },   
+      },      
       aa2ilati: {
         options: {
-          include: ["main-3a2ilati"],
-          //include: ["main-yasmina",'../bower_components/requirejs/require.js'],
+          name: "main-3a2ilati",
+          out: "js-build-3a2ilati/main-3a2ilati.js",
+          baseUrl: "src/",
           mainConfigFile: "src/main-3a2ilati.js",
-          out: "dist/main-3a2ilati.js",
           findNestedDependencies: true,
-          optimize: "none",
+          optimize: "none"
         }
       },
       mazyun: {
         options: {
-          include: ["main-mazyun"],
-          //include: ["main-yasmina",'../bower_components/requirejs/require.js'],
+          name: "main-mazyun",
+          out: "js-build-mazyun/main-mazyun.js",
+          baseUrl: "src/",
           mainConfigFile: "src/main-mazyun.js",
-          out: "dist/main-mazyun.js",
           findNestedDependencies: true,
-          optimize: "none",
+          optimize: "none"
         }
       }
       
     },
     watch: {
       css: {
-        files: ['sass/*.scss'], // filest to watch
+        files: ['src/sass/*.scss'],
         tasks: ['compass']
       },
       requirejs: {
-        files: ['src/*', 'src/*/*'], // filest to watch
-        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun']
+        files: ['src/*', 'src/*/*'],
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun', 'clean']
       },
-    },   
+    },
+    clean: ["js-build-static/templates", "js-build-yasmina/templates", "js-build-3a2ilati/templates", "js-build-mazyun/templates"],    
     copy: {
       main: {
         files: [
-          {src: 'bower_components/slick.js/slick/slick.scss', dest: 'sass/_slick.scss'}
+          {src: 'bower_components/slick.js/slick/slick.scss', dest: 'src/sass/_slick.scss'}
         ]
       }
     }
@@ -75,5 +76,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.registerTask('default', ['copy','compass','requirejs', 'watch']);
+  grunt.registerTask('default', ['copy','compass','requirejs', 'clean', 'watch']);
 };
