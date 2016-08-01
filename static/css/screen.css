@@ -35,10 +35,9 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  /* height:  60px; */
 }
 
-/* line 33, ../../src/sass/_owl.carousel.scss */
+/* line 32, ../../src/sass/_owl.carousel.scss */
 .owl-carousel .owl-wrapper-outer.autoHeight {
   -webkit-transition: height 500ms ease-in-out;
   -moz-transition: height 500ms ease-in-out;
@@ -47,18 +46,18 @@
   transition: height 500ms ease-in-out;
 }
 
-/* line 41, ../../src/sass/_owl.carousel.scss */
+/* line 40, ../../src/sass/_owl.carousel.scss */
 .owl-carousel .owl-item {
   float: left;
 }
 
-/* line 44, ../../src/sass/_owl.carousel.scss */
+/* line 43, ../../src/sass/_owl.carousel.scss */
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div {
   cursor: pointer;
 }
 
-/* line 48, ../../src/sass/_owl.carousel.scss */
+/* line 47, ../../src/sass/_owl.carousel.scss */
 .owl-controls {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -69,13 +68,13 @@
 }
 
 /* mouse grab icon */
-/* line 58, ../../src/sass/_owl.carousel.scss */
+/* line 57, ../../src/sass/_owl.carousel.scss */
 .grabbing {
   cursor: url(grabbing.png) 8 8, move;
 }
 
 /* fix */
-/* line 63, ../../src/sass/_owl.carousel.scss */
+/* line 62, ../../src/sass/_owl.carousel.scss */
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
   -webkit-backface-visibility: hidden;

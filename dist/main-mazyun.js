@@ -2346,7 +2346,7 @@ define('models/poll-submit',[], function() {
 
 
 
-define('views/poll',[
+define('poll',[
   'text!templates/poll-form.html.tpl',
   'text!templates/poll-submit.html.tpl',
   'models/poll-form',
@@ -2682,7 +2682,7 @@ define("caption", function(){});
 
 //(function() {
 
-define('views/media-gallery',[
+define('mediaGallery',[
   'models/media-gallery',
   'text!templates/media-gallery-social-share.html.tpl',
   'text!templates/media-gallery-layout.html.tpl',
@@ -5172,7 +5172,7 @@ define("iscroll", function(){});
 
 
 
-define('views/media-gallery-branded',[
+define('mediaGalleryBranded',[
   'models/media-gallery',
   'text!templates/media-gallery-branded-layout.html.tpl',
   //
@@ -5657,7 +5657,7 @@ define('router',[
        */
       backboneApp.poll = {};
       $('.w__poll--left').each(function(i, o) {
-        require(['views/poll'], function(poll) {
+        require(['poll'], function(poll) {
           var pollId = $(o).data('poll-id');
           var poll = new poll({
             pollId: pollId,
@@ -5672,7 +5672,7 @@ define('router',[
         });
       });
       $('.w__poll--right').each(function(i, o) {
-        require(['views/poll'], function(poll) {
+        require(['poll'], function(poll) {
           var pollId = $(o).data('poll-id');
           var poll = new poll({
             pollId: pollId,
@@ -5689,7 +5689,7 @@ define('router',[
     },
     mediaGallery: function(id, currentItem) {
       currentItem = currentItem || 1;
-      require(['views/media-gallery'], function(mediaGalleryView) {
+      require(['mediaGallery'], function(mediaGalleryView) {
         if (backboneApp.mediaGallery) {
           backboneApp.mediaGallery.afterMoveUnhashedOnce = true;
           backboneApp.mediaGallery.owlSliderGoTo(currentItem);
@@ -5714,7 +5714,7 @@ define('router',[
     
     mediaGalleryBranded: function (id, currentItem) {
       currentItem = currentItem || 1;
-      require(['views/media-gallery-branded'], function (mediaGalleryBrandedView) {  
+      require(['mediaGalleryBranded'], function (mediaGalleryBrandedView) {  
         var $elem = $('.media-gallery-branded' + id);
         backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});
       });
@@ -5954,6 +5954,10 @@ window.backboneApp.build = "";
       //icheck: '../bower_components/iCheck/icheck',
       //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
       //owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
+            
+      poll: 'views/poll',
+      mediaGallery: 'views/media-gallery',
+      mediaGalleryBranded: 'views/media-gallery-branded',
     }
   });
 

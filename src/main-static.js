@@ -26,7 +26,11 @@ window.backboneApp.build = "";
       owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl',
       slick: '../bower_components/slick.js/slick/slick',
       iscroll: '../bower_components/iscroll/build/iscroll',
-      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage'
+      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage',
+            
+      poll: 'views/poll',
+      mediaGallery: 'views/media-gallery',
+      mediaGalleryBranded: 'views/media-gallery-branded',
     }
   });
 

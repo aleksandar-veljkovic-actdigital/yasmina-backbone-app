@@ -35,11 +35,15 @@ window.backboneApp.build = "";
       caption: '../bower_components/gallery-captions/gallery-caption',
       slick: '../bower_components/slick.js/slick/slick',
       iscroll: '../bower_components/iscroll/build/iscroll',
-      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage'
+      maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage',
       //sharrre: '../bower_components/sharrre/jquery.sharrre',
       //icheck: '../bower_components/iCheck/icheck',
       //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
       //owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
+            
+      poll: 'views/poll',
+      mediaGallery: 'views/media-gallery',
+      mediaGalleryBranded: 'views/media-gallery-branded',
     }
   });
 

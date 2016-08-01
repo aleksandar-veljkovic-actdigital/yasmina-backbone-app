@@ -49,8 +49,18 @@ module.exports = function (grunt) {
           findNestedDependencies: true,
           optimize: "none"
         }
+      },
+      atyabtabkha: {
+        options: {
+          name: "main-atyabtabkha",
+          out: "dist/main-atyabtabkha.js",
+          baseUrl: "src/",
+          mainConfigFile: "src/main-atyabtabkha.js",
+          findNestedDependencies: true,
+          optimize: "none"
+        }
       }
-      
+
     },
     watch: {
       css: {
@@ -59,13 +69,15 @@ module.exports = function (grunt) {
       },
       requirejs: {
         files: ['src/*.js', 'src/*/*.js', 'src/templates/*'],
-        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun']
-      },
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun', 'requirejs:atyabtabkha']
+      }
     },
     copy: {
       main: {
         files: [
-          {src: 'bower_components/slick.js/slick/slick.scss', dest: 'src/sass/_slick.scss'}
+          {src: 'bower_components/slick.js/slick/slick.scss', dest: 'src/sass/_slick.scss'},
+          {src: 'bower_components/owlcarousel/owl-carousel/owl.carousel.css', dest: 'src/sass/_owl.carousel.scss'},
+          {src: 'bower_components/owlcarousel/owl-carousel/owl.theme.css', dest: 'src/sass/_owl.theme.scss'}
         ]
       }
     }

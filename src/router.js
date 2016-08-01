@@ -20,7 +20,7 @@ define([
        */
       backboneApp.poll = {};
       $('.w__poll--left').each(function(i, o) {
-        require(['views/poll'], function(poll) {
+        require(['poll'], function(poll) {
           var pollId = $(o).data('poll-id');
           var poll = new poll({
             pollId: pollId,
@@ -35,7 +35,7 @@ define([
         });
       });
       $('.w__poll--right').each(function(i, o) {
-        require(['views/poll'], function(poll) {
+        require(['poll'], function(poll) {
           var pollId = $(o).data('poll-id');
           var poll = new poll({
             pollId: pollId,
@@ -52,7 +52,7 @@ define([
     },
     mediaGallery: function(id, currentItem) {
       currentItem = currentItem || 1;
-      require(['views/media-gallery'], function(mediaGalleryView) {
+      require(['mediaGallery'], function(mediaGalleryView) {
         if (backboneApp.mediaGallery) {
           backboneApp.mediaGallery.afterMoveUnhashedOnce = true;
           backboneApp.mediaGallery.owlSliderGoTo(currentItem);
@@ -77,7 +77,7 @@ define([
     
     mediaGalleryBranded: function (id, currentItem) {
       currentItem = currentItem || 1;
-      require(['views/media-gallery-branded'], function (mediaGalleryBrandedView) {  
+      require(['mediaGalleryBranded'], function (mediaGalleryBrandedView) {  
         var $elem = $('.media-gallery-branded' + id);
         backboneApp.mediaGalleryBranded = new mediaGalleryBrandedView({$elem: $elem, currentItem: currentItem, id: id});
       });

@@ -2,7 +2,7 @@
 
 window.backboneApp = window.backboneApp || {};
 window.backboneApp.set = {};
-window.backboneApp.set.imgBaseUrl = "/assets/images/";
+window.backboneApp.set.imgBaseUrl = "/assets/images/backboneApp/";
 window.backboneApp.build = "";
 
 
@@ -12,12 +12,6 @@ window.backboneApp.build = "";
   define("jquery", [], function() {
     return jQuery;
   });
-  define("owl", [], function() {
-    return jQuery.fn.owlCarousel;
-  });  
-  define("owlRtl", [], function() {
-    return jQuery.fn.owlCarouselRtl;
-  }); 
   define("icheck", [], function() {
     return {};
     //return jQuery.fn.iCheck;
@@ -27,6 +21,15 @@ window.backboneApp.build = "";
   });
   define("slick", [], function () {
     return jQuery.fn.slick;
+  });
+  define("iScroll", [], function () {
+    return {};
+  });
+  define("poll", [], function () {
+    return {};
+  });
+  define("mediaGalleryBranded", [], function () {
+    return {};
   });
   
   
@@ -41,16 +44,16 @@ window.backboneApp.build = "";
       fullScreen: '../bower_components/fullmodal/full-modal',
       caption: '../bower_components/gallery-captions/gallery-caption',
       //slick: '../bower_components/slick.js/slick/slick',
-      iscroll: '../bower_components/iscroll/build/iscroll',
+      //iscroll: '../bower_components/iscroll/build/iscroll',
       //maxDimensionPercentage: '../bower_components/max-dimension-percentage/max-dimension-percentage' // unused any more
       //sharrre: '../bower_components/sharrre/jquery.sharrre',
       //icheck: '../bower_components/iCheck/icheck',
-      //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
-      //owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
+      owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
+      owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl',
             
-      poll: 'views/poll',
+      //poll: 'views/poll',
       mediaGallery: 'views/media-gallery',
-      mediaGalleryBranded: 'views/media-gallery-branded',
+      //mediaGalleryBranded: 'views/media-gallery-branded',
     }
   });
 
@@ -64,3 +67,4 @@ window.backboneApp.build = "";
   });
 
 })();
+

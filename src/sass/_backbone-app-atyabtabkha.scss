@@ -1,14 +1,14 @@
 $backboneImgBaseUrl: "../img/" !default;
-
-
-
 $font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
 $font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
 $font-family-noto: "Noto Serif", serif !default;
+$gold: #f03d65 !default;
 
 @import "framework";
-@import "w-poll";
-@import "icheck";
+@import "owl.carousel";
+@import "owl.theme";
+//@import "w-poll";
+//@import "icheck";
 @import "media-gallery";
-@import "slick";
-@import "media-gallery-branded";
+//@import "slick";
+//@import "media-gallery-branded";
