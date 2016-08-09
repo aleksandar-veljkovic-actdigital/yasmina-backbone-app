@@ -6,8 +6,8 @@ $gray-ultralight: white !default;
 $gray-extremelight: white !default;
 
 $gold-dark: #423f32 !default;
-$gold: #9e914c !default;
-$accent-color: $gold !default;
+$theColor: #9e914c !default;
+$accent-color: $theColor !default;
 $gold-dark: #423f32 !default;
 
 $fafa: #fafafa !default;
@@ -59,11 +59,11 @@ $font-family-noto: "Noto Serif", serif !default;
     span {
       line-height: 1.2rem;
       padding:4px 0;
-      border-bottom: 1px solid $gold;
+      border-bottom: 1px solid $theColor;
       vertical-align: middle;
       display: inline-block;
       white-space: nowrap;
-      color: $gold;
+      color: $theColor;
       transition: color 0.6s, border 0.5s;
     }
     &:hover span {
@@ -76,7 +76,7 @@ $font-family-noto: "Noto Serif", serif !default;
     margin: 0 auto;
     text-align: center;
     display: inline-block;
-    background-color:$gold;
+    background-color:$theColor;
     padding:0 70px;
     line-height: rem-calc(45);
     color: $white;
@@ -258,7 +258,7 @@ div .w__poll--right {
         color: black;
       }
       .bar-wrap {
-        background-color: rgba($gold, 0.3);
+        background-color: rgba($theColor, 0.3);
       }
     }
   }

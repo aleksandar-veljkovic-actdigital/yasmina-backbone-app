@@ -1,0 +1,27 @@
+$backboneImgBaseUrl: "../img/" !default;
+$font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
+$font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
+$font-family-noto: "Noto Serif", serif !default;
+
+$theColor: #666 !default;
+
+@import "../src/sass/framework";
+@import "../src/sass/owl.carousel";
+@import "../src/sass/owl.theme";
+//@import "w-poll";
+//@import "icheck";
+@import "../src/sass/media-gallery";
+//@import "slick";
+//@import "media-gallery-branded";
+
+
+#dwf-fullscreen-wrap .media-gallery-fullscreen.mobile .mg-ad-overlay { 
+  .mg-ad-overlay-skip {
+    &:after {
+      content: 'تخطي الإعلان';
+    }
+  }
+  .mg-ad-overlay-notation:after {
+    content: 'إعلان';
+  }
+}

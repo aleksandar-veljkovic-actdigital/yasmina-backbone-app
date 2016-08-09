@@ -191,7 +191,7 @@ $footerHeight: #{$zoomFactor * 42}px;
               width: #{$zoomFactor * 48}px;
               line-height: $titleLineHeight;
               height: $titleLineHeight;
-              color: $gold;
+              color: $theColor;
               background: url('#{$backboneImgBaseUrl}mgb/arrow-ico.png') no-repeat left 14px;
               transition: width .5s, font-size .5s, opacity .5s;
               margin-right: #{$zoomFactor * 4}px;

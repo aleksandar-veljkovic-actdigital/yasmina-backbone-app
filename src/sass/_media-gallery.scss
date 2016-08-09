@@ -282,7 +282,7 @@
         line-height: 1.5rem;
       }
       a {
-        color: $gold;
+        color: $theColor;
       }
       a:hover {
         text-decoration: underline;
@@ -646,7 +646,7 @@
         margin: 2rem auto 0;
         text-align: center;
         display: inline-block;
-        background-color: #9e914c;
+        background-color: $theColor;
         padding: 0 70px;
         line-height: 2.8125rem;
         color: #fff;
