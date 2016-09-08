@@ -29,6 +29,16 @@ window.backboneApp.build = "";
     return jQuery.fn.slick;
   });  
   
+  define("poll", [], function () {
+    return {};
+  });
+  define("mediaGallery", [], function () {
+    return {};
+  });
+  define("fullScreen", [], function () {
+    return {};
+  });
+  
 
   require.config({
     //urlArgs: "bust=" + (new Date()).getTime(),

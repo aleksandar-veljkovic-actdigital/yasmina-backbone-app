@@ -59,6 +59,16 @@ module.exports = function (grunt) {
           findNestedDependencies: true,
           optimize: "none"
         }
+      },
+      abrookamoon: {
+        options: {
+          name: "main-abrookamoon",
+          out: "dist/main-abrookamoon.js",
+          baseUrl: "src/",
+          mainConfigFile: "src/main-abrookamoon.js",
+          findNestedDependencies: true,
+          optimize: "none"
+        }
       }
 
     },
