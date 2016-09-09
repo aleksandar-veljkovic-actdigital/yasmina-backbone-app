@@ -35,9 +35,6 @@ window.backboneApp.build = "";
   define("mediaGallery", [], function () {
     return {};
   });
-  define("fullScreen", [], function () {
-    return {};
-  });
   
 
   require.config({
@@ -46,7 +43,7 @@ window.backboneApp.build = "";
       underscore: '../bower_components/underscore/underscore-min',
       backbone: '../bower_components/backbone/backbone',
       text: '../bower_components/requirejs-text/text',
-      //fullScreen: '../bower_components/fullmodal/full-modal',
+      fullScreen: '../bower_components/fullmodal/full-modal',
       caption: '../bower_components/gallery-captions/gallery-caption',
       //slick: '../bower_components/slick.js/slick/slick',
       iscroll: '../bower_components/iscroll/build/iscroll',
