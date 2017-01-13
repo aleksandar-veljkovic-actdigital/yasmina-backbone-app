@@ -4220,7 +4220,8 @@ define('mediaGallery',[
         },
         click: function(api, options) {
           window.location.href = options.text;
-          _gaq.push(['_trackEvent', 'smart-whats-app-share', 'click', 'share']);
+          $(document).trigger("gallerySharrreClick");
+          $(document).trigger("gallerySharrreClickWhatsapp");
         }
       });
     },
