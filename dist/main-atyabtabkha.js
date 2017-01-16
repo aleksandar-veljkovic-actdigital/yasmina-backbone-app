@@ -2917,7 +2917,7 @@ define('mediaGallery',[
         },
         click: function(api, options) {
           window.location.href = options.text;
-          $(document).trigger("gallerySharrreClick");
+          // $(document).trigger("gallerySharrreClick"); // commented by request
           $(document).trigger("gallerySharrreClickWhatsapp");
         }
       });
