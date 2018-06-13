@@ -29,7 +29,7 @@ module.exports = function (grunt) {
           findNestedDependencies: true,
           optimize: "none"
         }
-      },      
+      },
       aa2ilati: {
         options: {
           name: "main-3a2ilati",
@@ -46,6 +46,16 @@ module.exports = function (grunt) {
           out: "dist/main-mazyun.js",
           baseUrl: "src/",
           mainConfigFile: "src/main-mazyun.js",
+          findNestedDependencies: true,
+          optimize: "none"
+        }
+      },
+      rajil: {
+        options: {
+          name: "main-rajil",
+          out: "dist/main-rajil.js",
+          baseUrl: "src/",
+          mainConfigFile: "src/main-rajil.js",
           findNestedDependencies: true,
           optimize: "none"
         }
@@ -79,7 +89,7 @@ module.exports = function (grunt) {
       },
       requirejs: {
         files: ['src/*.js', 'src/*/*.js', 'src/templates/*'],
-        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun', 'requirejs:atyabtabkha']
+        tasks: ['requirejs:static', 'requirejs:yasmina', 'requirejs:aa2ilati', 'requirejs:mazyun', 'requirejs:rajil', 'requirejs:atyabtabkha']
       }
     },
     copy: {
