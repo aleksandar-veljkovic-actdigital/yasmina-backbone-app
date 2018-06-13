@@ -5935,7 +5935,7 @@ window.backboneApp.build = "";
   define("slick", [], function() {
     return jQuery.fn.sharrre;
   });
-
+  
   require.config({
     waitSeconds : 100,
     //urlArgs: "bust=" + (new Date()).getTime(),
