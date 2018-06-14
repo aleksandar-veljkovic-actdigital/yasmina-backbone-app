@@ -14,23 +14,35 @@ window.backboneApp.build = "";
   });
   define("owl", [], function() {
     return jQuery.fn.owlCarousel;
-  });  
+  });
   define("owlRtl", [], function() {
     return jQuery.fn.owlCarouselRtl;
-  }); 
+  });
   define("icheck", [], function() {
     return {};
     //return jQuery.fn.iCheck;
-  }); 
+  });
   define("sharrre", [], function() {
     return jQuery.fn.sharrre;
   });
   define("slick", [], function () {
     return jQuery.fn.slick;
   });
-  
-  
-  
+
+
+  // for disabling
+  // define("poll", [], function () {
+  //   return {};
+  // });
+  // define("mediaGallery", [], function () {
+  //   return {};
+  // });
+  // define("mediaGalleryBranded", [], function () {
+  //   return {};
+  // });
+
+
+
 
   require.config({
     //urlArgs: "bust=" + (new Date()).getTime(),
@@ -47,7 +59,7 @@ window.backboneApp.build = "";
       //icheck: '../bower_components/iCheck/icheck',
       //owl: '../bower_components/owlcarousel/owl-carousel/owl.carousel.min',
       //owlRtl: '../bower_components/owlcarouselrtl/owl.carousel.rtl'
-            
+
       poll: 'views/poll',
       mediaGallery: 'views/media-gallery',
       mediaGalleryBranded: 'views/media-gallery-branded',
