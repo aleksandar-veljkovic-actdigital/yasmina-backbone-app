@@ -4,6 +4,7 @@ window.backboneApp = window.backboneApp || {};
 window.backboneApp.set = {};
 window.backboneApp.set.imgBaseUrl = "/assets/images/";
 window.backboneApp.build = "";
+// window.adServer = "google";
 
 
 (function() {

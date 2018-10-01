@@ -2767,11 +2767,11 @@ define('mediaGallery',[
     },
     fullScreen: function() {
       var _this = this;
-      
+
       if(backboneApp.set.device === 'tablet'){
         $('meta[name=viewport]').attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
-      }     
-      
+      }
+
       this.fullScreen = this.$layout.fullModal({
         onClose: function() {
           $(window).resize();
@@ -2820,25 +2820,40 @@ define('mediaGallery',[
       this.fullScreen.close();
       this.undelegateEvents();
       this.remove();
-    },     
+    },
     banner: function() {
       var $layout = this.$layout;
       var v = this.bannerVars;
       var owl = this.$slider.data('owlCarousel');
       var t1 = v.topCounter >= v.topTrigger;
       var t2 = v.overCounter >= v.overTrigger && (backboneApp.set.device === 'mobile' || backboneApp.set.device === 'tablet');
-      if (t1) { 
-        $('.mg-banner-lb', $layout).html('<div id="ad-gallery-lb" />');
-        $('.mg-banner-mpu', $layout).html('<div id="ad-gallery-mpu" />');
+      if (t1) { // desk both
+        // ad server swith 1/3
+        if (window.adServer === "google") {
+          $('.mg-banner-lb', $layout).html('<div id="div-gpt-ad-album-lb" />');
+          $('.mg-banner-mpu', $layout).html('<div id="div-gpt-ad-album-mpu" />');
+        }
+        else {
+          $('.mg-banner-lb', $layout).html('<div id="ad-gallery-lb" />');
+          $('.mg-banner-mpu', $layout).html('<div id="ad-gallery-mpu" />');
+        }
+        // /
         v.topCounter = 0;
       }
-      v.topCounter++;      
-      if (t2) { 
+      v.topCounter++;
+      if (t2) { // mobile overlay
         var $overlayContainer = $('.mg-main', this.$layout);
-        var $notation = $('<div class="mg-ad-overlay-notation"></div>');        
+        var $notation = $('<div class="mg-ad-overlay-notation"></div>');
         var $overlay = $('<div class="mg-ad-overlay"></div>');
         var $topAd = $('<div id="ad-gallery-mpu">&nbsp;</div>');
-        
+        // ad server swith 2/3
+        if (window.adServer === "google") {
+          var $topAd = $('<div id="div-gpt-ad-album-mpu">&nbsp;</div>');
+        }
+        else {
+          var $topAd = $('<div id="ad-gallery-mpu">&nbsp;</div>');
+        }
+        // /
         var $skip = $('<a class="mg-ad-overlay-skip" href="#"></a>');
         $layout.addClass('mg-ad-overlayed');
         $overlay.append($skip).append($notation).append($topAd).appendTo($overlayContainer);
@@ -2846,14 +2861,22 @@ define('mediaGallery',[
           e.preventDefault();
           $overlay.remove();
           $layout.removeClass('mg-ad-overlayed');
-        });       
+        });
         v.overCounter = 0;
       }
       v.overCounter++;
       if (t1 || t2) {
-        oxAsyncGallery.asyncAdUnitsRender();
+        // ad server swith 3/3
+        if (window.adServer === "google") {
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-album-lb'); });
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-album-mpu'); });
+        }
+        else {
+          oxAsyncGallery.asyncAdUnitsRender();
+        }
+        // /
       }
-    },    
+    },
     sharrre: function($target) {
       var url = window.location.href;
       url = url.replace(/[^\/]*$/, '1'); // always to point first image in gallery
@@ -2951,7 +2974,7 @@ define('mediaGallery',[
         //Pagination
         pagination: false,
         paginationNumbers: false,
-        // Responsive 
+        // Responsive
         responsive: true,
         responsiveRefreshRate: 200,
         responsiveBaseWidth: window,
@@ -2964,7 +2987,7 @@ define('mediaGallery',[
         lazyEffect: "fade",
         //Auto height
         autoHeight: true,
-        //JSON 
+        //JSON
         jsonPath: false,
         jsonSuccess: false,
         //Mouse Events
@@ -3016,9 +3039,9 @@ define('mediaGallery',[
         }, 300);
       });
       tthis.onResize();
-      // disabling owl resize event      
+      // disabling owl resize event
       var owl = this.$slider.data('owlCarousel');
-      $(window).unbind('resize', owl.resizer);      
+      $(window).unbind('resize', owl.resizer);
     },
     onResize: function() {
       $('.owl-item', this.$slider).animate({'opacity': 0},0);
@@ -3061,6 +3084,7 @@ define('mediaGallery',[
 });
 
 //});
+
 
 
 define('router',[
