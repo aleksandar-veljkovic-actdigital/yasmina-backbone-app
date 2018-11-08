@@ -28,15 +28,15 @@ define([
       location.hash = '#' + fragment;
     }
   };
-  
+
   // translation interface
-  window.backboneApp.translations = window.backboneApp.translations || {};  
-  window.backboneApp.translations = $.extend(true, translationsDefault, window.backboneApp.translations); 
+  window.backboneApp.translations = window.backboneApp.translations || {};
+  window.backboneApp.translations = $.extend(true, translationsDefault, window.backboneApp.translations);
   window.backboneApp.t = function (group, txt) {
-    window.backboneApp.translations[group] = window.backboneApp.translations[group] || {};    
-    txt = window.backboneApp.translations[group][txt] || txt;    
+    window.backboneApp.translations[group] = window.backboneApp.translations[group] || {};
+    txt = window.backboneApp.translations[group][txt] || txt;
     return txt;
-  };  
+  };
   Backbone.View.prototype.t = window.backboneApp.t;
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -47,7 +47,7 @@ define([
   window.backboneApp.set.$mediaGalleryBrandedSelector = $('.article-gallery.branded');
   if ($('html').hasClass('ua-visitor-device-mobile')) {
     window.backboneApp.set.device = 'mobile';
-  } 
+  }
   else if ($('html').hasClass('ua-visitor-device-tablet')) {
     window.backboneApp.set.device = 'tablet';
   }
@@ -57,10 +57,10 @@ define([
   window.backboneApp.set.sharrrePhpProxyh = window.backboneApp.set.sharrrePhpProxyh || 'public/js/sharrre.php';
   window.backboneApp.set.imgBaseUrl = window.backboneApp.set.imgBaseUrl || "/0static/yasmina-scales/public/js/backbone/";
   window.backboneApp.set.gallery = {};
-  
+
   window.backboneApp.set.gallery.adTopTrigger = window.backboneApp.set.gallery.adTopTrigger || 3;
   window.backboneApp.set.gallery.adOverTrigger = window.backboneApp.set.gallery.adOverTrigger || 3;
-  
+
   //window.backboneApp.set.gallery.adMobileInsertOnCount = window.backboneApp.set.gallery.adMobileInsertOnCount || 3;
   //window.backboneApp.set.gallery.adMobileActionCount = window.backboneApp.set.gallery.adMobileActionCount || 3;
   window.backboneApp.set.gallery.referal = true;
@@ -76,25 +76,37 @@ define([
 
 
   // Media Gallery enumeration
-  window.backboneApp.set.$mediaGallerySelector.each(function(galleryIndex, gallery) {
-    var $gallery = $(gallery);
-    $gallery.addClass("media-gallery");
-    $gallery.addClass("media-gallery-" + galleryIndex);
-    var itemIndex = 1;
-    $gallery.find('.mg-start').each(function(starterIndex, starter) {
-      starterIndex = starterIndex + 1;
-      $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
-      itemIndex++;
-      if (
-              (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
-              ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
-              )
-      {
+  var galleryIndex = 0;
+  var mediaGalleryEnumeration = function($galleries){
+    $galleries.each(function(ix, gallery) {
+      var $gallery = $(gallery);
+      $gallery.addClass("media-gallery");
+      $gallery.addClass("media-gallery-" + galleryIndex);
+      var itemIndex = 1;
+      $gallery.find('.mg-start').each(function(starterIndex, starter) {
+        starterIndex = starterIndex + 1;
+        $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
         itemIndex++;
-      }
+        if (
+                (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
+                ((starterIndex) % window.backboneApp.set.gallery.adMobileInsertOnCount === 0)
+                )
+        {
+          itemIndex++;
+        }
+      });
+      galleryIndex++;
     });
-  });
-  
+  }
+
+  mediaGalleryEnumeration(window.backboneApp.set.$mediaGallerySelector);
+
+  window.backboneApp.mediaGalleryNew = function(){
+    $galleries = $('.article-gallery:not(.branded):not(.media-gallery)')
+    mediaGalleryEnumeration($galleries);
+  }
+
+
   // Media Gallery Branded enumeration
   window.backboneApp.set.$mediaGalleryBrandedSelector.each(function(galleryIndex, gallery) {
     var $gallery = $(gallery);
@@ -106,16 +118,16 @@ define([
       $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
       itemIndex++;
     });
-  });  
-  
-  
+  });
+
+
   var ua = window.backboneApp.set.ua;
   window.backboneApp.set.replaceStateSuported = !(
           (ua.browser.name === "IE" && (ua.browser.major <= 9)) ||
-          (ua.browser.name === "Android Browser" && (ua.browser.major < 4.3))   
+          (ua.browser.name === "Android Browser" && (ua.browser.major < 4.3))
   );
-  
-  return function() {  
+
+  return function() {
     window.backboneApp.router = Router.initialize().router;
     $('.mg-start').click(function(e) {
       e.preventDefault();
