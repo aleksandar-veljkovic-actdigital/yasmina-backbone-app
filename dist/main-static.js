@@ -9782,7 +9782,7 @@ define('app',[
 
   return function() {
     window.backboneApp.router = Router.initialize().router;
-    $('.mg-start').click(function(e) {
+    $(document).on('click', '.mg-start',function(e) {
       e.preventDefault();
       var $tthis = $(this);
       window.backboneApp.set.gallery.referal = false;
