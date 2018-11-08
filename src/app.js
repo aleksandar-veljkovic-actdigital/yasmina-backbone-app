@@ -80,12 +80,13 @@ define([
   var mediaGalleryEnumeration = function($galleries){
     $galleries.each(function(ix, gallery) {
       var $gallery = $(gallery);
+      var galleryId = $gallery.attr('data-lid') || galleryIndex;
       $gallery.addClass("media-gallery");
-      $gallery.addClass("media-gallery-" + galleryIndex);
+      $gallery.addClass("media-gallery-" + galleryId);
       var itemIndex = 1;
       $gallery.find('.mg-start').each(function(starterIndex, starter) {
         starterIndex = starterIndex + 1;
-        $(starter).attr('data-href', "#media-gallery/" + galleryIndex + "/" + itemIndex);
+        $(starter).attr('data-href', "#media-gallery/" + galleryId + "/" + itemIndex);
         itemIndex++;
         if (
                 (window.backboneApp.set.device === 'mobile' || window.backboneApp.set.device === 'tablet') &&
