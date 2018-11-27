@@ -2736,6 +2736,9 @@ define('mediaGallery',[
       this.$elem = attributes.$elem;
       this.currentItem = attributes.currentItem || 1;
       this.id = attributes.id;
+      if (window.adServer === "google") {
+        window.gallerySlotsInit()
+      }
     },
     parseRelated: function() {
       var _this = this;
