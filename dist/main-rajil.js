@@ -2927,8 +2927,8 @@ define('mediaGallery',[
       if (t1) { // desk both
         // ad server swith 1/3
         if (window.adServer === "google") {
-          $('.mg-banner-lb', $layout).html('<div id="div-gpt-ad-album-lb" />');
-          $('.mg-banner-mpu', $layout).html('<div id="div-gpt-ad-album-mpu" />');
+          $('.mg-banner-lb', $layout).html('<div id="gpt-ad-album-lb" />');
+          $('.mg-banner-mpu', $layout).html('<div id="gpt-ad-album-mpu" />');
         }
         else {
           $('.mg-banner-lb', $layout).html('<div id="ad-gallery-lb" />');
@@ -2945,7 +2945,7 @@ define('mediaGallery',[
         var $topAd = $('<div id="ad-gallery-mpu">&nbsp;</div>');
         // ad server swith 2/3
         if (window.adServer === "google") {
-          var $topAd = $('<div id="div-gpt-ad-album-mpu">&nbsp;</div>');
+          var $topAd = $('<div id="gpt-ad-album-mpu">&nbsp;</div>');
         }
         else {
           var $topAd = $('<div id="ad-gallery-mpu">&nbsp;</div>');
@@ -2965,8 +2965,8 @@ define('mediaGallery',[
       if (t1 || t2) {
         // ad server swith 3/3
         if (window.adServer === "google") {
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-album-lb'); });
-          googletag.cmd.push(function() { googletag.display('div-gpt-ad-album-mpu'); });
+          googletag.cmd.push(function() { googletag.display('gpt-ad-album-lb'); });
+          googletag.cmd.push(function() { googletag.display('gpt-ad-album-mpu'); });
         }
         else {
           oxAsyncGallery.asyncAdUnitsRender();
