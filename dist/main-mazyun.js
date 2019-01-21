@@ -5276,7 +5276,7 @@ define('mediaGalleryBranded',[
       this.$slider = $("<div class='mgb-slider'>" + itemsRdr + "</div>");
       this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
       this.$numers = $("<div class='mgb-numers'>" + numersRdr + "</div>");
-      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="gplus_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div></div>');
+      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div></div>');
       $('.mgb-slider-w', this.$layout).append(this.$slider);
       $('.mgb-captions-w', this.$layout).append(this.$captions);
       $('.mgb-thumbs-w', this.$layout).append(this.$thumbs);
@@ -5288,12 +5288,12 @@ define('mediaGalleryBranded',[
     },
     bindings: function () {
       var _this = this;
-      // captions      
+      // captions
       this.$captions.galleryCaption({autoHeight: true});
       this.$captions.data('galleryCaption').goTo(this.currentItem - 1);
-      // slider      
+      // slider
       this.slider(this.$slider);
-      // thumbs      
+      // thumbs
       this.thumbs(this.$thumbs);
       //numeration
       this.$numers.galleryCaption({autoHeight: true});
@@ -5311,7 +5311,7 @@ define('mediaGalleryBranded',[
         } else {
           window.close();
           window.backboneApp.router.navigate("",{trigger: true, replace: true});
-        }               
+        }
       });
       // captions toggle
       $('.mgb-caption', this.$layout).on('click', function (e) {
@@ -5324,7 +5324,7 @@ define('mediaGalleryBranded',[
         }
         else {
           $parent.addClass('opened');
-          $('.mgb-footer', $this.$layout).addClass('opened');          
+          $('.mgb-footer', $this.$layout).addClass('opened');
           _this.$captions.data('galleryCaption').goTo(_this.currentItem - 1); // recalculate height after class is added
         }
       });
@@ -5352,7 +5352,7 @@ define('mediaGalleryBranded',[
       var $thumbItems = this.$thumbs.find('.mgb-thumb');
       $thumbItems.on('click', function (e) {
         e.preventDefault();
-      });      
+      });
       $thumbItems.on('tap', function (e) {
         e.preventDefault();
         var position = $thumbItems.index(this);
@@ -5406,7 +5406,7 @@ define('mediaGalleryBranded',[
     close: function () {
       if (backboneApp.set.device !== "desktop") {
         this.fullModal.close();
-      }      
+      }
       this.$layout.remove();
       this.undelegateEvents();
       this.remove();
@@ -5421,7 +5421,7 @@ define('mediaGalleryBranded',[
           onClose: function () {
           },
           closeButton: false
-        });        
+        });
       }
       $('html').addClass('mgb-fullscreen');
     },
@@ -5429,7 +5429,7 @@ define('mediaGalleryBranded',[
     // S L I D E R
     //
     slider: function ($target) {
-      var _this = this;  
+      var _this = this;
       $target.on('afterChange', function (slick, currentSlide) {
         _this.currentItem = currentSlide.currentSlide + 1;
         _this.sliderAfterChange(slick, currentSlide);
@@ -5457,12 +5457,12 @@ define('mediaGalleryBranded',[
           var h = (backboneApp.set.device==='tablet') ? $img.data('original-height') * 1.6 : $img.data('original-height');
           $img.css({width: 'auto', maxWidth: 'none', height: h+"px", maxHeight: $wrap.innerHeight()+"px"});
         }
-      };      
+      };
       var maximizeImages = function () {
         $('.img-w .mgb-slider-item-img', $target).each(function (i, o) {
           maximizeImage($(o), $(o).parent().parent());
         });
-      };      
+      };
       maximizeImages();
       $target.on('setPosition', maximizeImages);
       $(window).resize(maximizeImages);
@@ -5487,7 +5487,7 @@ define('mediaGalleryBranded',[
           $currentImg.attr('src', this.thumbrBigReplacement($currentImg));
         }
       }
-    },    
+    },
     //
     // C A R O U S E L
     //
@@ -5500,7 +5500,7 @@ define('mediaGalleryBranded',[
       });
       $.fn.iscroll = iscroll;
       this.thumbGo(this.currentItem - 1);
-    }, 
+    },
     thumbGo: function (index) {
       this.$thumbs.children().removeClass('mgb-thumb-active');
       this.$thumbs.children().eq(index).addClass('mgb-thumb-active');
@@ -5536,7 +5536,7 @@ define('mediaGalleryBranded',[
       var url = thumbor.finalUrl();
       return url;
     },
-    thumborHiRes: function (src) {      
+    thumborHiRes: function (src) {
       var _this = this;
       var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
           hasResize: false,
@@ -5553,24 +5553,24 @@ define('mediaGalleryBranded',[
       thumbor.setAmazonUrlPath(thumborConfig.amazonS3Path, data);
       var url = thumbor.finalUrl();
       return url;
-    },   
+    },
     thumbrBigReplacement: function ($img) {
-      var src = $img.attr('src');   
+      var src = $img.attr('src');
       return this.thumborHiRes(src);
-      
+
       /*  // IF CROP IS REQUIRED
       var _this = this;
       var aspectArr = src.match(/\/([0-9]+)x([0-9]+)\//g)[0].replace(/\//g, "").split("x");
-      var aspect = aspectArr[0] / aspectArr[1];      
+      var aspect = aspectArr[0] / aspectArr[1];
       var thumborConfig = $.extend(true, {}, window.appThumborConfig, {thumbor: {
           hasResize: true,
           hasTrim: false,
           isSmart: true,
           resizeWidth: _this.thumborHiResW,
           resizeHeight: _this.thumborHiResH
-        }});      
+        }});
       thumborConfig.thumbor.resizeWidth = (aspect > 1) ? thumborConfig.thumbor.resizeWidth : Math.round(thumborConfig.thumbor.resizeWidth * aspect);
-      thumborConfig.thumbor.resizeHeight = (aspect > 1) ?  Math.round(thumborConfig.thumbor.resizeHeight / aspect) : thumborConfig.thumbor.resizeHeight;      
+      thumborConfig.thumbor.resizeHeight = (aspect > 1) ?  Math.round(thumborConfig.thumbor.resizeHeight / aspect) : thumborConfig.thumbor.resizeHeight;
       var data = {
         hash: src.split('/').pop().split(".")[0]
       };
@@ -5579,7 +5579,7 @@ define('mediaGalleryBranded',[
       var url = thumbor.finalUrl();
       return url;
       */
-    },    
+    },
     //
     // S O C I A L   S H A R E
     //
@@ -5594,7 +5594,7 @@ define('mediaGalleryBranded',[
         template: '&nbsp;',
         enableHover: false,
         //enableTracking: true,
-        click: function (api, options) {          
+        click: function (api, options) {
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickFacebook");
           api.openPopup('facebook');
@@ -5609,7 +5609,7 @@ define('mediaGalleryBranded',[
         template: '&nbsp;',
         enableHover: false,
         //enableTracking: true,
-        click: function (api, options) {          
+        click: function (api, options) {
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickTwitter");
           api.openPopup('twitter');
@@ -5617,22 +5617,22 @@ define('mediaGalleryBranded',[
         url: url,
         enableCounter: false
       });
-      $('#gplus_share', $target).sharrre({
-        share: {
-          googlePlus: true
-        },
-        template: '&nbsp;',
-        enableHover: false,
-        //enableTracking: true,
-        click: function (api, options) {
-          $(document).trigger("galleryBrandedSharrreClick");
-          $(document).trigger("galleryBrandedSharrreClickGplus");
-          api.openPopup('googlePlus');
-        },
-        url: url,
-        urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
-        enableCounter: false
-      });
+      // $('#gplus_share', $target).sharrre({
+      //   share: {
+      //     googlePlus: true
+      //   },
+      //   template: '&nbsp;',
+      //   enableHover: false,
+      //   //enableTracking: true,
+      //   click: function (api, options) {
+      //     $(document).trigger("galleryBrandedSharrreClick");
+      //     $(document).trigger("galleryBrandedSharrreClickGplus");
+      //     api.openPopup('googlePlus');
+      //   },
+      //   url: url,
+      //   urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
+      //   enableCounter: false
+      // });
       $('#whatsapp_share', $target).sharrre({
         share: {
           whatsapp: true
@@ -5650,7 +5650,7 @@ define('mediaGalleryBranded',[
         click: function (api, options) {
           $(document).trigger("galleryBrandedSharrreClick");
           $(document).trigger("galleryBrandedSharrreClickWhatsApp");
-          window.location.href = options.text;         
+          window.location.href = options.text;
         }
       });
     }
@@ -5663,6 +5663,7 @@ define('mediaGalleryBranded',[
 }
 
 );
+
 
 
 define('router',[
