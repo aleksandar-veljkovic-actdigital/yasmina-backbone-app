@@ -24,7 +24,7 @@
       width: 100%;
       max-width: 130px;
       color: white;
-      .count {     
+      .count {
         font-size: 1rem;
         line-height: $height;
         vertical-align: middle;
@@ -65,6 +65,7 @@
   #facebook_share .box  {
     background-color: #44589c;
     .count {
+      display: none;
       border-right: 1px solid #6171a8;
     }
     img {
@@ -119,7 +120,7 @@
     }
   }
   #facebook_share {
-    width: 113px;
+    width: 45px;
     .box  {
       .count {
         width: 70px;
@@ -130,12 +131,12 @@
         height: 45px;
         img {
           margin-right: 8px;
-        }      
-      }       
+        }
+      }
     }
   }
 
-  #whatsapp_share { 
+  #whatsapp_share {
     width: 45px;
     margin-right: 10px;
     .box  {
@@ -155,8 +156,8 @@
       .share {
         img {
           margin-top: 10px;
-        }         
-      }     
+        }
+      }
     }
   }
   #gplus_share {
@@ -250,12 +251,12 @@
       background-image: url($backboneImgBaseUrl + 'media-gallery-close-ico.png');
       &:hover {
         outline: 1px solid gray;
-      }  
+      }
     }
     .mg-share {
       @include share_small;
       text-align: right;
-    } 
+    }
     .mg-titles {
       height: 5rem;
       .num {
@@ -270,7 +271,7 @@
         height: 3rem;
         position: relative;
         overflow: hidden;
-      }      
+      }
     }
     .mg-captions {
       height: 7rem;
@@ -293,7 +294,7 @@
       position: relative;
       .mg-slider-w {
         & > * {
-          vertical-align: middle;        
+          vertical-align: middle;
         }
         text-align:center;
         .owl-item {
@@ -318,8 +319,8 @@
             position: absolute;
             bottom: 50%;
             height: 0;
-            .owl-prev, 
-            .owl-next { 
+            .owl-prev,
+            .owl-next {
               // :( overiding owl.theme.css
               color: auto;
               display: inline-block;
@@ -330,7 +331,7 @@
               -webkit-border-radius: 0;
               -moz-border-radius: 0;
               border-radius: 0;
-              //background: none; 
+              //background: none;
               filter: Alpha(Opacity=100);
               opacity: 1;
               z-index: 1000;
@@ -354,7 +355,7 @@
               background-image: url($backboneImgBaseUrl + 'media-gallery-left.png');
             }
             .owl-next{
-              right: 3px; 
+              right: 3px;
               background-image: url($backboneImgBaseUrl + 'media-gallery-right.png');
             }
           }
@@ -373,7 +374,7 @@
         margin-bottom: 20px;
         margin-top: 0;
         font-family: $font-family-kufi;
-      }      
+      }
       .mg-related-item {
         padding: 0 3.33% 3.33%;
         width: 50%;
@@ -393,7 +394,7 @@
           vertical-align: middle;
           -webkit-box-sizing: content-box;
           -moz-box-sizing: content-box;
-          box-sizing: content-box; 
+          box-sizing: content-box;
           transition: color 0.6s;
         }
         &:hover .mg-related-title {
@@ -405,7 +406,7 @@
     &.banner-active-item {
       .mg-titles-w {
         visibility: hidden;
-      }      
+      }
       .mg-captions-w, .mg-social-w {
         height: 0!important;
         overflow: hidden!important;
@@ -413,7 +414,7 @@
     }
   }
 
-  // // // // // //  DESKTOP  // // // // // //  
+  // // // // // //  DESKTOP  // // // // // //
 
   .media-gallery-fullscreen.desktop {
     .mg-header {
@@ -492,15 +493,15 @@
       display: inline-block;
       width: 728px;
       height: 90px;
-      margin-top: 0px;        
+      margin-top: 0px;
     }
     .mg-banner-b {
       text-align: left;
       margin-left: 8%;
     }
-  }    
+  }
 
-  // // // // // //  MOBILE  // // // // // //  
+  // // // // // //  MOBILE  // // // // // //
 
 
   .media-gallery-fullscreen.mobile {
@@ -533,7 +534,7 @@
         font-size: rem-calc(24);
         font-weight: bold;
         white-space: nowrap
-      }     
+      }
     }
 
     .mg-titles-w {
@@ -552,7 +553,7 @@
           font-family: $font-family-kufi;
         }
         h3:empty {
-          margin: 0;          
+          margin: 0;
         }
       }
     }
@@ -574,16 +575,16 @@
     .mg-main {
       padding: 0 $mg-mob-ident;
       .mg-related {
-        .mg-related-item { 
+        .mg-related-item {
           display: none;
         }
         .mg-related-item-1,
         .mg-related-item-2,
         .mg-related-item-3,
-        .mg-related-item-4 { 
+        .mg-related-item-4 {
           display: inline-block;
         }
-      }     
+      }
     }
     .mg-asside {
       padding: 0 $mg-mob-ident;
@@ -608,13 +609,13 @@
     .mg-share {
       @include share_small;
     }
-    
+
     // overlayed Ad
     &.mg-ad-overlayed {
       .mg-asside {
         display: none;
       }
-    }    
+    }
     .mg-ad-overlay {
       position: absolute;
       top: 0;
@@ -639,7 +640,7 @@
         height: 250px;
       }
       iframe {
-        display: block;       
+        display: block;
         margin: 0 auto;
       }
       .mg-ad-overlay-skip {
@@ -653,14 +654,14 @@
         border: none;
         font-size: 1.125rem;
         font-weight: bold;
-        font-family: "Noto Kufi Arabic", "Noto Serif", serif !important;  
+        font-family: "Noto Kufi Arabic", "Noto Serif", serif !important;
         &:after {
           content: "Skip Ad";
         }
       }
-    }    
+    }
     // eof overlayed Ad
-    
+
   }
 
   // AD FIX FOR SUPER SMALL MOBILES
@@ -685,7 +686,7 @@
         margin-top: 0;
         margin-bottom: 3px;
       }
-    } 
+    }
   }
   // eof ad fix for super small mobiles
 

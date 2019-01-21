@@ -2308,7 +2308,7 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!templates/media-gallery-social-share.html.tpl',[],function () { return '<div class="mg-share">\n\n\t\t<div id="facebook_share" class="share_btn" ></div>\n    \n    <div id="whatsapp_share" class="share_btn" ></div>\n\n\t\t<div id="twitter_share" class="share_btn" ></div>\n\n\t\t<div id="gplus_share" class="share_btn" ></div>\n    \n</div>';});
+define('text!templates/media-gallery-social-share.html.tpl',[],function () { return '<div class="mg-share">\n\n\t\t<div id="facebook_share" class="share_btn" ></div>\n\n    <div id="whatsapp_share" class="share_btn" ></div>\n\n\t\t<div id="twitter_share" class="share_btn" ></div>\n\n\t\t<% // <div id="gplus_share" class="share_btn" ></div> %>\n\n</div>\n';});
 
 
 define('text!templates/media-gallery-layout.html.tpl',[],function () { return '<div class="media-gallery-fullscreen desktop">\n  \n  <div class="mg-header">\n    <div class="mg-banner-a mg-banner mg-banner-lb"></div>\n    <a href="#mg-close" class="mg-close"></a>\n  </div>\n  \n  <div class="mg-main">\n    <div class=\'mg-slider-w\'></div>\n  </div><!--\n        \n  --><div class="mg-asside">\n    <div class=\'mg-numers-w\'></div>\n    <div class=\'mg-titles-w\'></div>\n    <div class=\'mg-captions-w\'></div>\n    <div class=\'mg-social-w\'></div>\n    <div class="mg-banner-b mg-banner mg-banner-mpu"></div>    \n  </div> \n  \n</div>';});
@@ -2912,21 +2912,21 @@ define('mediaGallery',[
         },
         url: url
       });
-      $('#gplus_share', $target).sharrre({
-        share: {
-          googlePlus: true
-        },
-        template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'gplus.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
-        enableHover: false,
-        enableTracking: true,
-        click: function(api, options) {
-          api.openPopup('googlePlus');
-          $(document).trigger("gallerySharrreClick");
-          $(document).trigger("gallerySharrreClickGplus");
-        },
-        url: url,
-        urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
-      });
+      // $('#gplus_share', $target).sharrre({
+      //   share: {
+      //     googlePlus: true
+      //   },
+      //   template: '<a class="box" href="#"><div class="share"><img src="' + imgBaseUrl + 'gplus.png" alt="" /><span>شاركي</span></div><div class="count">{total}</div></a>',
+      //   enableHover: false,
+      //   enableTracking: true,
+      //   click: function(api, options) {
+      //     api.openPopup('googlePlus');
+      //     $(document).trigger("gallerySharrreClick");
+      //     $(document).trigger("gallerySharrreClickGplus");
+      //   },
+      //   url: url,
+      //   urlCurl: '/gpluscount/' + Base64.encode(url).replace('/', ','),
+      // });
       $('#whatsapp_share', $target).sharrre({
         share: {
           whatsapp: true
