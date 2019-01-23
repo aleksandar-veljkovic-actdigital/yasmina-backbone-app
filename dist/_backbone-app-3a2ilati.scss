@@ -1,0 +1,14 @@
+$backboneImgBaseUrl: "/assets/images/" !default;
+
+
+
+$font-family-naskh: "Noto Naskh Arabic", serif, "Noto Serif", serif !default;
+$font-family-kufi: "Noto Kufi Arabic", serif, "Noto Serif", serif !default;
+$font-family-noto: "Noto Serif", serif !default;
+
+@import "../src/sass/framework";
+@import "../src/sass/w-poll";
+@import "../src/sass/icheck";
+@import "../src/sass/media-gallery";
+@import "../src/sass/slick";
+@import "../src/sass/media-gallery-branded";

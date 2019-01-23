@@ -5139,7 +5139,7 @@ define('mediaGalleryBranded',[
       this.$slider = $("<div class='mgb-slider'>" + itemsRdr + "</div>");
       this.$thumbs = $("<div class='mgb-thumbs'>" + thumbsRdr + "</div>");
       this.$numers = $("<div class='mgb-numers'>" + numersRdr + "</div>");
-      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="gplus_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div></div>');
+      this.$share = $('<div class="mgb-share"><div id="facebook_share" class="share_btn" ></div><div id="twitter_share" class="share_btn" ></div><div id="whatsapp_share" class="share_btn" ></div></div>');
       $('.mgb-slider-w', this.$layout).append(this.$slider);
       $('.mgb-captions-w', this.$layout).append(this.$captions);
       $('.mgb-thumbs-w', this.$layout).append(this.$thumbs);
