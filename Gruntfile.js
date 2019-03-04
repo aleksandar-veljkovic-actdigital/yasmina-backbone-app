@@ -27,7 +27,8 @@ module.exports = function (grunt) {
           baseUrl: "src/",
           mainConfigFile: "src/main-yasmina.js",
           findNestedDependencies: true,
-          optimize: "none"
+          optimize: "none",
+          namespace: "requireYbba"
         }
       },
       aa2ilati: {
@@ -37,7 +38,8 @@ module.exports = function (grunt) {
           baseUrl: "src/",
           mainConfigFile: "src/main-3a2ilati.js",
           findNestedDependencies: true,
-          optimize: "none"
+          optimize: "none",
+          namespace: "requireYbba"
         }
       },
       mazyun: {
@@ -47,7 +49,8 @@ module.exports = function (grunt) {
           baseUrl: "src/",
           mainConfigFile: "src/main-mazyun.js",
           findNestedDependencies: true,
-          optimize: "none"
+          optimize: "none",
+          namespace: "requireYbba"
         }
       },
       rajil: {
@@ -57,7 +60,8 @@ module.exports = function (grunt) {
           baseUrl: "src/",
           mainConfigFile: "src/main-rajil.js",
           findNestedDependencies: true,
-          optimize: "none"
+          optimize: "none",
+          namespace: "requireYbba"
         }
       },
       atyabtabkha: {
@@ -67,7 +71,8 @@ module.exports = function (grunt) {
           baseUrl: "src/",
           mainConfigFile: "src/main-atyabtabkha.js",
           findNestedDependencies: true,
-          optimize: "none"
+          optimize: "none",
+          namespace: "requireYbba"
         }
       },
       abrookamoon: {
@@ -77,7 +82,8 @@ module.exports = function (grunt) {
           baseUrl: "src/",
           mainConfigFile: "src/main-abrookamoon.js",
           findNestedDependencies: true,
-          optimize: "none"
+          optimize: "none",
+          namespace: "requireYbba"
         }
       }
 
