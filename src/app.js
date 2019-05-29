@@ -103,23 +103,29 @@ define([
   mediaGalleryEnumeration(window.backboneApp.set.$mediaGallerySelector);
 
   window.backboneApp.mediaGalleryNew = function(){
-    $galleries = $('.article-gallery:not(.branded):not(.media-gallery)')
+    var $galleries = $('.article-gallery:not(.branded):not(.media-gallery)')
     mediaGalleryEnumeration($galleries);
+    var $galleriesB = $('.article-gallery.branded:not(.media-gallery-branded)')
+    mediaGalleryBrandedEnumeration($galleriesB);
   }
 
 
   // Media Gallery Branded enumeration
-  window.backboneApp.set.$mediaGalleryBrandedSelector.each(function(galleryIndex, gallery) {
-    var $gallery = $(gallery);
-    $gallery.addClass("media-gallery-branded");
-    $gallery.addClass("media-gallery-branded" + galleryIndex);
-    var itemIndex = 1;
-    $gallery.find('.mg-start').each(function(starterIndex, starter) {
-      starterIndex = starterIndex + 1;
-      $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
-      itemIndex++;
+  var mediaGalleryBrandedEnumeration = function($galleries){
+    $galleries.each(function(ix, gallery) {
+      var $gallery = $(gallery);
+      $gallery.addClass("media-gallery-branded");
+      $gallery.addClass("media-gallery-branded" + galleryIndex);
+      var itemIndex = 1;
+      $gallery.find('.mg-start').each(function(starterIndex, starter) {
+        starterIndex = starterIndex + 1;
+        $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
+        itemIndex++;
+      });
+      galleryIndex++;
     });
-  });
+  };
+  mediaGalleryBrandedEnumeration(window.backboneApp.set.$mediaGalleryBrandedSelector); 
 
 
   var ua = window.backboneApp.set.ua;
