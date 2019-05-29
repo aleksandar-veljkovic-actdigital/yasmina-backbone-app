@@ -5779,7 +5779,7 @@ requireYbba.define('app',[
 
   // Media Gallery Branded enumeration
   var mediaGalleryBrandedEnumeration = function($galleries){
-    $galleries.each(function(galleryIndex, gallery) {
+    $galleries.each(function(ix, gallery) {
       var $gallery = $(gallery);
       $gallery.addClass("media-gallery-branded");
       $gallery.addClass("media-gallery-branded" + galleryIndex);
@@ -5789,6 +5789,7 @@ requireYbba.define('app',[
         $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
         itemIndex++;
       });
+      galleryIndex++;
     });
   };
   mediaGalleryBrandedEnumeration(window.backboneApp.set.$mediaGalleryBrandedSelector); 
