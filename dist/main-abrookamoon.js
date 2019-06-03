@@ -5778,18 +5778,19 @@ requireYbba.define('app',[
 
 
   // Media Gallery Branded enumeration
+  var galleryBrandedIndex = 0;
   var mediaGalleryBrandedEnumeration = function($galleries){
     $galleries.each(function(ix, gallery) {
       var $gallery = $(gallery);
       $gallery.addClass("media-gallery-branded");
-      $gallery.addClass("media-gallery-branded" + galleryIndex);
+      $gallery.addClass("media-gallery-branded" + galleryBrandedIndex);
       var itemIndex = 1;
       $gallery.find('.mg-start').each(function(starterIndex, starter) {
         starterIndex = starterIndex + 1;
-        $(starter).attr('data-href', "#media-gallery-branded/" + galleryIndex + "/" + itemIndex);
+        $(starter).attr('data-href', "#media-gallery-branded/" + galleryBrandedIndex + "/" + itemIndex);
         itemIndex++;
       });
-      galleryIndex++;
+      galleryBrandedIndex++;
     });
   };
   mediaGalleryBrandedEnumeration(window.backboneApp.set.$mediaGalleryBrandedSelector); 

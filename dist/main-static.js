@@ -3944,9 +3944,6 @@ define('mediaGallery',[
       this.$elem = attributes.$elem;
       this.currentItem = attributes.currentItem || 1;
       this.id = attributes.id;
-      if (window.adServer === "google") {
-        window.gallerySlotsInit()
-      }
     },
     parseRelated: function() {
       var _this = this;
@@ -4173,8 +4170,18 @@ define('mediaGallery',[
       if (t1 || t2) {
         // ad server swith 3/3
         if (window.adServer === "google") {
-          googletag.cmd.push(function() { googletag.display('gpt-ad-album-lb'); });
-          googletag.cmd.push(function() { googletag.display('gpt-ad-album-mpu'); });
+          window.gallerySlotsInit();
+          // googletag.cmd.push(function() { googletag.display('gpt-ad-album-lb'); });
+          // googletag.cmd.push(function() { googletag.display('gpt-ad-album-mpu'); });
+          googletag.pubads().getSlots().forEach(function(slot, ix){
+            var id = slot.getSlotElementId();
+            if ( id === 'gpt-ad-album-lb'){
+              googletag.cmd.push(function() { googletag.pubads().refresh([slot]);} );
+            }
+            if ( id === 'gpt-ad-album-mpu'){
+              googletag.cmd.push(function() { googletag.pubads().refresh([slot]);} );
+            }
+          })
         }
         else {
           oxAsyncGallery.asyncAdUnitsRender();
